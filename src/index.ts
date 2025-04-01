@@ -9,7 +9,7 @@ async function main() {
     const imageUrl = imageToBase64Sync(image_path, "image/png");
     const result = await openAI.completion({
       prompt: parseWorkExperiencePrompt,
-      modelName: "gpt-4o-2024-05-13",
+      modelName: "gpt-4o",
       variables: {
         resume: "Please analyze the resume in the image"
       },

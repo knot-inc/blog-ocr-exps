@@ -46,10 +46,10 @@ export class OpenAIWrapper {
             return {
               role: message.role,
               content: [
-                { type: "text", text: content },
+                { type: "text" as const, text: content },
                 ...imageUrls.map(url => ({
-                  type: "image_url",
-                  image_url: { url, detail: "high" }
+                  type: "image_url" as const,
+                  image_url: { url, detail: "high" as const }
                 }))
               ]
             };
