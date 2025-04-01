@@ -13,7 +13,8 @@ async function main() {
       variables: {
         resume: "Please analyze the resume in the image"
       },
-      imageUrls: [imageUrl]
+      imageUrls: [imageUrl],
+      detail: "low",
     });
     console.log(result);
   } catch (error) {

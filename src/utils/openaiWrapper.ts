@@ -22,12 +22,14 @@ export class OpenAIWrapper {
     temperature = 0.0,
     variables,
     imageUrls = [],
+    detail = "high",
   }: {
     prompt: Prompt<TParams, TSchema>;
     modelName?: string;
     temperature?: number;
     variables: TParams;
     imageUrls?: string[];
+    detail?: "low" |  "high" | "auto";
   }): Promise<z.infer<TSchema>> {
     try {
       if (!this.client.apiKey) throw new Error("OpenAI API key not found");
@@ -49,7 +51,7 @@ export class OpenAIWrapper {
                 { type: "text" as const, text: content },
                 ...imageUrls.map(url => ({
                   type: "image_url" as const,
-                  image_url: { url, detail: "high" as const }
+                  image_url: { url, detail: detail },
                 }))
               ]
             };
