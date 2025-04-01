@@ -1,0 +1,82 @@
+import { z } from "zod";
+import { Prompt } from "../types/prompt";
+import OpenAI from "openai";
+import { zodResponseFormat } from "openai/helpers/zod";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
+
+export class OpenAIWrapper {
+  private client: OpenAI;
+  
+  constructor(apiKey?: string) {
+    const key = apiKey || process.env.OPENAI_API_KEY || '';
+    if (!key) console.warn("OpenAI API key not provided");
+    this.client = new OpenAI({ apiKey: key });
+  }
+  
+  async completion<TParams extends Record<string, any>, TSchema extends z.ZodType>({
+    prompt,
+    modelName = "gpt-4o",
+    temperature = 0.0,
+    variables,
+    imageUrls = [],
+  }: {
+    prompt: Prompt<TParams, TSchema>;
+    modelName?: string;
+    temperature?: number;
+    variables: TParams;
+    imageUrls?: string[];
+  }): Promise<z.infer<TSchema>> {
+    try {
+      if (!this.client.apiKey) throw new Error("OpenAI API key not found");
+      
+      // Process messages with variables
+      const messages = prompt.messages.map(message => {
+        if (typeof message.content === 'string') {
+          let content = message.content;
+          Object.entries(variables).forEach(([key, value]) => {
+            content = content.replace(`{${key}}`, String(value));
+          });
+          
+          // Handle images in the last user message
+          if (message.role === 'user' && imageUrls.length > 0 && 
+              prompt.messages[prompt.messages.length - 1].role === message.role) {
+            return {
+              role: message.role,
+              content: [
+                { type: "text", text: content },
+                ...imageUrls.map(url => ({
+                  type: "image_url",
+                  image_url: { url, detail: "high" }
+                }))
+              ]
+            };
+          }
+          return { ...message, content };
+        }
+        return message;
+      });
+      
+      // Use the OpenAI SDK to make the request with structured outputs
+      const response = await this.client.beta.chat.completions.parse({
+        model: modelName,
+        messages,
+        temperature,
+        response_format: zodResponseFormat(prompt.schema, "response"),
+      });
+
+      // Handle refusals
+      if (response.choices[0].message.refusal) {
+        throw new Error(`Model refused: ${response.choices[0].message.refusal}`);
+      }
+      
+      // Return the parsed response
+      return response.choices[0].message.parsed as z.infer<TSchema>;
+    } catch (error) {
+      console.error("Request failed:", error);
+      throw error;
+    }
+  }
+}
