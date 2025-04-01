@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import * as fs from "fs";
 
 /**
  * Converts an image file to a base64 encoded data URL
@@ -7,25 +7,25 @@ import * as fs from 'fs';
  * @returns Promise with the base64 data URL
  */
 export function imageToBase64(
-  imagePath: string, 
-  mimeType: string = 'image/jpeg'
+	imagePath: string,
+	mimeType: string = "image/jpeg",
 ): Promise<string> {
-  return new Promise((resolve, reject) => {
-    fs.readFile(imagePath, (err, data) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      
-      // Convert binary data to base64 string
-      const base64String = data.toString('base64');
-      
-      // Create the complete data URL
-      const dataUrl = `data:${mimeType};base64,${base64String}`;
-      
-      resolve(dataUrl);
-    });
-  });
+	return new Promise((resolve, reject) => {
+		fs.readFile(imagePath, (err, data) => {
+			if (err) {
+				reject(err);
+				return;
+			}
+
+			// Convert binary data to base64 string
+			const base64String = data.toString("base64");
+
+			// Create the complete data URL
+			const dataUrl = `data:${mimeType};base64,${base64String}`;
+
+			resolve(dataUrl);
+		});
+	});
 }
 
 /**
@@ -35,17 +35,17 @@ export function imageToBase64(
  * @returns The base64 data URL
  */
 export function imageToBase64Sync(
-  imagePath: string, 
-  mimeType: string = 'image/jpeg'
+	imagePath: string,
+	mimeType: string = "image/jpeg",
 ): string {
-  // Read file synchronously
-  const data = fs.readFileSync(imagePath);
-  
-  // Convert binary data to base64 string
-  const base64String = data.toString('base64');
-  
-  // Create the complete data URL
-  return `data:${mimeType};base64,${base64String}`;
+	// Read file synchronously
+	const data = fs.readFileSync(imagePath);
+
+	// Convert binary data to base64 string
+	const base64String = data.toString("base64");
+
+	// Create the complete data URL
+	return `data:${mimeType};base64,${base64String}`;
 }
 
 // Example usage:

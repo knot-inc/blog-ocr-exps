@@ -1,25 +1,15 @@
-import { OpenAIWrapper } from "./utils/openaiWrapper";
-import { parseWorkExperiencePrompt } from "./prompts/parse-work-experience";
-import { imageToBase64Sync } from "./utils/imageToBase64";
+import processImage from "./processors/imageInput";
+import { compareToGroundTruth } from "./utils/resultComparator";
 
 async function main() {
-  try {
-    const openAI = new OpenAIWrapper();
-    const image_path = "./docs/images/side-by-side.png";
-    const imageUrl = imageToBase64Sync(image_path, "image/png");
-    const result = await openAI.completion({
-      prompt: parseWorkExperiencePrompt,
-      modelName: "gpt-4o",
-      variables: {
-        resume: "Please analyze the resume in the image"
-      },
-      imageUrls: [imageUrl],
-      detail: "low",
-    });
-    console.log(result);
-  } catch (error) {
-    console.error("Error:", error);
-  }
+	console.log("Starting resume parsing comparison...");
+
+	try {
+		// Run comparison using our image processor function
+		await compareToGroundTruth(processImage, "./assets/ground-truth.json");
+	} catch (error) {
+		console.error("Error:", error);
+	}
 }
+
 main();
-    
