@@ -117,28 +117,6 @@ const textBboxesToString = (
 	}
 };
 
-// Parse command line arguments - only for mode
-const parseCliArgs = (): {
-	extract: "words" | "lines";
-	mode: textBboxesToStringFormat;
-} => {
-	const args = process.argv.slice(2);
-	let extract: "words" | "lines" = "lines";
-	let mode: textBboxesToStringFormat = "json";
-
-	for (let i = 0; i < args.length; i++) {
-		if (args[i] === "--extract" || args[i] === "-e") {
-			extract = args[i + 1] as "words" | "lines";
-			i++;
-		}
-		if (args[i] === "--mode" || args[i] === "-m") {
-			mode = args[i + 1] as textBboxesToStringFormat;
-			i++;
-		}
-	}
-	return { extract, mode };
-};
-
 const tesseractOcrWithCoords = async (
 	imagePath: string,
 	options: { extract?: "words" | "lines"; mode: textBboxesToStringFormat } = {
@@ -177,6 +155,27 @@ const tesseractOcrWithCoords = async (
 };
 
 export default tesseractOcrWithCoords;
+
+const parseCliArgs = (): {
+	extract: "words" | "lines";
+	mode: textBboxesToStringFormat;
+} => {
+	const args = process.argv.slice(2);
+	let extract: "words" | "lines" = "lines";
+	let mode: textBboxesToStringFormat = "json";
+
+	for (let i = 0; i < args.length; i++) {
+		if (args[i] === "--extract" || args[i] === "-e") {
+			extract = args[i + 1] as "words" | "lines";
+			i++;
+		}
+		if (args[i] === "--mode" || args[i] === "-m") {
+			mode = args[i + 1] as textBboxesToStringFormat;
+			i++;
+		}
+	}
+	return { extract, mode };
+};
 
 if (require.main === module) {
 	const options = parseCliArgs();
