@@ -1,23 +1,14 @@
 import type { z } from "zod";
 import { createWorker, type RecognizeResult } from "tesseract.js";
-import { OpenAIWrapper } from "../utils/openaiWrapper";
+
 import {
 	parseWorkExperiencePrompt,
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
+import { OpenAIWrapper } from "../utils/openaiWrapper";
 import { compareToGroundTruth } from "../utils/resultComparator";
-
-interface BBox {
-	x0: number;
-	y0: number;
-	x1: number;
-	y1: number;
-}
-
-interface TextBbox {
-	bbox: BBox;
-	text: string;
-}
+import { textBboxesToStr } from "../utils/textBboxesToStr";
+import type { TextBbox, TextBboxesToStrMode } from "../types/bbox";
 
 const extractLinesWithCoords = (data: RecognizeResult["data"]): TextBbox[] => {
 	if (!data.blocks) return [];
@@ -70,56 +61,9 @@ const extractWordsWithCoords = (data: RecognizeResult["data"]): TextBbox[] => {
 	return words;
 };
 
-type textBboxesToStringFormat = "json" | "csv" | "xml" | "ltwh";
-
-const textBboxesToString = (
-	textBboxes: TextBbox[],
-	mode: textBboxesToStringFormat = "json",
-): string => {
-	if (textBboxes.length === 0) return "";
-
-	switch (mode) {
-		case "json":
-			return JSON.stringify(textBboxes);
-
-		case "csv": {
-			// CSV format: x0,y0,x1,y1,text
-			const headers = "x0,y0,x1,y1,text";
-			const rows = textBboxes.map(
-				(textBbox) =>
-					`${textBbox.bbox.x0},${textBbox.bbox.y0},${textBbox.bbox.x1},${textBbox.bbox.y1},"${textBbox.text.replace(/"/g, '""')}"`,
-			);
-			return [headers, ...rows].join("\n");
-		}
-
-		case "xml": {
-			// XML format
-			const xmlLines = textBboxes.map(
-				(textBbox) =>
-					`<line x0="${textBbox.bbox.x0}" y0="${textBbox.bbox.y0}" x1="${textBbox.bbox.x1}" y1="${textBbox.bbox.y1}">${textBbox.text.replace("\n", " ")}</line>`,
-			);
-			return xmlLines.join("\n");
-		}
-
-		case "ltwh": {
-			// Left, Top, Width, Height format
-			const ltwhLines = textBboxes.map((textBbox) => {
-				const width = textBbox.bbox.x1 - textBbox.bbox.x0;
-				const height = textBbox.bbox.y1 - textBbox.bbox.y0;
-				const text = textBbox.text.replace("\n", " ");
-				return `${text}, ltwh ${textBbox.bbox.x0} ${textBbox.bbox.y0} ${width} ${height}`;
-			});
-			return ltwhLines.join("\n");
-		}
-
-		default:
-			return JSON.stringify(textBboxes);
-	}
-};
-
 const tesseractOcrWithCoords = async (
 	imagePath: string,
-	options: { extract?: "words" | "lines"; mode: textBboxesToStringFormat } = {
+	options: { extract?: "words" | "lines"; mode: TextBboxesToStrMode } = {
 		extract: "lines",
 		mode: "json",
 	},
@@ -135,7 +79,7 @@ const tesseractOcrWithCoords = async (
 		} else {
 			textBboxes = extractLinesWithCoords(data);
 		}
-		const text = textBboxesToString(textBboxes, options.mode);
+		const text = textBboxesToStr(textBboxes, options.mode);
 		console.log("\n", text, "\n");
 
 		const openAI = new OpenAIWrapper();

@@ -14,6 +14,7 @@
     "tesseract-ocr": "ts-node src/processors/tesseractOcr.ts",
     "tesseract-ocr-with-bbox": "ts-node src/processors/tesseractOcrWithBbox.ts",
     "textract-ocr": "ts-node src/processors/textractOcr.ts",
+    "textract-ocr-with-bbox": "ts-node src/processors/textractOcrWithBbox.ts",
     "mistral-ocr": "ts-node src/processors/mistralOcr.ts"
   },
   "keywords": [],

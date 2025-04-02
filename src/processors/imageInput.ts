@@ -1,9 +1,10 @@
 import type { z } from "zod";
-import { OpenAIWrapper } from "../utils/openaiWrapper";
+
 import {
 	parseWorkExperiencePrompt,
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
+import { OpenAIWrapper } from "../utils/openaiWrapper";
 import imageToBase64 from "../utils/imageToBase64";
 import { compareToGroundTruth } from "../utils/resultComparator";
 
