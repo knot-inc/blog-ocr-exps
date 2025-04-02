@@ -11,7 +11,7 @@
     "format": "biome format --write ./src",
     "check": "biome check --apply ./src",
     "image-input": "ts-node src/processors/imageInput.ts",
-    "basic-ocr": "ts-node src/processors/basicOcr.ts"
+    "mistral-ocr": "ts-node src/processors/mistralOCR.ts"
   },
   "keywords": [],
   "author": "",
