@@ -6,7 +6,7 @@ import {
 } from "../prompts/parse-work-experience";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
 import imageToBase64 from "../utils/imageToBase64";
-import { compareToGroundTruth } from "../utils/resultComparator";
+import { compareToGroundTruth } from "../utils/comparisonTool";
 
 const processImage = async (
 	imagePath: string,
