@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { z } from "zod";
 import type { parseWorkExperienceSchema } from "../prompts/parse-work-experience";
+import { getTextMatchPercentage, cleanText } from "./textSimilarity";
 
 // String matching utilities
 const matchUtils = {
@@ -24,14 +25,8 @@ const matchUtils = {
 			return 0;
 		}
 
-		// For text
-		const words2 = [...new Set(gtStr.toLowerCase().split(/\s+/))].filter(
-			(w) => w.length > 3,
-		);
-		const words1 = exStr.toLowerCase().split(/\s+/);
-		return (
-			(words2.filter((w) => words1.includes(w)).length / words2.length) * 100
-		);
+		// For text, use Jaccard similarity
+		return getTextMatchPercentage(exStr, gtStr).averageSimilarity;
 	},
 
 	// Get match emoji based on score
@@ -56,8 +51,8 @@ const matchUtils = {
 		}
 
 		// For longer text like descriptions, highlight word differences
-		const extractedWords = extractedText.split(/\s+/);
-		const groundTruthWords = groundTruthText.split(/\s+/);
+		const extractedWords = cleanText(extractedText).split(/\s+/);
+		const groundTruthWords = cleanText(groundTruthText).split(/\s+/);
 
 		const highlightedWords = extractedWords.map((word) => {
 			// Using toLowerCase for case-insensitive comparison
@@ -234,29 +229,18 @@ function compareFields(
 				match < 100 ? ` (Expected: ${gtJob[field.key]})` : "";
 
 			// Highlight differences in text
-			let displayValue = (job[field.key] as string) || "N/A";
-
-			// First highlight differences if the match is not perfect
-			if (match < 100) {
-				displayValue = matchUtils.highlightDifferences(
-					displayValue,
-					gtJob[field.key] as string,
-				);
-			}
+			const displayValue = (job[field.key] as string) || "N/A";
 
 			// For descriptions or other long fields, we don't truncate anymore
 			// Instead, we format the output nicely
 			if (field.key === "description") {
-				// Print the field header first
 				console.log(
 					`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}`,
 				);
 
-				// Then print the actual description on the next line(s)
-				console.log(`    ${displayValue}`);
-
 				// If there's an expected value, print it on a separate line for better readability
 				if (match < 100) {
+					console.log(`    ${displayValue}`);
 					console.log(`    Expected: ${gtJob[field.key]}`);
 				}
 			} else {
@@ -330,7 +314,7 @@ function compareExperiences(
 
 	// Calculate average for each field type
 	const fieldTypeScores: Record<string, number> = {};
-	console.log("Field Type Averages:");
+	console.log("\nField Type Averages:");
 	for (const [fieldName, scores] of Object.entries(fieldTypeAccumulator)) {
 		if (scores.length > 0) {
 			fieldTypeScores[fieldName] =
