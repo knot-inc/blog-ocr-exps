@@ -9,7 +9,9 @@
     "dev": "ts-node src/index.ts",
     "lint": "biome lint ./src",
     "format": "biome format --write ./src",
-    "check": "biome check --apply ./src"
+    "check": "biome check --apply ./src",
+    "image-input": "ts-node src/processors/imageInput.ts",
+    "basic-ocr": "ts-node src/processors/basicOcr.ts"
   },
   "keywords": [],
   "author": "",
