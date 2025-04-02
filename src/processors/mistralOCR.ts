@@ -43,5 +43,5 @@ const mistralOcr = async (
 export default mistralOcr;
 
 if (require.main === module) {
-	compareToGroundTruth(mistralOcr, "./assets/ground-truth.json");
+	compareToGroundTruth(mistralOcr);
 }

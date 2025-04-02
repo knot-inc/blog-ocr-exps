@@ -66,5 +66,5 @@ const textractOcr = async (
 export default textractOcr;
 
 if (require.main === module) {
-	compareToGroundTruth(textractOcr, "./assets/ground-truth.json");
+	compareToGroundTruth(textractOcr);
 }

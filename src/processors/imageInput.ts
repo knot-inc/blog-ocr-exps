@@ -54,8 +54,5 @@ const parseCliArgs = (): {
 if (require.main === module) {
 	const { modelName, detail } = parseCliArgs();
 	console.log(`Using model: ${modelName}, detail: ${detail}`);
-	compareToGroundTruth(
-		(path) => processImage(path, { modelName, detail }),
-		"./assets/ground-truth.json",
-	);
+	compareToGroundTruth((path) => processImage(path, { modelName, detail }));
 }

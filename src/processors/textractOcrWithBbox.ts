@@ -103,8 +103,5 @@ if (require.main === module) {
 	const options = parseCliArgs();
 
 	// Run the comparison to ground truth, passing the selected mode
-	compareToGroundTruth(
-		async (path) => textractOcrWithBbox(path, options),
-		"./assets/ground-truth.json",
-	);
+	compareToGroundTruth(async (path) => textractOcrWithBbox(path, options));
 }

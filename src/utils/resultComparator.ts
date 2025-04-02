@@ -75,7 +75,7 @@ export async function compareToGroundTruth(
 	imageInputFn: (
 		imagePath: string,
 	) => Promise<z.infer<typeof parseWorkExperienceSchema>>,
-	groundTruthPath: string,
+	dataFolder = "./assets/samples",
 ): Promise<
 	Array<{
 		imagePath: string;
@@ -84,16 +84,19 @@ export async function compareToGroundTruth(
 	}>
 > {
 	try {
-		const imagePaths: string[] = [
-			"./assets/images/standard.png",
-			"./assets/images/side-by-side.png",
-			"./assets/images/split.png",
-			"./assets/images/decorated.png",
-		];
+		// Find all PNG images in the data folder
+		const imageDir = path.resolve(dataFolder);
+		const allFiles = fs.readdirSync(imageDir);
+		const imagePaths = allFiles
+			.filter((file) => file.toLowerCase().endsWith(".png"))
+			.map((file) => path.join(imageDir, file));
 
-		const groundTruth: z.infer<typeof parseWorkExperienceSchema> = JSON.parse(
-			fs.readFileSync(path.resolve(groundTruthPath), "utf8"),
-		);
+		if (imagePaths.length === 0) {
+			console.warn(`No PNG images found in ${imageDir}`);
+		}
+
+		console.log(`Process images: ${imagePaths}\n`);
+
 		const results: Array<{
 			imagePath: string;
 			fieldMatchRate: number;
@@ -102,6 +105,20 @@ export async function compareToGroundTruth(
 
 		for (const imagePath of imagePaths) {
 			try {
+				// Determine the ground truth file path - same name but with .json extension
+				const imageBasename = path.basename(imagePath, path.extname(imagePath));
+				const gtPath = path.join(imageDir, `${imageBasename}.json`);
+
+				if (!fs.existsSync(gtPath)) {
+					console.warn(
+						`Ground truth file not found: ${gtPath}, skipping image`,
+					);
+					continue;
+				}
+
+				const groundTruth: z.infer<typeof parseWorkExperienceSchema> =
+					JSON.parse(fs.readFileSync(gtPath, "utf8"));
+
 				const result = await imageInputFn(imagePath);
 				const comparison = compareExperiences(result, groundTruth, imagePath);
 				results.push(comparison);

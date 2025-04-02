@@ -40,5 +40,5 @@ const tesseractOcr = async (
 export default tesseractOcr;
 
 if (require.main === module) {
-	compareToGroundTruth(tesseractOcr, "./assets/ground-truth.json");
+	compareToGroundTruth(tesseractOcr);
 }
