@@ -1,10 +1,9 @@
+import dotenv from "dotenv";
 import type { z } from "zod";
 import type { Prompt } from "../types/prompt";
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
-import dotenv from "dotenv";
 
-// Load environment variables
 dotenv.config();
 
 export class OpenAIWrapper {
