@@ -13,12 +13,13 @@
     "image-input": "ts-node src/processors/imageInput.ts",
     "tesseract-ocr": "ts-node src/processors/tesseractOcr.ts",
     "tesseract-ocr-with-bbox": "ts-node src/processors/tesseractOcrWithBbox.ts",
+    "textract-ocr": "ts-node src/processors/textractOcr.ts",
     "mistral-ocr": "ts-node src/processors/mistralOcr.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.7.0",
+  "packageManager": "pnpm@10.7.1",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@swc/core": "^1.11.13",
@@ -28,6 +29,8 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "@aws-sdk/client-textract": "^3.777.0",
+    "@aws-sdk/types": "^3.775.0",
     "@mistralai/mistralai": "^1.5.2",
     "dotenv": "^16.4.7",
     "openai": "^4.91.0",
