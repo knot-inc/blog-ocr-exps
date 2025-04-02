@@ -8,7 +8,7 @@ import {
 	compareToGroundTruth,
 	generateDifferenceReport,
 } from "./utils/comparisonTools";
-import { ImageProcessor } from "./processors/imageInput";
+import * as processors from "./processors";
 
 /**
  * Main function to handle command line interface
@@ -25,41 +25,38 @@ async function main() {
 
 	// Command to save ground truth JSON
 	program
-		.command("save-ground-truth")
-		.description("Process images and save extracted data as ground truth JSON")
+		.command("save-gt")
+		.description("Save ground truth data from manually labeled examples")
 		.requiredOption(
 			"-d, --data-folder <path>",
-			"Path to folder containing images",
+			"Folder containing images and ground truth data (will save JSON in same folder)",
 		)
-		.option("-o, --overwrite", "Overwrite existing JSON files", false)
+		.option(
+			"-p, --processor <name>",
+			"Processor to use for extraction (default: processImage)",
+			"processImage",
+		)
 		.action(async (options) => {
-			const { dataFolder, overwrite } = options;
-
-			// Check if folder exists
-			if (!fs.existsSync(dataFolder)) {
-				console.error(`Error: Folder does not exist: ${dataFolder}`);
-				process.exit(1);
-			}
-
-			console.log(`Processing images in ${dataFolder}...`);
-
 			try {
-				// Process images with default processor
-				const results = await processDataFolder(
-					defaultImageProcessor,
-					dataFolder,
-					overwrite,
+				const { dataFolder, processor } = options;
+				console.log(
+					`Processing and saving ground truth data in ${dataFolder} using ${processor}...`,
 				);
 
-				console.log(`\nProcessed ${results.length} images successfully.`);
+				// Use the specified processor or default to processImage
+				const selectedProcessor =
+					processors[processor as keyof typeof processors] ||
+					processors.processImage;
 				console.log(
-					"JSON files have been saved in the same folder as the images.",
+					`Using processor: ${selectedProcessor.name || "processImage"}`,
 				);
-				console.log(
-					"\nPlease review and manually edit the JSON files as needed to create accurate ground truth.",
-				);
+
+				// Process and save ground truth data in the same folder
+				await processDataFolder(selectedProcessor, dataFolder, true);
+
+				console.log(`Ground truth data saved successfully in ${dataFolder}`);
 			} catch (error) {
-				console.error("Error processing images:", error);
+				console.error("Error saving ground truth data:", error);
 				process.exit(1);
 			}
 		});
@@ -67,309 +64,162 @@ async function main() {
 	// Command to save reports with multiple processors
 	program
 		.command("save-reports")
-		.description("Compare results from multiple processors and save reports")
+		.description("Process images with various OCR processors and save results")
+		.requiredOption("-i, --input <path>", "Input folder containing images")
 		.requiredOption(
-			"-d, --data-folder <path>",
-			"Path to folder containing images and ground truth JSON",
+			"-o, --output <path>",
+			"Output folder to save processed results",
 		)
-		.requiredOption(
-			"-o, --output-folder <path>",
-			"Path to save comparison reports",
+		.option(
+			"-p, --processors <list>",
+			"Comma-separated list of processors to use",
+			"all",
 		)
 		.action(async (options) => {
-			const { dataFolder, outputFolder } = options;
-
-			// Check if folders exist
-			if (!fs.existsSync(dataFolder)) {
-				console.error(`Error: Data folder does not exist: ${dataFolder}`);
-				process.exit(1);
-			}
-
-			// Create output folder if it doesn't exist
-			if (!fs.existsSync(outputFolder)) {
-				fs.mkdirSync(outputFolder, { recursive: true });
-			}
-
-			console.log(
-				`Processing images in ${dataFolder} using multiple processors...`,
-			);
-
 			try {
-				// Define array of different processors to test
-				const processors: Array<{ name: string; processor: ImageProcessor }> = [
-					{ name: "default", processor: defaultImageProcessor },
-					{ name: "alternative", processor: alternativeImageProcessor },
-					// Add more processors as needed
-				];
+				const { input, output, processors: processorsList } = options;
+				console.log(
+					`Processing images from ${input} using specified processors...`,
+				);
 
-				// Track overall results for each processor
-				const processorResults: Record<
-					string,
-					{
-						totalImages: number;
-						avgFieldMatchRate: number;
-						fieldTypeScores: Record<string, number[]>;
-					}
-				> = {};
-
-				// Initialize processor results
-				for (const { name } of processors) {
-					processorResults[name] = {
-						totalImages: 0,
-						avgFieldMatchRate: 0,
-						fieldTypeScores: {
-							Title: [],
-							Company: [],
-							"Start Date": [],
-							"End Date": [],
-							Description: [],
-						},
-					};
+				// Create output directory if it doesn't exist
+				if (!fs.existsSync(output)) {
+					fs.mkdirSync(output, { recursive: true });
 				}
 
-				// Process with each processor
-				for (const { name, processor } of processors) {
-					console.log(`\nRunning processor: ${name}`);
+				// Determine which processors to use
+				let selectedProcessors: Array<keyof typeof processors> = [];
+				if (processorsList === "all") {
+					selectedProcessors = Object.keys(processors) as Array<
+						keyof typeof processors
+					>;
+				} else {
+					selectedProcessors = processorsList.split(",") as Array<
+						keyof typeof processors
+					>;
+				}
 
-					// Compare with ground truth
-					const results = await compareToGroundTruth(processor, dataFolder);
-
-					if (results.length === 0) {
-						console.log(`No results for processor: ${name}`);
+				// Process data with each selected processor
+				for (const processorName of selectedProcessors) {
+					if (!(processorName in processors)) {
+						console.warn(`Processor "${processorName}" not found, skipping`);
 						continue;
 					}
 
-					// Record results
-					processorResults[name].totalImages = results.length;
-					processorResults[name].avgFieldMatchRate =
-						results.reduce((sum, r) => sum + r.fieldMatchRate, 0) /
-						results.length;
+					console.log(`Running processor: ${processorName}`);
+					const processor = processors[processorName];
+					const results = await processDataFolder(input, false, processor);
 
-					// Record field type scores
-					for (const result of results) {
-						for (const [fieldName, score] of Object.entries(
-							result.fieldTypeScores,
-						)) {
-							if (score > 0) {
-								processorResults[name].fieldTypeScores[fieldName].push(score);
-							}
-						}
-					}
-
-					// Generate individual reports
-					const extractedResults = await processDataFolder(
-						processor,
-						dataFolder,
-						false,
+					fs.writeFileSync(
+						path.join(output, `${processorName}-results.json`),
+						JSON.stringify(results, null, 2),
 					);
-
-					for (const result of extractedResults) {
-						const imageBasename = path.basename(
-							result.imagePath,
-							path.extname(result.imagePath),
-						);
-						const imageDir = path.dirname(result.imagePath);
-						const gtPath = path.join(imageDir, `${imageBasename}.json`);
-
-						if (fs.existsSync(gtPath)) {
-							const groundTruth = JSON.parse(fs.readFileSync(gtPath, "utf8"));
-							const report = generateDifferenceReport(
-								result.extractedData,
-								groundTruth,
-							);
-
-							const reportPath = path.join(
-								outputFolder,
-								`${imageBasename}_${name}_report.html`,
-							);
-							fs.writeFileSync(reportPath, report, "utf8");
-							console.log(`Report saved to: ${reportPath}`);
-						}
-					}
 				}
 
-				// Generate summary report
-				const summaryPath = path.join(outputFolder, "summary_report.html");
-				const summaryReport = generateSummaryReport(processorResults);
-				fs.writeFileSync(summaryPath, summaryReport, "utf8");
-				console.log(`\nSummary report saved to: ${summaryPath}`);
+				console.log(`All processing complete. Results saved to ${output}`);
 			} catch (error) {
-				console.error("Error generating reports:", error);
+				console.error("Error processing data:", error);
+				process.exit(1);
+			}
+		});
+
+	// Command to compare results with ground truth
+	program
+		.command("compare")
+		.description("Compare processor results with ground truth data")
+		.requiredOption(
+			"-g, --ground-truth <path>",
+			"Path to ground truth JSON file",
+		)
+		.requiredOption(
+			"-r, --results <path>",
+			"Path to results JSON file or directory",
+		)
+		.requiredOption(
+			"-o, --output <path>",
+			"Output folder to save comparison reports",
+		)
+		.action(async (options) => {
+			try {
+				const { groundTruth, results, output } = options;
+				console.log(
+					`Comparing results from ${results} with ground truth ${groundTruth}...`,
+				);
+
+				// Create output directory if it doesn't exist
+				if (!fs.existsSync(output)) {
+					fs.mkdirSync(output, { recursive: true });
+				}
+
+				// Load ground truth data
+				const gtData = JSON.parse(
+					fs.readFileSync(groundTruth, "utf-8"),
+				) as z.infer<typeof parseWorkExperienceSchema>[];
+
+				// Handle single file or directory of result files
+				if (fs.statSync(results).isDirectory()) {
+					const resultFiles = fs
+						.readdirSync(results)
+						.filter((file) => file.endsWith(".json"));
+
+					for (const file of resultFiles) {
+						const resultPath = path.join(results, file);
+						const processorName = file.replace("-results.json", "");
+
+						const resultData = JSON.parse(
+							fs.readFileSync(resultPath, "utf-8"),
+						) as z.infer<typeof parseWorkExperienceSchema>[];
+						const comparison = compareToGroundTruth(gtData, resultData);
+						const report = generateDifferenceReport(comparison);
+
+						fs.writeFileSync(
+							path.join(output, `${processorName}-comparison.json`),
+							JSON.stringify(comparison, null, 2),
+						);
+
+						fs.writeFileSync(
+							path.join(output, `${processorName}-report.md`),
+							report,
+						);
+
+						console.log(`Comparison for ${processorName} saved successfully`);
+					}
+				} else {
+					const processorName = path
+						.basename(results, ".json")
+						.replace("-results", "");
+					const resultData = JSON.parse(
+						fs.readFileSync(results, "utf-8"),
+					) as z.infer<typeof parseWorkExperienceSchema>[];
+
+					const comparison = compareToGroundTruth(gtData, resultData);
+					const report = generateDifferenceReport(comparison);
+
+					fs.writeFileSync(
+						path.join(output, `${processorName}-comparison.json`),
+						JSON.stringify(comparison, null, 2),
+					);
+
+					fs.writeFileSync(
+						path.join(output, `${processorName}-report.md`),
+						report,
+					);
+
+					console.log(`Comparison for ${processorName} saved successfully`);
+				}
+
+				console.log(`All comparisons complete. Reports saved to ${output}`);
+			} catch (error) {
+				console.error("Error comparing results:", error);
 				process.exit(1);
 			}
 		});
 
 	// Parse command line arguments
-	program.parse(process.argv);
-
-	// Show help if no command is provided
-	if (!process.argv.slice(2).length) {
-		program.outputHelp();
-	}
+	await program.parseAsync(process.argv);
 }
 
-/**
- * Generate a summary report comparing multiple processors
- */
-function generateSummaryReport(
-	processorResults: Record<
-		string,
-		{
-			totalImages: number;
-			avgFieldMatchRate: number;
-			fieldTypeScores: Record<string, number[]>;
-		}
-	>,
-): string {
-	let report = "<html><head><style>";
-	report += "body { font-family: Arial, sans-serif; margin: 20px; }";
-	report += "h1, h2 { color: #333; }";
-	report +=
-		"table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }";
-	report +=
-		"th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }";
-	report += "th { background-color: #f2f2f2; }";
-	report += ".processor-name { font-weight: bold; text-align: left; }";
-	report += ".best-score { background-color: #d4edda; font-weight: bold; }";
-	report += "</style></head><body>";
-
-	report += "<h1>Work Experience Extraction Summary Report</h1>";
-
-	// Overall match rate comparison
-	report += "<h2>Overall Field Match Rate</h2>";
-	report += "<table>";
-	report +=
-		"<tr><th>Processor</th><th>Images Processed</th><th>Average Field Match Rate</th></tr>";
-
-	// Find the best processor
-	const processorNames = Object.keys(processorResults);
-	const bestProcessor = processorNames.reduce((best, current) => {
-		if (
-			!best ||
-			processorResults[current].avgFieldMatchRate >
-				processorResults[best].avgFieldMatchRate
-		) {
-			return current;
-		}
-		return best;
-	}, "");
-
-	for (const processorName of processorNames) {
-		const result = processorResults[processorName];
-		const isBest = processorName === bestProcessor ? ' class="best-score"' : "";
-
-		report += `<tr>`;
-		report += `<td class="processor-name">${processorName}</td>`;
-		report += `<td>${result.totalImages}</td>`;
-		report += `<td${isBest}>${result.avgFieldMatchRate.toFixed(1)}%</td>`;
-		report += `</tr>`;
-	}
-
-	report += "</table>";
-
-	// Field type comparison
-	report += "<h2>Field Type Match Rates</h2>";
-	report += "<table>";
-	report += "<tr><th>Field Type</th>";
-
-	for (const processorName of processorNames) {
-		report += `<th>${processorName}</th>`;
-	}
-
-	report += "</tr>";
-
-	const fieldTypes = [
-		"Title",
-		"Company",
-		"Start Date",
-		"End Date",
-		"Description",
-	];
-
-	for (const fieldType of fieldTypes) {
-		report += `<tr><td class="processor-name">${fieldType}</td>`;
-
-		// Find best processor for this field type
-		let bestScoreForField = 0;
-		let bestProcessorForField = "";
-
-		for (const processorName of processorNames) {
-			const scores = processorResults[processorName].fieldTypeScores[fieldType];
-			const avgScore =
-				scores.length > 0
-					? scores.reduce((sum, score) => sum + score, 0) / scores.length
-					: 0;
-
-			if (avgScore > bestScoreForField) {
-				bestScoreForField = avgScore;
-				bestProcessorForField = processorName;
-			}
-		}
-
-		// Add scores for each processor
-		for (const processorName of processorNames) {
-			const scores = processorResults[processorName].fieldTypeScores[fieldType];
-			const avgScore =
-				scores.length > 0
-					? scores.reduce((sum, score) => sum + score, 0) / scores.length
-					: 0;
-
-			const isBest =
-				processorName === bestProcessorForField ? ' class="best-score"' : "";
-			report += `<td${isBest}>${avgScore.toFixed(1)}%</td>`;
-		}
-
-		report += "</tr>";
-	}
-
-	report += "</table>";
-
-	// Recommendations
-	report += "<h2>Recommendations</h2>";
-
-	if (bestProcessor) {
-		report += `<p>The <strong>${bestProcessor}</strong> processor achieved the best overall field match rate `;
-		report += `at ${processorResults[bestProcessor].avgFieldMatchRate.toFixed(1)}%.</p>`;
-
-		// Field-specific recommendations
-		report += "<p>Field-specific recommendations:</p>";
-		report += "<ul>";
-
-		for (const fieldType of fieldTypes) {
-			let bestFieldProcessor = "";
-			let bestFieldScore = 0;
-
-			for (const processorName of processorNames) {
-				const scores =
-					processorResults[processorName].fieldTypeScores[fieldType];
-				const avgScore =
-					scores.length > 0
-						? scores.reduce((sum, score) => sum + score, 0) / scores.length
-						: 0;
-
-				if (avgScore > bestFieldScore) {
-					bestFieldScore = avgScore;
-					bestFieldProcessor = processorName;
-				}
-			}
-
-			if (bestFieldProcessor) {
-				report += `<li>For <strong>${fieldType}</strong> fields, the <strong>${bestFieldProcessor}</strong> `;
-				report += `processor performed best with ${bestFieldScore.toFixed(1)}% accuracy.</li>`;
-			}
-		}
-
-		report += "</ul>";
-	} else {
-		report += "<p>No recommendations available due to insufficient data.</p>";
-	}
-
-	report += "</body></html>";
-	return report;
-}
-
-// Run the main function
+// Execute the main function
 main().catch((error) => {
-	console.error("Error in main process:", error);
-	process.exit(1);
+	console.error("Unhandled error:", error);
 });
