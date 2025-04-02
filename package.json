@@ -11,7 +11,8 @@
     "format": "biome format --write ./src",
     "check": "biome check --apply ./src",
     "image-input": "ts-node src/processors/imageInput.ts",
-    "mistral-ocr": "ts-node src/processors/mistralOCR.ts"
+    "tesseract-ocr": "ts-node src/processors/tesseractOcr.ts",
+    "mistral-ocr": "ts-node src/processors/mistralOcr.ts"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "@mistralai/mistralai": "^1.5.2",
     "dotenv": "^16.4.7",
     "openai": "^4.91.0",
+    "tesseract.js": "^6.0.0",
     "zod": "^3.24.2"
   }
 }
