@@ -36,22 +36,25 @@ const textractOcr = async (
 
 		const response = await textractClient.send(command);
 
-		const extractedText = response.Blocks?.filter(
+		const text = response.Blocks?.filter(
 			(block) => block.BlockType === "LINE" && block.Text,
 		)
 			.map((block) => block.Text)
 			.join("\n");
 
-		if (!extractedText) {
+		if (!text) {
 			throw new Error("No text found in the document");
 		}
+
+		console.log(`\n========== ${imagePath} ==========`);
+		console.log("\n", text, "\n");
 
 		const openAI = new OpenAIWrapper();
 		return await openAI.completion({
 			prompt: parseWorkExperiencePrompt,
 			modelName: "gpt-4o",
 			variables: {
-				resume: extractedText,
+				resume: text,
 			},
 		});
 	} catch (error) {
