@@ -1,4 +1,6 @@
+import dotenv from "dotenv";
 import type { z } from "zod";
+import { Mistral } from "@mistralai/mistralai";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
 import {
 	parseWorkExperiencePrompt,
@@ -7,24 +9,35 @@ import {
 import imageToBase64 from "../utils/imageToBase64";
 import { compareToGroundTruth } from "../utils/resultComparator";
 
-const processImage = async (
+dotenv.config();
+
+const basicOcr = async (
 	imagePath: string,
 ): Promise<z.infer<typeof parseWorkExperienceSchema>> => {
-	const openAI = new OpenAIWrapper();
 	const imageUrl = await imageToBase64(imagePath, "image/png");
-
+	const mClient = new Mistral({
+		apiKey: process.env.MISTRAL_API_KEY,
+	});
+	const ocrResponse = await mClient.ocr.process({
+		model: "mistral-ocr-latest",
+		document: {
+			type: "image_url",
+			imageUrl: imageUrl,
+		},
+	});
+	const result = ocrResponse.pages.map((page) => page.markdown).join("\n\n")
+		
+	const openAI = new OpenAIWrapper();
 	return await openAI.completion({
 		prompt: parseWorkExperiencePrompt,
 		modelName: "gpt-4o",
 		variables: {
-			resume: "Please analyze the resume in the image and return as JSON",
+			resume: result,
 		},
-		imageUrls: [imageUrl],
-		detail: "high",
 	});
 };
-export default processImage;
+export default basicOcr;
 
 if (require.main === module) {
-	compareToGroundTruth(processImage, "./assets/ground-truth.json");
+	compareToGroundTruth(basicOcr, "./assets/ground-truth.json");
 }
