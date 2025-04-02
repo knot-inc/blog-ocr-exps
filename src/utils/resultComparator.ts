@@ -229,7 +229,7 @@ function compareFields(
 				match < 100 ? ` (Expected: ${gtJob[field.key]})` : "";
 
 			// Highlight differences in text
-			let displayValue = (job[field.key] as string) || "N/A";
+			const displayValue = (job[field.key] as string) || "N/A";
 
 			// For descriptions or other long fields, we don't truncate anymore
 			// Instead, we format the output nicely
