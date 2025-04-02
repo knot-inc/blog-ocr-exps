@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { z } from "zod";
 import type { parseWorkExperienceSchema } from "../prompts/parse-work-experience";
+import { getTextMatchPercentage } from "./textSimilarity";
 
 // String matching utilities
 const matchUtils = {
@@ -24,14 +25,8 @@ const matchUtils = {
 			return 0;
 		}
 
-		// For text
-		const words2 = [...new Set(gtStr.toLowerCase().split(/\s+/))].filter(
-			(w) => w.length > 3,
-		);
-		const words1 = exStr.toLowerCase().split(/\s+/);
-		return (
-			(words2.filter((w) => words1.includes(w)).length / words2.length) * 100
-		);
+		// For text, use Jaccard similarity
+		return getTextMatchPercentage(exStr, gtStr);
 	},
 
 	// Get match emoji based on score

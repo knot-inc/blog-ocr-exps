@@ -1,71 +1,47 @@
 /**
- * Calculate Levenshtein distance between two strings
+ * Clean input text by removing extra whitespace and newlines
  */
-export function levenshteinDistance(str1: string, str2: string): number {
-  if (str1.length === 0) return str2.length;
-  if (str2.length === 0) return str1.length;
-  
-  const matrix: number[][] = [];
-  
-  for (let i = 0; i <= str1.length; i++) {
-    matrix[i] = [i];
-  }
-  
-  for (let j = 0; j <= str2.length; j++) {
-    matrix[0][j] = j;
-  }
-  
-  for (let i = 1; i <= str1.length; i++) {
-    for (let j = 1; j <= str2.length; j++) {
-      const cost = str1[i - 1] === str2[j - 1] ? 0 : 1;
-      
-      matrix[i][j] = Math.min(
-        matrix[i - 1][j] + 1,      // deletion
-        matrix[i][j - 1] + 1,      // insertion
-        matrix[i - 1][j - 1] + cost // substitution
-      );
-    }
-  }
-  
-  return matrix[str1.length][str2.length];
+export function cleanText(text: string): string {
+  return text
+    .trim()
+    .replace(/\s+/g, ' ')
+    .replace(/\n/g, ' ')
+    .replace(/\r/g, '')
+    .replace(/\t/g, ' ');
 }
 
 /**
- * Convert Levenshtein distance to similarity percentage (0-100%)
+ * Tokenize string into words
  */
-export function levenshteinSimilarity(str1: string, str2: string): number {
-  const distance = levenshteinDistance(str1, str2);
-  const maxLength = Math.max(str1.length, str2.length);
-  
-  if (maxLength === 0) return 100;
-  return (1 - distance / maxLength) * 100;
+export function tokenize(text: string): string[] {
+  return text.split(/\s+/).filter(word => word.length > 0);
 }
 
 /**
- * Result interface for text match percentage
+ * Calculate Jaccard similarity between two sets
  */
-interface TextMatchResult {
-  charSimilarity: string;
-  wordSimilarity: string;
-  averageSimilarity: string;
+export function jaccardSimilarity(set1: Set<string>, set2: Set<string>): number {
+  if (set1.size === 0 && set2.size === 0) return 100;
+  if (set1.size === 0 || set2.size === 0) return 0;
+  
+  const intersection = new Set([...set1].filter(item => set2.has(item)));
+  const union = new Set([...set1, ...set2]);
+  
+  return (intersection.size / union.size) * 100;
 }
 
 /**
- * Get text match percentage with multiple metrics
+ * Get text similarity using word-level Jaccard similarity
  */
-export function getTextMatchPercentage(text1: string, text2: string): TextMatchResult {
-  const charSimilarity = levenshteinSimilarity(text1, text2);
+export function getTextMatchPercentage(text1: string, text2: string): number {
+  const cleanedStr1 = cleanText(text1);
+  const cleanedStr2 = cleanText(text2);
   
-  const words1 = text1.split(/\s+/);
-  const words2 = text2.split(/\s+/);
+  const tokens1 = tokenize(cleanedStr1);
+  const tokens2 = tokenize(cleanedStr2);
   
-  const wordDistance = levenshteinDistance(words1.join(' '), words2.join(' '));
-  const maxWordLength = Math.max(words1.length, words2.length);
-  const wordSimilarity = maxWordLength > 0 ? (1 - wordDistance / maxWordLength) * 100 : 100;
+  const set1 = new Set(tokens1);
+  const set2 = new Set(tokens2);
   
-  return {
-    charSimilarity: charSimilarity.toFixed(2),
-    wordSimilarity: wordSimilarity.toFixed(2),
-    averageSimilarity: ((charSimilarity + wordSimilarity) / 2).toFixed(2)
-  };
+  return jaccardSimilarity(set1, set2);
 }
