@@ -2,15 +2,16 @@
  * Clean input text by removing extra whitespace and newlines
  */
 export function cleanText(text: string): string {
-  const minLength = 4;
-  const words = text.split(/\s+/).filter((word) => word.length >= minLength);
-	const cleanText = words.join(" ")
+	const minLength = 4;
+	const words = text.split(/\s+/).filter((word) => word.length >= minLength);
+	const cleanText = words
+		.join(" ")
 		.trim()
 		.replace(/\s+/g, " ")
 		.replace(/\r/g, "")
 		.replace(/\t/g, " ");
-  
-  return cleanText;
+
+	return cleanText;
 }
 
 /**
