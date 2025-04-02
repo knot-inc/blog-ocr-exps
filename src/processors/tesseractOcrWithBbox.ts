@@ -102,11 +102,11 @@ export default tesseractOcrWithCoords;
 
 const parseCliArgs = (): {
 	extract: "words" | "lines";
-	mode: textBboxesToStringFormat;
+	mode: TextBboxesToStrMode;
 } => {
 	const args = process.argv.slice(2);
 	let extract: "words" | "lines" = "lines";
-	let mode: textBboxesToStringFormat = "json";
+	let mode: TextBboxesToStrMode = "ltwh";
 
 	for (let i = 0; i < args.length; i++) {
 		if (args[i] === "--extract" || args[i] === "-e") {
@@ -114,7 +114,7 @@ const parseCliArgs = (): {
 			i++;
 		}
 		if (args[i] === "--mode" || args[i] === "-m") {
-			mode = args[i + 1] as textBboxesToStringFormat;
+			mode = args[i + 1] as TextBboxesToStrMode;
 			i++;
 		}
 	}
