@@ -8,7 +8,7 @@ import {
 } from "../prompts/parse-work-experience";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
 import imageToBase64 from "../utils/imageToBase64";
-import { compareToGroundTruth } from "../utils/comparisonTool";
+import { compareToGroundTruth } from "../utils/comparisonTools";
 
 dotenv.config();
 

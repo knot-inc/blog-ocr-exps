@@ -7,12 +7,8 @@ import { processDataFolder } from "./utils/dataProcessor";
 import {
 	compareToGroundTruth,
 	generateDifferenceReport,
-} from "./utils/comparisonTool";
-
-// Define processor type
-type ImageProcessor = (
-	imagePath: string,
-) => Promise<z.infer<typeof parseWorkExperienceSchema>>;
+} from "./utils/comparisonTools";
+import { ImageProcessor } from "./processors/imageInput";
 
 /**
  * Main function to handle command line interface
@@ -210,52 +206,6 @@ async function main() {
 	if (!process.argv.slice(2).length) {
 		program.outputHelp();
 	}
-}
-
-/**
- * Default image processor implementation
- */
-async function defaultImageProcessor(
-	imagePath: string,
-): Promise<z.infer<typeof parseWorkExperienceSchema>> {
-	// This is a placeholder. Replace with your actual implementation.
-	console.log(`Processing image with default processor: ${imagePath}`);
-
-	// Return dummy data for demonstration
-	return {
-		workExperiences: [
-			{
-				title: "Software Engineer",
-				company: "Example Corp",
-				startDate: "2020-01",
-				endDate: "2022-06",
-				description: "Developed web applications using React and Node.js",
-			},
-		],
-	};
-}
-
-/**
- * Alternative image processor implementation
- */
-async function alternativeImageProcessor(
-	imagePath: string,
-): Promise<z.infer<typeof parseWorkExperienceSchema>> {
-	// This is a placeholder for an alternative processor
-	console.log(`Processing image with alternative processor: ${imagePath}`);
-
-	// Return dummy data for demonstration
-	return {
-		workExperiences: [
-			{
-				title: "Software Developer",
-				company: "Example Corporation",
-				startDate: "2020-01",
-				endDate: "2022-06",
-				description: "Built web applications with modern JavaScript frameworks",
-			},
-		],
-	};
 }
 
 /**

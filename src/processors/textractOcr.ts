@@ -11,7 +11,7 @@ import {
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
-import { compareToGroundTruth } from "../utils/comparisonTool";
+import { compareToGroundTruth } from "../utils/comparisonTools";
 
 dotenv.config();
 const textractClient = new TextractClient({
