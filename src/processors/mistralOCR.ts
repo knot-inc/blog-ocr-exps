@@ -11,14 +11,14 @@ import { compareToGroundTruth } from "../utils/resultComparator";
 
 dotenv.config();
 
-const basicOcr = async (
+const mistralOcr = async (
 	imagePath: string,
 ): Promise<z.infer<typeof parseWorkExperienceSchema>> => {
 	const imageUrl = await imageToBase64(imagePath, "image/png");
-	const mClient = new Mistral({
+	const mistralClient = new Mistral({
 		apiKey: process.env.MISTRAL_API_KEY,
 	});
-	const ocrResponse = await mClient.ocr.process({
+	const ocrResponse = await mistralClient.ocr.process({
 		model: "mistral-ocr-latest",
 		document: {
 			type: "image_url",
@@ -36,8 +36,8 @@ const basicOcr = async (
 		},
 	});
 };
-export default basicOcr;
+export default mistralOcr;
 
 if (require.main === module) {
-	compareToGroundTruth(basicOcr, "./assets/ground-truth.json");
+	compareToGroundTruth(mistralOcr, "./assets/ground-truth.json");
 }
