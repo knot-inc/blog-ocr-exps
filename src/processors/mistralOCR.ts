@@ -26,14 +26,17 @@ const mistralOcr = async (
 			imageUrl: imageUrl,
 		},
 	});
-	const result = ocrResponse.pages.map((page) => page.markdown).join("\n\n");
+	const text = ocrResponse.pages.map((page) => page.markdown).join("\n\n");
+
+	console.log(`\n========== ${imagePath} ==========`);
+	console.log("\n", text, "\n");
 
 	const openAI = new OpenAIWrapper();
 	return await openAI.completion({
 		prompt: parseWorkExperiencePrompt,
 		modelName: "gpt-4o",
 		variables: {
-			resume: result,
+			resume: text,
 		},
 	});
 };

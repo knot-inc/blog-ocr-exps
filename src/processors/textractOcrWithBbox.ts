@@ -64,6 +64,8 @@ const textractOcrWithBbox = async (
 			});
 		}
 		const text = textBboxesToStr(textBboxes, options.mode);
+
+		console.log(`\n========== ${imagePath} ==========`);
 		console.log("\n", text, "\n");
 
 		const openAI = new OpenAIWrapper();

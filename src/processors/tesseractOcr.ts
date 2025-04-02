@@ -18,6 +18,9 @@ const tesseractOcr = async (
 			data: { text },
 		} = await worker.recognize(imagePath);
 
+		console.log(`\n========== ${imagePath} ==========`);
+		console.log("\n", text, "\n");
+
 		const openAI = new OpenAIWrapper();
 		return await openAI.completion({
 			prompt: parseWorkExperiencePrompt,

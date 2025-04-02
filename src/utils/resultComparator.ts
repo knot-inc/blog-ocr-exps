@@ -265,7 +265,6 @@ function compareExperiences(
 	fieldMatchRate: number;
 	fieldTypeScores: Record<string, number>;
 } {
-	console.log(`\n========== ${imagePath} ==========`);
 	const fieldMatchRates: number[] = [];
 	// Track all field scores by type
 	const fieldTypeAccumulator: Record<string, number[]> = {
