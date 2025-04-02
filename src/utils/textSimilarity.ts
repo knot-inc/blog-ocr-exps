@@ -1,14 +1,15 @@
 /**
- * Clean input text by removing extra whitespace and newlines
+ * Clean input text by removing punctuation, newlines, and normalizing whitespace
  */
 export function cleanText(text: string): string {
-	const cleanText = text
-		.trim()
-		.replace(/\s+/g, " ")
-		.replace(/\r/g, "")
-		.replace(/\t/g, " ");
+	// Remove all punctuation and special characters, keeping only letters, numbers and spaces
+	const cleanedText = text
+		.replace(/[^\w\s]/g, "") // Remove all punctuation and special characters
+		.replace(/[\r\n\t]/g, " ") // Replace newlines and tabs with spaces
+		.replace(/\s+/g, " ") // Normalize whitespace (multiple spaces to single space)
+		.trim(); // Remove leading/trailing whitespace
 
-	return cleanText;
+	return cleanedText;
 }
 
 /**
@@ -18,7 +19,7 @@ export function tokenize(text: string, byCharacter = false): string[] {
 	if (byCharacter) {
 		return text.split("");
 	}
-	return text.split(/\s+/).filter((word) => word.length > 0);
+	return text.split(/\s+/);
 }
 
 /**
