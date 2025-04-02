@@ -116,10 +116,8 @@ export async function compareToGroundTruth(
 		const avgFieldMatch =
 			results.reduce((sum, r) => sum + r.fieldMatchRate, 0) / results.length;
 
-		console.log(`\nAverage field match: ${avgFieldMatch.toFixed(1)}%`);
-		
 		// Calculate and display average of each field type across all images
-		console.log("Field Type Averages:");
+		console.log("\nField Type Averages:");
 		const fieldTypes = ["Title", "Company", "Start Date", "End Date", "Description"];
 		const fieldTypeAverages: Record<string, number> = {};
 		
@@ -137,6 +135,11 @@ export async function compareToGroundTruth(
 				console.log(`${fieldType.padEnd(12)}: N/A`);
 			}
 		}
+
+		console.log("=========================");
+		console.log(`Average field match: ${avgFieldMatch.toFixed(1)}%`);
+		console.log("==========================");
+		
 
 		return results;
 	} catch (error) {
@@ -226,25 +229,20 @@ function compareFields(
 			// Then truncate if it's a long description
 			if (field.key === "description" && displayValue.length > 60) {
 				// Count ANSI color codes as a single character, not splitting them
-				const ansiPattern = /\x1b\[\d+m/g;
-				// Replace ANSI codes temporarily for proper splitting
-				const cleanText = displayValue.replace(ansiPattern, '§ANSI§');
+				// Using string split/join approach instead of direct regex with control characters
+				const cleanText = displayValue.split('\u001B[').join('§ANSI§[');
 				const words = cleanText.split(/\s+/);
 				
 				if (words.length > 10) {
 					// Join first 10 words and restore ANSI codes
-					let truncatedText = words.slice(0, 10).join(' ') + '...';
+					let truncatedText = `${words.slice(0, 10).join(' ')}...`;
 					
-					// Restore ANSI codes
-					const ansiCodes = displayValue.match(ansiPattern) || [];
-					let ansiIndex = 0;
-					truncatedText = truncatedText.replace(/§ANSI§/g, () => {
-						return ansiCodes[ansiIndex++] || '';
-					});
+					// Restore ANSI codes by replacing the markers
+					truncatedText = truncatedText.replace(/§ANSI§\[/g, '\u001B[');
 					
-					// Add reset code at the end if we have any color codes
-					if (ansiCodes.length > 0) {
-						truncatedText += '\x1b[0m';
+					// Add reset code at the end if there are any color codes
+					if (truncatedText.includes('\u001B[')) {
+						truncatedText += '\u001B[0m';
 					}
 					
 					displayValue = truncatedText;
