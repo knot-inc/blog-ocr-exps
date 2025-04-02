@@ -13,6 +13,7 @@
     "image-input": "ts-node src/processors/imageInput.ts",
     "tesseract-ocr": "ts-node src/processors/tesseractOcr.ts",
     "tesseract-ocr-with-bbox": "ts-node src/processors/tesseractOcrWithBbox.ts",
+    "textract-ocr": "ts-node src/processors/textractOcr.ts",
     "mistral-ocr": "ts-node src/processors/mistralOcr.ts"
   },
   "keywords": [],
