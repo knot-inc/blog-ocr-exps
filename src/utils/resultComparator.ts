@@ -40,6 +40,32 @@ const matchUtils = {
 	// Get date-specific note
 	getDateNote: (score: number) =>
 		score === 67 ? " (Year-Month)" : score === 33 ? " (Year only)" : "",
+		
+	// Highlight differences in text
+	highlightDifferences: (extractedText: string, groundTruthText: string): string => {
+		if (!extractedText || !groundTruthText) return extractedText || "N/A";
+		if (extractedText === groundTruthText) return extractedText;
+		
+		// For dates or simple values, just return the extracted text
+		if (extractedText.length < 20 || groundTruthText.length < 20) {
+			return extractedText;
+		}
+
+		// For longer text like descriptions, highlight word differences
+		const extractedWords = extractedText.split(/\s+/);
+		const groundTruthWords = groundTruthText.split(/\s+/);
+		
+		const highlightedWords = extractedWords.map(word => {
+			// Using toLowerCase for case-insensitive comparison
+			if (!groundTruthWords.some(gtWord => gtWord.toLowerCase() === word.toLowerCase())) {
+				// Highlight different words with ANSI color codes (red)
+				return `\x1b[31m${word}\x1b[0m`;
+			}
+			return word;
+		});
+		
+		return highlightedWords.join(' ');
+	},
 };
 
 export async function compareToGroundTruth(
@@ -51,6 +77,7 @@ export async function compareToGroundTruth(
 	Array<{
 		imagePath: string;
 		fieldMatchRate: number;
+		fieldTypeScores: Record<string, number>;
 	}>
 > {
 	try {
@@ -67,6 +94,7 @@ export async function compareToGroundTruth(
 		const results: Array<{
 			imagePath: string;
 			fieldMatchRate: number;
+			fieldTypeScores: Record<string, number>;
 		}> = [];
 
 		for (const imagePath of imagePaths) {
@@ -80,15 +108,35 @@ export async function compareToGroundTruth(
 		}
 
 		// Print summary
-		console.log("\n===== SUMMARY =====");
+		console.log("\n========== SUMMARY ==========");
 		for (const r of results) {
-			console.log(`${r.imagePath}: Fields: ${r.fieldMatchRate}%`);
+			console.log(`${r.imagePath}: Fields: ${r.fieldMatchRate.toFixed(1)}%`);
 		}
 
 		const avgFieldMatch =
 			results.reduce((sum, r) => sum + r.fieldMatchRate, 0) / results.length;
 
-		console.log(`Average field match: ${avgFieldMatch.toFixed(1)}%`);
+		console.log(`\nAverage field match: ${avgFieldMatch.toFixed(1)}%`);
+		
+		// Calculate and display average of each field type across all images
+		console.log("Field Type Averages:");
+		const fieldTypes = ["Title", "Company", "Start Date", "End Date", "Description"];
+		const fieldTypeAverages: Record<string, number> = {};
+		
+		for (const fieldType of fieldTypes) {
+			const scores = results
+				.map(r => r.fieldTypeScores[fieldType])
+				.filter(score => score > 0);
+			
+			if (scores.length > 0) {
+				const avgScore = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+				fieldTypeAverages[fieldType] = avgScore;
+				console.log(`${fieldType.padEnd(12)}: ${avgScore.toFixed(1)}%`);
+			} else {
+				fieldTypeAverages[fieldType] = 0;
+				console.log(`${fieldType.padEnd(12)}: N/A`);
+			}
+		}
 
 		return results;
 	} catch (error) {
@@ -134,8 +182,10 @@ function findBestMatch(
 function compareFields(
 	job: z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0],
 	gtJob: z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0],
-): number[] {
+): { fieldMatches: number[], fieldTypeScores: Record<string, number> } {
 	const fieldMatches: number[] = [];
+	const fieldTypeScores: Record<string, number> = {};
+	
 	const fields: Array<{
 		key: keyof z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0];
 		name: string;
@@ -155,6 +205,9 @@ function compareFields(
 				gtJob[field.key] as string,
 			);
 			fieldMatches.push(match);
+			
+			// Store the match score for this field type
+			fieldTypeScores[field.name] = match;
 
 			const emoji = matchUtils.getEmoji(match);
 			const note = field.isDate ? matchUtils.getDateNote(match) : "";
@@ -162,14 +215,50 @@ function compareFields(
 			// Only show expected value when score is less than 100%
 			const expectedValue = match < 100 ? ` (Expected: ${gtJob[field.key]})` : '';
 			
+			// Truncate and highlight differences in text
+			let displayValue = job[field.key] as string || "N/A";
+			
+			// First highlight differences if the match is not perfect
+			if (match < 100) {
+				displayValue = matchUtils.highlightDifferences(displayValue, gtJob[field.key] as string);
+			}
+			
+			// Then truncate if it's a long description
+			if (field.key === "description" && displayValue.length > 60) {
+				// Count ANSI color codes as a single character, not splitting them
+				const ansiPattern = /\x1b\[\d+m/g;
+				// Replace ANSI codes temporarily for proper splitting
+				const cleanText = displayValue.replace(ansiPattern, '§ANSI§');
+				const words = cleanText.split(/\s+/);
+				
+				if (words.length > 10) {
+					// Join first 10 words and restore ANSI codes
+					let truncatedText = words.slice(0, 10).join(' ') + '...';
+					
+					// Restore ANSI codes
+					const ansiCodes = displayValue.match(ansiPattern) || [];
+					let ansiIndex = 0;
+					truncatedText = truncatedText.replace(/§ANSI§/g, () => {
+						return ansiCodes[ansiIndex++] || '';
+					});
+					
+					// Add reset code at the end if we have any color codes
+					if (ansiCodes.length > 0) {
+						truncatedText += '\x1b[0m';
+					}
+					
+					displayValue = truncatedText;
+				}
+			}
+			
 			console.log(
 				`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}, ` +
-					`${job[field.key] || "N/A"}${expectedValue}`,
+					`${displayValue}${expectedValue}`,
 			);
 		}
 	}
 
-	return fieldMatches;
+	return { fieldMatches, fieldTypeScores };
 }
 
 function compareExperiences(
@@ -179,9 +268,18 @@ function compareExperiences(
 ): {
 	imagePath: string;
 	fieldMatchRate: number;
+	fieldTypeScores: Record<string, number>;
 } {
 	console.log(`\n========== ${imagePath} ==========`);
 	const fieldMatchRates: number[] = [];
+	// Track all field scores by type
+	const fieldTypeAccumulator: Record<string, number[]> = {
+		"Title": [],
+		"Company": [],
+		"Start Date": [],
+		"End Date": [],
+		"Description": []
+	};
 
 	for (let i = 0; i < extracted.workExperiences.length; i++) {
 		const job = extracted.workExperiences[i];
@@ -195,7 +293,12 @@ function compareExperiences(
 
 			// Compare fields
 			const gtJob = groundTruth.workExperiences[bestMatch.index];
-			const fieldMatches = compareFields(job, gtJob);
+			const { fieldMatches, fieldTypeScores } = compareFields(job, gtJob);
+
+			// Add individual field scores to accumulator
+			for (const [fieldName, score] of Object.entries(fieldTypeScores)) {
+				fieldTypeAccumulator[fieldName].push(score);
+			}
 
 			// Calculate job match rate
 			const jobMatchRate =
@@ -214,10 +317,24 @@ function compareExperiences(
 				fieldMatchRates.length
 			: 0;
 
+	// Calculate average for each field type
+	const fieldTypeScores: Record<string, number> = {};
+	console.log("Field Type Averages:");
+	for (const [fieldName, scores] of Object.entries(fieldTypeAccumulator)) {
+		if (scores.length > 0) {
+			fieldTypeScores[fieldName] = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+			console.log(`Average ${fieldName} match rate: ${fieldTypeScores[fieldName].toFixed(1)}%`);
+		} else {
+			fieldTypeScores[fieldName] = 0;
+			console.log(`${fieldName.padEnd(12)}: N/A`);
+		}
+	}
+
 	console.log(`\nOverall field match rate: ${overallMatchRate.toFixed(1)}%`);
 
 	return {
 		imagePath,
 		fieldMatchRate: overallMatchRate,
+		fieldTypeScores
 	};
 }
