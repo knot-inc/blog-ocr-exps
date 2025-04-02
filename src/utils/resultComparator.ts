@@ -249,12 +249,12 @@ function compareFields(
 			if (field.key === "description") {
 				// Print the field header first
 				console.log(
-					`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}`
+					`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}`,
 				);
-				
+
 				// Then print the actual description on the next line(s)
 				console.log(`    ${displayValue}`);
-				
+
 				// If there's an expected value, print it on a separate line for better readability
 				if (match < 100) {
 					console.log(`    Expected: ${gtJob[field.key]}`);
@@ -263,7 +263,7 @@ function compareFields(
 				// For other fields, keep the current inline format
 				console.log(
 					`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}, ` +
-						`${displayValue}${expectedValue}`
+						`${displayValue}${expectedValue}`,
 				);
 			}
 		}
