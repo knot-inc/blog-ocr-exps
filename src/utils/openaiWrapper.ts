@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { Prompt } from "../types/prompt";
+import type { z } from "zod";
+import type { Prompt } from "../types/prompt";
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
 import dotenv from "dotenv";
@@ -17,7 +17,7 @@ export class OpenAIWrapper {
 	}
 
 	async completion<
-		TParams extends Record<string, any>,
+		TParams extends Record<string, unknown>,
 		TSchema extends z.ZodType,
 	>({
 		prompt,
@@ -41,9 +41,9 @@ export class OpenAIWrapper {
 			const messages = prompt.messages.map((message) => {
 				if (typeof message.content === "string") {
 					let content = message.content;
-					Object.entries(variables).forEach(([key, value]) => {
+					for (const [key, value] of Object.entries(variables)) {
 						content = content.replace(`{${key}}`, String(value));
-					});
+					}
 
 					// Handle images in the last user message
 					if (

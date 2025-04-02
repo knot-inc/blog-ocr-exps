@@ -1,283 +1,338 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
+import type { z } from "zod";
+import type { parseWorkExperienceSchema } from "../prompts/parse-work-experience";
 
-/**
- * Calculate match percentage between two strings
- */
-function calculateMatchPercentage(
-	extracted: string,
-	groundTruth: string,
-): number {
-	if (!extracted || !groundTruth) return 0;
-	if (extracted === groundTruth) return 100;
+// String matching utilities
+const matchUtils = {
+	getMatchPercentage: (exStr: string, gtStr: string) => {
+		if (!exStr || !gtStr) return 0;
+		if (exStr === gtStr) return 100;
 
-	// Special handling for dates
-	if (
-		groundTruth.match(/\d{4}-\d{2}-\d{2}/) &&
-		extracted.match(/\d{4}(-\d{2}(-\d{2})?)?/)
-	) {
-		const gtParts = groundTruth.split("-");
-		const extractedParts = extracted.split("-");
+		// For dates
+		if (
+			gtStr.match(/\d{4}-\d{2}(-\d{2})?/) &&
+			exStr.match(/\d{4}(-\d{2}(-\d{2})?)?/)
+		) {
+			const parts1 = exStr.split("-");
+			const parts2 = gtStr.split("-");
 
-		if (extractedParts[0] === gtParts[0]) {
-			if (extractedParts.length === 1) return 33; // Only year
-			if (extractedParts.length >= 2 && extractedParts[1] === gtParts[1])
-				return 67; // Year and month
+			if (parts1[0] === parts2[0]) {
+				if (parts1.length === 1) return 33; // Year only
+				if (parts1.length >= 2 && parts1[1] === parts2[1]) return 67; // Year and month
+			}
+			return 0;
 		}
-		return 0;
-	}
 
-	// For text fields
-	const gtWords = [...new Set(groundTruth.toLowerCase().split(/\s+/))].filter(
-		(word) => word.length > 3,
-	);
-	const extractedWords = extracted.toLowerCase().split(/\s+/);
-	const foundWords = gtWords.filter((word) => extractedWords.includes(word));
+		// For text
+		const words2 = [...new Set(gtStr.toLowerCase().split(/\s+/))].filter(
+			(w) => w.length > 3,
+		);
+		const words1 = exStr.toLowerCase().split(/\s+/);
+		return (
+			(words2.filter((w) => words1.includes(w)).length / words2.length) * 100
+		);
+	},
 
-	return (foundWords.length / gtWords.length) * 100;
-}
+	// Get match emoji based on score
+	getEmoji: (score: number) => (score === 100 ? "✅" : score > 50 ? "⚠️ " : "❌"),
 
-/**
- * Compare extracted work experiences with ground truth
- */
-function compareWorkExperiences(
-	extracted: any[],
-	groundTruth: any[],
-	imagePath: string,
-) {
-	console.log(`\n========== ${imagePath} ==========`);
-	const matchedEntries = new Array(groundTruth.length).fill(false);
-	const fieldMatchRates: number[] = [];
-
-	extracted.forEach((job, i) => {
-		console.log(`\nWork experience #${i + 1}:`);
-		let bestMatchIndex = -1;
-		let bestMatchScore = 0;
-
-		groundTruth.forEach((gtJob, j) => {
-			let score = 0;
-			// Calculate scores
-			if (job.title && gtJob.title) {
-				score += calculateMatchPercentage(job.title, gtJob.title) > 50 ? 1 : 0;
-			}
-			if (job.company && gtJob.company) {
-				score +=
-					calculateMatchPercentage(job.company, gtJob.company) > 50 ? 1 : 0;
-			}
-			if (job.startDate && gtJob.startDate) {
-				score +=
-					calculateMatchPercentage(job.startDate, gtJob.startDate) > 50 ? 1 : 0;
-			}
-			if (job.endDate && gtJob.endDate) {
-				score +=
-					calculateMatchPercentage(job.endDate, gtJob.endDate) > 50 ? 1 : 0;
-			}
-
-			if (score > bestMatchScore) {
-				bestMatchScore = score;
-				bestMatchIndex = j;
-			}
-		});
-
-		if (bestMatchScore >= 2) {
-			console.log(`Match with ground truth #${bestMatchIndex + 1}`);
-			matchedEntries[bestMatchIndex] = true;
-
-			const gtJob = groundTruth[bestMatchIndex];
-			const jobFieldMatches: number[] = [];
-
-			// Compare each field with emoji first
-			const titleMatch = calculateMatchPercentage(job.title, gtJob.title);
-			jobFieldMatches.push(titleMatch);
-			const titleEmoji =
-				titleMatch === 100 ? "✅" : titleMatch > 50 ? "⚠️" : "❌";
-			console.log(
-				`  Title: ${titleEmoji} ${titleMatch.toFixed(0)}% match, ${job.title || "N/A"} (Expected: ${gtJob.title})`,
-			);
-
-			const companyMatch = calculateMatchPercentage(job.company, gtJob.company);
-			jobFieldMatches.push(companyMatch);
-			const companyEmoji =
-				companyMatch === 100 ? "✅" : companyMatch > 50 ? "⚠️" : "❌";
-			console.log(
-				`  Company: ${companyEmoji} ${companyMatch.toFixed(0)}% match, ${job.company || "N/A"} (Expected: ${gtJob.company})`,
-			);
-
-			// Date handling
-			const startDateMatch = calculateMatchPercentage(
-				job.startDate,
-				gtJob.startDate,
-			);
-			jobFieldMatches.push(startDateMatch);
-			let startDateEmoji = "❌";
-			let startDateNote = "";
-
-			if (startDateMatch === 100) {
-				startDateEmoji = "✅";
-			} else if (startDateMatch === 67) {
-				startDateEmoji = "⚠️";
-				startDateNote = " (Year-Month)";
-			} else if (startDateMatch === 33) {
-				startDateEmoji = "⚠️";
-				startDateNote = " (Year only)";
-			}
-
-			console.log(
-				`  Start Date: ${startDateEmoji} ${startDateMatch.toFixed(0)}% match${startDateNote}, ${job.startDate || "N/A"} (Expected: ${gtJob.startDate})`,
-			);
-
-			const endDateMatch = calculateMatchPercentage(job.endDate, gtJob.endDate);
-			jobFieldMatches.push(endDateMatch);
-			let endDateEmoji = "❌";
-			let endDateNote = "";
-
-			if (endDateMatch === 100) {
-				endDateEmoji = "✅";
-			} else if (endDateMatch === 67) {
-				endDateEmoji = "⚠️";
-				endDateNote = " (Year-Month)";
-			} else if (endDateMatch === 33) {
-				endDateEmoji = "⚠️";
-				endDateNote = " (Year only)";
-			}
-
-			console.log(
-				`  End Date: ${endDateEmoji} ${endDateMatch.toFixed(0)}% match${endDateNote}, ${job.endDate || "N/A"} (Expected: ${gtJob.endDate})`,
-			);
-
-			let descMatch = 0;
-			if (job.description && gtJob.description) {
-				descMatch = calculateMatchPercentage(
-					job.description,
-					gtJob.description,
-				);
-				jobFieldMatches.push(descMatch);
-				const descEmoji =
-					descMatch === 100 ? "✅" : descMatch > 50 ? "⚠️" : "❌";
-				console.log(
-					`  Description: ${descEmoji} ${descMatch.toFixed(0)}% match`,
-				);
-			} else {
-				console.log(
-					`  Description: ❌ 0% match, ${!job.description ? "Missing in extracted" : "Missing in ground truth"}`,
-				);
-			}
-
-			// Calculate average match rate for this job entry
-			const jobMatchRate =
-				jobFieldMatches.reduce((sum, rate) => sum + rate, 0) /
-				jobFieldMatches.length;
-			console.log(`  Entry match rate: ${jobMatchRate.toFixed(1)}%`);
-
-			// Add to overall field match rates
-			fieldMatchRates.push(jobMatchRate);
-		} else {
-			console.log(`❌ No good match found. Best score: ${bestMatchScore}`);
+	// Get date-specific note
+	getDateNote: (score: number) =>
+		score === 67 ? " (Year-Month)" : score === 33 ? " (Year only)" : "",
+		
+	// Highlight differences in text
+	highlightDifferences: (extractedText: string, groundTruthText: string): string => {
+		if (!extractedText || !groundTruthText) return extractedText || "N/A";
+		if (extractedText === groundTruthText) return extractedText;
+		
+		// For dates or simple values, just return the extracted text
+		if (extractedText.length < 20 || groundTruthText.length < 20) {
+			return extractedText;
 		}
-	});
 
-	// Report unmatched entries
-	const unmatchedCount = matchedEntries.filter((matched) => !matched).length;
-	if (unmatchedCount > 0) {
-		console.log(`\n❌ ${unmatchedCount} ground truth entries not matched:`);
-		groundTruth.forEach((gtJob, i) => {
-			if (!matchedEntries[i]) {
-				console.log(
-					`  ${i + 1}. ${gtJob.title} at ${gtJob.company} (${gtJob.startDate} to ${gtJob.endDate})`,
-				);
+		// For longer text like descriptions, highlight word differences
+		const extractedWords = extractedText.split(/\s+/);
+		const groundTruthWords = groundTruthText.split(/\s+/);
+		
+		const highlightedWords = extractedWords.map(word => {
+			// Using toLowerCase for case-insensitive comparison
+			if (!groundTruthWords.some(gtWord => gtWord.toLowerCase() === word.toLowerCase())) {
+				// Highlight different words with ANSI color codes (red)
+				return `\x1b[31m${word}\x1b[0m`;
 			}
+			return word;
 		});
-	}
+		
+		return highlightedWords.join(' ');
+	},
+};
 
-	// Calculate the match rate based on matched entries
-	const matchedCount = matchedEntries.filter(Boolean).length;
-	const entryMatchPercent = ((matchedCount / groundTruth.length) * 100).toFixed(
-		1,
-	);
-
-	// Calculate the overall match rate as the mean of all field match percentages
-	const overallMatchRate =
-		fieldMatchRates.length > 0
-			? fieldMatchRates.reduce((sum, rate) => sum + rate, 0) /
-				fieldMatchRates.length
-			: 0;
-
-	console.log(
-		`\nEntry match: ${matchedCount}/${groundTruth.length} (${entryMatchPercent}%)`,
-	);
-	console.log(
-		`Overall match rate (all items percentage mean): ${overallMatchRate.toFixed(1)}%`,
-	);
-
-	return {
-		imagePath,
-		entryMatchRate: parseFloat(entryMatchPercent),
-		fieldMatchRate: overallMatchRate,
-	};
-}
-
-/**
- * Main function to run comparison across multiple images
- */
 export async function compareToGroundTruth(
-	imageInputFn: (imagePath: string) => Promise<any>,
+	imageInputFn: (
+		imagePath: string,
+	) => Promise<z.infer<typeof parseWorkExperienceSchema>>,
 	groundTruthPath: string,
-) {
+): Promise<
+	Array<{
+		imagePath: string;
+		fieldMatchRate: number;
+		fieldTypeScores: Record<string, number>;
+	}>
+> {
 	try {
-		// Define image paths
-		const imagePaths = [
+		const imagePaths: string[] = [
 			"./assets/images/standard.png",
 			"./assets/images/side-by-side.png",
 			"./assets/images/split.png",
 			"./assets/images/decorated.png",
 		];
 
-		// Load ground truth data
-		const groundTruth = JSON.parse(
+		const groundTruth: z.infer<typeof parseWorkExperienceSchema> = JSON.parse(
 			fs.readFileSync(path.resolve(groundTruthPath), "utf8"),
 		);
+		const results: Array<{
+			imagePath: string;
+			fieldMatchRate: number;
+			fieldTypeScores: Record<string, number>;
+		}> = [];
 
-		// Process each image and compare results
-		const results = [];
 		for (const imagePath of imagePaths) {
 			try {
-				// Process the image using the provided function
 				const result = await imageInputFn(imagePath);
-
-				// Compare with ground truth
-				const comparisonResult = compareWorkExperiences(
-					result.workExperiences,
-					groundTruth.workExperiences,
-					imagePath,
-				);
-
-				results.push(comparisonResult);
+				const comparison = compareExperiences(result, groundTruth, imagePath);
+				results.push(comparison);
 			} catch (error) {
 				console.error(`Error processing ${imagePath}:`, error);
 			}
 		}
 
-		// Output final summary
-		console.log("\n===== FINAL SUMMARY =====");
-		results.forEach((r) => {
-			console.log(
-				`${r.imagePath}: Entry match: ${r.entryMatchRate}%, Field match: ${r.fieldMatchRate}%`,
-			);
-		});
+		// Print summary
+		console.log("\n========== SUMMARY ==========");
+		for (const r of results) {
+			console.log(`${r.imagePath}: Fields: ${r.fieldMatchRate.toFixed(1)}%`);
+		}
 
-		const avgEntryMatchRate =
-			results.reduce((sum, r) => sum + r.entryMatchRate, 0) / results.length;
-		const avgFieldMatchRate =
+		const avgFieldMatch =
 			results.reduce((sum, r) => sum + r.fieldMatchRate, 0) / results.length;
 
-		console.log(`Average entry match rate: ${avgEntryMatchRate.toFixed(1)}%`);
-		console.log(
-			`Average field match rate (all items percentage mean): ${avgFieldMatchRate.toFixed(1)}%`,
-		);
+		// Calculate and display average of each field type across all images
+		console.log("\nField Type Averages:");
+		const fieldTypes = ["Title", "Company", "Start Date", "End Date", "Description"];
+		const fieldTypeAverages: Record<string, number> = {};
+		
+		for (const fieldType of fieldTypes) {
+			const scores = results
+				.map(r => r.fieldTypeScores[fieldType])
+				.filter(score => score > 0);
+			
+			if (scores.length > 0) {
+				const avgScore = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+				fieldTypeAverages[fieldType] = avgScore;
+				console.log(`${fieldType.padEnd(12)}: ${avgScore.toFixed(1)}%`);
+			} else {
+				fieldTypeAverages[fieldType] = 0;
+				console.log(`${fieldType.padEnd(12)}: N/A`);
+			}
+		}
+
+		console.log("=========================");
+		console.log(`Average field match: ${avgFieldMatch.toFixed(1)}%`);
+		console.log("==========================");
+		
 
 		return results;
 	} catch (error) {
-		console.error("Error in comparison:", error);
+		console.error("Comparison error:", error);
 		throw error;
 	}
+}
+function findBestMatch(
+	job: z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0],
+	groundTruthJobs: z.infer<typeof parseWorkExperienceSchema>["workExperiences"],
+): { index: number; score: number } {
+	let bestIndex = -1;
+	let bestScore = 0;
+
+	for (const [j, gtJob] of groundTruthJobs.entries()) {
+		const fields = ["title", "company", "startDate", "endDate"];
+		let score = 0;
+
+		for (const field of fields) {
+			if (
+				job[field as keyof typeof job] &&
+				gtJob[field as keyof typeof gtJob]
+			) {
+				score +=
+					matchUtils.getMatchPercentage(
+						job[field as keyof typeof job] as string,
+						gtJob[field as keyof typeof gtJob] as string,
+					) > 50
+						? 1
+						: 0;
+			}
+		}
+
+		if (score > bestScore) {
+			bestScore = score;
+			bestIndex = j;
+		}
+	}
+
+	return { index: bestIndex, score: bestScore };
+}
+
+function compareFields(
+	job: z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0],
+	gtJob: z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0],
+): { fieldMatches: number[], fieldTypeScores: Record<string, number> } {
+	const fieldMatches: number[] = [];
+	const fieldTypeScores: Record<string, number> = {};
+	
+	const fields: Array<{
+		key: keyof z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0];
+		name: string;
+		isDate: boolean;
+	}> = [
+		{ key: "title", name: "Title", isDate: false },
+		{ key: "company", name: "Company", isDate: false },
+		{ key: "startDate", name: "Start Date", isDate: true },
+		{ key: "endDate", name: "End Date", isDate: true },
+		{ key: "description", name: "Description", isDate: false },
+	];
+
+	for (const field of fields) {
+		if (job[field.key] && gtJob[field.key]) {
+			const match = matchUtils.getMatchPercentage(
+				job[field.key] as string,
+				gtJob[field.key] as string,
+			);
+			fieldMatches.push(match);
+			
+			// Store the match score for this field type
+			fieldTypeScores[field.name] = match;
+
+			const emoji = matchUtils.getEmoji(match);
+			const note = field.isDate ? matchUtils.getDateNote(match) : "";
+
+			// Only show expected value when score is less than 100%
+			const expectedValue = match < 100 ? ` (Expected: ${gtJob[field.key]})` : '';
+			
+			// Truncate and highlight differences in text
+			let displayValue = job[field.key] as string || "N/A";
+			
+			// First highlight differences if the match is not perfect
+			if (match < 100) {
+				displayValue = matchUtils.highlightDifferences(displayValue, gtJob[field.key] as string);
+			}
+			
+			// Then truncate if it's a long description
+			if (field.key === "description" && displayValue.length > 60) {
+				// Count ANSI color codes as a single character, not splitting them
+				// Using string split/join approach instead of direct regex with control characters
+				const cleanText = displayValue.split('\u001B[').join('§ANSI§[');
+				const words = cleanText.split(/\s+/);
+				
+				if (words.length > 10) {
+					// Join first 10 words and restore ANSI codes
+					let truncatedText = `${words.slice(0, 10).join(' ')}...`;
+					
+					// Restore ANSI codes by replacing the markers
+					truncatedText = truncatedText.replace(/§ANSI§\[/g, '\u001B[');
+					
+					// Add reset code at the end if there are any color codes
+					if (truncatedText.includes('\u001B[')) {
+						truncatedText += '\u001B[0m';
+					}
+					
+					displayValue = truncatedText;
+				}
+			}
+			
+			console.log(
+				`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}, ` +
+					`${displayValue}${expectedValue}`,
+			);
+		}
+	}
+
+	return { fieldMatches, fieldTypeScores };
+}
+
+function compareExperiences(
+	extracted: z.infer<typeof parseWorkExperienceSchema>,
+	groundTruth: z.infer<typeof parseWorkExperienceSchema>,
+	imagePath: string,
+): {
+	imagePath: string;
+	fieldMatchRate: number;
+	fieldTypeScores: Record<string, number>;
+} {
+	console.log(`\n========== ${imagePath} ==========`);
+	const fieldMatchRates: number[] = [];
+	// Track all field scores by type
+	const fieldTypeAccumulator: Record<string, number[]> = {
+		"Title": [],
+		"Company": [],
+		"Start Date": [],
+		"End Date": [],
+		"Description": []
+	};
+
+	for (let i = 0; i < extracted.workExperiences.length; i++) {
+		const job = extracted.workExperiences[i];
+		console.log(`\nWork experience #${i + 1}:`);
+
+		// Find best match
+		const bestMatch = findBestMatch(job, groundTruth.workExperiences);
+
+		if (bestMatch.score >= 2) {
+			console.log(`Match with ground truth #${bestMatch.index + 1}`);
+
+			// Compare fields
+			const gtJob = groundTruth.workExperiences[bestMatch.index];
+			const { fieldMatches, fieldTypeScores } = compareFields(job, gtJob);
+
+			// Add individual field scores to accumulator
+			for (const [fieldName, score] of Object.entries(fieldTypeScores)) {
+				fieldTypeAccumulator[fieldName].push(score);
+			}
+
+			// Calculate job match rate
+			const jobMatchRate =
+				fieldMatches.reduce((sum, rate) => sum + rate, 0) / fieldMatches.length;
+			console.log(`  Field match rate: ${jobMatchRate.toFixed(1)}%`);
+			fieldMatchRates.push(jobMatchRate);
+		} else {
+			console.log(`❌ No good match found. Best score: ${bestMatch.score}`);
+		}
+	}
+
+	// Calculate overall field match rate
+	const overallMatchRate =
+		fieldMatchRates.length > 0
+			? fieldMatchRates.reduce((sum, rate) => sum + rate, 0) /
+				fieldMatchRates.length
+			: 0;
+
+	// Calculate average for each field type
+	const fieldTypeScores: Record<string, number> = {};
+	console.log("Field Type Averages:");
+	for (const [fieldName, scores] of Object.entries(fieldTypeAccumulator)) {
+		if (scores.length > 0) {
+			fieldTypeScores[fieldName] = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+			console.log(`Average ${fieldName} match rate: ${fieldTypeScores[fieldName].toFixed(1)}%`);
+		} else {
+			fieldTypeScores[fieldName] = 0;
+			console.log(`${fieldName.padEnd(12)}: N/A`);
+		}
+	}
+
+	console.log(`\nOverall field match rate: ${overallMatchRate.toFixed(1)}%`);
+
+	return {
+		imagePath,
+		fieldMatchRate: overallMatchRate,
+		fieldTypeScores
+	};
 }

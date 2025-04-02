@@ -1,4 +1,4 @@
-import { Prompt } from "../types/prompt";
+import type { Prompt } from "../types/prompt";
 import { z } from "zod";
 
 export const parseWorkExperienceSchema = z.object({
@@ -27,8 +27,8 @@ export const parseWorkExperiencePrompt: Prompt<
     Extract work history from OCR-extracted resume. Correct any OCR errors. Maintain original texts.
       ### Steps ###
       1. Mark the work history section.
-      2. Read only the text from that section and extract. 
-			3. Dates should be in YYYY-MM-DD format. If a month range is specified without exact dates, set startDate to the first day of the month and endDate to the last day of the month. (Jan 2021 -> 2021-01-01 to 2021-01-31)
+      2. Read only the text from that section and extract. **Keep the original text.**
+			3. Dates should be in YYYY-MM-DD format; if a range is specified without exact dates, set startDate to the earliest possible date in the range and endDate to the latest possible date in the range (e.g., "Jan 2021" → 2021-01-01 to 2021-01-31, "2001 - 2002" → 2001-01-01 to 2002-12-31, "Feb 2021 - March 2021" → 2021-02-01 to 2021-03-31).
     // Example 1 (current job started from January 2020)
     
     "title": "Software Engineer",
@@ -43,9 +43,9 @@ export const parseWorkExperiencePrompt: Prompt<
     "company": "",
     "Description": "Worked as a freelancer.",
     "startDate": "2020-01-01",
-    "endDate": "2023-04-01"
+    "endDate": "2023-04-30"
     
-   
+
     OCR-extracted resume: ###
     {resume}
     ###
