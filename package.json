@@ -12,6 +12,7 @@
     "check": "biome check --apply ./src",
     "image-input": "ts-node src/processors/imageInput.ts",
     "tesseract-ocr": "ts-node src/processors/tesseractOcr.ts",
+    "tesseract-ocr-with-bbox": "ts-node src/processors/tesseractOcrWithBbox.ts",
     "mistral-ocr": "ts-node src/processors/mistralOcr.ts"
   },
   "keywords": [],

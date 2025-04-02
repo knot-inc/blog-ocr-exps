@@ -11,24 +11,26 @@ const tesseractOcr = async (
 	imagePath: string,
 ): Promise<z.infer<typeof parseWorkExperienceSchema>> => {
 	const worker = await createWorker("eng");
-	
-  try {
-    const { data: { text } } = await worker.recognize(imagePath);	
-    
-    const openAI = new OpenAIWrapper();
-    return await openAI.completion({
-      prompt: parseWorkExperiencePrompt,
-      modelName: "gpt-4o",
-      variables: {
-        resume: text,
-      },
-    });
-  } catch (error) {
-    console.error("Error during OCR processing:", error);
-    throw error;
-  } finally {
-    await worker.terminate();
-  }
+
+	try {
+		const {
+			data: { text },
+		} = await worker.recognize(imagePath);
+
+		const openAI = new OpenAIWrapper();
+		return await openAI.completion({
+			prompt: parseWorkExperiencePrompt,
+			modelName: "gpt-4o",
+			variables: {
+				resume: text,
+			},
+		});
+	} catch (error) {
+		console.error("Error during OCR processing:", error);
+		throw error;
+	} finally {
+		await worker.terminate();
+	}
 };
 
 export default tesseractOcr;
