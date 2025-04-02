@@ -233,7 +233,7 @@ function compareFields(
 			const expectedValue =
 				match < 100 ? ` (Expected: ${gtJob[field.key]})` : "";
 
-			// Truncate and highlight differences in text
+			// Highlight differences in text
 			let displayValue = (job[field.key] as string) || "N/A";
 
 			// First highlight differences if the match is not perfect
@@ -244,33 +244,28 @@ function compareFields(
 				);
 			}
 
-			// Then truncate if it's a long description
-			if (field.key === "description" && displayValue.length > 60) {
-				// Count ANSI color codes as a single character, not splitting them
-				// Using string split/join approach instead of direct regex with control characters
-				const cleanText = displayValue.split("\u001B[").join("§ANSI§[");
-				const words = cleanText.split(/\s+/);
-
-				if (words.length > 10) {
-					// Join first 10 words and restore ANSI codes
-					let truncatedText = `${words.slice(0, 10).join(" ")}...`;
-
-					// Restore ANSI codes by replacing the markers
-					truncatedText = truncatedText.replace(/§ANSI§\[/g, "\u001B[");
-
-					// Add reset code at the end if there are any color codes
-					if (truncatedText.includes("\u001B[")) {
-						truncatedText += "\u001B[0m";
-					}
-
-					displayValue = truncatedText;
+			// For descriptions or other long fields, we don't truncate anymore
+			// Instead, we format the output nicely
+			if (field.key === "description") {
+				// Print the field header first
+				console.log(
+					`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}`
+				);
+				
+				// Then print the actual description on the next line(s)
+				console.log(`    ${displayValue}`);
+				
+				// If there's an expected value, print it on a separate line for better readability
+				if (match < 100) {
+					console.log(`    Expected: ${gtJob[field.key]}`);
 				}
+			} else {
+				// For other fields, keep the current inline format
+				console.log(
+					`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}, ` +
+						`${displayValue}${expectedValue}`
+				);
 			}
-
-			console.log(
-				`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}, ` +
-					`${displayValue}${expectedValue}`,
-			);
 		}
 	}
 
