@@ -35,17 +35,21 @@ const matchUtils = {
 	},
 
 	// Get match emoji based on score
-	getEmoji: (score: number) => (score === 100 ? "✅" : score > 50 ? "⚠️ " : "❌"),
+	getEmoji: (score: number) =>
+		score === 100 ? "✅" : score > 50 ? "⚠️ " : "❌",
 
 	// Get date-specific note
 	getDateNote: (score: number) =>
 		score === 67 ? " (Year-Month)" : score === 33 ? " (Year only)" : "",
-		
+
 	// Highlight differences in text
-	highlightDifferences: (extractedText: string, groundTruthText: string): string => {
+	highlightDifferences: (
+		extractedText: string,
+		groundTruthText: string,
+	): string => {
 		if (!extractedText || !groundTruthText) return extractedText || "N/A";
 		if (extractedText === groundTruthText) return extractedText;
-		
+
 		// For dates or simple values, just return the extracted text
 		if (extractedText.length < 20 || groundTruthText.length < 20) {
 			return extractedText;
@@ -54,17 +58,21 @@ const matchUtils = {
 		// For longer text like descriptions, highlight word differences
 		const extractedWords = extractedText.split(/\s+/);
 		const groundTruthWords = groundTruthText.split(/\s+/);
-		
-		const highlightedWords = extractedWords.map(word => {
+
+		const highlightedWords = extractedWords.map((word) => {
 			// Using toLowerCase for case-insensitive comparison
-			if (!groundTruthWords.some(gtWord => gtWord.toLowerCase() === word.toLowerCase())) {
+			if (
+				!groundTruthWords.some(
+					(gtWord) => gtWord.toLowerCase() === word.toLowerCase(),
+				)
+			) {
 				// Highlight different words with ANSI color codes (red)
 				return `\x1b[31m${word}\x1b[0m`;
 			}
 			return word;
 		});
-		
-		return highlightedWords.join(' ');
+
+		return highlightedWords.join(" ");
 	},
 };
 
@@ -118,16 +126,23 @@ export async function compareToGroundTruth(
 
 		// Calculate and display average of each field type across all images
 		console.log("\nField Type Averages:");
-		const fieldTypes = ["Title", "Company", "Start Date", "End Date", "Description"];
+		const fieldTypes = [
+			"Title",
+			"Company",
+			"Start Date",
+			"End Date",
+			"Description",
+		];
 		const fieldTypeAverages: Record<string, number> = {};
-		
+
 		for (const fieldType of fieldTypes) {
 			const scores = results
-				.map(r => r.fieldTypeScores[fieldType])
-				.filter(score => score > 0);
-			
+				.map((r) => r.fieldTypeScores[fieldType])
+				.filter((score) => score > 0);
+
 			if (scores.length > 0) {
-				const avgScore = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+				const avgScore =
+					scores.reduce((sum, score) => sum + score, 0) / scores.length;
 				fieldTypeAverages[fieldType] = avgScore;
 				console.log(`${fieldType.padEnd(12)}: ${avgScore.toFixed(1)}%`);
 			} else {
@@ -139,7 +154,6 @@ export async function compareToGroundTruth(
 		console.log("=========================");
 		console.log(`Average field match: ${avgFieldMatch.toFixed(1)}%`);
 		console.log("==========================");
-		
 
 		return results;
 	} catch (error) {
@@ -185,10 +199,10 @@ function findBestMatch(
 function compareFields(
 	job: z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0],
 	gtJob: z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0],
-): { fieldMatches: number[], fieldTypeScores: Record<string, number> } {
+): { fieldMatches: number[]; fieldTypeScores: Record<string, number> } {
 	const fieldMatches: number[] = [];
 	const fieldTypeScores: Record<string, number> = {};
-	
+
 	const fields: Array<{
 		key: keyof z.infer<typeof parseWorkExperienceSchema>["workExperiences"][0];
 		name: string;
@@ -208,7 +222,7 @@ function compareFields(
 				gtJob[field.key] as string,
 			);
 			fieldMatches.push(match);
-			
+
 			// Store the match score for this field type
 			fieldTypeScores[field.name] = match;
 
@@ -216,39 +230,43 @@ function compareFields(
 			const note = field.isDate ? matchUtils.getDateNote(match) : "";
 
 			// Only show expected value when score is less than 100%
-			const expectedValue = match < 100 ? ` (Expected: ${gtJob[field.key]})` : '';
-			
+			const expectedValue =
+				match < 100 ? ` (Expected: ${gtJob[field.key]})` : "";
+
 			// Truncate and highlight differences in text
-			let displayValue = job[field.key] as string || "N/A";
-			
+			let displayValue = (job[field.key] as string) || "N/A";
+
 			// First highlight differences if the match is not perfect
 			if (match < 100) {
-				displayValue = matchUtils.highlightDifferences(displayValue, gtJob[field.key] as string);
+				displayValue = matchUtils.highlightDifferences(
+					displayValue,
+					gtJob[field.key] as string,
+				);
 			}
-			
+
 			// Then truncate if it's a long description
 			if (field.key === "description" && displayValue.length > 60) {
 				// Count ANSI color codes as a single character, not splitting them
 				// Using string split/join approach instead of direct regex with control characters
-				const cleanText = displayValue.split('\u001B[').join('§ANSI§[');
+				const cleanText = displayValue.split("\u001B[").join("§ANSI§[");
 				const words = cleanText.split(/\s+/);
-				
+
 				if (words.length > 10) {
 					// Join first 10 words and restore ANSI codes
-					let truncatedText = `${words.slice(0, 10).join(' ')}...`;
-					
+					let truncatedText = `${words.slice(0, 10).join(" ")}...`;
+
 					// Restore ANSI codes by replacing the markers
-					truncatedText = truncatedText.replace(/§ANSI§\[/g, '\u001B[');
-					
+					truncatedText = truncatedText.replace(/§ANSI§\[/g, "\u001B[");
+
 					// Add reset code at the end if there are any color codes
-					if (truncatedText.includes('\u001B[')) {
-						truncatedText += '\u001B[0m';
+					if (truncatedText.includes("\u001B[")) {
+						truncatedText += "\u001B[0m";
 					}
-					
+
 					displayValue = truncatedText;
 				}
 			}
-			
+
 			console.log(
 				`  ${emoji} ${field.name.padEnd(12)}: ${match.toFixed(0)}% match${note}, ` +
 					`${displayValue}${expectedValue}`,
@@ -272,11 +290,11 @@ function compareExperiences(
 	const fieldMatchRates: number[] = [];
 	// Track all field scores by type
 	const fieldTypeAccumulator: Record<string, number[]> = {
-		"Title": [],
-		"Company": [],
+		Title: [],
+		Company: [],
 		"Start Date": [],
 		"End Date": [],
-		"Description": []
+		Description: [],
 	};
 
 	for (let i = 0; i < extracted.workExperiences.length; i++) {
@@ -320,8 +338,11 @@ function compareExperiences(
 	console.log("Field Type Averages:");
 	for (const [fieldName, scores] of Object.entries(fieldTypeAccumulator)) {
 		if (scores.length > 0) {
-			fieldTypeScores[fieldName] = scores.reduce((sum, score) => sum + score, 0) / scores.length;
-			console.log(`Average ${fieldName} match rate: ${fieldTypeScores[fieldName].toFixed(1)}%`);
+			fieldTypeScores[fieldName] =
+				scores.reduce((sum, score) => sum + score, 0) / scores.length;
+			console.log(
+				`Average ${fieldName} match rate: ${fieldTypeScores[fieldName].toFixed(1)}%`,
+			);
 		} else {
 			fieldTypeScores[fieldName] = 0;
 			console.log(`${fieldName.padEnd(12)}: N/A`);
@@ -333,6 +354,6 @@ function compareExperiences(
 	return {
 		imagePath,
 		fieldMatchRate: overallMatchRate,
-		fieldTypeScores
+		fieldTypeScores,
 	};
 }

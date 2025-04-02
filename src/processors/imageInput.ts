@@ -1,10 +1,11 @@
+import type { z } from "zod";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
 import {
 	parseWorkExperiencePrompt,
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
 import imageToBase64 from "../utils/imageToBase64";
-import type { z } from "zod";
+import { compareToGroundTruth } from "../utils/resultComparator";
 
 const processImage = async (
 	imagePath: string,
@@ -23,3 +24,7 @@ const processImage = async (
 	});
 };
 export default processImage;
+
+if (require.main === module) {
+	compareToGroundTruth(processImage, "./assets/ground-truth.json");
+}
