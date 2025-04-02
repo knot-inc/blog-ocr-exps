@@ -1,10 +1,16 @@
 import { OpenAIWrapper } from "../utils/openaiWrapper";
-import { parseWorkExperiencePrompt } from "../prompts/parse-work-experience";
-import { imageToBase64Sync } from "../utils/imageToBase64";
+import {
+	parseWorkExperiencePrompt,
+	type parseWorkExperienceSchema,
+} from "../prompts/parse-work-experience";
+import imageToBase64 from "../utils/imageToBase64";
+import type { z } from "zod";
 
-const processImage = async (imagePath: string) => {
+const processImage = async (
+	imagePath: string,
+): Promise<z.infer<typeof parseWorkExperienceSchema>> => {
 	const openAI = new OpenAIWrapper();
-	const imageUrl = imageToBase64Sync(imagePath, "image/png");
+	const imageUrl = await imageToBase64(imagePath, "image/png");
 
 	return await openAI.completion({
 		prompt: parseWorkExperiencePrompt,
