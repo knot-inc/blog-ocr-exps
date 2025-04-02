@@ -25,8 +25,8 @@ const mistralOcr = async (
 			imageUrl: imageUrl,
 		},
 	});
-	const result = ocrResponse.pages.map((page) => page.markdown).join("\n\n")
-		
+	const result = ocrResponse.pages.map((page) => page.markdown).join("\n\n");
+
 	const openAI = new OpenAIWrapper();
 	return await openAI.completion({
 		prompt: parseWorkExperiencePrompt,
