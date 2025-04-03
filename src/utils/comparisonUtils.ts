@@ -142,7 +142,13 @@ export function compareFields(
 	];
 
 	for (const field of fields) {
-		if (job[field.key] && gtJob[field.key]) {
+		if (gtJob[field.key]) {
+			if (!job[field.key]) {
+				fieldMatches.push(0);
+				fieldTypeScores[field.name] = 0;
+				continue;
+			}
+
 			const match = matchUtils.getMatchPercentage(
 				job[field.key] as string,
 				gtJob[field.key] as string,

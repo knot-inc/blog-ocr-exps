@@ -73,21 +73,21 @@
     "extractedData": {
       "workExperiences": [
         {
-          "title": "Senior Web Designer",
+          "title": "SENIOR WEB DESIGNER",
           "company": "Creative Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
-          "title": "Graphic Designer",
+          "title": "GRAPHIC DESIGNER",
           "company": "Creative Market",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "Marketing Manager",
+          "title": "MARKETING MANAGER",
           "company": "Manufacturing Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
           "startDate": "2013-01-01",
@@ -123,7 +123,7 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png",
-    "fieldMatchRate": 100,
+    "fieldMatchRate": 80,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 0,
@@ -134,28 +134,28 @@
     "extractedData": {
       "workExperiences": [
         {
-          "title": "LOREM IPSUM",
+          "title": "Lorem Ipsum",
           "company": "",
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2010-01-01",
           "endDate": "2015-12-31"
         },
         {
-          "title": "LOREM IPSUM",
+          "title": "Lorem Ipsum",
           "company": "",
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2010-01-01",
           "endDate": "2017-12-31"
         },
         {
-          "title": "LOREM IPSUM",
+          "title": "Lorem Ipsum",
           "company": "",
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "LOREM IPSUM",
+          "title": "Lorem Ipsum",
           "company": "",
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2020-01-01",
@@ -259,27 +259,27 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png",
-    "fieldMatchRate": 96.25270379834274,
+    "fieldMatchRate": 100,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 81.26351899171371
+      "Description": 100
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Enter Your Job Position Here",
           "company": "Company Name",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.",
+          "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.",
           "startDate": "2019-01-01",
           "endDate": "Present"
         },
         {
           "title": "Enter Your Job Position Here",
           "company": "Company Name",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.",
+          "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.",
           "startDate": "2016-01-01",
           "endDate": "2019-12-31"
         }
@@ -367,7 +367,7 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png",
-    "fieldMatchRate": 100,
+    "fieldMatchRate": 60,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 0,
