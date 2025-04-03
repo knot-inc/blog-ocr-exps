@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OCR Field Match Analysis Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .diff {
+        background-color: #ffecec;
+        color: #dc2626;
+        font-weight: bold;
+      }
+      .bg-light-green {
+        background-color: #ecfdf5;
+      }
+      .bg-light-red {
+        background-color: #fef2f2;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-center mb-8">
+        OCR Field Match Analysis Results
+      </h1>
+
+      <!-- File Input Section -->
+      <div class="mb-6 bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-xl font-bold mb-4">Upload JSON Results</h2>
+        <input
+          type="file"
+          id="jsonFileInput"
+          accept=".json"
+          class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        />
+      </div>
+
+      <!-- Summary Section -->
+      <div
+        id="summarySection"
+        class="mb-12 bg-white shadow-md rounded-lg p-6 hidden"
+      >
+        <h2 class="text-2xl font-bold mb-4">Field Type Averages</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white">
+            <thead>
+              <tr class="bg-gray-200 text-gray-700">
+                <th class="py-3 px-4 text-left">Field Type</th>
+                <th class="py-3 px-4 text-right">Match Rate</th>
+              </tr>
+            </thead>
+            <tbody id="summaryTableBody" class="text-gray-600">
+              <!-- Summary data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Detailed Results Section -->
+      <div id="detailedResultsContainer" class="mb-8">
+        <!-- Detailed results will be populated here -->
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Static test data (remove in production)
+        const testData = [
+          {
+            imagePath:
+              "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/freepik/000.png",
+            fieldMatchRate: 94.64959114959113,
+            fieldTypeScores: {
+              Title: 100,
+              Company: 73.24795574795574,
+              "Start Date": 100,
+              "End Date": 100,
+              Description: 100,
+            },
+            extractedData: {
+              workExperiences: [
+                {
+                  title: "Senior Web Designer",
+                  company: "Creative Agency / Chicago",
+                  description:
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+                  startDate: "2020-01-01",
+                  endDate: "Present",
+                },
+                {
+                  title: "Graphic Designer",
+                  company: "Creative Market / Chicago",
+                  description:
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+                  startDate: "2015-01-01",
+                  endDate: "2020-12-31",
+                },
+                {
+                  title: "Marketing Manager",
+                  company: "Manufacturing Agency / NJ",
+                  description:
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+                  startDate: "2013-01-01",
+                  endDate: "2015-12-31",
+                },
+              ],
+            },
+            groundTruth: {
+              workExperiences: [
+                {
+                  title: "Senior Web Designer",
+                  company: "Creative Agency",
+                  description:
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+                  startDate: "2020-01-01",
+                  endDate: "Present",
+                },
+                {
+                  title: "Graphic Designer",
+                  company: "Creative Market",
+                  description:
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+                  startDate: "2015-01-01",
+                  endDate: "2020-12-31",
+                },
+                {
+                  title: "Marketing Manager",
+                  company: "Manufacturing Agency",
+                  description:
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+                  startDate: "2013-01-01",
+                  endDate: "2015-12-31",
+                },
+              ],
+            },
+          },
+        ];
+
+        // Initialize with test data
+        // processData(testData);
+
+        // File input handling
+        const fileInput = document.getElementById("jsonFileInput");
+        fileInput.addEventListener("change", handleFileSelect);
+
+        function handleFileSelect(event) {
+          const file = event.target.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            try {
+              const jsonData = JSON.parse(e.target.result);
+              processData(jsonData);
+            } catch (error) {
+              alert("Error parsing JSON file: " + error.message);
+            }
+          };
+          reader.readAsText(file);
+        }
+
+        function processData(data) {
+          // Clear previous results
+          document.getElementById("summaryTableBody").innerHTML = "";
+          document.getElementById("detailedResultsContainer").innerHTML = "";
+
+          // Show summary section
+          document.getElementById("summarySection").classList.remove("hidden");
+
+          // Calculate overall averages across all files
+          const fieldTypes = [
+            "Title",
+            "Company",
+            "Start Date",
+            "End Date",
+            "Description",
+          ];
+          const fieldTypeAverages = {};
+          let totalFieldMatchRate = 0;
+
+          // Initialize field type averages
+          fieldTypes.forEach((fieldType) => {
+            fieldTypeAverages[fieldType] = 0;
+          });
+
+          // Sum up field match rates
+          data.forEach((fileData) => {
+            fieldTypes.forEach((fieldType) => {
+              if (fileData.fieldTypeScores[fieldType]) {
+                fieldTypeAverages[fieldType] +=
+                  fileData.fieldTypeScores[fieldType];
+              }
+            });
+            totalFieldMatchRate += fileData.fieldMatchRate;
+          });
+
+          // Calculate averages
+          fieldTypes.forEach((fieldType) => {
+            fieldTypeAverages[fieldType] =
+              fieldTypeAverages[fieldType] / data.length;
+          });
+          const overallAverage = totalFieldMatchRate / data.length;
+
+          // Populate summary table
+          const summaryTableBody = document.getElementById("summaryTableBody");
+          fieldTypes.forEach((fieldType) => {
+            const row = document.createElement("tr");
+            row.className = "border-b hover:bg-gray-50";
+            row.innerHTML = `
+                          <td class="py-3 px-4">${fieldType}</td>
+                          <td class="py-3 px-4 text-right">${fieldTypeAverages[
+                            fieldType
+                          ].toFixed(1)}%</td>
+                      `;
+            summaryTableBody.appendChild(row);
+          });
+
+          // Add overall average row
+          const overallRow = document.createElement("tr");
+          overallRow.className = "border-t-2 border-gray-300 font-bold";
+          overallRow.innerHTML = `
+                      <td class="py-3 px-4">Average field match</td>
+                      <td class="py-3 px-4 text-right">${overallAverage.toFixed(
+                        1
+                      )}%</td>
+                  `;
+          summaryTableBody.appendChild(overallRow);
+
+          // Generate detailed results for each file
+          data.forEach((fileData, fileIndex) => {
+            const fileSection = document.createElement("div");
+            fileSection.className = "mb-12 bg-white shadow-md rounded-lg p-6";
+
+            // File header
+            const fileName = fileData.imagePath.split("/").pop();
+            fileSection.innerHTML = `
+                          <h2 class="text-2xl font-bold mb-4">File ${
+                            fileIndex + 1
+                          }: ${fileName}</h2>
+                          <div class="mb-4">
+                              <p class="text-sm text-gray-600">Path: ${
+                                fileData.imagePath
+                              }</p>
+                              <p class="text-sm text-gray-600">Overall Match Rate: ${fileData.fieldMatchRate.toFixed(
+                                2
+                              )}%</p>
+                          </div>
+                      `;
+
+            // Generate work experiences comparison
+            const workExperiencesContainer = document.createElement("div");
+            const extractedExperiences = fileData.extractedData.workExperiences;
+            const groundTruthExperiences = fileData.groundTruth.workExperiences;
+
+            for (let i = 0; i < groundTruthExperiences.length; i++) {
+              const expContainer = document.createElement("div");
+              expContainer.className = "mb-8 border rounded-lg overflow-hidden";
+
+              const truth = groundTruthExperiences[i];
+              const extracted = extractedExperiences[i];
+
+              // Function to highlight differences
+              function highlightDifferences(truthText, extractedText) {
+                if (!truthText || !extractedText) return extractedText;
+
+                // Simple case: if they're identical
+                if (truthText === extractedText) return extractedText;
+
+                // Split text into words for comparison
+                const truthWords = truthText.split(" ");
+                const extractedWords = extractedText.split(" ");
+
+                // Find where the differences start
+                let result = "";
+                let commonPart = "";
+
+                // Find the common beginning
+                for (
+                  let i = 0;
+                  i < Math.min(truthWords.length, extractedWords.length);
+                  i++
+                ) {
+                  if (truthWords[i] === extractedWords[i]) {
+                    commonPart += extractedWords[i] + " ";
+                  } else {
+                    break;
+                  }
+                }
+
+                if (commonPart.length > 0) {
+                  result += commonPart.trim();
+                }
+
+                // Add the rest with highlighting
+                if (result.length < extractedText.length) {
+                  const diffStart = result.length > 0 ? result.length + 1 : 0;
+                  const diffText = extractedText.substring(diffStart);
+                  result += result.length > 0 ? " " : "";
+                  result += `<span class="diff">${diffText}</span>`;
+                }
+
+                return result;
+              }
+
+              expContainer.innerHTML = `
+                              <div class="bg-gray-100 px-4 py-2 font-semibold">Experience #${
+                                i + 1
+                              }</div>
+                              <div class="p-4">
+                                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                      <div>
+                                          <h3 class="font-bold">Ground Truth</h3>
+                                          <div class="mt-2">
+                                              <p><span class="font-semibold">Title:</span> ${
+                                                truth.title
+                                              }</p>
+                                              <p><span class="font-semibold">Company:</span> ${
+                                                truth.company
+                                              }</p>
+                                              <p><span class="font-semibold">Start Date:</span> ${
+                                                truth.startDate
+                                              }</p>
+                                              <p><span class="font-semibold">End Date:</span> ${
+                                                truth.endDate
+                                              }</p>
+                                              <p><span class="font-semibold">Description:</span> ${
+                                                truth.description
+                                              }</p>
+                                          </div>
+                                      </div>
+                                      <div>
+                                          <h3 class="font-bold">Extracted Data</h3>
+                                          <div class="mt-2">
+                                              <p><span class="font-semibold">Title:</span> ${
+                                                extracted.title
+                                              }</p>
+                                              <p><span class="font-semibold">Company:</span> ${highlightDifferences(
+                                                truth.company,
+                                                extracted.company
+                                              )}</p>
+                                              <p><span class="font-semibold">Start Date:</span> ${
+                                                extracted.startDate
+                                              }</p>
+                                              <p><span class="font-semibold">End Date:</span> ${
+                                                extracted.endDate
+                                              }</p>
+                                              <p><span class="font-semibold">Description:</span> ${highlightDifferences(
+                                                truth.description,
+                                                extracted.description
+                                              )}</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          `;
+
+              workExperiencesContainer.appendChild(expContainer);
+            }
+
+            fileSection.appendChild(workExperiencesContainer);
+            document
+              .getElementById("detailedResultsContainer")
+              .appendChild(fileSection);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

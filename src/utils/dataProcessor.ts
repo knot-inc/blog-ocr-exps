@@ -14,7 +14,7 @@ export async function processDataFolder(
 	imageInputFn: (
 		imagePath: string,
 	) => Promise<z.infer<typeof parseWorkExperienceSchema>>,
-	dataFolder = "./assets/samples",
+	dataFolder = "./assets/inputs/samples",
 	saveOutput = false,
 ): Promise<
 	Array<{
