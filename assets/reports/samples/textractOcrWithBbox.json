@@ -14,28 +14,28 @@
         {
           "title": "Senior Software Engineer",
           "company": "Tech Solutions Inc.",
-          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices",
+          "description": "Led development of cloud-based customer management system. Optimized database performance, reducing query times by 40%. Mentored junior developers and implemented code review practices.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
           "title": "Software Developer",
           "company": "Digital Innovations",
-          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%",
+          "description": "Developed RESTful APIs for mobile application integrations. Implemented automated testing, increasing code coverage to 85%.",
           "startDate": "2018-01-01",
           "endDate": "2020-12-31"
         },
         {
           "title": "Junior Developer",
           "company": "Global Tech Labs",
-          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers on responsive designs",
+          "description": "Assisted in developing front-end components for e-commerce websites. Participated in daily Scrum meetings and sprint planning sessions. Collaborated with UX/UI designers on responsive designs.",
           "startDate": "2016-01-01",
           "endDate": "2018-12-31"
         },
         {
           "title": "Software Engineering Intern",
           "company": "CodeCraft Internship",
-          "description": "Developed small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "description": "Developed small features for internal tools using JavaScript. Created documentation for developer onboarding processes. Assisted senior engineers with testing and debugging tasks.",
           "startDate": "2015-07-01",
           "endDate": "2015-07-31"
         }
@@ -89,28 +89,28 @@
         {
           "title": "Senior Software Engineer",
           "company": "Tech Solutions Inc.",
-          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices",
+          "description": "Led development of cloud-based customer management system. Optimized database performance, reducing query times by 40%. Mentored junior developers and implemented code review practices.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
           "title": "Software Developer",
           "company": "Digital Innovations",
-          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%",
+          "description": "Developed RESTful APIs for mobile application integrations. Implemented automated testing, increasing code coverage to 85%.",
           "startDate": "2018-01-01",
           "endDate": "2020-12-31"
         },
         {
           "title": "Junior Developer",
           "company": "Global Tech Labs",
-          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning\nCollaborated with designers on responsive layouts",
+          "description": "Assisted in developing front-end components for e-commerce websites. Participated in daily Scrum meetings and sprint planning. Collaborated with designers on responsive layouts.",
           "startDate": "2016-01-01",
           "endDate": "2018-12-31"
         },
         {
           "title": "Software Engineering Intern",
           "company": "CodeCraft Internship",
-          "description": "Developed small features for internal JavaScript tools\nCreated documentation for developer onboarding\nAssisted senior engineers with testing and debugging tasks",
+          "description": "Developed small features for internal JavaScript tools. Created documentation for developer onboarding. Assisted senior engineers with testing and debugging tasks.",
           "startDate": "2015-07-01",
           "endDate": "2015-07-31"
         }
@@ -151,41 +151,41 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png",
-    "fieldMatchRate": 94.14251815984055,
+    "fieldMatchRate": 100,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 70.71259079920273
+      "Description": 100
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Senior Software Engineer",
           "company": "Tech Solutions Inc.",
-          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices\nDeveloped RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%\nAssisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers to implement responsive designs\nDeveloped small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "description": "Led development of cloud-based customer management system. Optimized database performance, reducing query times by 40%. Mentored junior developers and implemented code review practices.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
           "title": "Software Developer",
           "company": "Digital Innovations",
-          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%\nAssisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers to implement responsive designs\nDeveloped small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "description": "Developed RESTful APIs for mobile application integrations. Implemented automated testing, increasing code coverage to 85%.",
           "startDate": "2018-01-01",
           "endDate": "2020-12-31"
         },
         {
           "title": "Junior Developer",
           "company": "Global Tech Labs",
-          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers to implement responsive designs\nDeveloped small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "description": "Assisted in developing front-end components for e-commerce websites. Participated in daily Scrum meetings and sprint planning sessions. Collaborated with UX/UI designers to implement responsive designs.",
           "startDate": "2016-01-01",
           "endDate": "2018-12-31"
         },
         {
           "title": "Software Engineering Intern",
           "company": "CodeCraft Internship",
-          "description": "Developed small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "description": "Developed small features for internal tools using JavaScript. Created documentation for developer onboarding processes. Assisted senior engineers with testing and debugging tasks.",
           "startDate": "2015-07-01",
           "endDate": "2015-07-31"
         }
@@ -239,28 +239,28 @@
         {
           "title": "Senior Software Engineer",
           "company": "Tech Solutions Inc.",
-          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices",
+          "description": "Led development of cloud-based customer management system. Optimized database performance, reducing query times by 40%. Mentored junior developers and implemented code review practices.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
           "title": "Software Developer",
           "company": "Digital Innovations",
-          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%",
+          "description": "Developed RESTful APIs for mobile application integrations. Implemented automated testing, increasing code coverage to 85%.",
           "startDate": "2018-01-01",
           "endDate": "2020-12-31"
         },
         {
           "title": "Junior Developer",
           "company": "Global Tech Labs",
-          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers to implement responsive designs",
+          "description": "Assisted in developing front-end components for e-commerce websites. Participated in daily Scrum meetings and sprint planning sessions. Collaborated with UX/UI designers to implement responsive designs.",
           "startDate": "2016-01-01",
           "endDate": "2018-12-31"
         },
         {
           "title": "Software Engineering Intern",
           "company": "CodeCraft Internship",
-          "description": "Developed small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "description": "Developed small features for internal tools using JavaScript. Created documentation for developer onboarding processes. Assisted senior engineers with testing and debugging tasks.",
           "startDate": "2015-07-01",
           "endDate": "2015-07-31"
         }

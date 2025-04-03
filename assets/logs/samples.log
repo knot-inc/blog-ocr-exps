@@ -1,0 +1,2061 @@
+
+> blog-ocr-exps@1.0.0 dev /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps
+> ts-node src/main.ts save-reports -d assets/inputs/samples -o assets/reports/samples -p all
+
+Processing images from assets/inputs/samples using specified processors...
+Processing 4 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png ==========
+
+ # John Smith 
+
+## Software Engineer
+
+john.smith@mail.com | (555) 123-4567| † San Francisco, CA
+
+## * SUMMARY
+
+Results-driven software engineer with 5+ years of experience developing robust applications and leading development teams.
+
+## EXPERIENCE
+
+Tech Solutions Inc.
+2020 - Present Senior Software Engineer
+$\square$ Led development of cloud-based customer management system
+$\square$ Optimized database performance, reducing query times by $40 \%$
+$\square$ Mentored junior developers and implemented code review practices
+Digital Innovations
+2018 - 2020
+Software Developer
+$\square$ Developed RESTful APIs for mobile application integrations
+$\square$ Implemented automated testing, increasing code coverage to $85 \%$
+Global Tech Labs
+2016 - 2018
+Junior Developer
+$\square$ Assisted in developing front-end components for e-commerce websites
+$\square$ Participated in daily Scrum meetings and sprint planning sessions
+$\square$ Collaborated with UX/UI designers on responsive designs
+CodeCraft Internship
+July 2015
+Software Engineering Intern
+$\square$ Developed small features for internal tools using JavaScript
+$\square$ Created documentation for developer onboarding processes
+$\square$ Assisted senior engineers with testing and debugging tasks
+
+## EDUCATION
+
+BS in Computer Science
+University of Technology
+
+## SKILLS
+
+JavaScript
+React
+Node.js
+SOL-LE-AWS
+Git
+Cl/CD
+Agile 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png ==========
+
+ ## John Smith
+
+Software Engineer
+john.smith@email.com (555) 123-4567
+
+San Francisco, CA
+
+## SKILLS
+
+JavaScript
+
+React
+
+Node.js
+
+SQL
+
+AWS
+
+Git
+
+## CIIOD
+
+Agile
+
+## EDUCATION
+
+BS in Computer
+Science
+2014 - 2018
+University of
+Technology
+
+## SUMMARY
+
+Results-driven software engineer with 5+ years of experience developing robust applications and leading development teams.
+
+## EXPERIENCE
+
+Tech Solutions Inc.
+2020 - Present
+Senior Software Engineer
+
+- Led development of cloud-based customer management system
+- Optimized database performance, reducing query times by $40 \%$
+- Mentored junior developers and implemented code review practices
+
+Digital Innovations
+2018 - 2020
+Software Developer
+
+- Developed RESTful APIs for mobile application integrations
+- Implemented automated testing, increasing code coverage to $85 \%$
+
+Global Tech Labs
+2016 - 2018
+Junior Developer
+
+- Assisted in developing front-end components for e-commerce websites
+- Participated in daily Scrum meetings and sprint planning
+- Collaborated with designers on responsive layouts
+
+CodeCraft Internship
+July 2015
+Software Engineering Intern
+
+- Developed small features for internal JavaScript tools
+- Created documentation for developer onboarding
+- Assisted senior engineers with testing and debugging tasks 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png ==========
+
+ # John Smith 
+
+## Software Engineer
+
+john.smith@email.com | (555) 123-4567| San Francisco, CA
+
+## SUMMARY
+
+Results-driven software engineer with 5+ years of experience developing robust applications and leading development teams.
+
+## EXPERIENCE
+
+Tech Solutions Inc.
+Senior Software Engineer
+2020 - Present
+
+Digital Innovations
+Software Developer
+2018 - 2020
+Global Tech Labs
+Junior Developer
+2016 - 2018
+
+CodeCraft Internship
+Software Engineering Intern
+July 2015
+
+- Led development of cloud-based customer management system
+- Optimized database performance, reducing query times by $40 \%$
+- Mentored junior developers and implemented code review practices
+- Developed RESTful APIs for mobile application integrations
+- Implemented automated testing, increasing code coverage to $85 \%$
+- Assisted in developing front-end components for ecommerce websites
+- Participated in daily Scrum meetings and sprint planning sessions
+- Collaborated with UX/UI designers to implement responsive designs
+- Developed small features for internal tools using JavaScript
+- Created documentation for developer onboarding processes
+- Assisted senior engineers with testing and debugging tasks
+
+
+## EDUCATION
+
+BS in Computer Science
+2014 - 2018
+University of Technology
+
+## SKILLS
+
+JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png ==========
+
+ # John Smith 
+
+## Software Engineer
+
+john.smith@email.com | (555) 123-4567|San Francisco, CA
+
+## SUMMARY
+
+Results-driven software engineer with 5+ years of experience developing robust applications and leading development teams.
+
+## EXPERIENCE
+
+Tech Solutions Inc.
+2020 - Present
+
+## Senior Software Engineer
+
+- Led development of cloud-based customer management system
+- Optimized database performance, reducing query times by $40 \%$
+- Mentored junior developers and implemented code review practices
+
+Digital Innovations
+2018 - 2020
+
+## Software Developer
+
+- Developed RESTful APIs for mobile application integrations
+- Implemented automated testing, increasing code coverage to $85 \%$
+
+Global Tech Labs
+2016 - 2018
+
+## Junior Developer
+
+- Assisted in developing front-end components for e-commerce websites
+- Participated in daily Scrum meetings and sprint planning sessions
+- Collaborated with UX/UI designers to implement responsive designs
+
+CodeCraft Internship
+July 2015
+
+## Software Engineering Intern
+
+- Developed small features for internal tools using JavaScript
+- Created documentation for developer onboarding processes
+- Assisted senior engineers with testing and debugging tasks
+
+
+## EDUCATION
+
+BS in Computer Science
+2014 - 2018
+University of Technology
+
+## SKILLS
+
+JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies 
+
+
+Successfully processed 4 of 4 images
+Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 94% match
+    Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers on responsive designs
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 98.8%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 98.5%
+
+Overall field match rate: 99.7%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 84% match
+    - Assisted in developing front-end components for e-commerce websites
+- Participated in daily Scrum meetings and sprint planning
+- Collaborated with designers on responsive layouts
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 96.9%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ⚠️  Description : 95% match
+    - Developed small features for internal JavaScript tools
+- Created documentation for developer onboarding
+- Assisted senior engineers with testing and debugging tasks
+    Expected: Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+  Field match rate: 99.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 94.8%
+
+Overall field match rate: 99.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ⚠️  Description : 81% match
+    - Developed RESTful APIs for mobile application integrations
+- Implemented automated testing, increasing code coverage to 85%
+- Assisted in developing front-end components for ecommerce websites
+    Expected: Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to 85%
+  Field match rate: 96.3%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 82% match
+    - Participated in daily Scrum meetings and sprint planning sessions
+- Collaborated with UX/UI designers to implement responsive designs
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 96.4%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 90.9%
+
+Overall field match rate: 98.2%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+========== SUMMARY ==========
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png: Fields: 99.7%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png: Fields: 99.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png: Fields: 98.2%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png: Fields: 100.0%
+
+Field Type Averages:
+Title       : 100.0%
+Company     : 100.0%
+Start Date  : 100.0%
+End Date    : 100.0%
+Description : 96.0%
+=========================
+Average field match: 99.2%
+==========================
+Processing 4 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+Successfully processed 4 of 4 images
+Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 94% match
+    Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers on responsive designs
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 98.8%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 98.5%
+
+Overall field match rate: 99.7%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 84% match
+    Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning
+Collaborated with designers on responsive layouts
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 96.9%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ⚠️  Description : 95% match
+    Developed small features for internal JavaScript tools
+Created documentation for developer onboarding
+Assisted senior engineers with testing and debugging tasks
+    Expected: Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+  Field match rate: 99.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 94.8%
+
+Overall field match rate: 99.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ⚠️  Description : 56% match
+    Led development of cloud-based customer management system
+Optimized database performance, reducing query times by 40%
+Mentored junior developers and implemented code review practices
+Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to 85%
+Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+    Expected: Led development of cloud-based customer management system
+Optimized database performance, reducing query times by 40%
+Mentored junior developers and implemented code review practices
+  Field match rate: 91.2%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ⚠️  Description : 51% match
+    Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to 85%
+Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+    Expected: Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to 85%
+  Field match rate: 90.2%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 76% match
+    Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 95.2%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 70.7%
+
+Overall field match rate: 94.1%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+========== SUMMARY ==========
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png: Fields: 99.7%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png: Fields: 99.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png: Fields: 94.1%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png: Fields: 100.0%
+
+Field Type Averages:
+Title       : 100.0%
+Company     : 100.0%
+Start Date  : 100.0%
+End Date    : 100.0%
+Description : 91.0%
+=========================
+Average field match: 98.2%
+==========================
+Processing 4 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png ==========
+
+ SS | Y J
+4 3 3
+\ =u: John Smith
+ie
+Ee 3 V EL
+Pe 0 Rees Engineer
+- _— 0
+Hm john.smith@email.com | © (5655) 123-4667 | T San Francisco, CA
+AY Lo
+‘+ SUMMARY 3 _— y .
+Results-driven software en er wit + [Belgkperience developing robust
+applications and leading dev: men ms.
+: Ri —
+"7 EXPERIENCE —_— ia P)
+Tech Solutions Inc. » - Lh 3 2020 - Present
+Senior Software Engineer —<u | —~X
+_— a, ee ’
+® Led development of cloud-based customer nagement system
+® Optimized database performarice, reducirlg query times by 40% BB
+® Mentored junior developers and mes code review practices
+1 '
+Digital Innovations - i c A 1 \ & 2018 - 2020
+Software Developer i alt
+® Developed RESTful APIs for mobile application integration yo al 2 3
+Impl ted automated testing, increasin SEAN % Er
+® Implemented automated testing, incréasi pcr o38 efto 85% 5 %
+Global Tech Labs . . © 2016-201
+Junior Developer Ln] . | j : 5
+® Assisted in developing front-end EW for'e-commerce websites 'P i
+® Participated in daily Scrum meetings and sprint planning sessions ¥ -
+® Collaborated with UX/UI designers on responsive designs \:2
+CodeCraft Internship Bier y —_— July 201
+Software Engineering.lntern = : NT -
+— —— FR | ;
+® Developed small features faminternal t ing JavaScri 28
+® Created documentatio developer arding process 3 h [ag |
+® Assisted senior engineersimith testing ebugging tasks y' a ; RY
+J = is ; R )
+r EDUCATION PF w i \ \ ]
+BS in Computer Science | A | } 2014 - 2018
+University of Technology nN \ Hl \
+\ ,
+% SKILLS 0h] { ! ’ ~
+Sir) oy DR
+=f Y JA
+- - ‘af TETANY) \% om
+ 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png ==========
+
+ . SUMMARY
+John Smith
+Software Engineer Results-driven software engineer with 5+ years of
+. . ] experience developing robust applications and leading
+pli Ta Semail.com development teams.
+San Francisco, CA
+EXPERIENCE
+SKILLS
+Tech Solutions Inc. 2020 - Present
+JavaScript Senior Software Engineer
+oOEEEEEES——— « Led development of cloud-based customer management system
+« Optimized database performance, reducing query times by 40%
+React + Mentored junior developers and implemented code review
+CE practices
+Node.js
+Pr Digital Innovations 2018 - 2020
+saL Software Developer
+oEE—— « Developed RESTful APIs for mobile application integrations
+« Implemented automated testing, increasing code coverage to
+AWS 85%
+CE
+Git Global Tech Labs 2016 - 2018
+aEEEE—— Junior Developer
+cl/cb « Assisted in developing front-end components for e-commerce
+websites
+CE
+i « Participated in daily Scrum meetings and sprint planning
+Agile « Collaborated with designers on responsive layouts
+CE
+CodeCraft Internship July 2015
+EDUCATION Software Engineering Intern
+- « Developed small features for internal JavaScript tools
+BS in Computer « Created documentation for developer onboarding
+Science « Assisted senior engineers with testing and debugging tasks
+2014 - 2018
+University of
+Technology
+ 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png ==========
+
+ John Smith
+Software Engineer
+john.smith@email.com | (555) 123-4567 | San Francisco, CA
+
+SUMMARY
+Results-driven software engineer with 5+ years of experience developing robust
+applications and leading development teams.
+EXPERIENCE
+Tech Solutions Inc. « Led development of cloud-based customer management
+Senior Software Engineer system
+2020 - Present «+ Optimized database performance, reducing query times by
+
+40%
+
++ Mentored junior developers and implemented code review
+
+practices
+Digital Innovations - Developed RESTful APIs for mobile application integrations
+Software Developer + Implemented automated testing, increasing code coverage
+2018 - 2020 to 85%
+Global Tech Labs - Assisted in developing front-end components for e-
+Junior Developer commerce websites
+2016 - 2018 + Participated in daily Scrum meetings and sprint planning
+
+sessions
+
++ Collaborated with UX/UI designers to implement responsive
+
+designs
+CodeCraft Internship - Developed small features for internal tools using JavaScript
+Software Engineering Intern - Created documentation for developer onboarding processes
+July 2015 - Assisted senior engineers with testing and debugging tasks
+EDUCATION
+BS in Computer Science 2014 - 2018
+University of Technology
+SKILLS
+JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies
+ 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png ==========
+
+ John Smith
+Software Engineer
+john.smith@email.com | (555) 123-4567 | San Francisco, CA
+
+SUMMARY
+Results-driven software engineer with 5+ years of experience developing robust
+applications and leading development teams.
+EXPERIENCE
+Tech Solutions Inc. 2020 - Present
+Senior Software Engineer
+« Led development of cloud-based customer management system
+« Optimized database performance, reducing query times by 40%
+« Mentored junior developers and implemented code review practices
+Digital Innovations 2018 - 2020
+Software Developer
+« Developed RESTful APIs for mobile application integrations
+« Implemented automated testing, increasing code coverage to 85%
+Global Tech Labs 2016 - 2018
+Junior Developer
+« Assisted in developing front-end components for e-commerce websites
+« Participated in daily Scrum meetings and sprint planning sessions
+« Collaborated with UX/UI designers to implement responsive designs
+CodeCraft Internship July 2015
+Software Engineering Intern
+« Developed small features for internal tools using JavaScript
+« Created documentation for developer onboarding processes
+« Assisted senior engineers with testing and debugging tasks
+EDUCATION
+BS in Computer Science 2014 - 2018
+University of Technology
+SKILLS
+JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies
+ 
+
+
+Successfully processed 4 of 4 images
+Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ⚠️  Description : 93% match
+    Led development of cloud-based customer management system. Optimized database performance, reducing query times by 40%. Mentored junior developers and established code review practices.
+    Expected: Led development of cloud-based customer management system
+Optimized database performance, reducing query times by 40%
+Mentored junior developers and implemented code review practices
+  Field match rate: 98.7%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ⚠️  Description : 91% match
+    Developed RESTful APIs for mobile application integration. Implemented automated testing, increasing test coverage to 85%.
+    Expected: Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to 85%
+  Field match rate: 98.2%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ❌ End Date    : 0% match, 2017-12-31 (Expected: 2018-12-31)
+  ⚠️  Description : 90% match
+    Assisted in developing front-end features for e-commerce websites. Participated in daily Scrum meetings and sprint planning sessions. Collaborated with UX/UI designers on responsive designs.
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 78.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ⚠️  Description : 97% match
+    Developed small features for internal tools using JavaScript. Created documentation for developer onboarding process. Assisted senior engineers with testing and debugging tasks.
+    Expected: Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+  Field match rate: 99.4%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 75.0%
+Average Description match rate: 92.8%
+
+Overall field match rate: 93.6%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 84% match
+    Assisted in developing front-end components for e-commerce websites. Participated in daily Scrum meetings and sprint planning. Collaborated with designers on responsive layouts.
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 96.9%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ❌ Company     : 50% match, CodeCraft (Expected: CodeCraft Internship)
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ⚠️  Description : 95% match
+    Developed small features for internal JavaScript tools. Created documentation for developer onboarding. Assisted senior engineers with testing and debugging tasks.
+    Expected: Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+  Field match rate: 88.9%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 87.4%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 94.8%
+
+Overall field match rate: 96.4%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ❌ Company     : 50% match, CodeCraft (Expected: CodeCraft Internship)
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 89.9%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 87.4%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 97.5%
+
+========== SUMMARY ==========
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png: Fields: 93.6%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png: Fields: 96.4%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png: Fields: 100.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png: Fields: 97.5%
+
+Field Type Averages:
+Title       : 100.0%
+Company     : 93.7%
+Start Date  : 100.0%
+End Date    : 93.8%
+Description : 96.9%
+=========================
+Average field match: 96.9%
+==========================
+Processing 4 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png ==========
+
+ [{"bbox":{"x0":350,"y0":0,"x1":1235,"y1":35},"text":"SS | Y J\n"},{"bbox":{"x0":461,"y0":34,"x1":697,"y1":57},"text":"4 3 3\n"},{"bbox":{"x0":358,"y0":35,"x1":743,"y1":85},"text":"\\ =u: John Smith\n"},{"bbox":{"x0":543,"y0":87,"x1":569,"y1":99},"text":"ie\n"},{"bbox":{"x0":354,"y0":106,"x1":692,"y1":130},"text":"Ee 3 V EL\n"},{"bbox":{"x0":351,"y0":113,"x1":797,"y1":168},"text":"Pe 0 Rees Engineer\n"},{"bbox":{"x0":344,"y0":154,"x1":564,"y1":184},"text":"- _— 0\n"},{"bbox":{"x0":177,"y0":177,"x1":1225,"y1":212},"text":"Hm john.smith@email.com | © (5655) 123-4667 | T San Francisco, CA\n"},{"bbox":{"x0":530,"y0":195,"x1":1217,"y1":264},"text":"AY Lo\n"},{"bbox":{"x0":28,"y0":250,"x1":912,"y1":286},"text":"‘+ SUMMARY 3 _— y .\n"},{"bbox":{"x0":28,"y0":290,"x1":1056,"y1":357},"text":"Results-driven software en er wit + [Belgkperience developing robust\n"},{"bbox":{"x0":27,"y0":341,"x1":702,"y1":379},"text":"applications and leading dev: men ms.\n"},{"bbox":{"x0":36,"y0":382,"x1":1168,"y1":423},"text":": Ri —\n"},{"bbox":{"x0":26,"y0":419,"x1":1150,"y1":452},"text":"\"7 EXPERIENCE —_— ia P)\n"},{"bbox":{"x0":27,"y0":467,"x1":1209,"y1":502},"text":"Tech Solutions Inc. » - Lh 3 2020 - Present\n"},{"bbox":{"x0":26,"y0":502,"x1":603,"y1":533},"text":"Senior Software Engineer —<u | —~X\n"},{"bbox":{"x0":453,"y0":528,"x1":1187,"y1":553},"text":"_— a, ee ’\n"},{"bbox":{"x0":26,"y0":532,"x1":784,"y1":583},"text":"® Led development of cloud-based customer nagement system\n"},{"bbox":{"x0":26,"y0":572,"x1":1197,"y1":614},"text":"® Optimized database performarice, reducirlg query times by 40% BB\n"},{"bbox":{"x0":26,"y0":613,"x1":823,"y1":670},"text":"® Mentored junior developers and mes code review practices\n"},{"bbox":{"x0":692,"y0":640,"x1":794,"y1":653},"text":"1 '\n"},{"bbox":{"x0":28,"y0":644,"x1":1209,"y1":699},"text":"Digital Innovations - i c A 1 \\ & 2018 - 2020\n"},{"bbox":{"x0":26,"y0":683,"x1":721,"y1":769},"text":"Software Developer i alt\n"},{"bbox":{"x0":26,"y0":743,"x1":1214,"y1":779},"text":"® Developed RESTful APIs for mobile application integration yo al 2 3\n"},{"bbox":{"x0":59,"y0":745,"x1":1108,"y1":814},"text":"Impl ted automated testing, increasin SEAN % Er\n"},{"bbox":{"x0":26,"y0":767,"x1":1149,"y1":849},"text":"® Implemented automated testing, incréasi pcr o38 efto 85% 5 %\n"},{"bbox":{"x0":27,"y0":830,"x1":1191,"y1":861},"text":"Global Tech Labs . . © 2016-201\n"},{"bbox":{"x0":26,"y0":849,"x1":1126,"y1":904},"text":"Junior Developer Ln] . | j : 5\n"},{"bbox":{"x0":26,"y0":879,"x1":1088,"y1":939},"text":"® Assisted in developing front-end EW for'e-commerce websites 'P i\n"},{"bbox":{"x0":26,"y0":930,"x1":1056,"y1":967},"text":"® Participated in daily Scrum meetings and sprint planning sessions ¥ -\n"},{"bbox":{"x0":26,"y0":973,"x1":894,"y1":999},"text":"® Collaborated with UX/UI designers on responsive designs \\:2\n"},{"bbox":{"x0":27,"y0":1026,"x1":1192,"y1":1058},"text":"CodeCraft Internship Bier y —_— July 201\n"},{"bbox":{"x0":26,"y0":1051,"x1":1210,"y1":1091},"text":"Software Engineering.lntern = : NT -\n"},{"bbox":{"x0":281,"y0":1089,"x1":1228,"y1":1119},"text":"— —— FR | ;\n"},{"bbox":{"x0":26,"y0":1107,"x1":1192,"y1":1138},"text":"® Developed small features faminternal t ing JavaScri 28\n"},{"bbox":{"x0":26,"y0":1133,"x1":1231,"y1":1186},"text":"® Created documentatio developer arding process 3 h [ag |\n"},{"bbox":{"x0":26,"y0":1168,"x1":1081,"y1":1201},"text":"® Assisted senior engineersimith testing ebugging tasks y' a ; RY\n"},{"bbox":{"x0":233,"y0":1180,"x1":1086,"y1":1231},"text":"J = is ; R )\n"},{"bbox":{"x0":30,"y0":1210,"x1":1054,"y1":1302},"text":"r EDUCATION PF w i \\ \\ ]\n"},{"bbox":{"x0":28,"y0":1270,"x1":1209,"y1":1304},"text":"BS in Computer Science | A | } 2014 - 2018\n"},{"bbox":{"x0":28,"y0":1316,"x1":799,"y1":1360},"text":"University of Technology nN \\ Hl \\\n"},{"bbox":{"x0":573,"y0":1351,"x1":771,"y1":1374},"text":"\\ ,\n"},{"bbox":{"x0":27,"y0":1361,"x1":1162,"y1":1402},"text":"% SKILLS 0h] { ! ’ ~\n"},{"bbox":{"x0":501,"y0":1390,"x1":1236,"y1":1508},"text":"Sir) oy DR\n"},{"bbox":{"x0":918,"y0":1469,"x1":1162,"y1":1494},"text":"=f Y JA\n"},{"bbox":{"x0":452,"y0":1486,"x1":1229,"y1":1508},"text":"- - ‘af TETANY) \\% om\n"}] 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png ==========
+
+ [{"bbox":{"x0":197,"y0":23,"x1":569,"y1":48},"text":". SUMMARY\n"},{"bbox":{"x0":32,"y0":42,"x1":243,"y1":73},"text":"John Smith\n"},{"bbox":{"x0":33,"y0":96,"x1":1062,"y1":135},"text":"Software Engineer Results-driven software engineer with 5+ years of\n"},{"bbox":{"x0":33,"y0":136,"x1":1122,"y1":167},"text":". . ] experience developing robust applications and leading\n"},{"bbox":{"x0":31,"y0":164,"x1":681,"y1":218},"text":"pli Ta Semail.com development teams.\n"},{"bbox":{"x0":33,"y0":228,"x1":237,"y1":250},"text":"San Francisco, CA\n"},{"bbox":{"x0":424,"y0":249,"x1":596,"y1":269},"text":"EXPERIENCE\n"},{"bbox":{"x0":33,"y0":294,"x1":129,"y1":316},"text":"SKILLS\n"},{"bbox":{"x0":422,"y0":319,"x1":1167,"y1":338},"text":"Tech Solutions Inc. 2020 - Present\n"},{"bbox":{"x0":33,"y0":351,"x1":749,"y1":394},"text":"JavaScript Senior Software Engineer\n"},{"bbox":{"x0":28,"y0":393,"x1":1166,"y1":427},"text":"oOEEEEEES——— « Led development of cloud-based customer management system\n"},{"bbox":{"x0":424,"y0":429,"x1":1163,"y1":451},"text":"« Optimized database performance, reducing query times by 40%\n"},{"bbox":{"x0":34,"y0":449,"x1":1094,"y1":483},"text":"React + Mentored junior developers and implemented code review\n"},{"bbox":{"x0":28,"y0":483,"x1":525,"y1":515},"text":"CE practices\n"},{"bbox":{"x0":34,"y0":528,"x1":129,"y1":554},"text":"Node.js\n"},{"bbox":{"x0":28,"y0":552,"x1":1166,"y1":587},"text":"Pr Digital Innovations 2018 - 2020\n"},{"bbox":{"x0":33,"y0":588,"x1":677,"y1":631},"text":"saL Software Developer\n"},{"bbox":{"x0":28,"y0":630,"x1":1104,"y1":667},"text":"oEE—— « Developed RESTful APIs for mobile application integrations\n"},{"bbox":{"x0":424,"y0":666,"x1":1131,"y1":688},"text":"« Implemented automated testing, increasing code coverage to\n"},{"bbox":{"x0":32,"y0":688,"x1":472,"y1":716},"text":"AWS 85%\n"},{"bbox":{"x0":32,"y0":727,"x1":249,"y1":743},"text":"CE\n"},{"bbox":{"x0":33,"y0":762,"x1":1167,"y1":790},"text":"Git Global Tech Labs 2016 - 2018\n"},{"bbox":{"x0":28,"y0":792,"x1":642,"y1":832},"text":"aEEEE—— Junior Developer\n"},{"bbox":{"x0":33,"y0":838,"x1":1142,"y1":874},"text":"cl/cb « Assisted in developing front-end components for e-commerce\n"},{"bbox":{"x0":422,"y0":870,"x1":520,"y1":888},"text":"websites\n"},{"bbox":{"x0":32,"y0":887,"x1":264,"y1":903},"text":"CE\n"},{"bbox":{"x0":68,"y0":902,"x1":1075,"y1":931},"text":"i « Participated in daily Scrum meetings and sprint planning\n"},{"bbox":{"x0":32,"y0":924,"x1":1007,"y1":962},"text":"Agile « Collaborated with designers on responsive layouts\n"},{"bbox":{"x0":32,"y0":967,"x1":279,"y1":983},"text":"CE\n"},{"bbox":{"x0":423,"y0":997,"x1":1167,"y1":1020},"text":"CodeCraft Internship July 2015\n"},{"bbox":{"x0":34,"y0":1029,"x1":779,"y1":1062},"text":"EDUCATION Software Engineering Intern\n"},{"bbox":{"x0":28,"y0":1071,"x1":1041,"y1":1101},"text":"- « Developed small features for internal JavaScript tools\n"},{"bbox":{"x0":34,"y0":1107,"x1":996,"y1":1140},"text":"BS in Computer « Created documentation for developer onboarding\n"},{"bbox":{"x0":33,"y0":1139,"x1":1110,"y1":1176},"text":"Science « Assisted senior engineers with testing and debugging tasks\n"},{"bbox":{"x0":34,"y0":1192,"x1":168,"y1":1210},"text":"2014 - 2018\n"},{"bbox":{"x0":34,"y0":1226,"x1":194,"y1":1252},"text":"University of\n"},{"bbox":{"x0":33,"y0":1266,"x1":180,"y1":1292},"text":"Technology\n"}] 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png ==========
+
+ [{"bbox":{"x0":494,"y0":37,"x1":745,"y1":73},"text":"John Smith\n"},{"bbox":{"x0":474,"y0":100,"x1":767,"y1":134},"text":"Software Engineer\n"},{"bbox":{"x0":231,"y0":167,"x1":1007,"y1":193},"text":"john.smith@email.com | (555) 123-4567 | San Francisco, CA\n\n"},{"bbox":{"x0":29,"y0":240,"x1":175,"y1":260},"text":"SUMMARY\n"},{"bbox":{"x0":30,"y0":305,"x1":1058,"y1":331},"text":"Results-driven software engineer with 5+ years of experience developing robust\n"},{"bbox":{"x0":29,"y0":345,"x1":609,"y1":371},"text":"applications and leading development teams.\n"},{"bbox":{"x0":30,"y0":417,"x1":203,"y1":438},"text":"EXPERIENCE\n"},{"bbox":{"x0":29,"y0":480,"x1":1159,"y1":503},"text":"Tech Solutions Inc. « Led development of cloud-based customer management\n"},{"bbox":{"x0":29,"y0":512,"x1":581,"y1":539},"text":"Senior Software Engineer system\n"},{"bbox":{"x0":30,"y0":545,"x1":1184,"y1":568},"text":"2020 - Present «+ Optimized database performance, reducing query times by\n\n"},{"bbox":{"x0":503,"y0":577,"x1":553,"y1":595},"text":"40%\n\n"},{"bbox":{"x0":505,"y0":609,"x1":1174,"y1":631},"text":"+ Mentored junior developers and implemented code review\n\n"},{"bbox":{"x0":503,"y0":641,"x1":605,"y1":663},"text":"practices\n"},{"bbox":{"x0":30,"y0":672,"x1":1185,"y1":695},"text":"Digital Innovations - Developed RESTful APIs for mobile application integrations\n"},{"bbox":{"x0":29,"y0":704,"x1":1182,"y1":730},"text":"Software Developer + Implemented automated testing, increasing code coverage\n"},{"bbox":{"x0":30,"y0":738,"x1":582,"y1":760},"text":"2018 - 2020 to 85%\n"},{"bbox":{"x0":29,"y0":774,"x1":1103,"y1":796},"text":"Global Tech Labs - Assisted in developing front-end components for e-\n"},{"bbox":{"x0":28,"y0":805,"x1":726,"y1":831},"text":"Junior Developer commerce websites\n"},{"bbox":{"x0":30,"y0":838,"x1":1155,"y1":861},"text":"2016 - 2018 + Participated in daily Scrum meetings and sprint planning\n\n"},{"bbox":{"x0":503,"y0":870,"x1":598,"y1":888},"text":"sessions\n\n"},{"bbox":{"x0":505,"y0":902,"x1":1191,"y1":924},"text":"+ Collaborated with UX/UI designers to implement responsive\n\n"},{"bbox":{"x0":503,"y0":934,"x1":589,"y1":956},"text":"designs\n"},{"bbox":{"x0":29,"y0":965,"x1":1190,"y1":988},"text":"CodeCraft Internship - Developed small features for internal tools using JavaScript\n"},{"bbox":{"x0":29,"y0":997,"x1":1200,"y1":1024},"text":"Software Engineering Intern - Created documentation for developer onboarding processes\n"},{"bbox":{"x0":29,"y0":1030,"x1":1191,"y1":1057},"text":"July 2015 - Assisted senior engineers with testing and debugging tasks\n"},{"bbox":{"x0":30,"y0":1102,"x1":192,"y1":1122},"text":"EDUCATION\n"},{"bbox":{"x0":30,"y0":1164,"x1":1211,"y1":1183},"text":"BS in Computer Science 2014 - 2018\n"},{"bbox":{"x0":30,"y0":1195,"x1":346,"y1":1221},"text":"University of Technology\n"},{"bbox":{"x0":29,"y0":1260,"x1":125,"y1":1280},"text":"SKILLS\n"},{"bbox":{"x0":29,"y0":1325,"x1":933,"y1":1351},"text":"JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies\n"}] 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+(node:55998) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png ==========
+
+ [{"bbox":{"x0":494,"y0":47,"x1":745,"y1":83},"text":"John Smith\n"},{"bbox":{"x0":474,"y0":110,"x1":767,"y1":144},"text":"Software Engineer\n"},{"bbox":{"x0":231,"y0":177,"x1":1007,"y1":203},"text":"john.smith@email.com | (555) 123-4567 | San Francisco, CA\n\n"},{"bbox":{"x0":29,"y0":250,"x1":175,"y1":270},"text":"SUMMARY\n"},{"bbox":{"x0":30,"y0":315,"x1":1058,"y1":341},"text":"Results-driven software engineer with 5+ years of experience developing robust\n"},{"bbox":{"x0":29,"y0":355,"x1":609,"y1":381},"text":"applications and leading development teams.\n"},{"bbox":{"x0":30,"y0":427,"x1":203,"y1":448},"text":"EXPERIENCE\n"},{"bbox":{"x0":29,"y0":490,"x1":1211,"y1":509},"text":"Tech Solutions Inc. 2020 - Present\n"},{"bbox":{"x0":29,"y0":522,"x1":356,"y1":549},"text":"Senior Software Engineer\n"},{"bbox":{"x0":31,"y0":568,"x1":773,"y1":590},"text":"« Led development of cloud-based customer management system\n"},{"bbox":{"x0":31,"y0":600,"x1":770,"y1":622},"text":"« Optimized database performance, reducing query times by 40%\n"},{"bbox":{"x0":31,"y0":632,"x1":812,"y1":654},"text":"« Mentored junior developers and implemented code review practices\n"},{"bbox":{"x0":30,"y0":687,"x1":1211,"y1":706},"text":"Digital Innovations 2018 - 2020\n"},{"bbox":{"x0":29,"y0":719,"x1":284,"y1":745},"text":"Software Developer\n"},{"bbox":{"x0":31,"y0":765,"x1":711,"y1":787},"text":"« Developed RESTful APIs for mobile application integrations\n"},{"bbox":{"x0":31,"y0":797,"x1":797,"y1":819},"text":"« Implemented automated testing, increasing code coverage to 85%\n"},{"bbox":{"x0":29,"y0":853,"x1":1211,"y1":871},"text":"Global Tech Labs 2016 - 2018\n"},{"bbox":{"x0":28,"y0":883,"x1":249,"y1":909},"text":"Junior Developer\n"},{"bbox":{"x0":31,"y0":929,"x1":855,"y1":951},"text":"« Assisted in developing front-end components for e-commerce websites\n"},{"bbox":{"x0":31,"y0":961,"x1":786,"y1":983},"text":"« Participated in daily Scrum meetings and sprint planning sessions\n"},{"bbox":{"x0":31,"y0":993,"x1":812,"y1":1015},"text":"« Collaborated with UX/UI designers to implement responsive designs\n"},{"bbox":{"x0":29,"y0":1048,"x1":1211,"y1":1071},"text":"CodeCraft Internship July 2015\n"},{"bbox":{"x0":29,"y0":1080,"x1":386,"y1":1107},"text":"Software Engineering Intern\n"},{"bbox":{"x0":31,"y0":1126,"x1":716,"y1":1148},"text":"« Developed small features for internal tools using JavaScript\n"},{"bbox":{"x0":31,"y0":1158,"x1":726,"y1":1180},"text":"« Created documentation for developer onboarding processes\n"},{"bbox":{"x0":31,"y0":1190,"x1":717,"y1":1212},"text":"« Assisted senior engineers with testing and debugging tasks\n"},{"bbox":{"x0":30,"y0":1248,"x1":192,"y1":1269},"text":"EDUCATION\n"},{"bbox":{"x0":30,"y0":1311,"x1":1211,"y1":1330},"text":"BS in Computer Science 2014 - 2018\n"},{"bbox":{"x0":30,"y0":1343,"x1":346,"y1":1369},"text":"University of Technology\n"},{"bbox":{"x0":29,"y0":1408,"x1":125,"y1":1428},"text":"SKILLS\n"},{"bbox":{"x0":29,"y0":1473,"x1":933,"y1":1499},"text":"JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies\n"}] 
+
+
+Successfully processed 4 of 4 images
+Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ⚠️  Description : 93% match
+    Led development of cloud-based customer management system. Optimized database performance, reducing query times by 40%. Mentored junior developers and established code review practices.
+    Expected: Led development of cloud-based customer management system
+Optimized database performance, reducing query times by 40%
+Mentored junior developers and implemented code review practices
+  Field match rate: 98.7%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ⚠️  Description : 91% match
+    Developed RESTful APIs for mobile application integration. Implemented automated testing, increasing test coverage to 85%.
+    Expected: Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to 85%
+  Field match rate: 98.2%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ❌ End Date    : 0% match, 2017-12-31 (Expected: 2018-12-31)
+  ⚠️  Description : 90% match
+    Assisted in developing front-end features for e-commerce websites. Participated in daily Scrum meetings and sprint planning sessions. Collaborated with UX/UI designers on responsive designs.
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 78.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ⚠️  Description : 97% match
+    Developed small features for internal tools using JavaScript. Created documentation for developer onboarding process. Assisted senior engineers with testing and debugging tasks.
+    Expected: Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+  Field match rate: 99.4%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 75.0%
+Average Description match rate: 92.8%
+
+Overall field match rate: 93.6%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 84% match
+    Assisted in developing front-end components for e-commerce websites. Participated in daily Scrum meetings and sprint planning. Collaborated with designers on responsive layouts.
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 96.9%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ❌ Company     : 50% match, CodeCraft (Expected: CodeCraft Internship)
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ⚠️  Description : 95% match
+    Developed small features for internal JavaScript tools. Created documentation for developer onboarding. Assisted senior engineers with testing and debugging tasks.
+    Expected: Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+  Field match rate: 88.9%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 87.4%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 94.8%
+
+Overall field match rate: 96.4%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ❌ Company     : 50% match, CodeCraft (Expected: CodeCraft Internship)
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 89.9%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 87.4%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 97.5%
+
+========== SUMMARY ==========
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png: Fields: 93.6%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png: Fields: 96.4%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png: Fields: 100.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png: Fields: 97.5%
+
+Field Type Averages:
+Title       : 100.0%
+Company     : 93.7%
+Start Date  : 100.0%
+End Date    : 93.8%
+Description : 96.9%
+=========================
+Average field match: 96.9%
+==========================
+Processing 4 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png ==========
+
+ John Smith
+Software Engineer
+john.smith@email.com
+(555) 123-4567
+San Francisco, CA
+SUMMARY
+Results-driven software engineer with 5+ years of experience developing robust
+applications and leading development teams.
+EXPERIENCE
+Tech Solutions Inc.
+2020 - Present
+Senior Software Engineer
+Led development of cloud-based customer management system
+Optimized database performance, reducing query times by 40%
+Mentored junior developers and implemented code review practices
+Digital Innovations
+2018 - 2020
+Software Developer
+Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to 85%
+Global Tech Labs
+2016 - 2018
+Junior Developer
+Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers on responsive designs
+CodeCraft Internship
+July 2015
+Software Engineering Intern
+Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineer's with testing and debugging tasks
+EDUCATION
+BS in Computer Science
+2014 - 2018
+University of Technology
+SKILLS
+JavaScript
+React
+Node.js
+SQL
+AWS
+Git
+CI/CD
+Agile 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png ==========
+
+ SUMMARY
+John Smith
+Software Engineer
+Results-driven software engineer with 5+ years of
+experience developing robust applications and leading
+john.smith@email.com
+development teams.
+(555) 123-4567
+San Francisco, CA
+EXPERIENCE
+SKILLS
+Tech Solutions Inc.
+2020 - Present
+Senior Software Engineer
+JavaScript
+Led development of cloud-based customer management system
+Optimized database performance, reducing query times by 40%
+React
+Mentored junior developers and implemented code review
+practices
+Node.js
+Digital Innovations
+2018 - 2020
+Software Developer
+SQL
+Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to
+AWS
+85%
+Git
+Global Tech Labs
+2016 - 2018
+Junior Developer
+CI/CD
+Assisted in developing front-end components for e-commerce
+websites
+Participated in daily Scrum meetings and sprint planning
+Agile
+Collaborated with designers on responsive layouts
+CodeCraft Internship
+July 2015
+EDUCATION
+Software Engineering Intern
+Developed small features for internal JavaScript tools
+BS in Computer
+Created documentation for developer onboarding
+Assisted senior engineers with testing and debugging tasks
+Science
+2014 - 2018
+University of
+Technology 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png ==========
+
+ John Smith
+Software Engineer
+john.smith@email.com
+|
+(555) 123-4567
+San Francisco, CA
+SUMMARY
+Results-driven software engineer with 5+ years of experience developing robust
+applications and leading development teams.
+EXPERIENCE
+Tech Solutions Inc.
+Led development of cloud-based customer management
+Senior Software Engineer
+system
+2020 - Present
+Optimized database performance, reducing query times by
+40%
+Mentored junior developers and implemented code review
+practices
+Digital Innovations
+Developed RESTful APIs for mobile application integrations
+Software Developer
+Implemented automated testing, increasing code coverage
+2018 - 2020
+to 85%
+Global Tech Labs
+Assisted in developing front-end components for e-
+Junior Developer
+commerce websites
+2016 - 2018
+Participated in daily Scrum meetings and sprint planning
+sessions
+Collaborated with UX/UI designers to implement responsive
+designs
+CodeCraft Internship
+Developed small features for internal tools using JavaScript
+Software Engineering Intern
+Created documentation for developer onboarding processes
+July 2015
+Assisted senior engineers with testing and debugging tasks
+EDUCATION
+BS in Computer Science
+2014 - 2018
+University of Technology
+SKILLS
+JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png ==========
+
+ John Smith
+Software Engineer
+john.smith@email.com I (555) 123-4567 I San Francisco, CA
+SUMMARY
+Results-driven software engineer with 5+ years of experience developing robust
+applications and leading development teams.
+EXPERIENCE
+Tech Solutions Inc.
+2020 - Present
+Senior Software Engineer
+Led development of cloud-based customer management system
+Optimized database performance, reducing query times by 40%
+Mentored junior developers and implemented code review practices
+Digital Innovations
+2018 - 2020
+Software Developer
+Developed RESTful APIs for mobile application integrations
+Implemented automated testing, increasing code coverage to 85%
+Global Tech Labs
+2016 - 2018
+Junior Developer
+Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+CodeCraft Internship
+July 2015
+Software Engineering Intern
+Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+EDUCATION
+BS in Computer Science
+2014 - 2018
+University of Technology
+SKILLS
+JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies 
+
+
+Successfully processed 4 of 4 images
+Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 94% match
+    Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers on responsive designs
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 98.8%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 98.5%
+
+Overall field match rate: 99.7%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 84% match
+    Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning
+Collaborated with designers on responsive layouts
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 96.9%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ⚠️  Description : 95% match
+    Developed small features for internal JavaScript tools
+Created documentation for developer onboarding
+Assisted senior engineers with testing and debugging tasks
+    Expected: Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+  Field match rate: 99.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 94.8%
+
+Overall field match rate: 99.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+========== SUMMARY ==========
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png: Fields: 99.7%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png: Fields: 99.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png: Fields: 100.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png: Fields: 100.0%
+
+Field Type Averages:
+Title       : 100.0%
+Company     : 100.0%
+Start Date  : 100.0%
+End Date    : 100.0%
+Description : 98.3%
+=========================
+Average field match: 99.7%
+==========================
+Processing 4 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png ==========
+
+ [{"bbox":{"x0":397,"y0":26,"x1":601,"y1":53},"text":"John Smith"},{"bbox":{"x0":381,"y0":74,"x1":619,"y1":98},"text":"Software Engineer"},{"bbox":{"x0":170,"y0":118,"x1":407,"y1":138},"text":"john.smith@email.com"},{"bbox":{"x0":455,"y0":118,"x1":621,"y1":137},"text":"(555) 123-4567"},{"bbox":{"x0":667,"y0":118,"x1":857,"y1":137},"text":"San Francisco, CA"},{"bbox":{"x0":49,"y0":166,"x1":169,"y1":182},"text":"SUMMARY"},{"bbox":{"x0":21,"y0":200,"x1":855,"y1":224},"text":"Results-driven software engineer with 5+ years of experience developing robust"},{"bbox":{"x0":21,"y0":229,"x1":491,"y1":250},"text":"applications and leading development teams."},{"bbox":{"x0":50,"y0":278,"x1":191,"y1":293},"text":"EXPERIENCE"},{"bbox":{"x0":21,"y0":313,"x1":168,"y1":325},"text":"Tech Solutions Inc."},{"bbox":{"x0":835,"y0":313,"x1":978,"y1":327},"text":"2020 - Present"},{"bbox":{"x0":21,"y0":333,"x1":286,"y1":353},"text":"Senior Software Engineer"},{"bbox":{"x0":46,"y0":364,"x1":635,"y1":382},"text":"Led development of cloud-based customer management system"},{"bbox":{"x0":46,"y0":384,"x1":632,"y1":403},"text":"Optimized database performance, reducing query times by 40%"},{"bbox":{"x0":46,"y0":405,"x1":666,"y1":425},"text":"Mentored junior developers and implemented code review practices"},{"bbox":{"x0":21,"y0":443,"x1":167,"y1":457},"text":"Digital Innovations"},{"bbox":{"x0":861,"y0":444,"x1":978,"y1":458},"text":"2018 - 2020"},{"bbox":{"x0":21,"y0":464,"x1":227,"y1":483},"text":"Software Developer"},{"bbox":{"x0":46,"y0":494,"x1":584,"y1":512},"text":"Developed RESTful APIs for mobile application integrations"},{"bbox":{"x0":46,"y0":515,"x1":654,"y1":534},"text":"Implemented automated testing, increasing code coverage to 85%"},{"bbox":{"x0":21,"y0":553,"x1":154,"y1":564},"text":"Global Tech Labs"},{"bbox":{"x0":864,"y0":554,"x1":978,"y1":567},"text":"2016 - 2018"},{"bbox":{"x0":20,"y0":573,"x1":199,"y1":592},"text":"Junior Developer"},{"bbox":{"x0":46,"y0":602,"x1":701,"y1":621},"text":"Assisted in developing front-end components for e-commerce websites"},{"bbox":{"x0":46,"y0":624,"x1":645,"y1":642},"text":"Participated in daily Scrum meetings and sprint planning sessions"},{"bbox":{"x0":46,"y0":645,"x1":569,"y1":663},"text":"Collaborated with UX/UI designers on responsive designs"},{"bbox":{"x0":21,"y0":683,"x1":186,"y1":696},"text":"CodeCraft Internship"},{"bbox":{"x0":886,"y0":683,"x1":978,"y1":700},"text":"July 2015"},{"bbox":{"x0":21,"y0":704,"x1":311,"y1":723},"text":"Software Engineering Intern"},{"bbox":{"x0":46,"y0":734,"x1":587,"y1":751},"text":"Developed small features for internal tools using JavaScript"},{"bbox":{"x0":46,"y0":755,"x1":596,"y1":772},"text":"Created documentation for developer onboarding processes"},{"bbox":{"x0":45,"y0":776,"x1":589,"y1":794},"text":"Assisted senior engineer's with testing and debugging tasks"},{"bbox":{"x0":49,"y0":816,"x1":183,"y1":831},"text":"EDUCATION"},{"bbox":{"x0":21,"y0":850,"x1":209,"y1":864},"text":"BS in Computer Science"},{"bbox":{"x0":864,"y0":851,"x1":978,"y1":865},"text":"2014 - 2018"},{"bbox":{"x0":22,"y0":871,"x1":279,"y1":890},"text":"University of Technology"},{"bbox":{"x0":49,"y0":914,"x1":128,"y1":930},"text":"SKILLS"},{"bbox":{"x0":41,"y0":957,"x1":138,"y1":973},"text":"JavaScript"},{"bbox":{"x0":193,"y0":957,"x1":245,"y1":970},"text":"React"},{"bbox":{"x0":301,"y0":957,"x1":369,"y1":972},"text":"Node.js"},{"bbox":{"x0":425,"y0":957,"x1":462,"y1":971},"text":"SQL"},{"bbox":{"x0":518,"y0":957,"x1":561,"y1":970},"text":"AWS"},{"bbox":{"x0":616,"y0":957,"x1":643,"y1":970},"text":"Git"},{"bbox":{"x0":697,"y0":956,"x1":751,"y1":973},"text":"CI/CD"},{"bbox":{"x0":806,"y0":956,"x1":851,"y1":973},"text":"Agile"}] 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png ==========
+
+ [{"bbox":{"x0":349,"y0":16,"x1":471,"y1":32},"text":"SUMMARY"},{"bbox":{"x0":26,"y0":29,"x1":202,"y1":54},"text":"John Smith"},{"bbox":{"x0":26,"y0":76,"x1":246,"y1":100},"text":"Software Engineer"},{"bbox":{"x0":349,"y0":69,"x1":880,"y1":90},"text":"Results-driven software engineer with 5+ years of"},{"bbox":{"x0":349,"y0":98,"x1":929,"y1":120},"text":"experience developing robust applications and leading"},{"bbox":{"x0":25,"y0":119,"x1":236,"y1":137},"text":"john.smith@email.com"},{"bbox":{"x0":349,"y0":128,"x1":564,"y1":149},"text":"development teams."},{"bbox":{"x0":27,"y0":143,"x1":176,"y1":161},"text":"(555) 123-4567"},{"bbox":{"x0":26,"y0":166,"x1":197,"y1":184},"text":"San Francisco, CA"},{"bbox":{"x0":349,"y0":182,"x1":494,"y1":198},"text":"EXPERIENCE"},{"bbox":{"x0":26,"y0":215,"x1":107,"y1":232},"text":"SKILLS"},{"bbox":{"x0":349,"y0":233,"x1":500,"y1":246},"text":"Tech Solutions Inc."},{"bbox":{"x0":820,"y0":234,"x1":966,"y1":249},"text":"2020 - Present"},{"bbox":{"x0":349,"y0":257,"x1":620,"y1":277},"text":"Senior Software Engineer"},{"bbox":{"x0":26,"y0":270,"x1":138,"y1":289},"text":"JavaScript"},{"bbox":{"x0":364,"y0":290,"x1":966,"y1":309},"text":"Led development of cloud-based customer management system"},{"bbox":{"x0":364,"y0":314,"x1":963,"y1":333},"text":"Optimized database performance, reducing query times by 40%"},{"bbox":{"x0":27,"y0":329,"x1":88,"y1":345},"text":"React"},{"bbox":{"x0":364,"y0":337,"x1":906,"y1":355},"text":"Mentored junior developers and implemented code review"},{"bbox":{"x0":349,"y0":361,"x1":435,"y1":379},"text":"practices"},{"bbox":{"x0":27,"y0":387,"x1":107,"y1":407},"text":"Node.js"},{"bbox":{"x0":349,"y0":407,"x1":498,"y1":422},"text":"Digital Innovations"},{"bbox":{"x0":846,"y0":408,"x1":966,"y1":423},"text":"2018 - 2020"},{"bbox":{"x0":349,"y0":431,"x1":560,"y1":451},"text":"Software Developer"},{"bbox":{"x0":26,"y0":445,"x1":71,"y1":463},"text":"SQL"},{"bbox":{"x0":365,"y0":464,"x1":914,"y1":483},"text":"Developed RESTful APIs for mobile application integrations"},{"bbox":{"x0":364,"y0":488,"x1":937,"y1":506},"text":"Implemented automated testing, increasing code coverage to"},{"bbox":{"x0":26,"y0":505,"x1":77,"y1":521},"text":"AWS"},{"bbox":{"x0":349,"y0":512,"x1":391,"y1":526},"text":"85%"},{"bbox":{"x0":26,"y0":563,"x1":57,"y1":580},"text":"Git"},{"bbox":{"x0":349,"y0":558,"x1":485,"y1":570},"text":"Global Tech Labs"},{"bbox":{"x0":849,"y0":559,"x1":966,"y1":573},"text":"2016 - 2018"},{"bbox":{"x0":348,"y0":581,"x1":532,"y1":601},"text":"Junior Developer"},{"bbox":{"x0":26,"y0":622,"x1":88,"y1":642},"text":"CI/CD"},{"bbox":{"x0":363,"y0":614,"x1":946,"y1":632},"text":"Assisted in developing front-end components for e-commerce"},{"bbox":{"x0":348,"y0":638,"x1":431,"y1":652},"text":"websites"},{"bbox":{"x0":364,"y0":661,"x1":890,"y1":679},"text":"Participated in daily Scrum meetings and sprint planning"},{"bbox":{"x0":26,"y0":680,"x1":78,"y1":701},"text":"Agile"},{"bbox":{"x0":364,"y0":684,"x1":834,"y1":703},"text":"Collaborated with designers on responsive layouts"},{"bbox":{"x0":348,"y0":731,"x1":517,"y1":746},"text":"CodeCraft Internship"},{"bbox":{"x0":872,"y0":732,"x1":966,"y1":750},"text":"July 2015"},{"bbox":{"x0":26,"y0":763,"x1":163,"y1":780},"text":"EDUCATION"},{"bbox":{"x0":349,"y0":755,"x1":645,"y1":775},"text":"Software Engineering Intern"},{"bbox":{"x0":364,"y0":788,"x1":862,"y1":806},"text":"Developed small features for internal JavaScript tools"},{"bbox":{"x0":27,"y0":816,"x1":201,"y1":837},"text":"BS in Computer"},{"bbox":{"x0":364,"y0":811,"x1":825,"y1":830},"text":"Created documentation for developer onboarding"},{"bbox":{"x0":363,"y0":835,"x1":919,"y1":853},"text":"Assisted senior engineers with testing and debugging tasks"},{"bbox":{"x0":27,"y0":846,"x1":115,"y1":863},"text":"Science"},{"bbox":{"x0":26,"y0":875,"x1":138,"y1":889},"text":"2014 - 2018"},{"bbox":{"x0":26,"y0":899,"x1":161,"y1":920},"text":"University of"},{"bbox":{"x0":26,"y0":929,"x1":149,"y1":949},"text":"Technology"}] 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png ==========
+
+ [{"bbox":{"x0":397,"y0":25,"x1":601,"y1":52},"text":"John Smith"},{"bbox":{"x0":382,"y0":71,"x1":618,"y1":96},"text":"Software Engineer"},{"bbox":{"x0":187,"y0":118,"x1":420,"y1":138},"text":"john.smith@email.com"},{"bbox":{"x0":429,"y0":119,"x1":432,"y1":138},"text":"|"},{"bbox":{"x0":440,"y0":118,"x1":606,"y1":139},"text":"(555) 123-4567"},{"bbox":{"x0":624,"y0":119,"x1":813,"y1":138},"text":"San Francisco, CA"},{"bbox":{"x0":23,"y0":170,"x1":141,"y1":186},"text":"SUMMARY"},{"bbox":{"x0":23,"y0":217,"x1":854,"y1":237},"text":"Results-driven software engineer with 5+ years of experience developing robust"},{"bbox":{"x0":23,"y0":245,"x1":491,"y1":265},"text":"applications and leading development teams."},{"bbox":{"x0":23,"y0":298,"x1":164,"y1":313},"text":"EXPERIENCE"},{"bbox":{"x0":22,"y0":342,"x1":170,"y1":354},"text":"Tech Solutions Inc."},{"bbox":{"x0":419,"y0":343,"x1":935,"y1":360},"text":"Led development of cloud-based customer management"},{"bbox":{"x0":23,"y0":365,"x1":287,"y1":385},"text":"Senior Software Engineer"},{"bbox":{"x0":405,"y0":366,"x1":468,"y1":382},"text":"system"},{"bbox":{"x0":23,"y0":392,"x1":160,"y1":406},"text":"2020 - Present"},{"bbox":{"x0":419,"y0":389,"x1":955,"y1":405},"text":"Optimized database performance, reducing query times by"},{"bbox":{"x0":404,"y0":411,"x1":446,"y1":425},"text":"40%"},{"bbox":{"x0":419,"y0":434,"x1":947,"y1":451},"text":"Mentored junior developers and implemented code review"},{"bbox":{"x0":405,"y0":457,"x1":488,"y1":474},"text":"practices"},{"bbox":{"x0":23,"y0":479,"x1":167,"y1":493},"text":"Digital Innovations"},{"bbox":{"x0":420,"y0":480,"x1":956,"y1":497},"text":"Developed RESTful APIs for mobile application integrations"},{"bbox":{"x0":23,"y0":502,"x1":228,"y1":522},"text":"Software Developer"},{"bbox":{"x0":420,"y0":503,"x1":953,"y1":520},"text":"Implemented automated testing, increasing code coverage"},{"bbox":{"x0":24,"y0":529,"x1":134,"y1":543},"text":"2018 - 2020"},{"bbox":{"x0":404,"y0":526,"x1":470,"y1":540},"text":"to 85%"},{"bbox":{"x0":23,"y0":551,"x1":155,"y1":563},"text":"Global Tech Labs"},{"bbox":{"x0":419,"y0":552,"x1":889,"y1":569},"text":"Assisted in developing front-end components for e-"},{"bbox":{"x0":22,"y0":574,"x1":200,"y1":593},"text":"Junior Developer"},{"bbox":{"x0":404,"y0":575,"x1":586,"y1":589},"text":"commerce websites"},{"bbox":{"x0":23,"y0":602,"x1":132,"y1":615},"text":"2016 - 2018"},{"bbox":{"x0":420,"y0":597,"x1":932,"y1":615},"text":"Participated in daily Scrum meetings and sprint planning"},{"bbox":{"x0":404,"y0":621,"x1":482,"y1":635},"text":"sessions"},{"bbox":{"x0":419,"y0":643,"x1":960,"y1":661},"text":"Collaborated with UX/UI designers to implement responsive"},{"bbox":{"x0":405,"y0":666,"x1":475,"y1":683},"text":"designs"},{"bbox":{"x0":23,"y0":688,"x1":187,"y1":703},"text":"CodeCraft Internship"},{"bbox":{"x0":420,"y0":689,"x1":960,"y1":706},"text":"Developed small features for internal tools using JavaScript"},{"bbox":{"x0":22,"y0":711,"x1":311,"y1":731},"text":"Software Engineering Intern"},{"bbox":{"x0":419,"y0":712,"x1":967,"y1":729},"text":"Created documentation for developer onboarding processes"},{"bbox":{"x0":22,"y0":739,"x1":109,"y1":756},"text":"July 2015"},{"bbox":{"x0":419,"y0":735,"x1":960,"y1":752},"text":"Assisted senior engineers with testing and debugging tasks"},{"bbox":{"x0":23,"y0":786,"x1":155,"y1":802},"text":"EDUCATION"},{"bbox":{"x0":23,"y0":831,"x1":210,"y1":845},"text":"BS in Computer Science"},{"bbox":{"x0":862,"y0":831,"x1":976,"y1":845},"text":"2014 - 2018"},{"bbox":{"x0":23,"y0":853,"x1":279,"y1":872},"text":"University of Technology"},{"bbox":{"x0":23,"y0":899,"x1":100,"y1":915},"text":"SKILLS"},{"bbox":{"x0":23,"y0":946,"x1":752,"y1":966},"text":"JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies"}] 
+
+Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png ==========
+
+ [{"bbox":{"x0":396,"y0":29,"x1":599,"y1":54},"text":"John Smith"},{"bbox":{"x0":380,"y0":71,"x1":616,"y1":94},"text":"Software Engineer"},{"bbox":{"x0":184,"y0":114,"x1":810,"y1":134},"text":"john.smith@email.com I (555) 123-4567 I San Francisco, CA"},{"bbox":{"x0":22,"y0":163,"x1":141,"y1":177},"text":"SUMMARY"},{"bbox":{"x0":23,"y0":205,"x1":851,"y1":224},"text":"Results-driven software engineer with 5+ years of experience developing robust"},{"bbox":{"x0":22,"y0":231,"x1":490,"y1":250},"text":"applications and leading development teams."},{"bbox":{"x0":23,"y0":279,"x1":164,"y1":294},"text":"EXPERIENCE"},{"bbox":{"x0":22,"y0":320,"x1":169,"y1":331},"text":"Tech Solutions Inc."},{"bbox":{"x0":832,"y0":321,"x1":974,"y1":334},"text":"2020 - Present"},{"bbox":{"x0":23,"y0":341,"x1":286,"y1":359},"text":"Senior Software Engineer"},{"bbox":{"x0":37,"y0":371,"x1":621,"y1":387},"text":"Led development of cloud-based customer management system"},{"bbox":{"x0":37,"y0":392,"x1":619,"y1":408},"text":"Optimized database performance, reducing query times by 40%"},{"bbox":{"x0":37,"y0":412,"x1":653,"y1":428},"text":"Mentored junior developers and implemented code review practices"},{"bbox":{"x0":23,"y0":449,"x1":167,"y1":462},"text":"Digital Innovations"},{"bbox":{"x0":858,"y0":449,"x1":973,"y1":463},"text":"2018 - 2020"},{"bbox":{"x0":22,"y0":470,"x1":228,"y1":488},"text":"Software Developer"},{"bbox":{"x0":38,"y0":499,"x1":571,"y1":516},"text":"Developed RESTful APIs for mobile application integrations"},{"bbox":{"x0":37,"y0":521,"x1":641,"y1":537},"text":"Implemented automated testing, increasing code coverage to 85%"},{"bbox":{"x0":23,"y0":557,"x1":155,"y1":568},"text":"Global Tech Labs"},{"bbox":{"x0":860,"y0":557,"x1":973,"y1":571},"text":"2016 - 2018"},{"bbox":{"x0":22,"y0":577,"x1":200,"y1":595},"text":"Junior Developer"},{"bbox":{"x0":37,"y0":607,"x1":688,"y1":623},"text":"Assisted in developing front-end components for e-commerce websites"},{"bbox":{"x0":37,"y0":628,"x1":632,"y1":644},"text":"Participated in daily Scrum meetings and sprint planning sessions"},{"bbox":{"x0":37,"y0":649,"x1":653,"y1":665},"text":"Collaborated with UX/UI designers to implement responsive designs"},{"bbox":{"x0":22,"y0":685,"x1":187,"y1":698},"text":"CodeCraft Internship"},{"bbox":{"x0":882,"y0":686,"x1":974,"y1":702},"text":"July 2015"},{"bbox":{"x0":23,"y0":706,"x1":311,"y1":724},"text":"Software Engineering Intern"},{"bbox":{"x0":37,"y0":736,"x1":576,"y1":752},"text":"Developed small features for internal tools using JavaScript"},{"bbox":{"x0":37,"y0":757,"x1":584,"y1":773},"text":"Created documentation for developer onboarding processes"},{"bbox":{"x0":37,"y0":778,"x1":577,"y1":794},"text":"Assisted senior engineers with testing and debugging tasks"},{"bbox":{"x0":23,"y0":816,"x1":155,"y1":831},"text":"EDUCATION"},{"bbox":{"x0":23,"y0":857,"x1":209,"y1":870},"text":"BS in Computer Science"},{"bbox":{"x0":860,"y0":858,"x1":973,"y1":871},"text":"2014 - 2018"},{"bbox":{"x0":23,"y0":878,"x1":278,"y1":896},"text":"University of Technology"},{"bbox":{"x0":22,"y0":920,"x1":100,"y1":935},"text":"SKILLS"},{"bbox":{"x0":22,"y0":963,"x1":750,"y1":982},"text":"JavaScript, React, Node.js, SQL, AWS, Git, CI/CD, Agile Methodologies"}] 
+
+
+Successfully processed 4 of 4 images
+Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png
+
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 94% match
+    Assisted in developing front-end components for e-commerce websites. Participated in daily Scrum meetings and sprint planning sessions. Collaborated with UX/UI designers on responsive designs.
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 98.8%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 98.5%
+
+Overall field match rate: 99.7%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ⚠️  Description : 84% match
+    Assisted in developing front-end components for e-commerce websites. Participated in daily Scrum meetings and sprint planning. Collaborated with designers on responsive layouts.
+    Expected: Assisted in developing front-end components for e-commerce websites
+Participated in daily Scrum meetings and sprint planning sessions
+Collaborated with UX/UI designers to implement responsive designs
+  Field match rate: 96.9%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ⚠️  Description : 95% match
+    Developed small features for internal JavaScript tools. Created documentation for developer onboarding. Assisted senior engineers with testing and debugging tasks.
+    Expected: Developed small features for internal tools using JavaScript
+Created documentation for developer onboarding processes
+Assisted senior engineers with testing and debugging tasks
+  Field match rate: 99.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 94.8%
+
+Overall field match rate: 99.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Software Engineer
+  ✅ Company     : 100% match, Tech Solutions Inc.
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Software Developer
+  ✅ Company     : 100% match, Digital Innovations
+  ✅ Start Date  : 100% match, 2018-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Developer
+  ✅ Company     : 100% match, Global Tech Labs
+  ✅ Start Date  : 100% match, 2016-01-01
+  ✅ End Date    : 100% match, 2018-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #4:
+Match with ground truth #4
+  ✅ Title       : 100% match, Software Engineering Intern
+  ✅ Company     : 100% match, CodeCraft Internship
+  ✅ Start Date  : 100% match, 2015-07-01
+  ✅ End Date    : 100% match, 2015-07-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+========== SUMMARY ==========
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png: Fields: 99.7%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png: Fields: 99.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png: Fields: 100.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png: Fields: 100.0%
+
+Field Type Averages:
+Title       : 100.0%
+Company     : 100.0%
+Start Date  : 100.0%
+End Date    : 100.0%
+Description : 98.3%
+=========================
+Average field match: 99.7%
+==========================
+All processing complete. Results saved to assets/reports/samples

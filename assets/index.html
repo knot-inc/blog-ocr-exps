@@ -149,6 +149,9 @@
             globalConfig = config;
             populateButtons(config);
             addShowSummaryButton();
+
+            // Automatically load global summary on page load
+            loadAllCategoriesData();
           } catch (error) {
             console.error("Error loading config:", error);
             document.getElementById(
@@ -163,7 +166,7 @@
           const showSummaryButton = document.createElement("button");
           showSummaryButton.className =
             "bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-md transition duration-200";
-          showSummaryButton.textContent = "Show Global Summary";
+          showSummaryButton.textContent = "Refresh Global Summary"; // Changed from "Show Global Summary"
           showSummaryButton.addEventListener("click", loadAllCategoriesData);
           summaryButtonContainer.appendChild(showSummaryButton);
           buttonContainer.insertBefore(
