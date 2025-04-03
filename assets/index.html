@@ -512,6 +512,7 @@
             loadingIndicator.classList.add("hidden");
           }
         }
+        // Complete the processData function to handle file details and show differences
         function processData(data) {
           document.getElementById("summaryTableBody").innerHTML = "";
           document.getElementById("detailedResultsContainer").innerHTML = "";
@@ -572,6 +573,8 @@
             1
           )}%</td>`;
           summaryTableBody.appendChild(overallRow);
+
+          // Create detailed results for each file
           data.forEach((fileData, fileIndex) => {
             const fileSection = document.createElement("div");
             fileSection.className = "mb-12 bg-white shadow-md rounded-lg p-6";
@@ -584,7 +587,188 @@
             else if (fileData.fieldMatchRate >= 75)
               rateColorClass = "text-yellow-600";
             else rateColorClass = "text-red-600";
-            // Rest of function not shown due to truncation in original file
+
+            // File header with toggle button
+            const fileHeader = document.createElement("div");
+            fileHeader.className = "flex justify-between items-center mb-6";
+            fileHeader.innerHTML = `
+            <h2 class="text-2xl font-bold">
+              ${fileName}
+              <span class="ml-2 ${rateColorClass}">[${fileData.fieldMatchRate.toFixed(
+              1
+            )}%]</span>
+            </h2>
+            <button class="toggle-details bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-200">
+              Show Details
+            </button>
+          `;
+            fileSection.appendChild(fileHeader);
+
+            // Create container for details (shown by default)
+            const detailsContainer = document.createElement("div");
+            detailsContainer.className = "details-container";
+
+            // Field type summary for this file
+            const fieldTypeSummary = document.createElement("div");
+            fieldTypeSummary.className =
+              "grid grid-cols-2 md:grid-cols-5 gap-4 mb-6";
+            fieldTypes.forEach((fieldType) => {
+              const score = fileData.fieldTypeScores
+                ? fileData.fieldTypeScores[fieldType] || 0
+                : 0;
+              let colorClass = "bg-red-100 border-red-200";
+              let textClass = "text-red-600";
+
+              if (score >= 90) {
+                colorClass = "bg-green-100 border-green-200";
+                textClass = "text-green-600";
+              } else if (score >= 75) {
+                colorClass = "bg-yellow-100 border-yellow-200";
+                textClass = "text-yellow-600";
+              }
+
+              fieldTypeSummary.innerHTML += `
+              <div class="p-4 rounded-lg ${colorClass} border">
+                <div class="text-sm font-medium">${fieldType}</div>
+                <div class="text-xl font-bold ${textClass}">${score.toFixed(
+                1
+              )}%</div>
+              </div>
+            `;
+            });
+            detailsContainer.appendChild(fieldTypeSummary);
+
+            // Extract and display work experiences
+            if (fileData.extractedData && fileData.groundTruth) {
+              const experiencesContainer = document.createElement("div");
+              experiencesContainer.className = "mt-6";
+
+              const extractedExps =
+                fileData.extractedData.workExperiences || [];
+              const groundTruthExps =
+                fileData.groundTruth.workExperiences || [];
+
+              // Function to highlight differences between two strings
+              function highlightDiff(extractedText, groundTruthText) {
+                if (!extractedText || !groundTruthText)
+                  return { html: "", hasDiff: false };
+
+                if (extractedText === groundTruthText) {
+                  return { html: extractedText, hasDiff: false };
+                }
+
+                // Simple word-by-word comparison
+                const extractedWords = extractedText.split(/\s+/);
+                const groundTruthWords = groundTruthText.split(/\s+/);
+                let html = "";
+                let hasDiff = false;
+
+                const maxLen = Math.max(
+                  extractedWords.length,
+                  groundTruthWords.length
+                );
+
+                for (let i = 0; i < maxLen; i++) {
+                  const extractedWord =
+                    i < extractedWords.length ? extractedWords[i] : "";
+                  const groundTruthWord =
+                    i < groundTruthWords.length ? groundTruthWords[i] : "";
+
+                  if (
+                    extractedWord.toLowerCase() !==
+                    groundTruthWord.toLowerCase()
+                  ) {
+                    html += `<span class="diff">${extractedWord}</span> `;
+                    hasDiff = true;
+                  } else {
+                    html += extractedWord + " ";
+                  }
+                }
+
+                return { html: html.trim(), hasDiff };
+              }
+
+              // Create a table for each work experience entry
+              extractedExps.forEach((extractedExp, expIndex) => {
+                const groundTruthExp = groundTruthExps[expIndex] || {};
+
+                const expCard = document.createElement("div");
+                expCard.className = "mb-8 p-6 border rounded-lg";
+
+                // Create a comparison table
+                const comparisonTable = document.createElement("table");
+                comparisonTable.className = "min-w-full border-collapse";
+                comparisonTable.innerHTML = `
+                <thead>
+                  <tr class="bg-gray-200">
+                    <th class="py-2 px-4 text-left">Field</th>
+                    <th class="py-2 px-4 text-left">Extracted</th>
+                    <th class="py-2 px-4 text-left">Ground Truth</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              `;
+
+                const tableBody = comparisonTable.querySelector("tbody");
+
+                // Add rows for each field
+                fieldTypes.forEach((fieldType) => {
+                  const row = document.createElement("tr");
+                  row.className = "border-b";
+
+                  const fieldKey = fieldType.toLowerCase().replace(/\s+/g, "");
+                  const extractedValue = extractedExp[fieldKey] || "";
+                  const groundTruthValue = groundTruthExp[fieldKey] || "";
+
+                  const diffResult = highlightDiff(
+                    extractedValue,
+                    groundTruthValue
+                  );
+
+                  let rowClass = "";
+                  if (diffResult.hasDiff) {
+                    rowClass = "bg-light-red";
+                  } else if (extractedValue) {
+                    rowClass = "bg-light-green";
+                  }
+
+                  row.className = `border-b ${rowClass}`;
+                  row.innerHTML = `
+                  <td class="py-2 px-4 font-medium">${fieldType}</td>
+                  <td class="py-2 px-4">${diffResult.html}</td>
+                  <td class="py-2 px-4">${groundTruthValue}</td>
+                `;
+
+                  tableBody.appendChild(row);
+                });
+
+                expCard.appendChild(comparisonTable);
+                experiencesContainer.appendChild(expCard);
+              });
+
+              detailsContainer.appendChild(experiencesContainer);
+            }
+
+            fileSection.appendChild(detailsContainer);
+            document
+              .getElementById("detailedResultsContainer")
+              .appendChild(fileSection);
+
+            // Add event listener to toggle button
+            const toggleButton = fileSection.querySelector(".toggle-details");
+            toggleButton.textContent = "Hide Details"; // Set initial button text to "Hide Details"
+            toggleButton.addEventListener("click", function () {
+              const detailsContainer =
+                fileSection.querySelector(".details-container");
+              if (detailsContainer.classList.contains("hidden")) {
+                detailsContainer.classList.remove("hidden");
+                this.textContent = "Hide Details";
+              } else {
+                detailsContainer.classList.add("hidden");
+                this.textContent = "Show Details";
+              }
+            });
           });
         }
       });
