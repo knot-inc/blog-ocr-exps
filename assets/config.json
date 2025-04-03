@@ -1,0 +1,10 @@
+{
+  "freepiks": [
+    "mistralOcr.json",
+    "processImage.json"
+  ],
+  "samples": [
+    "mistralOcr.json",
+    "processImage.json"
+  ]
+}

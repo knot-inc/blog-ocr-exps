@@ -16,8 +16,6 @@ import * as processors from "./processors";
 async function main() {
 	const program = new Command();
 
-	console.log(processors);
-
 	program
 		.name("work-experience-extractor")
 		.description(
@@ -126,6 +124,42 @@ async function main() {
 				console.error("Error processing data:", error);
 				process.exit(1);
 			}
+		});
+
+	// Command to generate a config
+	program
+		.command("save-config")
+		.description("Save config JSON for visualization")
+		.action(async () => {
+			// Find all assets/reports/*/*.json files
+			const reportsDir = path.join("assets", "reports");
+			const folders = fs
+				.readdirSync(reportsDir)
+				.filter((item) =>
+					fs.statSync(path.join(reportsDir, item)).isDirectory(),
+				);
+
+			// Create config object
+			const config: Record<string, string[]> = {};
+
+			// Populate config with folder names and JSON files
+			for (const folder of folders) {
+				const folderPath = path.join(reportsDir, folder);
+				const jsonFiles = fs
+					.readdirSync(folderPath)
+					.filter((file) => file.endsWith(".json"))
+					.map((file) => file);
+
+				config[folder] = jsonFiles;
+			}
+
+			// Save config JSON
+			fs.writeFileSync(
+				path.join("assets", "config.json"),
+				JSON.stringify(config, null, 2),
+			);
+
+			console.log("Config file generated successfully at assets/config.json");
 		});
 
 	// Parse command line arguments

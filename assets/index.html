@@ -25,15 +25,40 @@
         OCR Field Match Analysis Results
       </h1>
 
-      <!-- File Input Section -->
+      <!-- Config Buttons Section -->
       <div class="mb-6 bg-white shadow-md rounded-lg p-6">
-        <h2 class="text-xl font-bold mb-4">Upload JSON Results</h2>
-        <input
-          type="file"
-          id="jsonFileInput"
-          accept=".json"
-          class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-        />
+        <h2 class="text-xl font-bold mb-4">Select Dataset</h2>
+        <div id="buttonContainer" class="flex flex-wrap gap-2">
+          <!-- Buttons will be dynamically added here -->
+          <p class="text-gray-500 italic">Loading configuration...</p>
+        </div>
+      </div>
+
+      <!-- Loading indicator -->
+      <div id="loadingIndicator" class="hidden">
+        <div class="flex justify-center items-center mb-4">
+          <svg
+            class="animate-spin h-10 w-10 text-indigo-600"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+        </div>
+        <p class="text-center text-gray-600">Loading data, please wait...</p>
       </div>
 
       <!-- Summary Section -->
@@ -65,99 +90,90 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Static test data (remove in production)
-        const testData = [
-          {
-            imagePath:
-              "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/freepik/000.png",
-            fieldMatchRate: 94.64959114959113,
-            fieldTypeScores: {
-              Title: 100,
-              Company: 73.24795574795574,
-              "Start Date": 100,
-              "End Date": 100,
-              Description: 100,
-            },
-            extractedData: {
-              workExperiences: [
-                {
-                  title: "Senior Web Designer",
-                  company: "Creative Agency / Chicago",
-                  description:
-                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
-                  startDate: "2020-01-01",
-                  endDate: "Present",
-                },
-                {
-                  title: "Graphic Designer",
-                  company: "Creative Market / Chicago",
-                  description:
-                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
-                  startDate: "2015-01-01",
-                  endDate: "2020-12-31",
-                },
-                {
-                  title: "Marketing Manager",
-                  company: "Manufacturing Agency / NJ",
-                  description:
-                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
-                  startDate: "2013-01-01",
-                  endDate: "2015-12-31",
-                },
-              ],
-            },
-            groundTruth: {
-              workExperiences: [
-                {
-                  title: "Senior Web Designer",
-                  company: "Creative Agency",
-                  description:
-                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
-                  startDate: "2020-01-01",
-                  endDate: "Present",
-                },
-                {
-                  title: "Graphic Designer",
-                  company: "Creative Market",
-                  description:
-                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
-                  startDate: "2015-01-01",
-                  endDate: "2020-12-31",
-                },
-                {
-                  title: "Marketing Manager",
-                  company: "Manufacturing Agency",
-                  description:
-                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
-                  startDate: "2013-01-01",
-                  endDate: "2015-12-31",
-                },
-              ],
-            },
-          },
-        ];
+        // Load config file
+        loadConfig();
 
-        // Initialize with test data
-        // processData(testData);
-
-        // File input handling
-        const fileInput = document.getElementById("jsonFileInput");
-        fileInput.addEventListener("change", handleFileSelect);
-
-        function handleFileSelect(event) {
-          const file = event.target.files[0];
-          if (!file) return;
-
-          const reader = new FileReader();
-          reader.onload = function (e) {
-            try {
-              const jsonData = JSON.parse(e.target.result);
-              processData(jsonData);
-            } catch (error) {
-              alert("Error parsing JSON file: " + error.message);
+        // Load config.json
+        async function loadConfig() {
+          try {
+            const response = await fetch("./config.json");
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
             }
-          };
-          reader.readAsText(file);
+            const config = await response.json();
+            populateButtons(config);
+          } catch (error) {
+            console.error("Error loading config:", error);
+            document.getElementById(
+              "buttonContainer"
+            ).innerHTML = `<p class="text-red-500">Error loading configuration: ${error.message}</p>`;
+          }
+        }
+
+        // Create buttons based on config
+        function populateButtons(config) {
+          const buttonContainer = document.getElementById("buttonContainer");
+          buttonContainer.innerHTML = "";
+
+          for (const [category, files] of Object.entries(config)) {
+            // Create category container
+            const categoryDiv = document.createElement("div");
+            categoryDiv.className = "w-full mb-4";
+
+            // Add category title
+            const categoryTitle = document.createElement("h3");
+            categoryTitle.className = "text-lg font-medium mb-2 text-gray-700";
+            categoryTitle.textContent =
+              category.charAt(0).toUpperCase() + category.slice(1);
+            categoryDiv.appendChild(categoryTitle);
+
+            // Add buttons for each file
+            const buttonsDiv = document.createElement("div");
+            buttonsDiv.className = "flex flex-wrap gap-2";
+
+            files.forEach((file) => {
+              const button = document.createElement("button");
+              button.className =
+                "bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-200";
+              button.textContent = file.replace(".json", "");
+              button.addEventListener("click", () =>
+                loadJsonFile(`./reports/${category}/${file}`)
+              );
+              buttonsDiv.appendChild(button);
+            });
+
+            categoryDiv.appendChild(buttonsDiv);
+            buttonContainer.appendChild(categoryDiv);
+          }
+        }
+
+        // Load JSON file from path
+        async function loadJsonFile(path) {
+          try {
+            showLoading(true);
+            const response = await fetch(path);
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const jsonData = await response.json();
+            processData(jsonData);
+          } catch (error) {
+            console.error("Error loading JSON file:", error);
+            alert(`Error loading JSON file: ${error.message}`);
+          } finally {
+            showLoading(false);
+          }
+        }
+
+        function showLoading(isLoading) {
+          const loadingIndicator = document.getElementById("loadingIndicator");
+          if (isLoading) {
+            loadingIndicator.classList.remove("hidden");
+            document.getElementById("summarySection").classList.add("hidden");
+            document.getElementById("detailedResultsContainer").innerHTML = "";
+          } else {
+            loadingIndicator.classList.add("hidden");
+          }
         }
 
         function processData(data) {
@@ -187,12 +203,17 @@
           // Sum up field match rates
           data.forEach((fileData) => {
             fieldTypes.forEach((fieldType) => {
-              if (fileData.fieldTypeScores[fieldType]) {
+              if (
+                fileData.fieldTypeScores &&
+                fileData.fieldTypeScores[fieldType]
+              ) {
                 fieldTypeAverages[fieldType] +=
                   fileData.fieldTypeScores[fieldType];
               }
             });
-            totalFieldMatchRate += fileData.fieldMatchRate;
+            if (fileData.fieldMatchRate) {
+              totalFieldMatchRate += fileData.fieldMatchRate;
+            }
           });
 
           // Calculate averages
@@ -233,129 +254,181 @@
             fileSection.className = "mb-12 bg-white shadow-md rounded-lg p-6";
 
             // File header
-            const fileName = fileData.imagePath.split("/").pop();
+            const fileName = fileData.imagePath
+              ? fileData.imagePath.split("/").pop()
+              : `File ${fileIndex + 1}`;
             fileSection.innerHTML = `
                           <h2 class="text-2xl font-bold mb-4">File ${
                             fileIndex + 1
                           }: ${fileName}</h2>
                           <div class="mb-4">
                               <p class="text-sm text-gray-600">Path: ${
-                                fileData.imagePath
+                                fileData.imagePath || "N/A"
                               }</p>
-                              <p class="text-sm text-gray-600">Overall Match Rate: ${fileData.fieldMatchRate.toFixed(
-                                2
-                              )}%</p>
+                              <p class="text-sm text-gray-600">Overall Match Rate: ${
+                                fileData.fieldMatchRate
+                                  ? fileData.fieldMatchRate.toFixed(2)
+                                  : "N/A"
+                              }%</p>
                           </div>
                       `;
 
             // Generate work experiences comparison
             const workExperiencesContainer = document.createElement("div");
-            const extractedExperiences = fileData.extractedData.workExperiences;
-            const groundTruthExperiences = fileData.groundTruth.workExperiences;
+            const extractedExperiences =
+              fileData.extractedData && fileData.extractedData.workExperiences
+                ? fileData.extractedData.workExperiences
+                : [];
+            const groundTruthExperiences =
+              fileData.groundTruth && fileData.groundTruth.workExperiences
+                ? fileData.groundTruth.workExperiences
+                : [];
 
-            for (let i = 0; i < groundTruthExperiences.length; i++) {
-              const expContainer = document.createElement("div");
-              expContainer.className = "mb-8 border rounded-lg overflow-hidden";
+            const maxExperiences = Math.max(
+              groundTruthExperiences.length,
+              extractedExperiences.length
+            );
 
-              const truth = groundTruthExperiences[i];
-              const extracted = extractedExperiences[i];
+            if (maxExperiences === 0) {
+              workExperiencesContainer.innerHTML =
+                '<p class="text-gray-500 italic">No work experiences found in this data</p>';
+            } else {
+              for (let i = 0; i < maxExperiences; i++) {
+                const expContainer = document.createElement("div");
+                expContainer.className =
+                  "mb-8 border rounded-lg overflow-hidden";
 
-              // Function to highlight differences
-              function highlightDifferences(truthText, extractedText) {
-                if (!truthText || !extractedText) return extractedText;
+                const truth =
+                  i < groundTruthExperiences.length
+                    ? groundTruthExperiences[i]
+                    : null;
+                const extracted =
+                  i < extractedExperiences.length
+                    ? extractedExperiences[i]
+                    : null;
 
-                // Simple case: if they're identical
-                if (truthText === extractedText) return extractedText;
+                // Function to highlight differences
+                function highlightDifferences(truthText, extractedText) {
+                  if (!truthText || !extractedText)
+                    return extractedText || "N/A";
 
-                // Split text into words for comparison
-                const truthWords = truthText.split(" ");
-                const extractedWords = extractedText.split(" ");
+                  // Simple case: if they're identical
+                  if (truthText === extractedText) return extractedText;
 
-                // Find where the differences start
-                let result = "";
-                let commonPart = "";
+                  // Split text into words for comparison
+                  const truthWords = truthText.split(" ");
+                  const extractedWords = extractedText.split(" ");
 
-                // Find the common beginning
-                for (
-                  let i = 0;
-                  i < Math.min(truthWords.length, extractedWords.length);
-                  i++
-                ) {
-                  if (truthWords[i] === extractedWords[i]) {
-                    commonPart += extractedWords[i] + " ";
-                  } else {
-                    break;
+                  // Find where the differences start
+                  let result = "";
+                  let commonPart = "";
+
+                  // Find the common beginning
+                  for (
+                    let i = 0;
+                    i < Math.min(truthWords.length, extractedWords.length);
+                    i++
+                  ) {
+                    if (truthWords[i] === extractedWords[i]) {
+                      commonPart += extractedWords[i] + " ";
+                    } else {
+                      break;
+                    }
                   }
+
+                  if (commonPart.length > 0) {
+                    result += commonPart.trim();
+                  }
+
+                  // Add the rest with highlighting
+                  if (result.length < extractedText.length) {
+                    const diffStart = result.length > 0 ? result.length + 1 : 0;
+                    const diffText = extractedText.substring(diffStart);
+                    result += result.length > 0 ? " " : "";
+                    result += `<span class="diff">${diffText}</span>`;
+                  }
+
+                  return result;
                 }
 
-                if (commonPart.length > 0) {
-                  result += commonPart.trim();
-                }
+                expContainer.innerHTML = `
+                  <div class="bg-gray-100 px-4 py-2 font-semibold">Experience #${
+                    i + 1
+                  }</div>
+                  <div class="p-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h3 class="font-bold">Ground Truth</h3>
+                                            <div class="mt-2">
+                                                <p><span class="font-semibold">Title:</span> ${
+                                                  (truth && truth.title) ||
+                                                  "N/A"
+                                                }</p>
+                                                <p><span class="font-semibold">Company:</span> ${
+                                                  (truth && truth.company) ||
+                                                  "N/A"
+                                                }</p>
+                                                <p><span class="font-semibold">Start Date:</span> ${
+                                                  (truth && truth.startDate) ||
+                                                  "N/A"
+                                                }</p>
+                                                <p><span class="font-semibold">End Date:</span> ${
+                                                  (truth && truth.endDate) ||
+                                                  "N/A"
+                                                }</p>
+                                                <p><span class="font-semibold">Description:</span> ${
+                                                  (truth &&
+                                                    truth.description) ||
+                                                  "N/A"
+                                                }</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold">Extracted Data</h3>
+                                            <div class="mt-2">
+                                                <p><span class="font-semibold">Title:</span> ${
+                                                  (extracted &&
+                                                    extracted.title) ||
+                                                  "N/A"
+                                                }</p>
+                                                <p><span class="font-semibold">Company:</span> ${
+                                                  extracted && truth
+                                                    ? highlightDifferences(
+                                                        truth.company,
+                                                        extracted.company
+                                                      )
+                                                    : (extracted &&
+                                                        extracted.company) ||
+                                                      "N/A"
+                                                }</p>
+                                                <p><span class="font-semibold">Start Date:</span> ${
+                                                  (extracted &&
+                                                    extracted.startDate) ||
+                                                  "N/A"
+                                                }</p>
+                                                <p><span class="font-semibold">End Date:</span> ${
+                                                  (extracted &&
+                                                    extracted.endDate) ||
+                                                  "N/A"
+                                                }</p>
+                                                <p><span class="font-semibold">Description:</span> ${
+                                                  extracted && truth
+                                                    ? highlightDifferences(
+                                                        truth.description,
+                                                        extracted.description
+                                                      )
+                                                    : (extracted &&
+                                                        extracted.description) ||
+                                                      "N/A"
+                                                }</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+              `;
 
-                // Add the rest with highlighting
-                if (result.length < extractedText.length) {
-                  const diffStart = result.length > 0 ? result.length + 1 : 0;
-                  const diffText = extractedText.substring(diffStart);
-                  result += result.length > 0 ? " " : "";
-                  result += `<span class="diff">${diffText}</span>`;
-                }
-
-                return result;
+                workExperiencesContainer.appendChild(expContainer);
               }
-
-              expContainer.innerHTML = `
-                              <div class="bg-gray-100 px-4 py-2 font-semibold">Experience #${
-                                i + 1
-                              }</div>
-                              <div class="p-4">
-                                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                      <div>
-                                          <h3 class="font-bold">Ground Truth</h3>
-                                          <div class="mt-2">
-                                              <p><span class="font-semibold">Title:</span> ${
-                                                truth.title
-                                              }</p>
-                                              <p><span class="font-semibold">Company:</span> ${
-                                                truth.company
-                                              }</p>
-                                              <p><span class="font-semibold">Start Date:</span> ${
-                                                truth.startDate
-                                              }</p>
-                                              <p><span class="font-semibold">End Date:</span> ${
-                                                truth.endDate
-                                              }</p>
-                                              <p><span class="font-semibold">Description:</span> ${
-                                                truth.description
-                                              }</p>
-                                          </div>
-                                      </div>
-                                      <div>
-                                          <h3 class="font-bold">Extracted Data</h3>
-                                          <div class="mt-2">
-                                              <p><span class="font-semibold">Title:</span> ${
-                                                extracted.title
-                                              }</p>
-                                              <p><span class="font-semibold">Company:</span> ${highlightDifferences(
-                                                truth.company,
-                                                extracted.company
-                                              )}</p>
-                                              <p><span class="font-semibold">Start Date:</span> ${
-                                                extracted.startDate
-                                              }</p>
-                                              <p><span class="font-semibold">End Date:</span> ${
-                                                extracted.endDate
-                                              }</p>
-                                              <p><span class="font-semibold">Description:</span> ${highlightDifferences(
-                                                truth.description,
-                                                extracted.description
-                                              )}</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          `;
-
-              workExperiencesContainer.appendChild(expContainer);
             }
 
             fileSection.appendChild(workExperiencesContainer);
