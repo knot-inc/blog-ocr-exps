@@ -7,7 +7,8 @@ export function cleanText(text: string): string {
 		.replace(/[^\w\s]/g, "") // Remove all punctuation and special characters
 		.replace(/[\r\n\t]/g, " ") // Replace newlines and tabs with spaces
 		.replace(/\s+/g, " ") // Normalize whitespace (multiple spaces to single space)
-		.trim(); // Remove leading/trailing whitespace
+		.trim() // Remove leading/trailing whitespace
+		.toLowerCase(); // Convert to lowercase
 
 	return cleanedText;
 }

@@ -6,7 +6,7 @@ import {
 } from "../prompts/parse-work-experience";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
 import imageToBase64 from "../utils/imageToBase64";
-import { compareToGroundTruth } from "../utils/resultComparator";
+import { compareToGroundTruth } from "../utils/comparisonTools";
 
 const processImage = async (
 	imagePath: string,
@@ -54,8 +54,5 @@ const parseCliArgs = (): {
 if (require.main === module) {
 	const { modelName, detail } = parseCliArgs();
 	console.log(`Using model: ${modelName}, detail: ${detail}`);
-	compareToGroundTruth(
-		(path) => processImage(path, { modelName, detail }),
-		"./assets/ground-truth.json",
-	);
+	compareToGroundTruth((path) => processImage(path, { modelName, detail }));
 }

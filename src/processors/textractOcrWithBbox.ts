@@ -10,7 +10,7 @@ import {
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
-import { compareToGroundTruth } from "../utils/resultComparator";
+import { compareToGroundTruth } from "../utils/comparisonTools";
 import { textBboxesToStr } from "../utils/textBboxesToStr";
 import type { TextBbox, TextBboxesToStrMode } from "../types/bbox";
 
@@ -103,8 +103,5 @@ if (require.main === module) {
 	const options = parseCliArgs();
 
 	// Run the comparison to ground truth, passing the selected mode
-	compareToGroundTruth(
-		async (path) => textractOcrWithBbox(path, options),
-		"./assets/ground-truth.json",
-	);
+	compareToGroundTruth(async (path) => textractOcrWithBbox(path, options));
 }

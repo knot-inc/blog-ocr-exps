@@ -1,0 +1,25 @@
+{
+  "workExperiences": [
+    {
+      "title": "Senior Web Designer",
+      "company": "Creative Agency",
+      "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
+      "startDate": "2020-01-01",
+      "endDate": "Present"
+    },
+    {
+      "title": "Graphic Designer",
+      "company": "Creative Market",
+      "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
+      "startDate": "2015-01-01",
+      "endDate": "2020-12-31"
+    },
+    {
+      "title": "Marketing Manager",
+      "company": "Manufacturing Agency",
+      "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
+      "startDate": "2013-01-01",
+      "endDate": "2015-12-31"
+    }
+  ]
+}

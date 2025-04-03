@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OCR Field Match Analysis Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .diff {
+        background-color: #ffecec;
+        color: #dc2626;
+        font-weight: bold;
+      }
+      .bg-light-green {
+        background-color: #ecfdf5;
+      }
+      .bg-light-red {
+        background-color: #fef2f2;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-center mb-8">
+        OCR Field Match Analysis Results
+      </h1>
+      <div class="mb-6 bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-xl font-bold mb-4">Select Dataset</h2>
+        <div id="buttonContainer" class="flex flex-wrap gap-2">
+          <p class="text-gray-500 italic">Loading configuration...</p>
+        </div>
+      </div>
+      <div
+        id="globalSummarySection"
+        class="mb-8 bg-white shadow-md rounded-lg p-6 hidden"
+      >
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-bold">Overall Performance Summary</h2>
+          <button
+            id="toggleGlobalSummary"
+            class="text-indigo-600 hover:text-indigo-800"
+          >
+            Hide Summary
+          </button>
+        </div>
+        <div id="globalSummaryContent"></div>
+      </div>
+      <div
+        id="categorySummarySection"
+        class="mb-8 bg-white shadow-md rounded-lg p-6 hidden"
+      >
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-bold">Category Summary</h2>
+          <button
+            id="toggleCategorySummary"
+            class="text-indigo-600 hover:text-indigo-800"
+          >
+            Hide Summary
+          </button>
+        </div>
+        <div id="categorySummaryContent"></div>
+      </div>
+      <div id="loadingIndicator" class="hidden">
+        <div class="flex justify-center items-center mb-4">
+          <svg
+            class="animate-spin h-10 w-10 text-indigo-600"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+        </div>
+        <p class="text-center text-gray-600">Loading data, please wait...</p>
+      </div>
+      <div
+        id="summarySection"
+        class="mb-12 bg-white shadow-md rounded-lg p-6 hidden"
+      >
+        <h2 class="text-2xl font-bold mb-4">Field Type Averages</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white">
+            <thead>
+              <tr class="bg-gray-200 text-gray-700">
+                <th class="py-3 px-4 text-left">Field Type</th>
+                <th class="py-3 px-4 text-right">Match Rate</th>
+              </tr>
+            </thead>
+            <tbody id="summaryTableBody" class="text-gray-600"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="detailedResultsContainer" class="mb-8"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let globalConfig = {},
+          currentCategory = "",
+          allCategoriesData = {};
+        loadConfig();
+        document
+          .getElementById("toggleGlobalSummary")
+          .addEventListener("click", function () {
+            const summaryContent = document.getElementById(
+                "globalSummaryContent"
+              ),
+              toggleButton = document.getElementById("toggleGlobalSummary");
+            if (summaryContent.classList.contains("hidden")) {
+              summaryContent.classList.remove("hidden");
+              toggleButton.textContent = "Hide Summary";
+            } else {
+              summaryContent.classList.add("hidden");
+              toggleButton.textContent = "Show Summary";
+            }
+          });
+        document
+          .getElementById("toggleCategorySummary")
+          .addEventListener("click", function () {
+            const summaryContent = document.getElementById(
+                "categorySummaryContent"
+              ),
+              toggleButton = document.getElementById("toggleCategorySummary");
+            if (summaryContent.classList.contains("hidden")) {
+              summaryContent.classList.remove("hidden");
+              toggleButton.textContent = "Hide Summary";
+            } else {
+              summaryContent.classList.add("hidden");
+              toggleButton.textContent = "Show Summary";
+            }
+          });
+        async function loadConfig() {
+          try {
+            const response = await fetch("./config.json");
+            if (!response.ok)
+              throw new Error(`HTTP error! status: ${response.status}`);
+            const config = await response.json();
+            globalConfig = config;
+            populateButtons(config);
+            addShowSummaryButton();
+
+            // Automatically load global summary on page load
+            loadAllCategoriesData();
+          } catch (error) {
+            console.error("Error loading config:", error);
+            document.getElementById(
+              "buttonContainer"
+            ).innerHTML = `<p class="text-red-500">Error loading configuration: ${error.message}</p>`;
+          }
+        }
+        function addShowSummaryButton() {
+          const buttonContainer = document.getElementById("buttonContainer");
+          const summaryButtonContainer = document.createElement("div");
+          summaryButtonContainer.className = "w-full mb-6";
+          const showSummaryButton = document.createElement("button");
+          showSummaryButton.className =
+            "bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-md transition duration-200";
+          showSummaryButton.textContent = "Refresh Global Summary"; // Changed from "Show Global Summary"
+          showSummaryButton.addEventListener("click", loadAllCategoriesData);
+          summaryButtonContainer.appendChild(showSummaryButton);
+          buttonContainer.insertBefore(
+            summaryButtonContainer,
+            buttonContainer.firstChild
+          );
+        }
+        function populateButtons(config) {
+          const buttonContainer = document.getElementById("buttonContainer");
+          const firstChild = buttonContainer.firstChild;
+          buttonContainer.innerHTML = "";
+          if (firstChild) buttonContainer.appendChild(firstChild);
+          for (const [category, files] of Object.entries(config)) {
+            const categoryDiv = document.createElement("div");
+            categoryDiv.className = "w-full mb-6";
+            const categoryTitle = document.createElement("h3");
+            categoryTitle.className = "text-lg font-medium mb-3 text-gray-700";
+            categoryTitle.textContent =
+              category.charAt(0).toUpperCase() + category.slice(1);
+            categoryDiv.appendChild(categoryTitle);
+            const categoryActions = document.createElement("div");
+            categoryActions.className = "flex mb-3 gap-2";
+            const showSummaryButton = document.createElement("button");
+            showSummaryButton.className =
+              "bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-200";
+            showSummaryButton.textContent = "Show Summary";
+            showSummaryButton.addEventListener("click", () =>
+              showCategorySummary(category)
+            );
+            categoryActions.appendChild(showSummaryButton);
+            categoryDiv.appendChild(categoryActions);
+            const buttonsDiv = document.createElement("div");
+            buttonsDiv.className = "flex flex-wrap gap-2";
+            files.forEach((file) => {
+              const button = document.createElement("button");
+              button.className =
+                "bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-200";
+              button.textContent = file.replace(".json", "");
+              button.addEventListener("click", () =>
+                loadJsonFile(`./reports/${category}/${file}`)
+              );
+              buttonsDiv.appendChild(button);
+            });
+            categoryDiv.appendChild(buttonsDiv);
+            buttonContainer.appendChild(categoryDiv);
+          }
+        }
+        async function loadAllCategoriesData() {
+          try {
+            showLoading(true);
+            allCategoriesData = {};
+            const categoryAverages = {};
+            const fieldTypes = [
+              "Title",
+              "Company",
+              "Start Date",
+              "End Date",
+              "Description",
+            ];
+            for (const [category, files] of Object.entries(globalConfig)) {
+              allCategoriesData[category] = [];
+              let categoryTotal = 0,
+                categoryFileCount = 0;
+              for (const file of files) {
+                try {
+                  const response = await fetch(`./reports/${category}/${file}`);
+                  if (!response.ok) continue;
+                  const jsonData = await response.json();
+                  let totalFieldMatchRate = 0,
+                    fileCount = 0;
+                  jsonData.forEach((fileData) => {
+                    if (fileData.fieldMatchRate) {
+                      totalFieldMatchRate += fileData.fieldMatchRate;
+                      fileCount++;
+                    }
+                  });
+                  const avgMatchRate =
+                    fileCount > 0 ? totalFieldMatchRate / fileCount : 0;
+                  allCategoriesData[category].push({
+                    fileName: file.replace(".json", ""),
+                    avgMatchRate: avgMatchRate,
+                    fileCount: fileCount,
+                    data: jsonData,
+                  });
+                  categoryTotal += avgMatchRate;
+                  categoryFileCount++;
+                } catch (error) {
+                  console.warn(`Error processing ${file}:`, error);
+                }
+              }
+              categoryAverages[category] =
+                categoryFileCount > 0 ? categoryTotal / categoryFileCount : 0;
+            }
+            displayGlobalSummary(categoryAverages);
+          } catch (error) {
+            console.error("Error loading all categories:", error);
+            alert(`Error loading all categories: ${error.message}`);
+          } finally {
+            showLoading(false);
+          }
+        }
+        function displayGlobalSummary(categoryAverages) {
+          const summarySection = document.getElementById(
+            "globalSummarySection"
+          );
+          const summaryContent = document.getElementById(
+            "globalSummaryContent"
+          );
+          const sortedCategories = Object.entries(categoryAverages).sort(
+            (a, b) => b[1] - a[1]
+          );
+          let summaryHTML = `<h3 class="text-xl font-semibold mb-3">Global Performance by Category</h3><div class="overflow-x-auto mb-6"><table class="min-w-full bg-white"><thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">Category</th><th class="py-2 px-4 text-right">Average Match Rate</th></tr></thead><tbody>`;
+          let globalTotal = 0,
+            categoryCount = sortedCategories.length;
+          sortedCategories.forEach(([category, avgScore]) => {
+            let rowClass = "";
+            if (avgScore >= 90) rowClass = "bg-green-50";
+            else if (avgScore >= 75) rowClass = "bg-yellow-50";
+            else if (avgScore > 0) rowClass = "bg-red-50";
+            summaryHTML += `<tr class="${rowClass} border-b hover:bg-gray-100"><td class="py-2 px-4 font-medium">${
+              category.charAt(0).toUpperCase() + category.slice(1)
+            }</td><td class="py-2 px-4 text-right">${avgScore.toFixed(
+              1
+            )}%</td></tr>`;
+            globalTotal += avgScore;
+          });
+          const globalAvg = categoryCount > 0 ? globalTotal / categoryCount : 0;
+          summaryHTML += `</tbody><tfoot><tr class="border-t-2 border-gray-300 font-bold bg-gray-100"><td class="py-2 px-4">Global Average</td><td class="py-2 px-4 text-right">${globalAvg.toFixed(
+            1
+          )}%</td></tr></tfoot></table></div><h3 class="text-xl font-semibold mb-3">Category Comparison</h3><div class="space-y-3">`;
+          sortedCategories.forEach(([category, avgScore]) => {
+            let barColor = "bg-red-500";
+            if (avgScore >= 90) barColor = "bg-green-500";
+            else if (avgScore >= 75) barColor = "bg-yellow-500";
+            summaryHTML += `<div><div class="flex justify-between mb-1"><span class="font-medium">${
+              category.charAt(0).toUpperCase() + category.slice(1)
+            }</span><span>${avgScore.toFixed(
+              1
+            )}%</span></div><div class="h-4 w-full bg-gray-200 rounded-full overflow-hidden"><div class="h-full ${barColor}" style="width: ${avgScore}%"></div></div></div>`;
+          });
+          summaryHTML += `</div><h3 class="text-xl font-semibold mt-6 mb-3">Field Type Performance</h3><div class="overflow-x-auto"><table class="min-w-full bg-white"><thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">Field Type</th><th class="py-2 px-4 text-right">Global Average</th></tr></thead><tbody>`;
+          const fieldTypes = [
+            "Title",
+            "Company",
+            "Start Date",
+            "End Date",
+            "Description",
+          ];
+          const fieldTypeAverages = {};
+          fieldTypes.forEach((fieldType) => {
+            fieldTypeAverages[fieldType] = { total: 0, count: 0 };
+          });
+          for (const category in allCategoriesData) {
+            allCategoriesData[category].forEach((fileData) => {
+              fileData.data.forEach((item) => {
+                if (item.fieldTypeScores) {
+                  fieldTypes.forEach((fieldType) => {
+                    if (item.fieldTypeScores[fieldType] !== undefined) {
+                      fieldTypeAverages[fieldType].total +=
+                        item.fieldTypeScores[fieldType];
+                      fieldTypeAverages[fieldType].count++;
+                    }
+                  });
+                }
+              });
+            });
+          }
+          fieldTypes.forEach((fieldType) => {
+            const avg =
+              fieldTypeAverages[fieldType].count > 0
+                ? fieldTypeAverages[fieldType].total /
+                  fieldTypeAverages[fieldType].count
+                : 0;
+            let textClass = "text-red-600";
+            if (avg >= 90) textClass = "text-green-600";
+            else if (avg >= 75) textClass = "text-yellow-600";
+            summaryHTML += `<tr class="border-b hover:bg-gray-50"><td class="py-2 px-4">${fieldType}</td><td class="py-2 px-4 text-right ${textClass} font-medium">${avg.toFixed(
+              1
+            )}%</td></tr>`;
+          });
+          summaryHTML += `</tbody></table></div>`;
+          summaryContent.innerHTML = summaryHTML;
+          summarySection.classList.remove("hidden");
+          summaryContent.classList.remove("hidden");
+          document
+            .getElementById("categorySummarySection")
+            .classList.add("hidden");
+        }
+        async function showCategorySummary(category) {
+          try {
+            currentCategory = category;
+            showLoading(true);
+            if (!allCategoriesData[category]) {
+              allCategoriesData[category] = [];
+              const files = globalConfig[category];
+              for (const file of files) {
+                try {
+                  const response = await fetch(`./reports/${category}/${file}`);
+                  if (!response.ok) continue;
+                  const jsonData = await response.json();
+                  let totalFieldMatchRate = 0,
+                    fileCount = 0;
+                  jsonData.forEach((fileData) => {
+                    if (fileData.fieldMatchRate) {
+                      totalFieldMatchRate += fileData.fieldMatchRate;
+                      fileCount++;
+                    }
+                  });
+                  const avgMatchRate =
+                    fileCount > 0 ? totalFieldMatchRate / fileCount : 0;
+                  allCategoriesData[category].push({
+                    fileName: file.replace(".json", ""),
+                    avgMatchRate: avgMatchRate,
+                    fileCount: fileCount,
+                    data: jsonData,
+                  });
+                } catch (error) {
+                  console.warn(`Error processing ${file}:`, error);
+                }
+              }
+            }
+            const fileResults = allCategoriesData[category];
+            fileResults.sort((a, b) => b.avgMatchRate - a.avgMatchRate);
+            const summarySection = document.getElementById(
+              "categorySummarySection"
+            );
+            const summaryContent = document.getElementById(
+              "categorySummaryContent"
+            );
+            let summaryHTML = `<h3 class="text-xl font-semibold mb-3">Summary for ${
+              category.charAt(0).toUpperCase() + category.slice(1)
+            }</h3><div class="overflow-x-auto"><table class="min-w-full bg-white"><thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">File</th><th class="py-2 px-4 text-center">Documents</th><th class="py-2 px-4 text-right">Average Match Rate</th></tr></thead><tbody>`;
+            let categoryTotal = 0,
+              categoryFileCount = 0;
+            fileResults.forEach((result) => {
+              let rowClass = "";
+              if (result.avgMatchRate >= 90) rowClass = "bg-green-50";
+              else if (result.avgMatchRate >= 75) rowClass = "bg-yellow-50";
+              else if (result.avgMatchRate > 0) rowClass = "bg-red-50";
+              summaryHTML += `<tr class="${rowClass} border-b hover:bg-gray-100"><td class="py-2 px-4">${
+                result.fileName
+              }</td><td class="py-2 px-4 text-center">${
+                result.fileCount
+              }</td><td class="py-2 px-4 text-right font-medium">${result.avgMatchRate.toFixed(
+                1
+              )}%</td></tr>`;
+              categoryTotal += result.avgMatchRate;
+              categoryFileCount++;
+            });
+            const categoryAvg =
+              categoryFileCount > 0 ? categoryTotal / categoryFileCount : 0;
+            summaryHTML += `</tbody><tfoot><tr class="border-t-2 border-gray-300 font-bold bg-gray-100"><td class="py-2 px-4" colspan="2">Category Average</td><td class="py-2 px-4 text-right">${categoryAvg.toFixed(
+              1
+            )}%</td></tr></tfoot></table></div><h3 class="text-lg font-semibold mt-6 mb-2">Field Type Performance in ${
+              category.charAt(0).toUpperCase() + category.slice(1)
+            }</h3>`;
+            const fieldTypes = [
+              "Title",
+              "Company",
+              "Start Date",
+              "End Date",
+              "Description",
+            ];
+            const fieldTypeAverages = {};
+            fieldTypes.forEach((fieldType) => {
+              fieldTypeAverages[fieldType] = { total: 0, count: 0 };
+            });
+            fileResults.forEach((fileResult) => {
+              fileResult.data.forEach((item) => {
+                if (item.fieldTypeScores) {
+                  fieldTypes.forEach((fieldType) => {
+                    if (item.fieldTypeScores[fieldType] !== undefined) {
+                      fieldTypeAverages[fieldType].total +=
+                        item.fieldTypeScores[fieldType];
+                      fieldTypeAverages[fieldType].count++;
+                    }
+                  });
+                }
+              });
+            });
+            summaryHTML += `<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">`;
+            fieldTypes.forEach((fieldType) => {
+              const avg =
+                fieldTypeAverages[fieldType].count > 0
+                  ? fieldTypeAverages[fieldType].total /
+                    fieldTypeAverages[fieldType].count
+                  : 0;
+              let cardClass = "bg-red-100 border-red-200",
+                textClass = "text-red-800";
+              if (avg >= 90) {
+                cardClass = "bg-green-100 border-green-200";
+                textClass = "text-green-800";
+              } else if (avg >= 75) {
+                cardClass = "bg-yellow-100 border-yellow-200";
+                textClass = "text-yellow-800";
+              }
+              summaryHTML += `<div class="p-4 rounded-lg ${cardClass} border"><div class="text-sm font-medium">${fieldType}</div><div class="text-xl font-bold ${textClass}">${avg.toFixed(
+                1
+              )}%</div></div>`;
+            });
+            summaryHTML += `</div>`;
+            summaryContent.innerHTML = summaryHTML;
+            summarySection.classList.remove("hidden");
+            summaryContent.classList.remove("hidden");
+            document
+              .getElementById("globalSummarySection")
+              .classList.add("hidden");
+          } catch (error) {
+            console.error("Error generating category summary:", error);
+            alert(`Error generating category summary: ${error.message}`);
+          } finally {
+            showLoading(false);
+          }
+        }
+        async function loadJsonFile(path) {
+          try {
+            showLoading(true);
+            const response = await fetch(path);
+            if (!response.ok)
+              throw new Error(`HTTP error! status: ${response.status}`);
+            const jsonData = await response.json();
+            processData(jsonData);
+            document
+              .getElementById("categorySummarySection")
+              .classList.add("hidden");
+            document
+              .getElementById("globalSummarySection")
+              .classList.add("hidden");
+          } catch (error) {
+            console.error("Error loading JSON file:", error);
+            alert(`Error loading JSON file: ${error.message}`);
+          } finally {
+            showLoading(false);
+          }
+        }
+        function showLoading(isLoading) {
+          const loadingIndicator = document.getElementById("loadingIndicator");
+          if (isLoading) {
+            loadingIndicator.classList.remove("hidden");
+            document.getElementById("summarySection").classList.add("hidden");
+            document.getElementById("detailedResultsContainer").innerHTML = "";
+          } else {
+            loadingIndicator.classList.add("hidden");
+          }
+        }
+        // Complete the processData function to handle file details and show differences
+        function processData(data) {
+          document.getElementById("summaryTableBody").innerHTML = "";
+          document.getElementById("detailedResultsContainer").innerHTML = "";
+          document.getElementById("summarySection").classList.remove("hidden");
+          const fieldTypes = [
+            "Title",
+            "Company",
+            "Start Date",
+            "End Date",
+            "Description",
+          ];
+          const fieldTypeAverages = {};
+          let totalFieldMatchRate = 0;
+          fieldTypes.forEach((fieldType) => {
+            fieldTypeAverages[fieldType] = 0;
+          });
+          data.forEach((fileData) => {
+            fieldTypes.forEach((fieldType) => {
+              if (
+                fileData.fieldTypeScores &&
+                fileData.fieldTypeScores[fieldType]
+              ) {
+                fieldTypeAverages[fieldType] +=
+                  fileData.fieldTypeScores[fieldType];
+              }
+            });
+            if (fileData.fieldMatchRate) {
+              totalFieldMatchRate += fileData.fieldMatchRate;
+            }
+          });
+          fieldTypes.forEach((fieldType) => {
+            fieldTypeAverages[fieldType] =
+              fieldTypeAverages[fieldType] / data.length;
+          });
+          const overallAverage = totalFieldMatchRate / data.length;
+          const summaryTableBody = document.getElementById("summaryTableBody");
+          fieldTypes.forEach((fieldType) => {
+            const row = document.createElement("tr");
+            row.className = "border-b hover:bg-gray-50";
+            let rateClass = "";
+            if (fieldTypeAverages[fieldType] >= 90)
+              rateClass = "text-green-600 font-semibold";
+            else if (fieldTypeAverages[fieldType] >= 75)
+              rateClass = "text-yellow-600";
+            else rateClass = "text-red-600";
+            row.innerHTML = `<td class="py-3 px-4">${fieldType}</td><td class="py-3 px-4 text-right ${rateClass}">${fieldTypeAverages[
+              fieldType
+            ].toFixed(1)}%</td>`;
+            summaryTableBody.appendChild(row);
+          });
+          const overallRow = document.createElement("tr");
+          overallRow.className = "border-t-2 border-gray-300 font-bold";
+          let overallClass = "";
+          if (overallAverage >= 90) overallClass = "text-green-600";
+          else if (overallAverage >= 75) overallClass = "text-yellow-600";
+          else overallClass = "text-red-600";
+          overallRow.innerHTML = `<td class="py-3 px-4">Average field match</td><td class="py-3 px-4 text-right ${overallClass}">${overallAverage.toFixed(
+            1
+          )}%</td>`;
+          summaryTableBody.appendChild(overallRow);
+
+          // Create detailed results for each file
+          data.forEach((fileData, fileIndex) => {
+            const fileSection = document.createElement("div");
+            fileSection.className = "mb-12 bg-white shadow-md rounded-lg p-6";
+            const fileName = fileData.imagePath
+              ? fileData.imagePath.split("/").pop()
+              : `File ${fileIndex + 1}`;
+            let rateColorClass = "";
+            if (fileData.fieldMatchRate >= 90)
+              rateColorClass = "text-green-600";
+            else if (fileData.fieldMatchRate >= 75)
+              rateColorClass = "text-yellow-600";
+            else rateColorClass = "text-red-600";
+
+            // File header with toggle button
+            const fileHeader = document.createElement("div");
+            fileHeader.className = "flex justify-between items-center mb-6";
+            fileHeader.innerHTML = `
+            <h2 class="text-2xl font-bold">
+              ${fileName}
+              <span class="ml-2 ${rateColorClass}">[${fileData.fieldMatchRate.toFixed(
+              1
+            )}%]</span>
+            </h2>
+            <button class="toggle-details bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-200">
+              Show Details
+            </button>
+          `;
+            fileSection.appendChild(fileHeader);
+
+            // Create container for details (shown by default)
+            const detailsContainer = document.createElement("div");
+            detailsContainer.className = "details-container";
+
+            // Field type summary for this file
+            const fieldTypeSummary = document.createElement("div");
+            fieldTypeSummary.className =
+              "grid grid-cols-2 md:grid-cols-5 gap-4 mb-6";
+            fieldTypes.forEach((fieldType) => {
+              const score = fileData.fieldTypeScores
+                ? fileData.fieldTypeScores[fieldType] || 0
+                : 0;
+              let colorClass = "bg-red-100 border-red-200";
+              let textClass = "text-red-600";
+
+              if (score >= 90) {
+                colorClass = "bg-green-100 border-green-200";
+                textClass = "text-green-600";
+              } else if (score >= 75) {
+                colorClass = "bg-yellow-100 border-yellow-200";
+                textClass = "text-yellow-600";
+              }
+
+              fieldTypeSummary.innerHTML += `
+              <div class="p-4 rounded-lg ${colorClass} border">
+                <div class="text-sm font-medium">${fieldType}</div>
+                <div class="text-xl font-bold ${textClass}">${score.toFixed(
+                1
+              )}%</div>
+              </div>
+            `;
+            });
+            detailsContainer.appendChild(fieldTypeSummary);
+
+            // Extract and display work experiences
+            if (fileData.extractedData && fileData.groundTruth) {
+              const experiencesContainer = document.createElement("div");
+              experiencesContainer.className = "mt-6";
+
+              const extractedExps =
+                fileData.extractedData.workExperiences || [];
+              const groundTruthExps =
+                fileData.groundTruth.workExperiences || [];
+
+              // Function to highlight differences between two strings
+              function highlightDiff(extractedText, groundTruthText) {
+                if (!extractedText || !groundTruthText)
+                  return { html: "", hasDiff: false };
+
+                if (extractedText === groundTruthText) {
+                  return { html: extractedText, hasDiff: false };
+                }
+
+                // Simple word-by-word comparison
+                const extractedWords = extractedText.split(/\s+/);
+                const groundTruthWords = groundTruthText.split(/\s+/);
+                let html = "";
+                let hasDiff = false;
+
+                const maxLen = Math.max(
+                  extractedWords.length,
+                  groundTruthWords.length
+                );
+
+                for (let i = 0; i < maxLen; i++) {
+                  const extractedWord =
+                    i < extractedWords.length ? extractedWords[i] : "";
+                  const groundTruthWord =
+                    i < groundTruthWords.length ? groundTruthWords[i] : "";
+
+                  if (
+                    extractedWord.toLowerCase() !==
+                    groundTruthWord.toLowerCase()
+                  ) {
+                    html += `<span class="diff">${extractedWord}</span> `;
+                    hasDiff = true;
+                  } else {
+                    html += extractedWord + " ";
+                  }
+                }
+
+                return { html: html.trim(), hasDiff };
+              }
+
+              // Create a table for each work experience entry
+              extractedExps.forEach((extractedExp, expIndex) => {
+                const groundTruthExp = groundTruthExps[expIndex] || {};
+
+                const expCard = document.createElement("div");
+                expCard.className = "mb-8 p-6 border rounded-lg";
+
+                // Create a comparison table
+                const comparisonTable = document.createElement("table");
+                comparisonTable.className = "min-w-full border-collapse";
+                comparisonTable.innerHTML = `
+                <thead>
+                  <tr class="bg-gray-200">
+                    <th class="py-2 px-4 text-left">Field</th>
+                    <th class="py-2 px-4 text-left">Extracted</th>
+                    <th class="py-2 px-4 text-left">Ground Truth</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              `;
+
+                const tableBody = comparisonTable.querySelector("tbody");
+
+                // Add rows for each field
+                fieldTypes.forEach((fieldType) => {
+                  const row = document.createElement("tr");
+                  row.className = "border-b";
+
+                  const fieldKey = fieldType.toLowerCase().replace(/\s+/g, "");
+                  const extractedValue = extractedExp[fieldKey] || "";
+                  const groundTruthValue = groundTruthExp[fieldKey] || "";
+
+                  const diffResult = highlightDiff(
+                    extractedValue,
+                    groundTruthValue
+                  );
+
+                  let rowClass = "";
+                  if (diffResult.hasDiff) {
+                    rowClass = "bg-light-red";
+                  } else if (extractedValue) {
+                    rowClass = "bg-light-green";
+                  }
+
+                  row.className = `border-b ${rowClass}`;
+                  row.innerHTML = `
+                  <td class="py-2 px-4 font-medium">${fieldType}</td>
+                  <td class="py-2 px-4">${diffResult.html}</td>
+                  <td class="py-2 px-4">${groundTruthValue}</td>
+                `;
+
+                  tableBody.appendChild(row);
+                });
+
+                expCard.appendChild(comparisonTable);
+                experiencesContainer.appendChild(expCard);
+              });
+
+              detailsContainer.appendChild(experiencesContainer);
+            }
+
+            fileSection.appendChild(detailsContainer);
+            document
+              .getElementById("detailedResultsContainer")
+              .appendChild(fileSection);
+
+            // Add event listener to toggle button
+            const toggleButton = fileSection.querySelector(".toggle-details");
+            toggleButton.textContent = "Hide Details"; // Set initial button text to "Hide Details"
+            toggleButton.addEventListener("click", function () {
+              const detailsContainer =
+                fileSection.querySelector(".details-container");
+              if (detailsContainer.classList.contains("hidden")) {
+                detailsContainer.classList.remove("hidden");
+                this.textContent = "Hide Details";
+              } else {
+                detailsContainer.classList.add("hidden");
+                this.textContent = "Show Details";
+              }
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

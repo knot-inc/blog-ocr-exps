@@ -1,0 +1,25 @@
+{
+  "workExperiences": [
+    {
+      "title": "Graphic Designer",
+      "company": "Soft Design Studios",
+      "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor",
+      "startDate": "2015-01-01",
+      "endDate": "2017-12-31"
+    },
+    {
+      "title": "Web Designer",
+      "company": "Web Tech Ltd",
+      "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium felison lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.",
+      "startDate": "2013-01-01",
+      "endDate": "2015-12-31"
+    },
+    {
+      "title": "Lead Web Designer",
+      "company": "Dev Creative Solutions",
+      "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor",
+      "startDate": "2010-01-01",
+      "endDate": "2013-12-31"
+    }
+  ]
+}

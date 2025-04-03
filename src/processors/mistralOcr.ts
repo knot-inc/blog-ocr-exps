@@ -8,7 +8,7 @@ import {
 } from "../prompts/parse-work-experience";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
 import imageToBase64 from "../utils/imageToBase64";
-import { compareToGroundTruth } from "../utils/resultComparator";
+import { compareToGroundTruth } from "../utils/comparisonTools";
 
 dotenv.config();
 
@@ -43,5 +43,5 @@ const mistralOcr = async (
 export default mistralOcr;
 
 if (require.main === module) {
-	compareToGroundTruth(mistralOcr, "./assets/ground-truth.json");
+	compareToGroundTruth(mistralOcr);
 }

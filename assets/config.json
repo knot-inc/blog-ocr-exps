@@ -1,0 +1,18 @@
+{
+  "freepiks": [
+    "mistralOcr.json",
+    "processImage.json",
+    "tesseractOcr.json",
+    "tesseractOcrWithBbox.json",
+    "textractOcr.json",
+    "textractOcrWithBbox.json"
+  ],
+  "samples": [
+    "mistralOcr.json",
+    "processImage.json",
+    "tesseractOcr.json",
+    "tesseractOcrWithBbox.json",
+    "textractOcr.json",
+    "textractOcrWithBbox.json"
+  ]
+}

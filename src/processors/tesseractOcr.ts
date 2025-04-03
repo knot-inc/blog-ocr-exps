@@ -6,7 +6,7 @@ import {
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
 import { OpenAIWrapper } from "../utils/openaiWrapper";
-import { compareToGroundTruth } from "../utils/resultComparator";
+import { compareToGroundTruth } from "../utils/comparisonTools";
 
 const tesseractOcr = async (
 	imagePath: string,
@@ -40,5 +40,5 @@ const tesseractOcr = async (
 export default tesseractOcr;
 
 if (require.main === module) {
-	compareToGroundTruth(tesseractOcr, "./assets/ground-truth.json");
+	compareToGroundTruth(tesseractOcr);
 }

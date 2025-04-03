@@ -1,0 +1,302 @@
+[
+  {
+    "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/decorated.png",
+    "fieldMatchRate": 99.69942528735632,
+    "fieldTypeScores": {
+      "Title": 100,
+      "Company": 100,
+      "Start Date": 100,
+      "End Date": 100,
+      "Description": 98.49712643678161
+    },
+    "extractedData": {
+      "workExperiences": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Tech Solutions Inc.",
+          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices",
+          "startDate": "2020-01-01",
+          "endDate": "Present"
+        },
+        {
+          "title": "Software Developer",
+          "company": "Digital Innovations",
+          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%",
+          "startDate": "2018-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Junior Developer",
+          "company": "Global Tech Labs",
+          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers on responsive designs",
+          "startDate": "2016-01-01",
+          "endDate": "2018-12-31"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "company": "CodeCraft Internship",
+          "description": "Developed small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "startDate": "2015-07-01",
+          "endDate": "2015-07-31"
+        }
+      ]
+    },
+    "groundTruth": {
+      "workExperiences": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Tech Solutions Inc.",
+          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices",
+          "startDate": "2020-01-01",
+          "endDate": "Present"
+        },
+        {
+          "title": "Software Developer",
+          "company": "Digital Innovations",
+          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%",
+          "startDate": "2018-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Junior Developer",
+          "company": "Global Tech Labs",
+          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers to implement responsive designs",
+          "startDate": "2016-01-01",
+          "endDate": "2018-12-31"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "company": "CodeCraft Internship",
+          "description": "Developed small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "startDate": "2015-07-01",
+          "endDate": "2015-07-31"
+        }
+      ]
+    }
+  },
+  {
+    "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/side-by-side.png",
+    "fieldMatchRate": 98.96129275681446,
+    "fieldTypeScores": {
+      "Title": 100,
+      "Company": 100,
+      "Start Date": 100,
+      "End Date": 100,
+      "Description": 94.80646378407228
+    },
+    "extractedData": {
+      "workExperiences": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Tech Solutions Inc.",
+          "description": "- Led development of cloud-based customer management system\n- Optimized database performance, reducing query times by 40%\n- Mentored junior developers and implemented code review practices",
+          "startDate": "2020-01-01",
+          "endDate": "Present"
+        },
+        {
+          "title": "Software Developer",
+          "company": "Digital Innovations",
+          "description": "- Developed RESTful APIs for mobile application integrations\n- Implemented automated testing, increasing code coverage to 85%",
+          "startDate": "2018-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Junior Developer",
+          "company": "Global Tech Labs",
+          "description": "- Assisted in developing front-end components for e-commerce websites\n- Participated in daily Scrum meetings and sprint planning\n- Collaborated with designers on responsive layouts",
+          "startDate": "2016-01-01",
+          "endDate": "2018-12-31"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "company": "CodeCraft Internship",
+          "description": "- Developed small features for internal JavaScript tools\n- Created documentation for developer onboarding\n- Assisted senior engineers with testing and debugging tasks",
+          "startDate": "2015-07-01",
+          "endDate": "2015-07-31"
+        }
+      ]
+    },
+    "groundTruth": {
+      "workExperiences": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Tech Solutions Inc.",
+          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices",
+          "startDate": "2020-01-01",
+          "endDate": "Present"
+        },
+        {
+          "title": "Software Developer",
+          "company": "Digital Innovations",
+          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%",
+          "startDate": "2018-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Junior Developer",
+          "company": "Global Tech Labs",
+          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers to implement responsive designs",
+          "startDate": "2016-01-01",
+          "endDate": "2018-12-31"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "company": "CodeCraft Internship",
+          "description": "Developed small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "startDate": "2015-07-01",
+          "endDate": "2015-07-31"
+        }
+      ]
+    }
+  },
+  {
+    "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/split.png",
+    "fieldMatchRate": 98.17890192967832,
+    "fieldTypeScores": {
+      "Title": 100,
+      "Company": 100,
+      "Start Date": 100,
+      "End Date": 100,
+      "Description": 90.89450964839163
+    },
+    "extractedData": {
+      "workExperiences": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Tech Solutions Inc.",
+          "description": "- Led development of cloud-based customer management system\n- Optimized database performance, reducing query times by 40%\n- Mentored junior developers and implemented code review practices",
+          "startDate": "2020-01-01",
+          "endDate": "Present"
+        },
+        {
+          "title": "Software Developer",
+          "company": "Digital Innovations",
+          "description": "- Developed RESTful APIs for mobile application integrations\n- Implemented automated testing, increasing code coverage to 85%\n- Assisted in developing front-end components for ecommerce websites",
+          "startDate": "2018-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Junior Developer",
+          "company": "Global Tech Labs",
+          "description": "- Participated in daily Scrum meetings and sprint planning sessions\n- Collaborated with UX/UI designers to implement responsive designs",
+          "startDate": "2016-01-01",
+          "endDate": "2018-12-31"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "company": "CodeCraft Internship",
+          "description": "- Developed small features for internal tools using JavaScript\n- Created documentation for developer onboarding processes\n- Assisted senior engineers with testing and debugging tasks",
+          "startDate": "2015-07-01",
+          "endDate": "2015-07-31"
+        }
+      ]
+    },
+    "groundTruth": {
+      "workExperiences": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Tech Solutions Inc.",
+          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices",
+          "startDate": "2020-01-01",
+          "endDate": "Present"
+        },
+        {
+          "title": "Software Developer",
+          "company": "Digital Innovations",
+          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%",
+          "startDate": "2018-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Junior Developer",
+          "company": "Global Tech Labs",
+          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers to implement responsive designs",
+          "startDate": "2016-01-01",
+          "endDate": "2018-12-31"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "company": "CodeCraft Internship",
+          "description": "Developed small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "startDate": "2015-07-01",
+          "endDate": "2015-07-31"
+        }
+      ]
+    }
+  },
+  {
+    "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/samples/standard.png",
+    "fieldMatchRate": 100,
+    "fieldTypeScores": {
+      "Title": 100,
+      "Company": 100,
+      "Start Date": 100,
+      "End Date": 100,
+      "Description": 100
+    },
+    "extractedData": {
+      "workExperiences": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Tech Solutions Inc.",
+          "description": "Led development of cloud-based customer management system\n- Optimized database performance, reducing query times by $40 \\%$\n- Mentored junior developers and implemented code review practices",
+          "startDate": "2020-01-01",
+          "endDate": "Present"
+        },
+        {
+          "title": "Software Developer",
+          "company": "Digital Innovations",
+          "description": "Developed RESTful APIs for mobile application integrations\n- Implemented automated testing, increasing code coverage to $85 \\%$",
+          "startDate": "2018-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Junior Developer",
+          "company": "Global Tech Labs",
+          "description": "Assisted in developing front-end components for e-commerce websites\n- Participated in daily Scrum meetings and sprint planning sessions\n- Collaborated with UX/UI designers to implement responsive designs",
+          "startDate": "2016-01-01",
+          "endDate": "2018-12-31"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "company": "CodeCraft Internship",
+          "description": "Developed small features for internal tools using JavaScript\n- Created documentation for developer onboarding processes\n- Assisted senior engineers with testing and debugging tasks",
+          "startDate": "2015-07-01",
+          "endDate": "2015-07-31"
+        }
+      ]
+    },
+    "groundTruth": {
+      "workExperiences": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Tech Solutions Inc.",
+          "description": "Led development of cloud-based customer management system\nOptimized database performance, reducing query times by 40%\nMentored junior developers and implemented code review practices",
+          "startDate": "2020-01-01",
+          "endDate": "Present"
+        },
+        {
+          "title": "Software Developer",
+          "company": "Digital Innovations",
+          "description": "Developed RESTful APIs for mobile application integrations\nImplemented automated testing, increasing code coverage to 85%",
+          "startDate": "2018-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Junior Developer",
+          "company": "Global Tech Labs",
+          "description": "Assisted in developing front-end components for e-commerce websites\nParticipated in daily Scrum meetings and sprint planning sessions\nCollaborated with UX/UI designers to implement responsive designs",
+          "startDate": "2016-01-01",
+          "endDate": "2018-12-31"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "company": "CodeCraft Internship",
+          "description": "Developed small features for internal tools using JavaScript\nCreated documentation for developer onboarding processes\nAssisted senior engineers with testing and debugging tasks",
+          "startDate": "2015-07-01",
+          "endDate": "2015-07-31"
+        }
+      ]
+    }
+  }
+]

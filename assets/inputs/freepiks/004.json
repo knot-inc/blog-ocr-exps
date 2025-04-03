@@ -1,0 +1,18 @@
+{
+  "workExperiences": [
+    {
+      "title": "Enter Your Job Position Here",
+      "company": "Company Name",
+      "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.",
+      "startDate": "2019-01-01",
+      "endDate": "Present"
+    },
+    {
+      "title": "Enter Your Job Position Here",
+      "company": "Company Name",
+      "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.",
+      "startDate": "2016-01-01",
+      "endDate": "2019-12-31"
+    }
+  ]
+}
