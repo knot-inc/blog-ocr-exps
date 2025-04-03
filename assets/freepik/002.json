@@ -1,0 +1,32 @@
+{
+  "workExperiences": [
+    {
+      "title": "Lorem Ipsum",
+      "company": "Lorem Ipsum",
+      "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
+      "startDate": "2010-01-01",
+      "endDate": "2015-12-31"
+    },
+    {
+      "title": "Lorem Ipsum",
+      "company": "Lorem Ipsum",
+      "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
+      "startDate": "2010-01-01",
+      "endDate": "2017-12-31"
+    },
+    {
+      "title": "Lorem Ipsum",
+      "company": "Lorem Ipsum",
+      "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
+      "startDate": "2015-01-01",
+      "endDate": "2020-12-31"
+    },
+    {
+      "title": "Lorem Ipsum",
+      "company": "Lorem Ipsum",
+      "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
+      "startDate": "2020-01-01",
+      "endDate": "2021-12-31"
+    }
+  ]
+}

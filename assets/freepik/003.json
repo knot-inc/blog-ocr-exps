@@ -1,0 +1,25 @@
+{
+  "workExperiences": [
+    {
+      "title": "Art Director & UX Designer",
+      "company": "Company Name",
+      "description": "Fusce viverra luctus erat porttitor rhoncus. Phasellus rhoncus vestibulum dapibus.",
+      "startDate": "2009-01-01",
+      "endDate": "2012-12-31"
+    },
+    {
+      "title": "Art Director & UX Designer",
+      "company": "Company Name",
+      "description": "Fusce viverra luctus erat porttitor rhoncus. Phasellus rhoncus vestibulum dapibus.",
+      "startDate": "2016-01-01",
+      "endDate": "2018-12-31"
+    },
+    {
+      "title": "Art Director & UX Designer",
+      "company": "Company Name",
+      "description": "Fusce viverra luctus erat porttitor rhoncus. Phasellus rhoncus vestibulum dapibus.",
+      "startDate": "2019-01-01",
+      "endDate": "Present"
+    }
+  ]
+}
