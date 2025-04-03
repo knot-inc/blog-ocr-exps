@@ -1,34 +1,34 @@
 [
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png",
-    "fieldMatchRate": 78.52922179096917,
+    "fieldMatchRate": 79.71574874998431,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 70.5432909647469,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 22.10281799009893
+      "Description": 28.035452785174698
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Senior Web Designer",
           "company": "Darwin B. Magana Creative Agency",
-          "description": "Worked as a Senior Web Designer.",
+          "description": "SENIOR WEB DESIGNER 2020 -Present\n© DARWIN B. MAGANA Creative Agency / Chicago",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
           "title": "Graphic Designer",
           "company": "Robert Belvin Creative Market",
-          "description": "Worked as a Graphic Designer.",
+          "description": "GRAPHIC DESIGNER 2015-2020\no ROBERT.BELVIN Creative Market / Chicago",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
           "title": "Marketing Manager",
           "company": "Manufacturing Agency",
-          "description": "Worked as a Marketing Manager.",
+          "description": "MARKETING MANAGER 2013-2015\nMarfocturing Agency / NI",
           "startDate": "2013-01-01",
           "endDate": "2015-12-31"
         }
@@ -62,34 +62,34 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png",
-    "fieldMatchRate": 83.573226684857,
+    "fieldMatchRate": 97.36439712049469,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 17.866133424285035
+      "Description": 86.82198560247342
     },
     "extractedData": {
       "workExperiences": [
         {
-          "title": "SENIOR WEB DESIGNER",
+          "title": "Senior Web Designer",
           "company": "Creative Agency",
-          "description": "Creative Agency / Chicago",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
-          "title": "GRAPHIC DESIGNER",
+          "title": "Graphic Designer",
           "company": "Creative Market",
-          "description": "Creative Market / Chicago",
+          "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500, when an unknown printer took a galley of type.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "MARKETING MANAGER",
+          "title": "Marketing Manager",
           "company": "Manufacturing Agency",
-          "description": "Manufacturing Agency / NJ",
+          "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500, when an unknown printer took a galley of type.",
           "startDate": "2013-01-01",
           "endDate": "2015-12-31"
         }
@@ -123,27 +123,48 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png",
-    "fieldMatchRate": 85.95731066319301,
+    "fieldMatchRate": 67.70382548906738,
     "fieldTypeScores": {
       "Title": 100,
-      "Company": 100,
+      "Company": 0,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 29.786553315965083
+      "Description": 38.51912744533688
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Lorem Ipsum",
-          "company": "Lorem Ipsum",
-          "description": "Lorem Ipsum",
+          "company": "",
+          "description": "Lorem Ipsum eS Lorem Ipsum oe olen",
+          "startDate": "2010-01-01",
+          "endDate": "2015-12-31"
+        },
+        {
+          "title": "Lorem Ipsum",
+          "company": "",
+          "description": "Lorem Ipsum et om Ct mt rng",
+          "startDate": "2010-01-01",
+          "endDate": "2017-12-31"
+        },
+        {
+          "title": "Lorem Ipsum",
+          "company": "",
+          "description": "Lorem Ipsum on Ron",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
           "title": "Lorem Ipsum",
-          "company": "Lorem Ipsum",
-          "description": "Lorem Ipsum",
+          "company": "",
+          "description": "Lorem Ipsum dolormolestie ium felisconon lorem st",
+          "startDate": "2015-01-01",
+          "endDate": "2020-12-31"
+        },
+        {
+          "title": "Lorem Ipsum",
+          "company": "",
+          "description": "Lorem Ipsum prssebelblipitiebipli",
           "startDate": "2020-01-01",
           "endDate": "2021-12-31"
         }
@@ -245,13 +266,13 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png",
-    "fieldMatchRate": 85.40599458638675,
+    "fieldMatchRate": 82.26153489439494,
     "fieldTypeScores": {
-      "Title": 33.09218232747644,
+      "Title": 18.92373657079539,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 93.93779060445728
+      "Description": 92.38393790117928
     },
     "extractedData": {
       "workExperiences": [
@@ -263,9 +284,9 @@
           "endDate": "Present"
         },
         {
-          "title": "Job Position",
+          "title": "Senior Web Designer",
           "company": "Company Name",
-          "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamaquis nostrud exercit ullameo aliquip commodo consequat.",
+          "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamaquis nostrud exercit ullameo aliquip commodo consequat.",
           "startDate": "2016-01-01",
           "endDate": "2019-12-31"
         }
@@ -292,34 +313,34 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png",
-    "fieldMatchRate": 80.57078651685393,
+    "fieldMatchRate": 84.00577791995585,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 2.853932584269663
+      "Description": 20.028889599779273
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Senior Creative Designer",
           "company": "Company Name",
-          "description": "N/A",
+          "description": "La ‘Company Name | Location FEB 2018 - NOW",
           "startDate": "2018-02-01",
           "endDate": "Present"
         },
         {
           "title": "Creative Designer",
           "company": "Company Name",
-          "description": "N/A",
+          "description": "‘Company Name | Location SEP 2017 -FEB 2018",
           "startDate": "2017-09-01",
           "endDate": "2018-02-28"
         },
         {
           "title": "Junior Graphic Designer",
           "company": "Company Name",
-          "description": "N/A",
+          "description": "Company Name | Location MAY 2015 - SEP 2017",
           "startDate": "2015-05-01",
           "endDate": "2017-09-30"
         }
@@ -353,34 +374,34 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png",
-    "fieldMatchRate": 96.45205433952236,
+    "fieldMatchRate": 92.96820040268221,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 82.26027169761186
+      "Description": 64.84100201341109
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Graphic Designer",
           "company": "Soft Design Studios",
-          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "description": "empus id fringilla molestie ornare diam in olestie ipsum etium rosn 2015-2017 Porttitor amet massa Done cporttitor dolor et nisl ollicitudin est, porttitor amet hitmas- molestie ium feliscon lore ipsum dolor tfringilla. lorem sa Done cporttitor dolor shit dolor lorem ipsum. llcitudin est dolor time. Done cportitor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipcum retiumci amet is tudinest moles tium",
           "startDate": "2015-01-01",
           "endDate": "2017-12-31"
         },
         {
           "title": "Web Designer",
           "company": "Web Tech Ltd",
-          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "description": "lorem olestie pretium apaza all the san iinsilaliororalpain 2013 - 2015 Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.",
           "startDate": "2013-01-01",
           "endDate": "2015-12-31"
         },
         {
           "title": "Lead Web Designer",
           "company": "Dev Creative Solutions",
-          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "description": "2010 - 2013 Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem Address: lorem ipsum. ollcitudin est dolor time. Done cporttitor 12th Avenue Street Australia 40000",
           "startDate": "2010-01-01",
           "endDate": "2013-12-31"
         }

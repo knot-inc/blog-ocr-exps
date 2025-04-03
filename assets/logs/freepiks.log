@@ -6,7 +6,7 @@ Processing images from assets/inputs/freepiks using specified processors...
 Processing 7 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png ==========
@@ -340,87 +340,150 @@ Photoshop |  | After Iffect |  |  |  |
 - Travelling Singing - Sketching - Swimming 
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png
-Error processing /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: ConnectionError: Unable to make request: TypeError: fetch failed
-    at /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/lib/sdks.ts:291:15
-    at async $do (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/funcs/ocrProcess.ts:124:20) {
-  [cause]: TypeError: fetch failed
-      at node:internal/deps/undici/undici:13392:13
-      at async HTTPClient.request (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/lib/http.ts:63:19)
-      at async config (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/lib/sdks.ts:251:24)
-      at async retry (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/lib/retries.ts:89:14)
-      at async $do (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/funcs/ocrProcess.ts:124:20) {
-    [cause]: SocketError: other side closed
-        at TLSSocket.<anonymous> (node:internal/deps/undici/undici:6238:28)
-        at TLSSocket.emit (node:events:530:35)
-        at TLSSocket.emit (node:domain:489:12)
-        at endReadableNT (node:internal/streams/readable:1698:12)
-        at processTicksAndRejections (node:internal/process/task_queues:90:21) {
-      code: 'UND_ERR_SOCKET',
-      socket: [Object]
-    }
-  }
-}
+
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png ==========
+
+ # Laura Anderson 
+
+Web Design \& Developer
+
+## CONTACT
+
+$+000123456789$
+lauraanderson@gmail.com
+www.lauraanderson.com
+
+## EDUCATION
+
+## Certificate of Web Trainig University of Lorem
+
+2008 - 2010
+
+## Bechelor of Art Director University of Lorem
+
+2007 - 2009
+
+## SKILLS
+
+## Communication
+
+## Creativity
+
+## Teamwork
+
+Organization
+Teamplayer
+
+## REFERENCE
+
+## WILLIAM KLEIMAN
+
+Director, Matrix media limited
+Phone: +5551235566
+Email : williamkleiman@gmail.com
+
+## Hello, I'm Laura
+
+My Name Is Laura Anderson lorem empus id fringilla molestie ornare diam in olestie ipsum etium rosn ollicitudin est, porttitor amet hitmassa Done cporttitor dolor shit dolor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipsum retiumci amet is tudinest.moles tium lorem olestie pretium apaza all the rosen. fringilla lorem ipsum. orem nisl molestie pretium etfring. is the shitp lorem ipcurn retiumci amet is tudinest.moles tium lorem olestie pretium apaza all the rosen. fringilla lorem ipsum.
+
+## EXPERIENCE
+
+## SENIOR CREATIVE DESIGNER
+
+## Company Name I Location
+
+FEB 2018 - NOW
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+
+## CREATIVE DESIGNER
+
+## Company Name I Location
+
+SEP 2017 -FEB 2018
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+
+## JUNIOR GRAPHIC DESIGNER
+
+## Company Name I Location
+
+MAY 2015 - SEP 2017
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
+
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png
-Error processing /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: ConnectionError: Unable to make request: TypeError: fetch failed
-    at /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/lib/sdks.ts:291:15
-    at async $do (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/funcs/ocrProcess.ts:124:20) {
-  [cause]: TypeError: fetch failed
-      at node:internal/deps/undici/undici:13392:13
-      at async HTTPClient.request (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/lib/http.ts:63:19)
-      at async config (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/lib/sdks.ts:251:24)
-      at async retry (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/lib/retries.ts:89:14)
-      at async $do (/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/node_modules/.pnpm/@mistralai+mistralai@1.5.2_zod@3.24.2/node_modules/@mistralai/mistralai/src/funcs/ocrProcess.ts:124:20) {
-    [cause]: SocketError: other side closed
-        at TLSSocket.<anonymous> (node:internal/deps/undici/undici:6238:28)
-        at TLSSocket.emit (node:events:530:35)
-        at TLSSocket.emit (node:domain:489:12)
-        at endReadableNT (node:internal/streams/readable:1698:12)
-        at processTicksAndRejections (node:internal/process/task_queues:90:21) {
-      code: 'UND_ERR_SOCKET',
-      socket: [Object]
-    }
-  }
-}
 
-Successfully processed 5 of 7 images
-Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png
+========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png ==========
+
+ # J E N N I F E R W A T S O N 
+
+## (A) ABOUT ME
+
+My Name Is Henry Watson lorem empus id fringilla molestie ornare diam in olestie ipsum etium rosn ollcitudin est, porttitor amet hitmassa Done cporttitor dolor shit dolor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipsum retiumci amet is tudinest.moles tium lorem olestie pretium apaza all the rosen. fringilla lorem ipsum.
+
+## (B) CONTACT
+
+Address:
+12th Avenue Street Australia 40000
+
+Mobile:
+02800200
+Home:
+02800200
+Email:
+johnwatson@gmail.com
+Website:
+jwatson.com
+Skype:
+username
+
+## (C) SKILLS
+
+SKILL 01
+SKILL 02
+SKILL 03
+SKILL 04
+SKILL 05
+
+## EXPERIENCES
+
+## GRAPHIC DESIGNER
+
+2015 - 2017
+
+## WEB DESIGNER
+
+2013 - 2015
+
+## (D) 2010 - 2013
+
+## (D) EDUCATION
+
+UNIVERSITY OF LOREM
+2008 - 2010
+
+UNIVERSITY OF LOREM
+2007 - 2009
+
+UNIVERSITY OF LOREM
+2007 - 2009
+
+## SCHELOR OF ART DIRECTOR
+
+Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
+
+## BECHELOR OF ART DIRECTOR
+
+Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
+
+## JENSEN SMITH
+
+Web developer, Design mate LTD
+Phone: +123 5556 4455
+Email: jensonsmith@gmail.com 
 
 
-Work experience #1:
-Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR WEB DESIGNER
-  ✅ Company     : 100% match, Creative Agency
-  ✅ Start Date  : 100% match, 2020-01-01
-  ✅ End Date    : 100% match, Present
-  ✅ Description : 100% match
-  Field match rate: 100.0%
+Successfully processed 7 of 7 images
+Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png, /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png
 
-Work experience #2:
-Match with ground truth #2
-  ✅ Title       : 100% match, GRAPHIC DESIGNER
-  ✅ Company     : 100% match, Creative Market
-  ✅ Start Date  : 100% match, 2015-01-01
-  ✅ End Date    : 100% match, 2020-12-31
-  ✅ Description : 100% match
-  Field match rate: 100.0%
-
-Work experience #3:
-Match with ground truth #3
-  ✅ Title       : 100% match, MARKETING MANAGER
-  ✅ Company     : 100% match, Manufacturing Agency
-  ✅ Start Date  : 100% match, 2013-01-01
-  ✅ End Date    : 100% match, 2015-12-31
-  ✅ Description : 100% match
-  Field match rate: 100.0%
-
-Field Type Averages:
-Average Title match rate: 100.0%
-Average Company match rate: 100.0%
-Average Start Date match rate: 100.0%
-Average End Date match rate: 100.0%
-Average Description match rate: 100.0%
-
-Overall field match rate: 100.0%
 
 Work experience #1:
 Match with ground truth #1
@@ -460,44 +523,90 @@ Overall field match rate: 100.0%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, LOREM IPSUM
-  ✅ Start Date  : 100% match, 2010-01-01
-  ✅ End Date    : 100% match, 2015-12-31
-  ✅ Description : 100% match
-  Field match rate: 100.0%
+  ✅ Title       : 100% match, Senior Web Designer
+  ✅ Company     : 100% match, Creative Agency
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ⚠️  Description : 98% match
+    Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type.
+    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
+  Field match rate: 99.7%
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, LOREM IPSUM
-  ✅ Start Date  : 100% match, 2010-01-01
-  ✅ End Date    : 100% match, 2017-12-31
-  ✅ Description : 100% match
-  Field match rate: 100.0%
+  ✅ Title       : 100% match, Graphic Designer
+  ✅ Company     : 100% match, Creative Market
+  ✅ Start Date  : 100% match, 2015-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ⚠️  Description : 98% match
+    Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type.
+    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
+  Field match rate: 99.7%
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, LOREM IPSUM
-  ✅ Start Date  : 100% match, 2015-01-01
-  ✅ End Date    : 100% match, 2020-12-31
-  ✅ Description : 100% match
-  Field match rate: 100.0%
-
-Work experience #4:
-Match with ground truth #4
-  ✅ Title       : 100% match, LOREM IPSUM
-  ✅ Start Date  : 100% match, 2020-01-01
-  ✅ End Date    : 100% match, 2021-12-31
-  ✅ Description : 100% match
-  Field match rate: 100.0%
+  ✅ Title       : 100% match, Marketing Manager
+  ✅ Company     : 100% match, Manufacturing Agency
+  ✅ Start Date  : 100% match, 2013-01-01
+  ✅ End Date    : 100% match, 2015-12-31
+  ⚠️  Description : 98% match
+    Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type.
+    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
+  Field match rate: 99.7%
 
 Field Type Averages:
 Average Title match rate: 100.0%
-Company     : N/A
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 98.4%
+
+Overall field match rate: 99.7%
+
+Work experience #1:
+Match with ground truth #1
+  ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2010-01-01
+  ✅ End Date    : 100% match, 2015-12-31
+  ✅ Description : 100% match
+  Field match rate: 83.1%
+
+Work experience #2:
+Match with ground truth #2
+  ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2010-01-01
+  ✅ End Date    : 100% match, 2017-12-31
+  ✅ Description : 100% match
+  Field match rate: 83.1%
+
+Work experience #3:
+Match with ground truth #3
+  ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2015-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 83.1%
+
+Work experience #4:
+Match with ground truth #4
+  ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, 2021-12-31
+  ✅ Description : 100% match
+  Field match rate: 83.1%
+
+Field Type Averages:
+Average Title match rate: 15.4%
+Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
 Average Description match rate: 100.0%
 
-Overall field match rate: 100.0%
+Overall field match rate: 83.1%
 
 Work experience #1:
 Match with ground truth #1
@@ -547,10 +656,8 @@ Match with ground truth #1
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2019-01-01
   ✅ End Date    : 100% match, Present
-  ⚠️  Description : 83% match
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.
-    Expected: Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
-  Field match rate: 96.5%
+  ✅ Description : 100% match
+  Field match rate: 100.0%
 
 Work experience #2:
 Match with ground truth #2
@@ -558,35 +665,100 @@ Match with ground truth #2
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2016-01-01
   ✅ End Date    : 100% match, 2019-12-31
-  ⚠️  Description : 80% match
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.
-    Expected: Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
-  Field match rate: 96.0%
+  ✅ Description : 100% match
+  Field match rate: 100.0%
 
 Field Type Averages:
 Average Title match rate: 100.0%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 81.3%
+Average Description match rate: 100.0%
 
-Overall field match rate: 96.3%
+Overall field match rate: 100.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Creative Designer
+  ✅ Company     : 100% match, Company Name
+  ✅ Start Date  : 100% match, 2018-02-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Creative Designer
+  ✅ Company     : 100% match, Company Name
+  ✅ Start Date  : 100% match, 2017-09-01
+  ✅ End Date    : 100% match, 2018-02-28
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Junior Graphic Designer
+  ✅ Company     : 100% match, Company Name
+  ✅ Start Date  : 100% match, 2015-05-01
+  ✅ End Date    : 100% match, 2017-09-30
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Graphic Designer
+  ✅ Start Date  : 100% match, 2015-01-01
+  ✅ End Date    : 100% match, 2017-12-31
+  ❌ Description : 23% match
+    No description provided.
+    Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
+  Field match rate: 64.7%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Web Designer
+  ✅ Start Date  : 100% match, 2013-01-01
+  ✅ End Date    : 100% match, 2015-12-31
+  ❌ Description : 23% match
+    No description provided.
+    Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium felison lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.
+  Field match rate: 64.6%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 0.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 23.3%
+
+Overall field match rate: 64.7%
 
 ========== SUMMARY ==========
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png: Fields: 100.0%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 100.0%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 100.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 99.7%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 83.1%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png: Fields: 98.7%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 96.3%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 100.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: Fields: 100.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 64.7%
 
 Field Type Averages:
-Title       : 100.0%
+Title       : 87.9%
 Company     : 100.0%
 Start Date  : 100.0%
 End Date    : 100.0%
-Description : 94.9%
+Description : 87.9%
 =========================
-Average field match: 99.0%
+Average field match: 92.3%
 ==========================
 Processing 7 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks
 
@@ -680,10 +852,10 @@ Match with ground truth #1
   ✅ Company     : 100% match, Lorem Ipsum
   ✅ Start Date  : 100% match, 2010-01-01
   ✅ End Date    : 100% match, 2015-12-31
-  ⚠️  Description : 85% match
-    Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lore ipsum dolor fringilla. Lorem ipsumr.
+  ⚠️  Description : 90% match
+    Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lorem su ipsum dolor fringilla. Lorem ipsumr.
     Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
-  Field match rate: 97.0%
+  Field match rate: 97.9%
 
 Work experience #2:
 Match with ground truth #2
@@ -691,10 +863,10 @@ Match with ground truth #2
   ✅ Company     : 100% match, Lorem Ipsum
   ✅ Start Date  : 100% match, 2010-01-01
   ✅ End Date    : 100% match, 2017-12-31
-  ⚠️  Description : 85% match
-    Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lore ipsum dolor fringilla. Lorem ipsumr.
+  ⚠️  Description : 90% match
+    Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lorem su ipsum dolor fringilla. Lorem ipsumr.
     Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
-  Field match rate: 97.0%
+  Field match rate: 97.9%
 
 Work experience #3:
 Match with ground truth #3
@@ -702,10 +874,10 @@ Match with ground truth #3
   ✅ Company     : 100% match, Lorem Ipsum
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2020-12-31
-  ⚠️  Description : 85% match
-    Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lore ipsum dolor fringilla. Lorem ipsumr.
+  ⚠️  Description : 90% match
+    Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lorem su ipsum dolor fringilla. Lorem ipsumr.
     Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
-  Field match rate: 97.0%
+  Field match rate: 97.9%
 
 Work experience #4:
 Match with ground truth #4
@@ -713,19 +885,19 @@ Match with ground truth #4
   ✅ Company     : 100% match, Lorem Ipsum
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, 2021-12-31
-  ⚠️  Description : 85% match
-    Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lore ipsum dolor fringilla. Lorem ipsumr.
+  ⚠️  Description : 90% match
+    Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lorem su ipsum dolor fringilla. Lorem ipsumr.
     Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
-  Field match rate: 97.0%
+  Field match rate: 97.9%
 
 Field Type Averages:
 Average Title match rate: 100.0%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 85.0%
+Average Description match rate: 89.6%
 
-Overall field match rate: 97.0%
+Overall field match rate: 97.9%
 
 Work experience #1:
 Match with ground truth #1
@@ -842,10 +1014,10 @@ Match with ground truth #1
   ✅ Company     : 100% match, Soft Design Studios
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2017-12-31
-  ⚠️  Description : 92% match
-    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicitudin est dolor time. Done cporttitor
+  ⚠️  Description : 89% match
+    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicutdin est dolor time. Done cporttitor
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
-  Field match rate: 98.4%
+  Field match rate: 97.9%
 
 Work experience #2:
 Match with ground truth #2
@@ -853,10 +1025,10 @@ Match with ground truth #2
   ✅ Company     : 100% match, Web Tech Ltd
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
-  ⚠️  Description : 88% match
-    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicitudin est dolor time.
+  ⚠️  Description : 85% match
+    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicutdin est dolor time.
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium felison lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.
-  Field match rate: 97.6%
+  Field match rate: 97.1%
 
 Work experience #3:
 Match with ground truth #3
@@ -864,42 +1036,42 @@ Match with ground truth #3
   ✅ Company     : 100% match, Dev Creative Solutions
   ✅ Start Date  : 100% match, 2010-01-01
   ✅ End Date    : 100% match, 2013-12-31
-  ⚠️  Description : 92% match
-    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicitudin est dolor time. Done cporttitor
+  ⚠️  Description : 89% match
+    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicutdin est dolor time. Done cporttitor
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
-  Field match rate: 98.4%
+  Field match rate: 97.9%
 
 Field Type Averages:
 Average Title match rate: 100.0%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 90.6%
+Average Description match rate: 88.1%
 
-Overall field match rate: 98.1%
+Overall field match rate: 97.6%
 
 ========== SUMMARY ==========
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png: Fields: 94.9%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 94.9%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 97.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 97.9%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png: Fields: 100.0%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 97.6%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: Fields: 99.8%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 98.1%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 97.6%
 
 Field Type Averages:
 Title       : 100.0%
 Company     : 92.7%
 Start Date  : 100.0%
 End Date    : 100.0%
-Description : 94.6%
+Description : 94.9%
 =========================
 Average field match: 97.5%
 ==========================
 Processing 7 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png ==========
@@ -926,7 +1098,7 @@ Marfocturing Agency / NI
  
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png ==========
@@ -965,7 +1137,7 @@ Email: wwwyourwebsite. com
  
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png ==========
@@ -1001,7 +1173,7 @@ v|
  
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png ==========
@@ -1045,7 +1217,7 @@ ES J vestibulum dapibu.
  
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png ==========
@@ -1087,7 +1259,7 @@ Company Name
  
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png ==========
@@ -1125,7 +1297,7 @@ Email : wiliamkleiman@gmail.com |
  
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png ==========
@@ -1188,10 +1360,11 @@ Match with ground truth #1
   ⚠️  Company     : 54% match, Darwin B. Magana Creative Agency (Expected: Creative Agency)
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, Present
-  ❌ Description : 21% match
-    Worked as a Senior Web Designer.
+  ❌ Description : 31% match
+    SENIOR WEB DESIGNER 2020 -Present
+© DARWIN B. MAGANA Creative Agency / Chicago
     Expected: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-  Field match rate: 75.1%
+  Field match rate: 76.9%
 
 Work experience #2:
 Match with ground truth #2
@@ -1199,10 +1372,11 @@ Match with ground truth #2
   ⚠️  Company     : 58% match, Robert Belvin Creative Market (Expected: Creative Market)
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2020-12-31
-  ❌ Description : 23% match
-    Worked as a Graphic Designer.
+  ❌ Description : 30% match
+    GRAPHIC DESIGNER 2015-2020
+o ROBERT.BELVIN Creative Market / Chicago
     Expected: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-  Field match rate: 76.2%
+  Field match rate: 77.5%
 
 Work experience #3:
 Match with ground truth #3
@@ -1210,92 +1384,121 @@ Match with ground truth #3
   ✅ Company     : 100% match, Manufacturing Agency
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
-  ❌ Description : 22% match
-    Worked as a Marketing Manager.
+  ❌ Description : 24% match
+    MARKETING MANAGER 2013-2015
+Marfocturing Agency / NI
     Expected: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-  Field match rate: 84.4%
+  Field match rate: 84.8%
 
 Field Type Averages:
 Average Title match rate: 100.0%
 Average Company match rate: 70.5%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 22.1%
+Average Description match rate: 28.0%
 
-Overall field match rate: 78.5%
+Overall field match rate: 79.7%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR WEB DESIGNER
+  ✅ Title       : 100% match, Senior Web Designer
   ✅ Company     : 100% match, Creative Agency
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, Present
-  ❌ Description : 18% match
-    Creative Agency / Chicago
+  ⚠️  Description : 71% match
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
     Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
-  Field match rate: 83.7%
+  Field match rate: 94.2%
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, GRAPHIC DESIGNER
+  ✅ Title       : 100% match, Graphic Designer
   ✅ Company     : 100% match, Creative Market
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2020-12-31
-  ❌ Description : 18% match
-    Creative Market / Chicago
+  ⚠️  Description : 95% match
+    Lorem Ipsum has been the industry's standard dummy text ever since 1500, when an unknown printer took a galley of type.
     Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
-  Field match rate: 83.5%
+  Field match rate: 98.9%
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, MARKETING MANAGER
+  ✅ Title       : 100% match, Marketing Manager
   ✅ Company     : 100% match, Manufacturing Agency
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
-  ❌ Description : 18% match
-    Manufacturing Agency / NJ
+  ⚠️  Description : 95% match
+    Lorem Ipsum has been the industry's standard dummy text ever since 1500, when an unknown printer took a galley of type.
     Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
-  Field match rate: 83.5%
+  Field match rate: 98.9%
 
 Field Type Averages:
 Average Title match rate: 100.0%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 17.9%
+Average Description match rate: 86.8%
 
-Overall field match rate: 83.6%
+Overall field match rate: 97.4%
 
 Work experience #1:
-Match with ground truth #3
+Match with ground truth #1
   ✅ Title       : 100% match, Lorem Ipsum
-  ✅ Company     : 100% match, Lorem Ipsum
-  ✅ Start Date  : 100% match, 2015-01-01
-  ✅ End Date    : 100% match, 2020-12-31
-  ❌ Description : 30% match
-    Lorem Ipsum
+  ✅ Start Date  : 100% match, 2010-01-01
+  ✅ End Date    : 100% match, 2015-12-31
+  ❌ Description : 33% match
+    Lorem Ipsum eS Lorem Ipsum oe olen
     Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
-  Field match rate: 86.0%
+  Field match rate: 66.6%
 
 Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2010-01-01
+  ✅ End Date    : 100% match, 2017-12-31
+  ❌ Description : 37% match
+    Lorem Ipsum et om Ct mt rng
+    Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
+  Field match rate: 67.5%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2015-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ❌ Description : 32% match
+    Lorem Ipsum on Ron
+    Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
+  Field match rate: 66.4%
+
+Work experience #4:
+Match with ground truth #3
+  ✅ Title       : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2015-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ⚠️  Description : 58% match
+    Lorem Ipsum dolormolestie ium felisconon lorem st
+    Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
+  Field match rate: 71.7%
+
+Work experience #5:
 Match with ground truth #4
   ✅ Title       : 100% match, Lorem Ipsum
-  ✅ Company     : 100% match, Lorem Ipsum
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, 2021-12-31
-  ❌ Description : 30% match
-    Lorem Ipsum
+  ❌ Description : 32% match
+    Lorem Ipsum prssebelblipitiebipli
     Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
-  Field match rate: 86.0%
+  Field match rate: 66.4%
 
 Field Type Averages:
 Average Title match rate: 100.0%
-Average Company match rate: 100.0%
+Average Company match rate: 0.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 29.8%
+Average Description match rate: 38.5%
 
-Overall field match rate: 86.0%
+Overall field match rate: 67.7%
 
 Work experience #1:
 Match with ground truth #1
@@ -1352,23 +1555,23 @@ Match with ground truth #1
 
 Work experience #2:
 Match with ground truth #2
-  ❌ Title       : 49% match, Job Position (Expected: Enter Your Job Position Here)
+  ❌ Title       : 21% match, Senior Web Designer (Expected: Enter Your Job Position Here)
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2016-01-01
   ✅ End Date    : 100% match, 2019-12-31
-  ⚠️  Description : 94% match
-    Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamaquis nostrud exercit ullameo aliquip commodo consequat.
+  ⚠️  Description : 91% match
+    Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamaquis nostrud exercit ullameo aliquip commodo consequat.
     Expected: Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
-  Field match rate: 88.7%
+  Field match rate: 82.4%
 
 Field Type Averages:
-Average Title match rate: 33.1%
+Average Title match rate: 18.9%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 93.9%
+Average Description match rate: 92.4%
 
-Overall field match rate: 85.4%
+Overall field match rate: 82.3%
 
 Work experience #1:
 Match with ground truth #1
@@ -1376,10 +1579,10 @@ Match with ground truth #1
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2018-02-01
   ✅ End Date    : 100% match, Present
-  ❌ Description : 3% match
-    N/A
+  ❌ Description : 21% match
+    La ‘Company Name | Location FEB 2018 - NOW
     Expected: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-  Field match rate: 80.6%
+  Field match rate: 84.3%
 
 Work experience #2:
 Match with ground truth #2
@@ -1387,10 +1590,10 @@ Match with ground truth #2
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2017-09-01
   ✅ End Date    : 100% match, 2018-02-28
-  ❌ Description : 3% match
-    N/A
+  ❌ Description : 21% match
+    ‘Company Name | Location SEP 2017 -FEB 2018
     Expected: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-  Field match rate: 80.6%
+  Field match rate: 84.1%
 
 Work experience #3:
 Match with ground truth #3
@@ -1398,19 +1601,19 @@ Match with ground truth #3
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2015-05-01
   ✅ End Date    : 100% match, 2017-09-30
-  ❌ Description : 3% match
-    N/A
+  ❌ Description : 18% match
+    Company Name | Location MAY 2015 - SEP 2017
     Expected: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-  Field match rate: 80.6%
+  Field match rate: 83.7%
 
 Field Type Averages:
 Average Title match rate: 100.0%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 2.9%
+Average Description match rate: 20.0%
 
-Overall field match rate: 80.6%
+Overall field match rate: 84.0%
 
 Work experience #1:
 Match with ground truth #1
@@ -1418,10 +1621,10 @@ Match with ground truth #1
   ✅ Company     : 100% match, Soft Design Studios
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2017-12-31
-  ⚠️  Description : 83% match
-    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ⚠️  Description : 57% match
+    empus id fringilla molestie ornare diam in olestie ipsum etium rosn 2015-2017 Porttitor amet massa Done cporttitor dolor et nisl ollicitudin est, porttitor amet hitmas- molestie ium feliscon lore ipsum dolor tfringilla. lorem sa Done cporttitor dolor shit dolor lorem ipsum. llcitudin est dolor time. Done cportitor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipcum retiumci amet is tudinest moles tium
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
-  Field match rate: 96.7%
+  Field match rate: 91.5%
 
 Work experience #2:
 Match with ground truth #2
@@ -1429,10 +1632,10 @@ Match with ground truth #2
   ✅ Company     : 100% match, Web Tech Ltd
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
-  ⚠️  Description : 80% match
-    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ⚠️  Description : 68% match
+    lorem olestie pretium apaza all the san iinsilaliororalpain 2013 - 2015 Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium felison lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.
-  Field match rate: 96.0%
+  Field match rate: 93.5%
 
 Work experience #3:
 Match with ground truth #3
@@ -1440,42 +1643,42 @@ Match with ground truth #3
   ✅ Company     : 100% match, Dev Creative Solutions
   ✅ Start Date  : 100% match, 2010-01-01
   ✅ End Date    : 100% match, 2013-12-31
-  ⚠️  Description : 83% match
-    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ⚠️  Description : 70% match
+    2010 - 2013 Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem Address: lorem ipsum. ollcitudin est dolor time. Done cporttitor 12th Avenue Street Australia 40000
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
-  Field match rate: 96.7%
+  Field match rate: 93.9%
 
 Field Type Averages:
 Average Title match rate: 100.0%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 82.3%
+Average Description match rate: 64.8%
 
-Overall field match rate: 96.5%
+Overall field match rate: 93.0%
 
 ========== SUMMARY ==========
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png: Fields: 78.5%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 83.6%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 86.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png: Fields: 79.7%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 97.4%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 67.7%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png: Fields: 98.7%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 85.4%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: Fields: 80.6%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 96.5%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 82.3%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: Fields: 84.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 93.0%
 
 Field Type Averages:
-Title       : 90.4%
-Company     : 95.8%
+Title       : 88.4%
+Company     : 95.1%
 Start Date  : 100.0%
 End Date    : 100.0%
-Description : 48.9%
+Description : 60.6%
 =========================
-Average field match: 87.0%
+Average field match: 86.1%
 ==========================
 Processing 7 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png ==========
@@ -1483,7 +1686,7 @@ Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
  [{"bbox":{"x0":383,"y0":132,"x1":542,"y1":160},"text":"BRIAN R.\n"},{"bbox":{"x0":380,"y0":173,"x1":620,"y1":185},"text":"GRAPHIC & WEB DESIGNER\n"},{"bbox":{"x0":68,"y0":191,"x1":353,"y1":288},"text":"| BA J |\n"},{"bbox":{"x0":43,"y0":288,"x1":524,"y1":319},"text":"| © coNTACTME # ABOUT ME\n"},{"bbox":{"x0":43,"y0":351,"x1":752,"y1":379},"text":"* 0 ees typesetting industry. Lorem Ipsum has been the industry's\n"},{"bbox":{"x0":43,"y0":395,"x1":753,"y1":422},"text":"* © jourinosemaicom printer took a galley of type and scrambled it to make a type\n"},{"bbox":{"x0":43,"y0":439,"x1":228,"y1":462},"text":"® O [incoinpark Mi 146\n"},{"bbox":{"x0":385,"y0":526,"x1":594,"y1":542},"text":"& JOB EXPERIENCE\n"},{"bbox":{"x0":43,"y0":538,"x1":353,"y1":578},"text":"| © REFERENCES\n"},{"bbox":{"x0":382,"y0":576,"x1":752,"y1":587},"text":"SENIOR WEB DESIGNER 2020 -Present\n"},{"bbox":{"x0":43,"y0":597,"x1":538,"y1":609},"text":"© DARWIN B. MAGANA Creative Agency / Chicago\n"},{"bbox":{"x0":382,"y0":684,"x1":753,"y1":706},"text":"GRAPHIC DESIGNER 2015-2020\n"},{"bbox":{"x0":43,"y0":708,"x1":537,"y1":720},"text":"o ROBERT.BELVIN Creative Market / Chicago\n"},{"bbox":{"x0":383,"y0":798,"x1":753,"y1":809},"text":"MARKETING MANAGER 2013-2015\n"},{"bbox":{"x0":72,"y0":818,"x1":544,"y1":831},"text":"Marfocturing Agency / NI\n"},{"bbox":{"x0":69,"y0":870,"x1":226,"y1":892},"text":"© EDUCATION\n"},{"bbox":{"x0":43,"y0":924,"x1":237,"y1":935},"text":"© STANFORD UNIVERSITY\n"},{"bbox":{"x0":384,"y0":960,"x1":484,"y1":977},"text":"2om-201 @ SKILLS\n"},{"bbox":{"x0":43,"y0":1005,"x1":646,"y1":1027},"text":"© UNIVERSITY OF CHICAGO Adobe Photoshop. Adobe lustrator\n"}] 
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png ==========
@@ -1491,7 +1694,7 @@ Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
  [{"bbox":{"x0":100,"y0":122,"x1":374,"y1":136},"text":"GRAPHIC & WEB DESIGNER\n"},{"bbox":{"x0":485,"y0":148,"x1":907,"y1":163},"text":"Lorem Ipsum is simply dummy text of the printing and\n"},{"bbox":{"x0":485,"y0":174,"x1":907,"y1":189},"text":"typesetting industry. Lorem Ipsum has been the industry's\n"},{"bbox":{"x0":485,"y0":200,"x1":907,"y1":214},"text":"standard dummy text ever since the 1500s. when an\n"},{"bbox":{"x0":485,"y0":226,"x1":907,"y1":240},"text":"unknown printer took a galley of type. It has survived not\n"},{"bbox":{"x0":194,"y0":252,"x1":907,"y1":270},"text":"— only five centuries, but also the leap into electronic\n"},{"bbox":{"x0":485,"y0":278,"x1":812,"y1":292},"text":"typesetting. remaining essentially unchanged.\n"},{"bbox":{"x0":283,"y0":362,"x1":323,"y1":378},"text":"Pa\n"},{"bbox":{"x0":150,"y0":370,"x1":763,"y1":447},"text":"3 / © JOB EXPERIENCE\n"},{"bbox":{"x0":484,"y0":442,"x1":907,"y1":456},"text":"SENIOR WEB DESIGNER 2020 -Present\n"},{"bbox":{"x0":485,"y0":467,"x1":675,"y1":483},"text":"Creative Agency / Chicago\n"},{"bbox":{"x0":119,"y0":528,"x1":756,"y1":567},"text":"© coNTACTME circ 15008 when nkeown pre ook a gle of ype\n"},{"bbox":{"x0":122,"y0":578,"x1":908,"y1":602},"text":"¢ 1-718-310-5588 GRAPHIC DESIGNER 2015-2020\n"},{"bbox":{"x0":119,"y0":603,"x1":673,"y1":626},"text":"® wwwyourwebsitecom Creative Market / Chicago\n"},{"bbox":{"x0":121,"y0":634,"x1":899,"y1":654},"text":"© 769 PrudenceLincoln Park. MI Lorem Ipsum has been the industry's standard dummy text ever\n"},{"bbox":{"x0":484,"y0":714,"x1":908,"y1":727},"text":"MARKETING MANAGER 2013-2015\n"},{"bbox":{"x0":484,"y0":739,"x1":681,"y1":754},"text":"Manufacturing Agency / NJ\n"},{"bbox":{"x0":119,"y0":768,"x1":839,"y1":807},"text":"© EDUCATION cea a dd hk tara yd i\n"},{"bbox":{"x0":485,"y0":798,"x1":848,"y1":811},"text":"since 1500. when unknown printer took a galley of type.\n"},{"bbox":{"x0":120,"y0":827,"x1":326,"y1":840},"text":"STANFORD UNIVERSITY\n"},{"bbox":{"x0":119,"y0":885,"x1":628,"y1":936},"text":"UNIVERSITY OF CHICAGO (¢] SKILLS\n"},{"bbox":{"x0":484,"y0":997,"x1":885,"y1":1007},"text":"A —\n"},{"bbox":{"x0":123,"y0":1015,"x1":650,"y1":1054},"text":"® REFERENCES ES —\n"},{"bbox":{"x0":122,"y0":1074,"x1":298,"y1":1087},"text":"DARWIN B. MAGANA\n"},{"bbox":{"x0":122,"y0":1106,"x1":326,"y1":1120},"text":"2813 Shobe Lane Mancos, C(\n"},{"bbox":{"x0":123,"y0":1111,"x1":912,"y1":1160},"text":"Tot 1970-5335303 © LANGUAGE) HOBBIES\n"},{"bbox":{"x0":122,"y0":1158,"x1":329,"y1":1171},"text":"Email: wwwyourwebsite. com\n"},{"bbox":{"x0":122,"y0":1192,"x1":881,"y1":1209},"text":"ROBERT J. BELVIN © ENGLISH  ® SPANISH © READING BOOKS\n"},{"bbox":{"x0":123,"y0":1227,"x1":840,"y1":1242},"text":"2119 Fairfax Drive Newark. N. © FRENCH © GERMAN © TRAVELING\n"},{"bbox":{"x0":123,"y0":1254,"x1":876,"y1":1274},"text":"([ok $1008 9875103 PLAYING CHESS\n"},{"bbox":{"x0":122,"y0":1280,"x1":329,"y1":1293},"text":"Email: wwwyourwebsite. com\n"}] 
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png ==========
@@ -1499,7 +1702,7 @@ Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
  [{"bbox":{"x0":161,"y0":316,"x1":166,"y1":327},"text":"/\n"},{"bbox":{"x0":678,"y0":351,"x1":856,"y1":372},"text":"CONTACT ME\n"},{"bbox":{"x0":256,"y0":415,"x1":759,"y1":439},"text":"EDUCATION ADDRES\n"},{"bbox":{"x0":655,"y0":433,"x1":842,"y1":461},"text":"Q 123, Street Oclaho,\n"},{"bbox":{"x0":695,"y0":467,"x1":844,"y1":484},"text":"New York City, USA\n"},{"bbox":{"x0":95,"y0":491,"x1":729,"y1":517},"text":"2010-2015 LOREM IPSUM eS\n"},{"bbox":{"x0":97,"y0":513,"x1":873,"y1":539},"text":"LOREM IPSUM oe olen @ contactme@email.com\n"},{"bbox":{"x0":694,"y0":547,"x1":859,"y1":558},"text":"www.contactme.com\n"},{"bbox":{"x0":95,"y0":561,"x1":381,"y1":580},"text":"2010-2017 LOREM IPSUM\n"},{"bbox":{"x0":270,"y0":582,"x1":752,"y1":595},"text":"Porttitor amet massa Doner dolormolestie PHONE\n"},{"bbox":{"x0":96,"y0":592,"x1":861,"y1":618},"text":"LOREM IPSUM et om Ct mt rng (\\, GreEmhomi\n"},{"bbox":{"x0":95,"y0":623,"x1":861,"y1":649},"text":"2015-2020 LOREM IPSUM 0123 0000 8000 0000\n"},{"bbox":{"x0":97,"y0":655,"x1":494,"y1":678},"text":"LOREM IPSUM on Ron (6 pe Boor\n"},{"bbox":{"x0":270,"y0":700,"x1":381,"y1":713},"text":"LOREM IPSUM\n"},{"bbox":{"x0":95,"y0":706,"x1":843,"y1":744},"text":"2 2021 a Porton sme: massa Done doormoesie PRO SKILLS\n"},{"bbox":{"x0":713,"y0":796,"x1":822,"y1":808},"text":"ILLUSTRATOR\n"},{"bbox":{"x0":249,"y0":808,"x1":894,"y1":839},"text":"EAuERENCE I\n"},{"bbox":{"x0":103,"y0":865,"x1":819,"y1":893},"text":"2010-2015 LOREM IPSUM PHOTOSBOR\n"},{"bbox":{"x0":104,"y0":899,"x1":491,"y1":922},"text":"LOREM IPSUM Ee i ee ra\n"},{"bbox":{"x0":316,"y0":928,"x1":806,"y1":947},"text":"am doo cgi. Lover osu Denon\n"},{"bbox":{"x0":103,"y0":956,"x1":894,"y1":979},"text":"2010-2017 LOREM IPSUM Im\n"},{"bbox":{"x0":104,"y0":992,"x1":807,"y1":1025},"text":"FORRIRIE emai bier MS WORD\n"},{"bbox":{"x0":640,"y0":1024,"x1":894,"y1":1044},"text":"I |\n"},{"bbox":{"x0":103,"y0":1046,"x1":388,"y1":1065},"text":"2015 - 2020 LOREM IPSUM\n"},{"bbox":{"x0":104,"y0":1077,"x1":491,"y1":1094},"text":"LOREM IPSUM dolormolestie ium felisconon lorem st\n"},{"bbox":{"x0":103,"y0":1132,"x1":388,"y1":1151},"text":"2020 - 2021 LOREM IPSUM\n"},{"bbox":{"x0":104,"y0":1156,"x1":492,"y1":1180},"text":"LOREM IPSUM prssebelblipitiebipli\n"},{"bbox":{"x0":747,"y0":1248,"x1":787,"y1":1287},"text":"v|\n"}] 
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png ==========
@@ -1507,7 +1710,7 @@ Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
  [{"bbox":{"x0":866,"y0":111,"x1":1327,"y1":131},"text":"PR oN 4\n"},{"bbox":{"x0":215,"y0":123,"x1":1341,"y1":173},"text":"2 UX DESIGNER E ek AN\n"},{"bbox":{"x0":340,"y0":168,"x1":1356,"y1":195},"text":"28 YEARS C NON\n"},{"bbox":{"x0":211,"y0":175,"x1":1369,"y1":241},"text":"(0) NUEVA YORK he A\n"},{"bbox":{"x0":211,"y0":236,"x1":1352,"y1":294},"text":"[7] W: www.anmorrison.com «3 HR lias, \\!\n"},{"bbox":{"x0":211,"y0":305,"x1":1130,"y1":365},"text":"[4 In: AngelaMorrison 8 3 pe\n"},{"bbox":{"x0":996,"y0":330,"x1":1363,"y1":347},"text":". 3 1}\n"},{"bbox":{"x0":137,"y0":327,"x1":1389,"y1":380},"text":"[11] E: angelamorrison@email.com ~~ VS\n"},{"bbox":{"x0":215,"y0":365,"x1":989,"y1":414},"text":"x og\n"},{"bbox":{"x0":136,"y0":374,"x1":1152,"y1":436},"text":"(¢) P: +987 545 221 £ a\n"},{"bbox":{"x0":141,"y0":403,"x1":1173,"y1":489},"text":"20 eg\n"},{"bbox":{"x0":147,"y0":471,"x1":1067,"y1":556},"text":"<L = “\n"},{"bbox":{"x0":1045,"y0":572,"x1":1331,"y1":601},"text":"2\n"},{"bbox":{"x0":134,"y0":713,"x1":1168,"y1":738},"text":"ABOUT ME BL 7\n"},{"bbox":{"x0":133,"y0":781,"x1":549,"y1":795},"text":"LOREM IPSUM DOLOR SIT AMET, CONSECTETUER\n"},{"bbox":{"x0":132,"y0":805,"x1":511,"y1":819},"text":"ADIPISCING ELIT, SED DIAM NONUMMY NIBH\n"},{"bbox":{"x0":133,"y0":829,"x1":571,"y1":842},"text":"EUISMOD TINCIDUNT UT LAOREET DOLORE MAGNA\n"},{"bbox":{"x0":132,"y0":853,"x1":564,"y1":866},"text":"ALIQUAM ERAT VOLUTPAT. UT WISI ENIM AD MINIM\n"},{"bbox":{"x0":132,"y0":869,"x1":1117,"y1":894},"text":"VENIAM, QUIS NOSTRUD WORK EXPERIENCE\n"},{"bbox":{"x0":762,"y0":949,"x1":1099,"y1":969},"text":"Art Director Company Name\n"},{"bbox":{"x0":762,"y0":971,"x1":884,"y1":988},"text":"& UX Designer\n"},{"bbox":{"x0":131,"y0":984,"x1":1212,"y1":1020},"text":"Ss K 1 L L Ss Ss le] FTWA R E Fusce viverra luctus erat porttitor\n"},{"bbox":{"x0":761,"y0":1010,"x1":1165,"y1":1024},"text":"2009-2012 rhoncus. Phasellus rhoncus\n"},{"bbox":{"x0":941,"y0":1032,"x1":1097,"y1":1049},"text":"vestibulum dapibu.\n"},{"bbox":{"x0":134,"y0":1068,"x1":225,"y1":1086},"text":"Leadership\n"},{"bbox":{"x0":133,"y0":1079,"x1":1099,"y1":1110},"text":"——— Art Director Company Name\n"},{"bbox":{"x0":762,"y0":1110,"x1":884,"y1":1127},"text":"& UX Designer\n"},{"bbox":{"x0":194,"y0":1128,"x1":1212,"y1":1146},"text":"\" ” Fusce viverra luctus erat porttitor\n"},{"bbox":{"x0":133,"y0":1143,"x1":1165,"y1":1163},"text":"Strategic Planning 2016-2018 rhoncus. Phasellus rhoncus\n"},{"bbox":{"x0":129,"y0":1165,"x1":1097,"y1":1191},"text":"ce —— vestibulum dapibu.\n"},{"bbox":{"x0":134,"y0":1219,"x1":285,"y1":1233},"text":"Bussiness Process\n"},{"bbox":{"x0":129,"y0":1230,"x1":1099,"y1":1264},"text":"oE— Art Director Company Name\n"},{"bbox":{"x0":762,"y0":1261,"x1":884,"y1":1279},"text":"& UX Designer\n"},{"bbox":{"x0":210,"y0":1279,"x1":1212,"y1":1299},"text":"— . Fusce viverra luctus erat porttitor\n"},{"bbox":{"x0":133,"y0":1296,"x1":1165,"y1":1315},"text":"Communication Skills 2019-PRESENT rhoncus. Phasellus rhoncus\n"},{"bbox":{"x0":129,"y0":1319,"x1":1097,"y1":1345},"text":"ES J vestibulum dapibu.\n"}] 
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png ==========
@@ -1515,7 +1718,7 @@ Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
  [{"bbox":{"x0":112,"y0":231,"x1":691,"y1":255},"text":"fo WEB DESIGNER\n"},{"bbox":{"x0":163,"y0":298,"x1":861,"y1":313},"text":"A J —_—\n"},{"bbox":{"x0":86,"y0":314,"x1":278,"y1":327},"text":"Q fo y\n"},{"bbox":{"x0":152,"y0":362,"x1":212,"y1":374},"text":"Cs”\n"},{"bbox":{"x0":444,"y0":443,"x1":543,"y1":453},"text":"2019 - Present\n"},{"bbox":{"x0":62,"y0":463,"x1":663,"y1":484},"text":"CONTACT Enter Your JOb Possition Here\n"},{"bbox":{"x0":188,"y0":483,"x1":560,"y1":499},"text":"= Company Name\n"},{"bbox":{"x0":110,"y0":528,"x1":864,"y1":541},"text":"Street Address 0, New York, Lorem ipsum dolor sithis amet, consectetur adipisicing\n"},{"bbox":{"x0":110,"y0":549,"x1":864,"y1":563},"text":"United States. elit sed eiusmod tempor indunt labore dolore magna\n"},{"bbox":{"x0":478,"y0":571,"x1":865,"y1":584},"text":"aliqua Utenim ad minim veamaquis nostrud exercit\n"},{"bbox":{"x0":110,"y0":593,"x1":743,"y1":611},"text":"0125 456 7850 ullameo aliquip commodo consequat\n"},{"bbox":{"x0":109,"y0":624,"x1":252,"y1":637},"text":"urgmail@name.com\n"},{"bbox":{"x0":111,"y0":650,"x1":519,"y1":661},"text":"wwwurwebsitename.com 2016-2019\n"},{"bbox":{"x0":445,"y0":672,"x1":663,"y1":683},"text":"Enter Your J0b Possition Here\n"},{"bbox":{"x0":444,"y0":696,"x1":560,"y1":708},"text":"Company Name\n"},{"bbox":{"x0":479,"y0":737,"x1":864,"y1":750},"text":"Lorem ipsum dolor sithis amet, consectetur adipisicing\n"},{"bbox":{"x0":62,"y0":751,"x1":864,"y1":772},"text":"EDUCATION_ elit sed eiusmod tempor indunt laboredolore magna\n"},{"bbox":{"x0":478,"y0":780,"x1":865,"y1":793},"text":"aliqua Utenim ad minim veamaquis nostrud exercit\n"},{"bbox":{"x0":62,"y0":802,"x1":743,"y1":826},"text":"a ullameo aliquip commodo consequat.\n"},{"bbox":{"x0":63,"y0":837,"x1":215,"y1":849},"text":"University Name Here\n"},{"bbox":{"x0":62,"y0":860,"x1":132,"y1":870},"text":"2019-2020\n"},{"bbox":{"x0":63,"y0":903,"x1":531,"y1":922},"text":"Bachelor Of Science SKILLS.\n"},{"bbox":{"x0":63,"y0":931,"x1":215,"y1":943},"text":"University Name Here\n"},{"bbox":{"x0":62,"y0":954,"x1":840,"y1":971},"text":"2015-1019 Photoshop +4 ++ ¢ After Iffect +0000\n"},{"bbox":{"x0":444,"y0":993,"x1":829,"y1":1005},"text":"llustrator © 000 Adobe XD iit\n"},{"bbox":{"x0":444,"y0":1027,"x1":840,"y1":1042},"text":"Indesign seses Powerpoint 8988s\n"},{"bbox":{"x0":219,"y0":1061,"x1":595,"y1":1077},"text":"= Indesign sees\n"},{"bbox":{"x0":84,"y0":1094,"x1":205,"y1":1106},"text":"M David Parker\n"},{"bbox":{"x0":83,"y0":1119,"x1":231,"y1":1132},"text":"Senior Web Designer\n"},{"bbox":{"x0":83,"y0":1143,"x1":197,"y1":1156},"text":"Company Name\n"},{"bbox":{"x0":443,"y0":1163,"x1":596,"y1":1184},"text":"INTERESTS_\n"},{"bbox":{"x0":84,"y0":1186,"x1":205,"y1":1198},"text":"M David Parker\n"},{"bbox":{"x0":83,"y0":1211,"x1":863,"y1":1228},"text":"Senior Web Designer ‘Travelling + Singing + Sketching + Swimming\n"},{"bbox":{"x0":83,"y0":1235,"x1":197,"y1":1248},"text":"Company Name\n"}] 
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png ==========
@@ -1523,7 +1726,7 @@ Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
  [{"bbox":{"x0":725,"y0":50,"x1":861,"y1":200},"text":"€ ) |\n"},{"bbox":{"x0":53,"y0":186,"x1":328,"y1":207},"text":"Web Design & Developer\n"},{"bbox":{"x0":55,"y0":282,"x1":561,"y1":303},"text":"CONTACT Hello, I'm Laura\n"},{"bbox":{"x0":55,"y0":315,"x1":871,"y1":336},"text":"ee My Name Is Laura Anderson lorem empus id fringilla molestie ornare diam in olestie\n"},{"bbox":{"x0":389,"y0":338,"x1":869,"y1":350},"text":"ipsum etium rosnolicitudin est, porttor amet hitmassa Done cportitor dolor sit dolor\n"},{"bbox":{"x0":389,"y0":374,"x1":849,"y1":386},"text":"tucinest moles tum orem olestie pretium apaza al the osen. fringila orem ipsum\n"},{"bbox":{"x0":53,"y0":399,"x1":849,"y1":431},"text":"B lauraanderson@gmail.com tudinest.moles tium lorem olestie pretium apaza all the rosen. fringilla lorem ipsum\n"},{"bbox":{"x0":105,"y0":467,"x1":278,"y1":477},"text":"www lauraanderson.com\n"},{"bbox":{"x0":390,"y0":483,"x1":520,"y1":500},"text":"EXPERIENCE\n"},{"bbox":{"x0":55,"y0":544,"x1":634,"y1":560},"text":"EDUCATION SENIOR CREATIVE DESIGNER\n"},{"bbox":{"x0":51,"y0":572,"x1":870,"y1":594},"text":"La ‘Company Name | Location FEB 2018 - NOW\n"},{"bbox":{"x0":53,"y0":613,"x1":226,"y1":626},"text":"Certificate of Web Trainig\n"},{"bbox":{"x0":54,"y0":633,"x1":184,"y1":647},"text":"University of Lorem\n"},{"bbox":{"x0":53,"y0":665,"x1":133,"y1":682},"text":"2008 - 2010\n"},{"bbox":{"x0":54,"y0":719,"x1":214,"y1":730},"text":"Bechelor of Art Director\n"},{"bbox":{"x0":54,"y0":739,"x1":184,"y1":753},"text":"University of Lorem\n"},{"bbox":{"x0":54,"y0":779,"x1":564,"y1":795},"text":"2007 - 2009 CREATIVE DESIGNER\n"},{"bbox":{"x0":388,"y0":808,"x1":870,"y1":822},"text":"‘Company Name | Location SEP 2017 -FEB 2018\n"},{"bbox":{"x0":56,"y0":834,"x1":126,"y1":850},"text":"SKILLS\n"},{"bbox":{"x0":56,"y0":887,"x1":147,"y1":897},"text":"Communication\n"},{"bbox":{"x0":56,"y0":920,"x1":112,"y1":933},"text":"Creativity\n"},{"bbox":{"x0":55,"y0":954,"x1":117,"y1":964},"text":"Teamwork\n"},{"bbox":{"x0":56,"y0":987,"x1":130,"y1":999},"text":"Organization\n"},{"bbox":{"x0":55,"y0":1016,"x1":629,"y1":1050},"text":"Teamelayer JUNIOR GRAPHIC DESIGNER\n"},{"bbox":{"x0":388,"y0":1054,"x1":866,"y1":1068},"text":"Company Name | Location MAY 2015 - SEP 2017\n"},{"bbox":{"x0":57,"y0":1081,"x1":179,"y1":1096},"text":"REFERENCE\n"},{"bbox":{"x0":55,"y0":1142,"x1":189,"y1":1153},"text":"‘WILLIAM KLEIMAN\n"},{"bbox":{"x0":56,"y0":1165,"x1":221,"y1":1175},"text":"Director, Matrix media imited\n"},{"bbox":{"x0":56,"y0":1199,"x1":185,"y1":1209},"text":"Phone: +555 123 556\n"},{"bbox":{"x0":56,"y0":1212,"x1":918,"y1":1282},"text":"Email : wiliamkleiman@gmail.com |\n"}] 
 
 Processing image: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png
-(node:63064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:47083) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 
 ========== /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png ==========
@@ -1538,24 +1741,66 @@ Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
 Work experience #1:
 Match with ground truth #1
   ✅ Title       : 100% match, Senior Web Designer
-  ⚠️  Company     : 54% match, Darwin B. Magana Creative Agency (Expected: Creative Agency)
+  ⚠️  Company     : 54% match, DARWIN B. MAGANA Creative Agency (Expected: Creative Agency)
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, Present
-  ❌ Description : 18% match
-    Creative Agency / Chicago
+  ❌ Description : 32% match
+    Worked as a Senior Web Designer at DARWIN B. MAGANA Creative Agency in Chicago.
     Expected: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-  Field match rate: 74.4%
+  Field match rate: 77.1%
 
 Work experience #2:
 Match with ground truth #2
   ✅ Title       : 100% match, Graphic Designer
-  ⚠️  Company     : 58% match, Robert Belvin Creative Market (Expected: Creative Market)
+  ⚠️  Company     : 64% match, ROBERT.BELVIN Creative Market (Expected: Creative Market)
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2020-12-31
-  ❌ Description : 18% match
-    Creative Market / Chicago
+  ❌ Description : 31% match
+    Worked as a Graphic Designer at ROBERT.BELVIN Creative Market in Chicago.
     Expected: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-  Field match rate: 75.1%
+  Field match rate: 79.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Marketing Manager
+  ⚠️  Company     : 62% match, Marfocturing Agency (Expected: Manufacturing Agency)
+  ✅ Start Date  : 100% match, 2013-01-01
+  ✅ End Date    : 100% match, 2015-12-31
+  ❌ Description : 29% match
+    Worked as a Marketing Manager at Marfocturing Agency in NI.
+    Expected: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+  Field match rate: 78.2%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 60.1%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 30.5%
+
+Overall field match rate: 78.1%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Web Designer
+  ✅ Company     : 100% match, Creative Agency
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ⚠️  Description : 71% match
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
+  Field match rate: 94.2%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Graphic Designer
+  ✅ Company     : 100% match, Creative Market
+  ✅ Start Date  : 100% match, 2015-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ⚠️  Description : 95% match
+    Lorem Ipsum has been the industry's standard dummy text ever since 1500, when an unknown printer took a galley of type.
+    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
+  Field match rate: 98.9%
 
 Work experience #3:
 Match with ground truth #3
@@ -1563,92 +1808,72 @@ Match with ground truth #3
   ✅ Company     : 100% match, Manufacturing Agency
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
-  ❌ Description : 18% match
-    Manufacturing Agency / NI
-    Expected: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-  Field match rate: 83.7%
+  ⚠️  Description : 95% match
+    Lorem Ipsum has been the industry's standard dummy text ever since 1500, when an unknown printer took a galley of type.
+    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
+  Field match rate: 98.9%
 
 Field Type Averages:
 Average Title match rate: 100.0%
-Average Company match rate: 70.5%
+Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 18.1%
+Average Description match rate: 86.8%
 
-Overall field match rate: 77.7%
+Overall field match rate: 97.4%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR WEB DESIGNER
-  ✅ Company     : 100% match, Creative Agency
-  ✅ Start Date  : 100% match, 2020-01-01
-  ✅ End Date    : 100% match, Present
-  ❌ Description : 18% match
-    Creative Agency / Chicago
-    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
-  Field match rate: 83.7%
+  ❌ Title       : 14% match, Software Engineer (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2010-01-01
+  ✅ End Date    : 100% match, 2015-12-31
+  ❌ Description : 40% match
+    Lorem Ipsum eS Lorem Ipsum oe olen @ contactme@email.com
+    Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
+  Field match rate: 70.8%
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, GRAPHIC DESIGNER
-  ✅ Company     : 100% match, Creative Market
-  ✅ Start Date  : 100% match, 2015-01-01
-  ✅ End Date    : 100% match, 2020-12-31
-  ❌ Description : 18% match
-    Creative Market / Chicago
-    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
-  Field match rate: 83.5%
+  ❌ Title       : 14% match, Software Engineer (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2010-01-01
+  ✅ End Date    : 100% match, 2017-12-31
+  ⚠️  Description : 51% match
+    Porttitor amet massa Doner dolormolestie
+    Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
+  Field match rate: 73.0%
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, MARKETING MANAGER
-  ✅ Company     : 100% match, Manufacturing Agency
-  ✅ Start Date  : 100% match, 2013-01-01
-  ✅ End Date    : 100% match, 2015-12-31
-  ❌ Description : 18% match
-    Manufacturing Agency / NJ
-    Expected: Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.
-  Field match rate: 83.5%
-
-Field Type Averages:
-Average Title match rate: 100.0%
-Average Company match rate: 100.0%
-Average Start Date match rate: 100.0%
-Average End Date match rate: 100.0%
-Average Description match rate: 17.9%
-
-Overall field match rate: 83.6%
-
-Work experience #1:
-Match with ground truth #3
-  ✅ Title       : 100% match, LOREM IPSUM
-  ✅ Company     : 100% match, LOREM IPSUM
+  ❌ Title       : 14% match, Software Engineer (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2020-12-31
   ❌ Description : 35% match
-    LOREM IPSUM et om Ct mt rng (\, GreEmhomi
+    Lorem Ipsum et om Ct mt rng (\, GreEmhomi
     Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
-  Field match rate: 87.0%
+  Field match rate: 69.8%
 
-Work experience #2:
+Work experience #4:
 Match with ground truth #4
-  ✅ Title       : 100% match, LOREM IPSUM
-  ✅ Company     : 100% match, LOREM IPSUM
+  ❌ Title       : 14% match, Software Engineer (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, 2021-12-31
-  ❌ Description : 32% match
-    LOREM IPSUM prssebelblipitiebipli
+  ❌ Description : 29% match
+    Lorem Ipsum on Ron (6 pe Boor
     Expected: Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.
-  Field match rate: 86.4%
+  Field match rate: 68.5%
 
 Field Type Averages:
-Average Title match rate: 100.0%
+Average Title match rate: 13.8%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 33.6%
+Average Description match rate: 38.8%
 
-Overall field match rate: 86.7%
+Overall field match rate: 70.5%
 
 Work experience #1:
 Match with ground truth #1
@@ -1694,38 +1919,38 @@ Overall field match rate: 98.7%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, Enter Your Job Position Here
+  ❌ Title       : 17% match, WEB DESIGNER (Expected: Enter Your Job Position Here)
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2019-01-01
   ✅ End Date    : 100% match, Present
-  ⚠️  Description : 83% match
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.
+  ⚠️  Description : 94% match
+    Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamaquis nostrud exercit ullameo aliquip commodo consequat.
     Expected: Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
-  Field match rate: 96.5%
+  Field match rate: 82.2%
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, Enter Your Job Position Here
+  ❌ Title       : 21% match, Senior Web Designer (Expected: Enter Your Job Position Here)
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2016-01-01
   ✅ End Date    : 100% match, 2019-12-31
-  ⚠️  Description : 80% match
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.
+  ⚠️  Description : 91% match
+    Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamaquis nostrud exercit ullameo aliquip commodo consequat.
     Expected: Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
-  Field match rate: 96.0%
+  Field match rate: 82.4%
 
 Field Type Averages:
-Average Title match rate: 100.0%
+Average Title match rate: 18.9%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 81.3%
+Average Description match rate: 92.4%
 
-Overall field match rate: 96.3%
+Overall field match rate: 82.3%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR CREATIVE DESIGNER
+  ✅ Title       : 100% match, Senior Creative Designer
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2018-02-01
   ✅ End Date    : 100% match, Present
@@ -1736,7 +1961,7 @@ Match with ground truth #1
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, CREATIVE DESIGNER
+  ✅ Title       : 100% match, Creative Designer
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2017-09-01
   ✅ End Date    : 100% match, 2018-02-28
@@ -1747,7 +1972,7 @@ Match with ground truth #2
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, JUNIOR GRAPHIC DESIGNER
+  ✅ Title       : 100% match, Junior Graphic Designer
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2015-05-01
   ✅ End Date    : 100% match, 2017-09-30
@@ -1767,63 +1992,63 @@ Overall field match rate: 84.0%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, GRAPHIC DESIGNER
-  ✅ Company     : 100% match, SOFT DESIGN STUDIOS
+  ❌ Title       : 42% match, User Experience Designer (Expected: Graphic Designer)
+  ✅ Company     : 100% match, Soft Design Studios
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2017-12-31
-  ⚠️  Description : 67% match
-    empus id fringilla molestie ornare diam in olestie ipsum etium rosn Porttitor amet massa Done cporttitor dolor et nisl sollicitudin est, porttitor amet hitmas- molestie ium feliscon lore ipsum dolor tfringilla. lorem sa Done cporttitor dolor shit dolor lorem ipsum. llcitudin est dolor time. Done cportitor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipcum
+  ⚠️  Description : 62% match
+    Empus id fringilla molestie ornare diam in molestie ipsum etium rosn. Porttitor amet massa Donec porttitor dolor et nisl sollicitudin est, porttitor amet hitmas- molestie ium feliscon lore ipsum dolor tfringilla. Lorem sa Donec porttitor dolor shit dolor lorem ipsum. Sollicitudin est dolor time. Donec portitor kiren lorem nisl molestie pretium etfring. Is the shitp lorem ipcum. Retiumci amet is tudinest moles tium.
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
-  Field match rate: 93.3%
+  Field match rate: 80.8%
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, WEB DESIGNER
-  ✅ Company     : 100% match, WEB TECH LTD
+  ✅ Title       : 100% match, Web Designer
+  ✅ Company     : 100% match, Web Tech Ltd
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
-  ⚠️  Description : 77% match
-    lorem olestie pretium apaza all the san iinsilaliororalpain Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.
+  ⚠️  Description : 70% match
+    Lorem olestie pretium apaza all the san iinsilaliororalpain. Porttitor amet massa Donec porttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. Lorem ipsum. Sollicitudin est dolor time.
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium felison lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.
-  Field match rate: 95.4%
+  Field match rate: 94.1%
 
 Work experience #3:
 Match with ground truth #3
-  ⚠️  Title       : 69% match, LEAD WEBDESIGNER (Expected: Lead Web Designer)
-  ✅ Company     : 100% match, DEV CREATIVE SOLUTIONS
+  ✅ Title       : 100% match, Lead Web Designer
+  ✅ Company     : 100% match, Dev Creative Solutions
   ✅ Start Date  : 100% match, 2010-01-01
   ✅ End Date    : 100% match, 2013-12-31
-  ⚠️  Description : 97% match
-    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem Address: lorem ipsum. ollcitudin est dolor time. Done cporttitor
+  ⚠️  Description : 87% match
+    Porttitor amet massa Donec porttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. Lorem ipsum. Sollicitudin est dolor time.
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
-  Field match rate: 93.1%
+  Field match rate: 97.5%
 
 Field Type Averages:
-Average Title match rate: 89.7%
+Average Title match rate: 80.6%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 80.1%
+Average Description match rate: 73.5%
 
-Overall field match rate: 94.0%
+Overall field match rate: 90.8%
 
 ========== SUMMARY ==========
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png: Fields: 77.7%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 83.6%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 86.7%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png: Fields: 78.1%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 97.4%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 70.5%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png: Fields: 98.7%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 96.3%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 82.3%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: Fields: 84.0%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 94.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 90.8%
 
 Field Type Averages:
-Title       : 98.5%
-Company     : 95.8%
+Title       : 73.3%
+Company     : 94.3%
 Start Date  : 100.0%
 End Date    : 100.0%
-Description : 49.2%
+Description : 62.2%
 =========================
-Average field match: 88.7%
+Average field match: 86.0%
 ==========================
 Processing 7 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks
 
@@ -2291,7 +2516,7 @@ Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR WEB DESIGNER
+  ✅ Title       : 100% match, Senior Web Designer
   ✅ Company     : 100% match, Creative Agency
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, Present
@@ -2300,7 +2525,7 @@ Match with ground truth #1
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, GRAPHIC DESIGNER
+  ✅ Title       : 100% match, Graphic Designer
   ✅ Company     : 100% match, Creative Market
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2020-12-31
@@ -2309,7 +2534,7 @@ Match with ground truth #2
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, MARKETING MANAGER
+  ✅ Title       : 100% match, Marketing Manager
   ✅ Company     : 100% match, Manufacturing Agency
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
@@ -2327,7 +2552,7 @@ Overall field match rate: 100.0%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR WEB DESIGNER
+  ✅ Title       : 100% match, Senior Web Designer
   ✅ Company     : 100% match, Creative Agency
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, Present
@@ -2336,7 +2561,7 @@ Match with ground truth #1
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, GRAPHIC DESIGNER
+  ✅ Title       : 100% match, Graphic Designer
   ✅ Company     : 100% match, Creative Market
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2020-12-31
@@ -2345,7 +2570,7 @@ Match with ground truth #2
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, MARKETING MANAGER
+  ✅ Title       : 100% match, Marketing Manager
   ✅ Company     : 100% match, Manufacturing Agency
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
@@ -2371,6 +2596,15 @@ Match with ground truth #1
   Field match rate: 83.1%
 
 Work experience #2:
+Match with ground truth #2
+  ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2010-01-01
+  ✅ End Date    : 100% match, 2017-12-31
+  ✅ Description : 100% match
+  Field match rate: 83.1%
+
+Work experience #3:
 Match with ground truth #3
   ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
   ✅ Company     : 100% match, Lorem Ipsum
@@ -2379,7 +2613,7 @@ Match with ground truth #3
   ✅ Description : 100% match
   Field match rate: 83.1%
 
-Work experience #3:
+Work experience #4:
 Match with ground truth #4
   ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
   ✅ Company     : 100% match, Lorem Ipsum
@@ -2450,23 +2684,23 @@ Match with ground truth #1
 
 Work experience #2:
 Match with ground truth #2
-  ❌ Title       : 17% match, Web Designer (Expected: Enter Your Job Position Here)
+  ✅ Title       : 100% match, Enter Your Job Position Here
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2016-01-01
   ✅ End Date    : 100% match, 2019-12-31
   ⚠️  Description : 96% match
     Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
     Expected: Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
-  Field match rate: 82.6%
+  Field match rate: 99.3%
 
 Field Type Averages:
-Average Title match rate: 16.8%
+Average Title match rate: 58.4%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
 Average Description match rate: 98.1%
 
-Overall field match rate: 83.0%
+Overall field match rate: 91.3%
 
 Work experience #1:
 Match with ground truth #1
@@ -2555,18 +2789,18 @@ Overall field match rate: 96.4%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 100.0%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 83.1%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png: Fields: 98.7%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 83.0%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 91.3%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: Fields: 99.5%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 96.4%
 
 Field Type Averages:
-Title       : 76.0%
+Title       : 82.0%
 Company     : 100.0%
 Start Date  : 100.0%
 End Date    : 100.0%
 Description : 95.8%
 =========================
-Average field match: 94.4%
+Average field match: 95.6%
 ==========================
 Processing 7 images from: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks
 
@@ -2619,43 +2853,7 @@ Processed images: /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/i
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR WEB DESIGNER
-  ⚠️  Company     : 73% match, Creative Agency / Chicago (Expected: Creative Agency)
-  ✅ Start Date  : 100% match, 2020-01-01
-  ✅ End Date    : 100% match, Present
-  ✅ Description : 100% match
-  Field match rate: 94.5%
-
-Work experience #2:
-Match with ground truth #2
-  ✅ Title       : 100% match, GRAPHIC DESIGNER
-  ⚠️  Company     : 69% match, Creative Market / Chicago (Expected: Creative Market)
-  ✅ Start Date  : 100% match, 2015-01-01
-  ✅ End Date    : 100% match, 2020-12-31
-  ✅ Description : 100% match
-  Field match rate: 93.8%
-
-Work experience #3:
-Match with ground truth #3
-  ✅ Title       : 100% match, MARKETING MANAGER
-  ⚠️  Company     : 82% match, Manufacturing Agency / NJ (Expected: Manufacturing Agency)
-  ✅ Start Date  : 100% match, 2013-01-01
-  ✅ End Date    : 100% match, 2015-12-31
-  ✅ Description : 100% match
-  Field match rate: 96.4%
-
-Field Type Averages:
-Average Title match rate: 100.0%
-Average Company match rate: 74.6%
-Average Start Date match rate: 100.0%
-Average End Date match rate: 100.0%
-Average Description match rate: 100.0%
-
-Overall field match rate: 94.9%
-
-Work experience #1:
-Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR WEB DESIGNER
+  ✅ Title       : 100% match, Senior Web Designer
   ✅ Company     : 100% match, Creative Agency
   ✅ Start Date  : 100% match, 2020-01-01
   ✅ End Date    : 100% match, Present
@@ -2664,7 +2862,7 @@ Match with ground truth #1
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, GRAPHIC DESIGNER
+  ✅ Title       : 100% match, Graphic Designer
   ✅ Company     : 100% match, Creative Market
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2020-12-31
@@ -2673,7 +2871,43 @@ Match with ground truth #2
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, MARKETING MANAGER
+  ✅ Title       : 100% match, Marketing Manager
+  ✅ Company     : 100% match, Manufacturing Agency
+  ✅ Start Date  : 100% match, 2013-01-01
+  ✅ End Date    : 100% match, 2015-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Field Type Averages:
+Average Title match rate: 100.0%
+Average Company match rate: 100.0%
+Average Start Date match rate: 100.0%
+Average End Date match rate: 100.0%
+Average Description match rate: 100.0%
+
+Overall field match rate: 100.0%
+
+Work experience #1:
+Match with ground truth #1
+  ✅ Title       : 100% match, Senior Web Designer
+  ✅ Company     : 100% match, Creative Agency
+  ✅ Start Date  : 100% match, 2020-01-01
+  ✅ End Date    : 100% match, Present
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #2:
+Match with ground truth #2
+  ✅ Title       : 100% match, Graphic Designer
+  ✅ Company     : 100% match, Creative Market
+  ✅ Start Date  : 100% match, 2015-01-01
+  ✅ End Date    : 100% match, 2020-12-31
+  ✅ Description : 100% match
+  Field match rate: 100.0%
+
+Work experience #3:
+Match with ground truth #3
+  ✅ Title       : 100% match, Marketing Manager
   ✅ Company     : 100% match, Manufacturing Agency
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
@@ -2699,6 +2933,15 @@ Match with ground truth #1
   Field match rate: 83.1%
 
 Work experience #2:
+Match with ground truth #2
+  ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
+  ✅ Company     : 100% match, Lorem Ipsum
+  ✅ Start Date  : 100% match, 2010-01-01
+  ✅ End Date    : 100% match, 2017-12-31
+  ✅ Description : 100% match
+  Field match rate: 83.1%
+
+Work experience #3:
 Match with ground truth #3
   ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
   ✅ Company     : 100% match, Lorem Ipsum
@@ -2707,7 +2950,7 @@ Match with ground truth #3
   ✅ Description : 100% match
   Field match rate: 83.1%
 
-Work experience #3:
+Work experience #4:
 Match with ground truth #4
   ❌ Title       : 15% match, Art Director (Expected: Lorem Ipsum)
   ✅ Company     : 100% match, Lorem Ipsum
@@ -2769,14 +3012,12 @@ Overall field match rate: 98.7%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, Enter Your Job Position Here
+  ❌ Title       : 17% match, Web Designer (Expected: Enter Your Job Position Here)
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2019-01-01
   ✅ End Date    : 100% match, Present
-  ⚠️  Description : 83% match
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.
-    Expected: Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
-  Field match rate: 96.5%
+  ✅ Description : 100% match
+  Field match rate: 83.4%
 
 Work experience #2:
 Match with ground truth #2
@@ -2784,50 +3025,50 @@ Match with ground truth #2
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2016-01-01
   ✅ End Date    : 100% match, 2019-12-31
-  ⚠️  Description : 80% match
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.
+  ⚠️  Description : 96% match
+    Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
     Expected: Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt laboredolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.
-  Field match rate: 96.0%
+  Field match rate: 99.3%
 
 Field Type Averages:
-Average Title match rate: 100.0%
+Average Title match rate: 58.4%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 81.3%
+Average Description match rate: 98.1%
 
-Overall field match rate: 96.3%
+Overall field match rate: 91.3%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, SENIOR CREATIVE DESIGNER
+  ✅ Title       : 100% match, Senior Creative Designer
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2018-02-01
-  ✅ End Date    : 100% match, Present
+  ❌ End Date    : 0% match, 2023-10-31 (Expected: Present)
   ⚠️  Description : 97% match
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet.
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.
     Expected: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-  Field match rate: 99.5%
+  Field match rate: 79.5%
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, CREATIVE DESIGNER
+  ✅ Title       : 100% match, Creative Designer
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2017-09-01
   ✅ End Date    : 100% match, 2018-02-28
   ⚠️  Description : 97% match
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet.
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.
     Expected: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
   Field match rate: 99.5%
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, JUNIOR GRAPHIC DESIGNER
+  ✅ Title       : 100% match, Junior Graphic Designer
   ✅ Company     : 100% match, Company Name
   ✅ Start Date  : 100% match, 2015-05-01
   ✅ End Date    : 100% match, 2017-09-30
   ⚠️  Description : 97% match
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet.
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.
     Expected: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
   Field match rate: 99.5%
 
@@ -2835,37 +3076,37 @@ Field Type Averages:
 Average Title match rate: 100.0%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
-Average End Date match rate: 100.0%
+Average End Date match rate: 66.7%
 Average Description match rate: 97.4%
 
-Overall field match rate: 99.5%
+Overall field match rate: 92.8%
 
 Work experience #1:
 Match with ground truth #1
-  ✅ Title       : 100% match, Graphic Designer
-  ✅ Company     : 100% match, Soft Design Studios
+  ✅ Title       : 100% match, GRAPHIC DESIGNER
+  ✅ Company     : 100% match, SOFT DESIGN STUDIOS
   ✅ Start Date  : 100% match, 2015-01-01
   ✅ End Date    : 100% match, 2017-12-31
-  ⚠️  Description : 67% match
-    empus id fringilla molestie ornare diam in olestie ipsum etium rosn Porttitor amet massa Done cporttitor dolor et nisl sollicitudin est, porttitor amet hitmas-molestie ium feliscon lore ipsum dolor tfringilla. lorem sa Done cporttitor dolor shit dolor lorem ipsum. ollcitudin est dolor time. Done cporttitor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipcum retiumci amet is tudinest.moles tium
+  ⚠️  Description : 77% match
+    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum. ollcitudin est dolor time. Done cporttitor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipcum retiumci amet is tudinest.moles tium
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor
-  Field match rate: 93.3%
+  Field match rate: 95.4%
 
 Work experience #2:
 Match with ground truth #2
-  ✅ Title       : 100% match, Web Designer
-  ✅ Company     : 100% match, Web Tech Ltd
+  ✅ Title       : 100% match, WEB DESIGNER
+  ✅ Company     : 100% match, WEB TECH LTD
   ✅ Start Date  : 100% match, 2013-01-01
   ✅ End Date    : 100% match, 2015-12-31
-  ⚠️  Description : 79% match
-    lorem olestie pretium apaza all the rosen. fringilla lorem ipsum Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.
+  ⚠️  Description : 95% match
+    Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum. ollcitudin est dolor time.
     Expected: Porttitor amet massa Done cporttitor dolor et nisl molestie ium felison lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.
-  Field match rate: 95.7%
+  Field match rate: 99.0%
 
 Work experience #3:
 Match with ground truth #3
-  ✅ Title       : 100% match, Lead Web Designer
-  ✅ Company     : 100% match, Dev Creative Solutions
+  ✅ Title       : 100% match, LEAD WEB DESIGNER
+  ✅ Company     : 100% match, DEV CREATIVE SOLUTIONS
   ✅ Start Date  : 100% match, 2010-01-01
   ✅ End Date    : 100% match, 2013-12-31
   ✅ Description : 100% match
@@ -2876,26 +3117,28 @@ Average Title match rate: 100.0%
 Average Company match rate: 100.0%
 Average Start Date match rate: 100.0%
 Average End Date match rate: 100.0%
-Average Description match rate: 81.7%
+Average Description match rate: 90.8%
 
-Overall field match rate: 96.3%
+Overall field match rate: 98.2%
 
 ========== SUMMARY ==========
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png: Fields: 94.9%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png: Fields: 100.0%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png: Fields: 100.0%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png: Fields: 83.1%
 /Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/003.png: Fields: 98.7%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 96.3%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: Fields: 99.5%
-/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 96.3%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png: Fields: 91.3%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png: Fields: 92.8%
+/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png: Fields: 98.2%
 
 Field Type Averages:
-Title       : 87.9%
-Company     : 96.4%
+Title       : 82.0%
+Company     : 100.0%
 Start Date  : 100.0%
-End Date    : 100.0%
-Description : 93.4%
+End Date    : 95.2%
+Description : 97.1%
 =========================
-Average field match: 95.5%
+Average field match: 94.9%
 ==========================
 All processing complete. Results saved to assets/reports/freepiks
+
+pnpm dev save-reports -d assets/inputs/freepiks -o assets/reports/freepiks -p  31.00s user 1.28s system 13% cpu 4:05.25 total

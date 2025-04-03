@@ -12,21 +12,21 @@
     "extractedData": {
       "workExperiences": [
         {
-          "title": "SENIOR WEB DESIGNER",
+          "title": "Senior Web Designer",
           "company": "Creative Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
-          "title": "GRAPHIC DESIGNER",
+          "title": "Graphic Designer",
           "company": "Creative Market",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "MARKETING MANAGER",
+          "title": "Marketing Manager",
           "company": "Manufacturing Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type.",
           "startDate": "2013-01-01",
@@ -73,21 +73,21 @@
     "extractedData": {
       "workExperiences": [
         {
-          "title": "SENIOR WEB DESIGNER",
+          "title": "Senior Web Designer",
           "company": "Creative Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s. when unknown printer took a galley of type.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
-          "title": "GRAPHIC DESIGNER",
+          "title": "Graphic Designer",
           "company": "Creative Market",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500S. when unknown printer took a galley of type.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "MARKETING MANAGER",
+          "title": "Marketing Manager",
           "company": "Manufacturing Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s. when unknown printer took a galley of type.",
           "startDate": "2013-01-01",
@@ -139,6 +139,13 @@
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2010-01-01",
           "endDate": "2015-12-31"
+        },
+        {
+          "title": "Art Director",
+          "company": "Lorem Ipsum",
+          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
+          "startDate": "2010-01-01",
+          "endDate": "2017-12-31"
         },
         {
           "title": "Art Director",
@@ -252,9 +259,9 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png",
-    "fieldMatchRate": 82.98078827490592,
+    "fieldMatchRate": 91.30520895226778,
     "fieldTypeScores": {
-      "Title": 16.75579322638146,
+      "Title": 58.37789661319073,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
@@ -270,7 +277,7 @@
           "endDate": "Present"
         },
         {
-          "title": "Web Designer",
+          "title": "Enter Your Job Position Here",
           "company": "Company Name",
           "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.",
           "startDate": "2016-01-01",
