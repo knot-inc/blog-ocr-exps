@@ -123,41 +123,41 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png",
-    "fieldMatchRate": 96.9949494949495,
+    "fieldMatchRate": 97.91919191919192,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 84.97474747474747
+      "Description": 89.59595959595958
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Lorem Ipsum",
           "company": "Lorem Ipsum",
-          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lore ipsum dolor fringilla. Lorem ipsumr.",
+          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lorem su ipsum dolor fringilla. Lorem ipsumr.",
           "startDate": "2010-01-01",
           "endDate": "2015-12-31"
         },
         {
           "title": "Lorem Ipsum",
           "company": "Lorem Ipsum",
-          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lore ipsum dolor fringilla. Lorem ipsumr.",
+          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lorem su ipsum dolor fringilla. Lorem ipsumr.",
           "startDate": "2010-01-01",
           "endDate": "2017-12-31"
         },
         {
           "title": "Lorem Ipsum",
           "company": "Lorem Ipsum",
-          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lore ipsum dolor fringilla. Lorem ipsumr.",
+          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lorem su ipsum dolor fringilla. Lorem ipsumr.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
           "title": "Lorem Ipsum",
           "company": "Lorem Ipsum",
-          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lore ipsum dolor fringilla. Lorem ipsumr.",
+          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium feliscon lorem su ipsum dolor fringilla. Lorem ipsumr.",
           "startDate": "2020-01-01",
           "endDate": "2021-12-31"
         }
@@ -367,34 +367,34 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png",
-    "fieldMatchRate": 98.1182325182325,
+    "fieldMatchRate": 97.61482961482962,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 90.59116259116259
+      "Description": 88.07414807414808
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Graphic Designer",
           "company": "Soft Design Studios",
-          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicitudin est dolor time. Done cporttitor",
+          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicutdin est dolor time. Done cporttitor",
           "startDate": "2015-01-01",
           "endDate": "2017-12-31"
         },
         {
           "title": "Web Designer",
           "company": "Web Tech Ltd",
-          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicitudin est dolor time.",
+          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicutdin est dolor time.",
           "startDate": "2013-01-01",
           "endDate": "2015-12-31"
         },
         {
           "title": "Lead Web Designer",
           "company": "Dev Creative Solutions",
-          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicitudin est dolor time. Done cporttitor",
+          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor fringilla. lorem lorem ipsum. ollicutdin est dolor time. Done cporttitor",
           "startDate": "2010-01-01",
           "endDate": "2013-12-31"
         }

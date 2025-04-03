@@ -12,21 +12,21 @@
     "extractedData": {
       "workExperiences": [
         {
-          "title": "SENIOR WEB DESIGNER",
+          "title": "Senior Web Designer",
           "company": "Creative Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
-          "title": "GRAPHIC DESIGNER",
+          "title": "Graphic Designer",
           "company": "Creative Market",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "MARKETING MANAGER",
+          "title": "Marketing Manager",
           "company": "Manufacturing Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
           "startDate": "2013-01-01",
@@ -62,34 +62,34 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/001.png",
-    "fieldMatchRate": 100,
+    "fieldMatchRate": 99.68253968253968,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 100
+      "Description": 98.41269841269842
     },
     "extractedData": {
       "workExperiences": [
         {
-          "title": "SENIOR WEB DESIGNER",
+          "title": "Senior Web Designer",
           "company": "Creative Agency",
-          "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
+          "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
-          "title": "GRAPHIC DESIGNER",
+          "title": "Graphic Designer",
           "company": "Creative Market",
-          "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
+          "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "MARKETING MANAGER",
+          "title": "Marketing Manager",
           "company": "Manufacturing Agency",
-          "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.",
+          "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type.",
           "startDate": "2013-01-01",
           "endDate": "2015-12-31"
         }
@@ -123,10 +123,10 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/002.png",
-    "fieldMatchRate": 80,
+    "fieldMatchRate": 83.0827067669173,
     "fieldTypeScores": {
-      "Title": 100,
-      "Company": 0,
+      "Title": 15.413533834586467,
+      "Company": 100,
       "Start Date": 100,
       "End Date": 100,
       "Description": 100
@@ -134,29 +134,29 @@
     "extractedData": {
       "workExperiences": [
         {
-          "title": "Lorem Ipsum",
-          "company": "",
+          "title": "Art Director",
+          "company": "Lorem Ipsum",
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2010-01-01",
           "endDate": "2015-12-31"
         },
         {
-          "title": "Lorem Ipsum",
-          "company": "",
+          "title": "Art Director",
+          "company": "Lorem Ipsum",
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2010-01-01",
           "endDate": "2017-12-31"
         },
         {
-          "title": "Lorem Ipsum",
-          "company": "",
+          "title": "Art Director",
+          "company": "Lorem Ipsum",
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "Lorem Ipsum",
-          "company": "",
+          "title": "Art Director",
+          "company": "Lorem Ipsum",
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2020-01-01",
           "endDate": "2021-12-31"
@@ -367,27 +367,27 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png",
-    "fieldMatchRate": 60,
+    "fieldMatchRate": 64.6554694229113,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 0,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 0
+      "Description": 23.27734711455642
     },
     "extractedData": {
       "workExperiences": [
         {
           "title": "Graphic Designer",
           "company": "",
-          "description": "",
+          "description": "No description provided.",
           "startDate": "2015-01-01",
           "endDate": "2017-12-31"
         },
         {
           "title": "Web Designer",
           "company": "",
-          "description": "",
+          "description": "No description provided.",
           "startDate": "2013-01-01",
           "endDate": "2015-12-31"
         }

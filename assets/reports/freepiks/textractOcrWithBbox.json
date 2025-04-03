@@ -1,10 +1,10 @@
 [
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/000.png",
-    "fieldMatchRate": 94.91249491249489,
+    "fieldMatchRate": 100,
     "fieldTypeScores": {
       "Title": 100,
-      "Company": 74.56247456247456,
+      "Company": 100,
       "Start Date": 100,
       "End Date": 100,
       "Description": 100
@@ -12,22 +12,22 @@
     "extractedData": {
       "workExperiences": [
         {
-          "title": "SENIOR WEB DESIGNER",
-          "company": "Creative Agency / Chicago",
+          "title": "Senior Web Designer",
+          "company": "Creative Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
-          "title": "GRAPHIC DESIGNER",
-          "company": "Creative Market / Chicago",
+          "title": "Graphic Designer",
+          "company": "Creative Market",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "MARKETING MANAGER",
-          "company": "Manufacturing Agency / NJ",
+          "title": "Marketing Manager",
+          "company": "Manufacturing Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type.",
           "startDate": "2013-01-01",
           "endDate": "2015-12-31"
@@ -73,21 +73,21 @@
     "extractedData": {
       "workExperiences": [
         {
-          "title": "SENIOR WEB DESIGNER",
+          "title": "Senior Web Designer",
           "company": "Creative Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s. when unknown printer took a galley of type.",
           "startDate": "2020-01-01",
           "endDate": "Present"
         },
         {
-          "title": "GRAPHIC DESIGNER",
+          "title": "Graphic Designer",
           "company": "Creative Market",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500S. when unknown printer took a galley of type.",
           "startDate": "2015-01-01",
           "endDate": "2020-12-31"
         },
         {
-          "title": "MARKETING MANAGER",
+          "title": "Marketing Manager",
           "company": "Manufacturing Agency",
           "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s. when unknown printer took a galley of type.",
           "startDate": "2013-01-01",
@@ -139,6 +139,13 @@
           "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
           "startDate": "2010-01-01",
           "endDate": "2015-12-31"
+        },
+        {
+          "title": "Art Director",
+          "company": "Lorem Ipsum",
+          "description": "Porttitor amet massa lorem ipssDoner dolormolestie ium felisconon lorem su ipsum dolor tfringilla. Lorem ipsumr.",
+          "startDate": "2010-01-01",
+          "endDate": "2017-12-31"
         },
         {
           "title": "Art Director",
@@ -252,27 +259,27 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/004.png",
-    "fieldMatchRate": 96.25270379834274,
+    "fieldMatchRate": 91.30520895226778,
     "fieldTypeScores": {
-      "Title": 100,
+      "Title": 58.37789661319073,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 81.26351899171371
+      "Description": 98.14814814814815
     },
     "extractedData": {
       "workExperiences": [
         {
-          "title": "Enter Your Job Position Here",
+          "title": "Web Designer",
           "company": "Company Name",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.",
+          "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.",
           "startDate": "2019-01-01",
           "endDate": "Present"
         },
         {
           "title": "Enter Your Job Position Here",
           "company": "Company Name",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aliquip commodo consequat.",
+          "description": "Lorem ipsum dolor sithis amet, consectetur adipisicing elit sed eiusmod tempor indunt labore dolore magna aliqua Utenim ad minim veamquis nostrud exercit ullamco aliquip commodo consequat.",
           "startDate": "2016-01-01",
           "endDate": "2019-12-31"
         }
@@ -299,34 +306,34 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/005.png",
-    "fieldMatchRate": 99.48933548933549,
+    "fieldMatchRate": 92.82266882266883,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
-      "End Date": 100,
+      "End Date": 66.66666666666667,
       "Description": 97.44667744667747
     },
     "extractedData": {
       "workExperiences": [
         {
-          "title": "SENIOR CREATIVE DESIGNER",
+          "title": "Senior Creative Designer",
           "company": "Company Name",
-          "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet.",
+          "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.",
           "startDate": "2018-02-01",
-          "endDate": "Present"
+          "endDate": "2023-10-31"
         },
         {
-          "title": "CREATIVE DESIGNER",
+          "title": "Creative Designer",
           "company": "Company Name",
-          "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet.",
+          "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.",
           "startDate": "2017-09-01",
           "endDate": "2018-02-28"
         },
         {
-          "title": "JUNIOR GRAPHIC DESIGNER",
+          "title": "Junior Graphic Designer",
           "company": "Company Name",
-          "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet.",
+          "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et justo odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.",
           "startDate": "2015-05-01",
           "endDate": "2017-09-30"
         }
@@ -360,34 +367,34 @@
   },
   {
     "imagePath": "/Users/masaishi/ghq/github.com/knot-inc/blog-ocr-exps/assets/inputs/freepiks/006.png",
-    "fieldMatchRate": 96.33955283056696,
+    "fieldMatchRate": 98.15196895823995,
     "fieldTypeScores": {
       "Title": 100,
       "Company": 100,
       "Start Date": 100,
       "End Date": 100,
-      "Description": 81.69776415283475
+      "Description": 90.75984479119977
     },
     "extractedData": {
       "workExperiences": [
         {
-          "title": "Graphic Designer",
-          "company": "Soft Design Studios",
-          "description": "empus id fringilla molestie ornare diam in olestie ipsum etium rosn Porttitor amet massa Done cporttitor dolor et nisl sollicitudin est, porttitor amet hitmas-molestie ium feliscon lore ipsum dolor tfringilla. lorem sa Done cporttitor dolor shit dolor lorem ipsum. ollcitudin est dolor time. Done cporttitor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipcum retiumci amet is tudinest.moles tium",
+          "title": "GRAPHIC DESIGNER",
+          "company": "SOFT DESIGN STUDIOS",
+          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum. ollcitudin est dolor time. Done cporttitor kiren lorem nisl molestie pretium etfring. is the shitp lorem ipcum retiumci amet is tudinest.moles tium",
           "startDate": "2015-01-01",
           "endDate": "2017-12-31"
         },
         {
-          "title": "Web Designer",
-          "company": "Web Tech Ltd",
-          "description": "lorem olestie pretium apaza all the rosen. fringilla lorem ipsum Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time.",
+          "title": "WEB DESIGNER",
+          "company": "WEB TECH LTD",
+          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum. ollcitudin est dolor time.",
           "startDate": "2013-01-01",
           "endDate": "2015-12-31"
         },
         {
-          "title": "Lead Web Designer",
-          "company": "Dev Creative Solutions",
-          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem lorem ipsum. ollcitudin est dolor time. Done cporttitor",
+          "title": "LEAD WEB DESIGNER",
+          "company": "DEV CREATIVE SOLUTIONS",
+          "description": "Porttitor amet massa Done cporttitor dolor et nisl molestie ium feliscon lore ipsum dolor tfringilla. lorem ipsum. ollcitudin est dolor time. Done cporttitor",
           "startDate": "2010-01-01",
           "endDate": "2013-12-31"
         }
