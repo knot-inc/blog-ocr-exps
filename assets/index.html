@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OCR Field Match Analysis Results</title>
+    <title>OCR Field Match Analysis</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <style>
-      .diff {
+      .extracted-diff {
         background-color: #ffecec;
         color: #dc2626;
+        font-weight: bold;
+      }
+      .truth-diff {
+        background-color: #fef9c3;
+        color: #854d0e;
         font-weight: bold;
       }
       .bg-light-green {
@@ -110,7 +114,8 @@
         let globalConfig = {},
           currentCategory = "",
           allCategoriesData = {};
-        loadConfig();
+
+        // Button event listeners
         document
           .getElementById("toggleGlobalSummary")
           .addEventListener("click", function () {
@@ -126,6 +131,7 @@
               toggleButton.textContent = "Show Summary";
             }
           });
+
         document
           .getElementById("toggleCategorySummary")
           .addEventListener("click", function () {
@@ -141,17 +147,18 @@
               toggleButton.textContent = "Show Summary";
             }
           });
+
+        // Load configuration
+        loadConfig();
+
         async function loadConfig() {
           try {
             const response = await fetch("./config.json");
             if (!response.ok)
               throw new Error(`HTTP error! status: ${response.status}`);
-            const config = await response.json();
-            globalConfig = config;
-            populateButtons(config);
+            globalConfig = await response.json();
+            populateButtons(globalConfig);
             addShowSummaryButton();
-
-            // Automatically load global summary on page load
             loadAllCategoriesData();
           } catch (error) {
             console.error("Error loading config:", error);
@@ -160,6 +167,7 @@
             ).innerHTML = `<p class="text-red-500">Error loading configuration: ${error.message}</p>`;
           }
         }
+
         function addShowSummaryButton() {
           const buttonContainer = document.getElementById("buttonContainer");
           const summaryButtonContainer = document.createElement("div");
@@ -167,7 +175,7 @@
           const showSummaryButton = document.createElement("button");
           showSummaryButton.className =
             "bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-md transition duration-200";
-          showSummaryButton.textContent = "Refresh Global Summary"; // Changed from "Show Global Summary"
+          showSummaryButton.textContent = "Refresh Global Summary";
           showSummaryButton.addEventListener("click", loadAllCategoriesData);
           summaryButtonContainer.appendChild(showSummaryButton);
           buttonContainer.insertBefore(
@@ -175,21 +183,26 @@
             buttonContainer.firstChild
           );
         }
+
         function populateButtons(config) {
           const buttonContainer = document.getElementById("buttonContainer");
           const firstChild = buttonContainer.firstChild;
           buttonContainer.innerHTML = "";
           if (firstChild) buttonContainer.appendChild(firstChild);
+
           for (const [category, files] of Object.entries(config)) {
             const categoryDiv = document.createElement("div");
             categoryDiv.className = "w-full mb-6";
+
             const categoryTitle = document.createElement("h3");
             categoryTitle.className = "text-lg font-medium mb-3 text-gray-700";
             categoryTitle.textContent =
               category.charAt(0).toUpperCase() + category.slice(1);
             categoryDiv.appendChild(categoryTitle);
+
             const categoryActions = document.createElement("div");
             categoryActions.className = "flex mb-3 gap-2";
+
             const showSummaryButton = document.createElement("button");
             showSummaryButton.className =
               "bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-200";
@@ -199,8 +212,10 @@
             );
             categoryActions.appendChild(showSummaryButton);
             categoryDiv.appendChild(categoryActions);
+
             const buttonsDiv = document.createElement("div");
             buttonsDiv.className = "flex flex-wrap gap-2";
+
             files.forEach((file) => {
               const button = document.createElement("button");
               button.className =
@@ -211,10 +226,12 @@
               );
               buttonsDiv.appendChild(button);
             });
+
             categoryDiv.appendChild(buttonsDiv);
             buttonContainer.appendChild(categoryDiv);
           }
         }
+
         async function loadAllCategoriesData() {
           try {
             showLoading(true);
@@ -227,10 +244,12 @@
               "End Date",
               "Description",
             ];
+
             for (const [category, files] of Object.entries(globalConfig)) {
               allCategoriesData[category] = [];
               let categoryTotal = 0,
                 categoryFileCount = 0;
+
               for (const file of files) {
                 try {
                   const response = await fetch(`./reports/${category}/${file}`);
@@ -238,29 +257,35 @@
                   const jsonData = await response.json();
                   let totalFieldMatchRate = 0,
                     fileCount = 0;
+
                   jsonData.forEach((fileData) => {
                     if (fileData.fieldMatchRate) {
                       totalFieldMatchRate += fileData.fieldMatchRate;
                       fileCount++;
                     }
                   });
+
                   const avgMatchRate =
                     fileCount > 0 ? totalFieldMatchRate / fileCount : 0;
+
                   allCategoriesData[category].push({
                     fileName: file.replace(".json", ""),
                     avgMatchRate: avgMatchRate,
                     fileCount: fileCount,
                     data: jsonData,
                   });
+
                   categoryTotal += avgMatchRate;
                   categoryFileCount++;
                 } catch (error) {
                   console.warn(`Error processing ${file}:`, error);
                 }
               }
+
               categoryAverages[category] =
                 categoryFileCount > 0 ? categoryTotal / categoryFileCount : 0;
             }
+
             displayGlobalSummary(categoryAverages);
           } catch (error) {
             console.error("Error loading all categories:", error);
@@ -269,6 +294,7 @@
             showLoading(false);
           }
         }
+
         function displayGlobalSummary(categoryAverages) {
           const summarySection = document.getElementById(
             "globalSummarySection"
@@ -279,36 +305,58 @@
           const sortedCategories = Object.entries(categoryAverages).sort(
             (a, b) => b[1] - a[1]
           );
-          let summaryHTML = `<h3 class="text-xl font-semibold mb-3">Global Performance by Category</h3><div class="overflow-x-auto mb-6"><table class="min-w-full bg-white"><thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">Category</th><th class="py-2 px-4 text-right">Average Match Rate</th></tr></thead><tbody>`;
+
+          let summaryHTML = `<h3 class="text-xl font-semibold mb-3">Global Performance by Category</h3>
+          <div class="overflow-x-auto mb-6"><table class="min-w-full bg-white">
+          <thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">Category</th>
+          <th class="py-2 px-4 text-right">Average Match Rate</th></tr></thead><tbody>`;
+
           let globalTotal = 0,
             categoryCount = sortedCategories.length;
+
           sortedCategories.forEach(([category, avgScore]) => {
             let rowClass = "";
             if (avgScore >= 90) rowClass = "bg-green-50";
             else if (avgScore >= 75) rowClass = "bg-yellow-50";
             else if (avgScore > 0) rowClass = "bg-red-50";
-            summaryHTML += `<tr class="${rowClass} border-b hover:bg-gray-100"><td class="py-2 px-4 font-medium">${
+
+            summaryHTML += `<tr class="${rowClass} border-b hover:bg-gray-100">
+            <td class="py-2 px-4 font-medium">${
               category.charAt(0).toUpperCase() + category.slice(1)
-            }</td><td class="py-2 px-4 text-right">${avgScore.toFixed(
-              1
-            )}%</td></tr>`;
+            }</td>
+            <td class="py-2 px-4 text-right">${avgScore.toFixed(1)}%</td></tr>`;
+
             globalTotal += avgScore;
           });
+
           const globalAvg = categoryCount > 0 ? globalTotal / categoryCount : 0;
-          summaryHTML += `</tbody><tfoot><tr class="border-t-2 border-gray-300 font-bold bg-gray-100"><td class="py-2 px-4">Global Average</td><td class="py-2 px-4 text-right">${globalAvg.toFixed(
+
+          summaryHTML += `</tbody><tfoot><tr class="border-t-2 border-gray-300 font-bold bg-gray-100">
+          <td class="py-2 px-4">Global Average</td><td class="py-2 px-4 text-right">${globalAvg.toFixed(
             1
-          )}%</td></tr></tfoot></table></div><h3 class="text-xl font-semibold mb-3">Category Comparison</h3><div class="space-y-3">`;
+          )}%</td>
+          </tr></tfoot></table></div>
+          <h3 class="text-xl font-semibold mb-3">Category Comparison</h3><div class="space-y-3">`;
+
           sortedCategories.forEach(([category, avgScore]) => {
             let barColor = "bg-red-500";
             if (avgScore >= 90) barColor = "bg-green-500";
             else if (avgScore >= 75) barColor = "bg-yellow-500";
-            summaryHTML += `<div><div class="flex justify-between mb-1"><span class="font-medium">${
+
+            summaryHTML += `<div><div class="flex justify-between mb-1">
+            <span class="font-medium">${
               category.charAt(0).toUpperCase() + category.slice(1)
-            }</span><span>${avgScore.toFixed(
-              1
-            )}%</span></div><div class="h-4 w-full bg-gray-200 rounded-full overflow-hidden"><div class="h-full ${barColor}" style="width: ${avgScore}%"></div></div></div>`;
+            }</span>
+            <span>${avgScore.toFixed(1)}%</span></div>
+            <div class="h-4 w-full bg-gray-200 rounded-full overflow-hidden">
+            <div class="h-full ${barColor}" style="width: ${avgScore}%"></div></div></div>`;
           });
-          summaryHTML += `</div><h3 class="text-xl font-semibold mt-6 mb-3">Field Type Performance</h3><div class="overflow-x-auto"><table class="min-w-full bg-white"><thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">Field Type</th><th class="py-2 px-4 text-right">Global Average</th></tr></thead><tbody>`;
+
+          summaryHTML += `</div><h3 class="text-xl font-semibold mt-6 mb-3">Field Type Performance</h3>
+          <div class="overflow-x-auto"><table class="min-w-full bg-white">
+          <thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">Field Type</th>
+          <th class="py-2 px-4 text-right">Global Average</th></tr></thead><tbody>`;
+
           const fieldTypes = [
             "Title",
             "Company",
@@ -317,9 +365,11 @@
             "Description",
           ];
           const fieldTypeAverages = {};
+
           fieldTypes.forEach((fieldType) => {
             fieldTypeAverages[fieldType] = { total: 0, count: 0 };
           });
+
           for (const category in allCategoriesData) {
             allCategoriesData[category].forEach((fileData) => {
               fileData.data.forEach((item) => {
@@ -335,19 +385,24 @@
               });
             });
           }
+
           fieldTypes.forEach((fieldType) => {
             const avg =
               fieldTypeAverages[fieldType].count > 0
                 ? fieldTypeAverages[fieldType].total /
                   fieldTypeAverages[fieldType].count
                 : 0;
+
             let textClass = "text-red-600";
             if (avg >= 90) textClass = "text-green-600";
             else if (avg >= 75) textClass = "text-yellow-600";
-            summaryHTML += `<tr class="border-b hover:bg-gray-50"><td class="py-2 px-4">${fieldType}</td><td class="py-2 px-4 text-right ${textClass} font-medium">${avg.toFixed(
+
+            summaryHTML += `<tr class="border-b hover:bg-gray-50"><td class="py-2 px-4">${fieldType}</td>
+            <td class="py-2 px-4 text-right ${textClass} font-medium">${avg.toFixed(
               1
             )}%</td></tr>`;
           });
+
           summaryHTML += `</tbody></table></div>`;
           summaryContent.innerHTML = summaryHTML;
           summarySection.classList.remove("hidden");
@@ -356,13 +411,16 @@
             .getElementById("categorySummarySection")
             .classList.add("hidden");
         }
+
         async function showCategorySummary(category) {
           try {
             currentCategory = category;
             showLoading(true);
+
             if (!allCategoriesData[category]) {
               allCategoriesData[category] = [];
               const files = globalConfig[category];
+
               for (const file of files) {
                 try {
                   const response = await fetch(`./reports/${category}/${file}`);
@@ -370,14 +428,17 @@
                   const jsonData = await response.json();
                   let totalFieldMatchRate = 0,
                     fileCount = 0;
+
                   jsonData.forEach((fileData) => {
                     if (fileData.fieldMatchRate) {
                       totalFieldMatchRate += fileData.fieldMatchRate;
                       fileCount++;
                     }
                   });
+
                   const avgMatchRate =
                     fileCount > 0 ? totalFieldMatchRate / fileCount : 0;
+
                   allCategoriesData[category].push({
                     fileName: file.replace(".json", ""),
                     avgMatchRate: avgMatchRate,
@@ -389,41 +450,55 @@
                 }
               }
             }
+
             const fileResults = allCategoriesData[category];
             fileResults.sort((a, b) => b.avgMatchRate - a.avgMatchRate);
+
             const summarySection = document.getElementById(
               "categorySummarySection"
             );
             const summaryContent = document.getElementById(
               "categorySummaryContent"
             );
-            let summaryHTML = `<h3 class="text-xl font-semibold mb-3">Summary for ${
-              category.charAt(0).toUpperCase() + category.slice(1)
-            }</h3><div class="overflow-x-auto"><table class="min-w-full bg-white"><thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">File</th><th class="py-2 px-4 text-center">Documents</th><th class="py-2 px-4 text-right">Average Match Rate</th></tr></thead><tbody>`;
+
+            let summaryHTML = `<h3 class="text-xl font-semibold mb-3">Summary for 
+            ${category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+            <div class="overflow-x-auto"><table class="min-w-full bg-white">
+            <thead><tr class="bg-gray-200 text-gray-700"><th class="py-2 px-4 text-left">File</th>
+            <th class="py-2 px-4 text-center">Documents</th>
+            <th class="py-2 px-4 text-right">Average Match Rate</th></tr></thead><tbody>`;
+
             let categoryTotal = 0,
               categoryFileCount = 0;
+
             fileResults.forEach((result) => {
               let rowClass = "";
               if (result.avgMatchRate >= 90) rowClass = "bg-green-50";
               else if (result.avgMatchRate >= 75) rowClass = "bg-yellow-50";
               else if (result.avgMatchRate > 0) rowClass = "bg-red-50";
-              summaryHTML += `<tr class="${rowClass} border-b hover:bg-gray-100"><td class="py-2 px-4">${
-                result.fileName
-              }</td><td class="py-2 px-4 text-center">${
-                result.fileCount
-              }</td><td class="py-2 px-4 text-right font-medium">${result.avgMatchRate.toFixed(
+
+              summaryHTML += `<tr class="${rowClass} border-b hover:bg-gray-100">
+              <td class="py-2 px-4">${result.fileName}</td>
+              <td class="py-2 px-4 text-center">${result.fileCount}</td>
+              <td class="py-2 px-4 text-right font-medium">${result.avgMatchRate.toFixed(
                 1
               )}%</td></tr>`;
+
               categoryTotal += result.avgMatchRate;
               categoryFileCount++;
             });
+
             const categoryAvg =
               categoryFileCount > 0 ? categoryTotal / categoryFileCount : 0;
-            summaryHTML += `</tbody><tfoot><tr class="border-t-2 border-gray-300 font-bold bg-gray-100"><td class="py-2 px-4" colspan="2">Category Average</td><td class="py-2 px-4 text-right">${categoryAvg.toFixed(
+
+            summaryHTML += `</tbody><tfoot><tr class="border-t-2 border-gray-300 font-bold bg-gray-100">
+            <td class="py-2 px-4" colspan="2">Category Average</td>
+            <td class="py-2 px-4 text-right">${categoryAvg.toFixed(
               1
-            )}%</td></tr></tfoot></table></div><h3 class="text-lg font-semibold mt-6 mb-2">Field Type Performance in ${
-              category.charAt(0).toUpperCase() + category.slice(1)
-            }</h3>`;
+            )}%</td></tr></tfoot></table></div>
+            <h3 class="text-lg font-semibold mt-6 mb-2">Field Type Performance in 
+            ${category.charAt(0).toUpperCase() + category.slice(1)}</h3>`;
+
             const fieldTypes = [
               "Title",
               "Company",
@@ -432,9 +507,11 @@
               "Description",
             ];
             const fieldTypeAverages = {};
+
             fieldTypes.forEach((fieldType) => {
               fieldTypeAverages[fieldType] = { total: 0, count: 0 };
             });
+
             fileResults.forEach((fileResult) => {
               fileResult.data.forEach((item) => {
                 if (item.fieldTypeScores) {
@@ -448,13 +525,16 @@
                 }
               });
             });
+
             summaryHTML += `<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">`;
+
             fieldTypes.forEach((fieldType) => {
               const avg =
                 fieldTypeAverages[fieldType].count > 0
                   ? fieldTypeAverages[fieldType].total /
                     fieldTypeAverages[fieldType].count
                   : 0;
+
               let cardClass = "bg-red-100 border-red-200",
                 textClass = "text-red-800";
               if (avg >= 90) {
@@ -464,10 +544,14 @@
                 cardClass = "bg-yellow-100 border-yellow-200";
                 textClass = "text-yellow-800";
               }
-              summaryHTML += `<div class="p-4 rounded-lg ${cardClass} border"><div class="text-sm font-medium">${fieldType}</div><div class="text-xl font-bold ${textClass}">${avg.toFixed(
+
+              summaryHTML += `<div class="p-4 rounded-lg ${cardClass} border">
+              <div class="text-sm font-medium">${fieldType}</div>
+              <div class="text-xl font-bold ${textClass}">${avg.toFixed(
                 1
               )}%</div></div>`;
             });
+
             summaryHTML += `</div>`;
             summaryContent.innerHTML = summaryHTML;
             summarySection.classList.remove("hidden");
@@ -482,6 +566,7 @@
             showLoading(false);
           }
         }
+
         async function loadJsonFile(path) {
           try {
             showLoading(true);
@@ -503,6 +588,7 @@
             showLoading(false);
           }
         }
+
         function showLoading(isLoading) {
           const loadingIndicator = document.getElementById("loadingIndicator");
           if (isLoading) {
@@ -513,11 +599,84 @@
             loadingIndicator.classList.add("hidden");
           }
         }
-        // Complete the processData function to handle file details and show differences
+
+        // Improved function to highlight differences between two texts
+        function compareTexts(extractedText, groundTruthText) {
+          if (!extractedText && !groundTruthText) {
+            return { extractedHtml: "", groundTruthHtml: "", hasDiff: false };
+          }
+
+          const extractedStr = extractedText || "";
+          const groundTruthStr = groundTruthText || "";
+
+          // If ground truth is empty, return normal text without highlighting
+          if (!groundTruthStr) {
+            return {
+              extractedHtml: extractedStr,
+              groundTruthHtml: "",
+              hasDiff: false,
+            };
+          }
+
+          if (extractedStr === groundTruthStr) {
+            return {
+              extractedHtml: extractedStr,
+              groundTruthHtml: groundTruthStr,
+              hasDiff: false,
+            };
+          }
+
+          // Split into words for comparison
+          const extractedWords = extractedStr
+            .split(/\s+/)
+            .filter((word) => word.length > 0);
+          const groundTruthWords = groundTruthStr
+            .split(/\s+/)
+            .filter((word) => word.length > 0);
+
+          // Prepare HTML for extracted text
+          let extractedHtml = "";
+          extractedWords.forEach((word) => {
+            const wordLower = word.toLowerCase();
+            const found = groundTruthWords.some(
+              (gtWord) => gtWord.toLowerCase() === wordLower
+            );
+
+            if (!found) {
+              extractedHtml += `<span class="extracted-diff">${word}</span> `;
+            } else {
+              extractedHtml += `${word} `;
+            }
+          });
+
+          // Prepare HTML for ground truth text
+          let groundTruthHtml = "";
+          groundTruthWords.forEach((word) => {
+            const wordLower = word.toLowerCase();
+            const found = extractedWords.some(
+              (extWord) => extWord.toLowerCase() === wordLower
+            );
+
+            if (!found) {
+              groundTruthHtml += `<span class="truth-diff">${word}</span> `;
+            } else {
+              groundTruthHtml += `${word} `;
+            }
+          });
+
+          return {
+            extractedHtml: extractedHtml.trim(),
+            groundTruthHtml: groundTruthHtml.trim(),
+            hasDiff: true,
+          };
+        }
+
+        // Process data function to display the results
         function processData(data) {
           document.getElementById("summaryTableBody").innerHTML = "";
           document.getElementById("detailedResultsContainer").innerHTML = "";
           document.getElementById("summarySection").classList.remove("hidden");
+
           const fieldTypes = [
             "Title",
             "Company",
@@ -527,9 +686,11 @@
           ];
           const fieldTypeAverages = {};
           let totalFieldMatchRate = 0;
+
           fieldTypes.forEach((fieldType) => {
             fieldTypeAverages[fieldType] = 0;
           });
+
           data.forEach((fileData) => {
             fieldTypes.forEach((fieldType) => {
               if (
@@ -540,48 +701,63 @@
                   fileData.fieldTypeScores[fieldType];
               }
             });
+
             if (fileData.fieldMatchRate) {
               totalFieldMatchRate += fileData.fieldMatchRate;
             }
           });
+
           fieldTypes.forEach((fieldType) => {
             fieldTypeAverages[fieldType] =
               fieldTypeAverages[fieldType] / data.length;
           });
+
           const overallAverage = totalFieldMatchRate / data.length;
           const summaryTableBody = document.getElementById("summaryTableBody");
+
           fieldTypes.forEach((fieldType) => {
             const row = document.createElement("tr");
             row.className = "border-b hover:bg-gray-50";
+
             let rateClass = "";
             if (fieldTypeAverages[fieldType] >= 90)
               rateClass = "text-green-600 font-semibold";
             else if (fieldTypeAverages[fieldType] >= 75)
               rateClass = "text-yellow-600";
             else rateClass = "text-red-600";
-            row.innerHTML = `<td class="py-3 px-4">${fieldType}</td><td class="py-3 px-4 text-right ${rateClass}">${fieldTypeAverages[
+
+            row.innerHTML = `<td class="py-3 px-4">${fieldType}</td>
+            <td class="py-3 px-4 text-right ${rateClass}">${fieldTypeAverages[
               fieldType
             ].toFixed(1)}%</td>`;
+
             summaryTableBody.appendChild(row);
           });
+
           const overallRow = document.createElement("tr");
           overallRow.className = "border-t-2 border-gray-300 font-bold";
+
           let overallClass = "";
           if (overallAverage >= 90) overallClass = "text-green-600";
           else if (overallAverage >= 75) overallClass = "text-yellow-600";
           else overallClass = "text-red-600";
-          overallRow.innerHTML = `<td class="py-3 px-4">Average field match</td><td class="py-3 px-4 text-right ${overallClass}">${overallAverage.toFixed(
+
+          overallRow.innerHTML = `<td class="py-3 px-4">Average field match</td>
+          <td class="py-3 px-4 text-right ${overallClass}">${overallAverage.toFixed(
             1
           )}%</td>`;
+
           summaryTableBody.appendChild(overallRow);
 
           // Create detailed results for each file
           data.forEach((fileData, fileIndex) => {
             const fileSection = document.createElement("div");
             fileSection.className = "mb-12 bg-white shadow-md rounded-lg p-6";
+
             const fileName = fileData.imagePath
               ? fileData.imagePath.split("/").pop()
               : `File ${fileIndex + 1}`;
+
             let rateColorClass = "";
             if (fileData.fieldMatchRate >= 90)
               rateColorClass = "text-green-600";
@@ -600,12 +776,12 @@
             )}%]</span>
             </h2>
             <button class="toggle-details bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-200">
-              Show Details
+              Hide Details
             </button>
           `;
             fileSection.appendChild(fileHeader);
 
-            // Create container for details (shown by default)
+            // Create container for details
             const detailsContainer = document.createElement("div");
             detailsContainer.className = "details-container";
 
@@ -613,10 +789,12 @@
             const fieldTypeSummary = document.createElement("div");
             fieldTypeSummary.className =
               "grid grid-cols-2 md:grid-cols-5 gap-4 mb-6";
+
             fieldTypes.forEach((fieldType) => {
               const score = fileData.fieldTypeScores
                 ? fileData.fieldTypeScores[fieldType] || 0
                 : 0;
+
               let colorClass = "bg-red-100 border-red-200";
               let textClass = "text-red-600";
 
@@ -637,6 +815,7 @@
               </div>
             `;
             });
+
             detailsContainer.appendChild(fieldTypeSummary);
 
             // Extract and display work experiences
@@ -648,46 +827,6 @@
                 fileData.extractedData.workExperiences || [];
               const groundTruthExps =
                 fileData.groundTruth.workExperiences || [];
-
-              // Function to highlight differences between two strings
-              function highlightDiff(extractedText, groundTruthText) {
-                if (!extractedText || !groundTruthText)
-                  return { html: "", hasDiff: false };
-
-                if (extractedText === groundTruthText) {
-                  return { html: extractedText, hasDiff: false };
-                }
-
-                // Simple word-by-word comparison
-                const extractedWords = extractedText.split(/\s+/);
-                const groundTruthWords = groundTruthText.split(/\s+/);
-                let html = "";
-                let hasDiff = false;
-
-                const maxLen = Math.max(
-                  extractedWords.length,
-                  groundTruthWords.length
-                );
-
-                for (let i = 0; i < maxLen; i++) {
-                  const extractedWord =
-                    i < extractedWords.length ? extractedWords[i] : "";
-                  const groundTruthWord =
-                    i < groundTruthWords.length ? groundTruthWords[i] : "";
-
-                  if (
-                    extractedWord.toLowerCase() !==
-                    groundTruthWord.toLowerCase()
-                  ) {
-                    html += `<span class="diff">${extractedWord}</span> `;
-                    hasDiff = true;
-                  } else {
-                    html += extractedWord + " ";
-                  }
-                }
-
-                return { html: html.trim(), hasDiff };
-              }
 
               // Create a table for each work experience entry
               extractedExps.forEach((extractedExp, expIndex) => {
@@ -722,7 +861,7 @@
                   const extractedValue = extractedExp[fieldKey] || "";
                   const groundTruthValue = groundTruthExp[fieldKey] || "";
 
-                  const diffResult = highlightDiff(
+                  const diffResult = compareTexts(
                     extractedValue,
                     groundTruthValue
                   );
@@ -737,8 +876,8 @@
                   row.className = `border-b ${rowClass}`;
                   row.innerHTML = `
                   <td class="py-2 px-4 font-medium">${fieldType}</td>
-                  <td class="py-2 px-4">${diffResult.html}</td>
-                  <td class="py-2 px-4">${groundTruthValue}</td>
+                  <td class="py-2 px-4">${diffResult.extractedHtml}</td>
+                  <td class="py-2 px-4">${diffResult.groundTruthHtml}</td>
                 `;
 
                   tableBody.appendChild(row);
@@ -758,7 +897,6 @@
 
             // Add event listener to toggle button
             const toggleButton = fileSection.querySelector(".toggle-details");
-            toggleButton.textContent = "Hide Details"; // Set initial button text to "Hide Details"
             toggleButton.addEventListener("click", function () {
               const detailsContainer =
                 fileSection.querySelector(".details-container");
