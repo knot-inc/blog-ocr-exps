@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image and JSON Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">
+        Freepik Images and JSON Viewer
+      </h1>
+
+      <!-- License Section -->
+      <div class="mb-8 bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">LICENSE</h2>
+        <div id="license-content" class="prose max-w-none">
+          <!-- License content will be loaded here -->
+          <pre
+            class="whitespace-pre-wrap text-sm text-gray-700 border border-gray-200 rounded-md p-4 bg-gray-50"
+          >
+Designed by Freepik
+Copyright © 2010-2025 Freepik Company S.L. All rights reserved.
+
+- assets/freepik/000.png: Croped form https://www.freepik.com/free-psd/clean-modern-resume-portfolio-cv-template_42428380.htm#fromView=search&page=1&position=0&uuid=5a71931f-b8c5-4b3d-9776-5d271db87c73&query=resume
+- assets/freepik/001.png: Croped form https://www.freepik.com/free-psd/clean-modern-resume-portfolio-cv-template_42428404.htm#fromView=search&page=1&position=1&uuid=5a71931f-b8c5-4b3d-9776-5d271db87c73&query=resume
+- assets/freepik/002.png: Croped form https://www.freepik.com/free-vector/minimalist-cv-template-with-photo-space_13720059.htm#fromView=search&page=1&position=2&uuid=5a71931f-b8c5-4b3d-9776-5d271db87c73&query=resume
+- assets/freepik/003.png: Croped form https://www.freepik.com/free-vector/online-cv-young-future-employer_8299810.htm#fromView=keyword&page=1&position=2&uuid=b110abb3-2b5b-4909-ac9f-912e87308026&query=Job+Description+Template
+- assets/freepik/004.png: Croped form https://www.freepik.com/free-psd/professional-modern-minimal-resume-cv-template_24007622.htm#fromView=search&page=1&position=3&uuid=1d3f0c4a-b5fa-47d4-8554-cf60ee96ae45&query=resume
+- assets/freepik/005.png: Croped form https://www.freepik.com/free-vector/modern-simple-template-curriculum_13809170.htm#fromView=search&page=1&position=7&uuid=52d86d93-8a70-40d0-be54-fe542c1cf144&query=resume
+- assets/freepik/006.png: Croped form https://www.freepik.com/free-vector/elegant-resume-template_4256831.htm#fromView=search&page=1&position=4&uuid=52d86d93-8a70-40d0-be54-fe542c1cf144&query=resume          
+        </pre
+          >
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="mb-6 bg-white rounded-lg shadow-md p-4 sticky top-0 z-10">
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          <button
+            id="btn-000"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Image 000
+          </button>
+          <button
+            id="btn-001"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Image 001
+          </button>
+          <button
+            id="btn-002"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Image 002
+          </button>
+          <button
+            id="btn-003"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Image 003
+          </button>
+          <button
+            id="btn-004"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Image 004
+          </button>
+          <button
+            id="btn-005"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Image 005
+          </button>
+          <button
+            id="btn-006"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Image 006
+          </button>
+        </div>
+      </div>
+
+      <!-- Image and JSON Sections -->
+      <div id="container" class="space-y-8">
+        <!-- Image sections will be generated here -->
+      </div>
+    </div>
+
+    <script>
+      // Sample JSON data for demonstration
+      const sampleData = {
+        "000": {
+          workExperiences: [
+            {
+              title: "Senior Web Designer",
+              company: "Creative Agency",
+              description:
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+              startDate: "2020-01-01",
+              endDate: "Present",
+            },
+            {
+              title: "Graphic Designer",
+              company: "Creative Market",
+              description:
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+              startDate: "2015-01-01",
+              endDate: "2020-12-31",
+            },
+            {
+              title: "Marketing Manager",
+              company: "Manufacturing Agency",
+              description:
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+              startDate: "2013-01-01",
+              endDate: "2015-12-31",
+            },
+          ],
+        },
+        "001": {
+          personalInfo: {
+            name: "John Smith",
+            title: "UX Designer",
+            email: "john@example.com",
+            phone: "+1 234 567 890",
+            location: "New York, USA",
+          },
+        },
+        "002": {
+          skills: [
+            { name: "HTML/CSS", level: 95 },
+            { name: "JavaScript", level: 85 },
+            { name: "UI Design", level: 90 },
+            { name: "React", level: 75 },
+            { name: "Node.js", level: 65 },
+          ],
+        },
+        "003": {
+          education: [
+            {
+              degree: "Master of Design",
+              institution: "Design University",
+              location: "San Francisco",
+              graduationYear: 2018,
+            },
+            {
+              degree: "Bachelor of Arts",
+              institution: "Creative College",
+              location: "Boston",
+              graduationYear: 2015,
+            },
+          ],
+        },
+        "004": {
+          projects: [
+            {
+              name: "E-commerce Redesign",
+              client: "Fashion Brand",
+              description:
+                "Complete redesign of user interface and experience for mobile app.",
+              technologies: ["Figma", "React Native", "CSS"],
+            },
+            {
+              name: "Portfolio Website",
+              client: "Photographer",
+              description:
+                "Responsive portfolio website with image gallery and contact form.",
+              technologies: ["HTML", "CSS", "JavaScript", "PHP"],
+            },
+          ],
+        },
+        "005": {
+          testimonials: [
+            {
+              name: "Sarah Johnson",
+              position: "Marketing Director",
+              company: "Tech Solutions",
+              text: "Working with this designer was a pleasure. They delivered exceptional results on time.",
+            },
+            {
+              name: "Michael Brown",
+              position: "CEO",
+              company: "Startup Inc.",
+              text: "The design work exceeded our expectations and helped us launch our product successfully.",
+            },
+          ],
+        },
+        "006": {
+          awards: [
+            {
+              title: "Best Mobile App Design",
+              organization: "Design Awards",
+              year: 2022,
+            },
+            {
+              title: "Emerging Talent Award",
+              organization: "Creative Association",
+              year: 2020,
+            },
+            {
+              title: "UI/UX Excellence",
+              organization: "Digital Design Summit",
+              year: 2019,
+            },
+          ],
+        },
+      };
+
+      // Function to generate all image sections
+      async function generateImageSections() {
+        const container = document.getElementById("container");
+
+        // Clear container
+        container.innerHTML = "";
+
+        // Generate sections for each image
+        for (let i = 0; i <= 6; i++) {
+          const imageId = i.toString().padStart(3, "0");
+          // fetch ./${imageId}.json
+          const jsonData = await fetch(`./${imageId}.json`)
+            .then((response) => response.json())
+            .catch((error) => {
+              console.error(`Error fetching JSON for image ${imageId}:`, error);
+              return sampleData[imageId] || {};
+            });
+          // Create section
+          const section = document.createElement("section");
+          section.id = `section-${imageId}`;
+          section.className = "bg-white rounded-lg shadow-lg overflow-hidden";
+
+          // Create content
+          section.innerHTML = `
+          <div class="md:flex">
+            <div class="md:w-1/2 p-6 flex items-center justify-center bg-gray-50">
+              <div class="image-container w-full flex justify-center">
+                <img src="./${imageId}.png" alt="Image ${imageId}" class="max-w-full h-auto rounded shadow">
+              </div>
+            </div>
+            <div class="md:w-1/2 p-6 bg-gray-800">
+              <h2 class="text-white text-xl font-semibold mb-4">JSON Data for Image ${imageId}</h2>
+              <pre class="language-json h-full overflow-auto rounded"><code>${JSON.stringify(
+                jsonData,
+                null,
+                2
+              )}</code></pre>
+            </div>
+          </div>
+        `;
+
+          // Add to container
+          container.appendChild(section);
+        }
+
+        // Initialize syntax highlighting
+        document.querySelectorAll("pre code").forEach((block) => {
+          hljs.highlightElement(block);
+        });
+      }
+
+      // Function to scroll to specific section
+      function scrollToSection(imageId) {
+        const section = document.getElementById(`section-${imageId}`);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      // Initialize page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Generate all image sections
+        generateImageSections();
+
+        // Add event listeners for navigation buttons
+        document.querySelectorAll(".btn-nav").forEach((button) => {
+          button.addEventListener("click", function () {
+            const imageId = this.id.split("-")[1];
+            scrollToSection(imageId);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
