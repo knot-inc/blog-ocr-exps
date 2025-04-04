@@ -387,7 +387,7 @@ export async function compareToGroundTruth(
 			console.log("\n=== EASY CHECK MODE RESULTS ===");
 			for (const r of easyCheckResults) {
 				console.log(
-					`${r.imagePath}: Description line count match rate: ${r.easyCheckResult!.matchRate.toFixed(1)}%`,
+					`${r.imagePath}: Description line count match rate: ${r.easyCheckResult?.matchRate.toFixed(1)}%`,
 				);
 			}
 
