@@ -1,7 +1,7 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as util from "util";
-import { exec } from "child_process";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import * as util from "node:util";
+import { exec } from "node:child_process";
 import sharp from "sharp"; // Changed from "import * as sharp"
 import { Command } from "commander";
 
@@ -11,7 +11,7 @@ const execPromise = util.promisify(exec);
 async function convertPdfToPng(
 	inputPath: string,
 	outputPath: string,
-	dpi: number = 300,
+	dpi = 300,
 ): Promise<void> {
 	try {
 		// Create a temporary directory for individual page images
@@ -33,8 +33,12 @@ async function convertPdfToPng(
 			.readdirSync(tempDir)
 			.filter((file) => file.endsWith(".png"))
 			.sort((a, b) => {
-				const numA = parseInt(a.replace("page-", "").replace(".png", ""));
-				const numB = parseInt(b.replace("page-", "").replace(".png", ""));
+				const numA = Number.parseInt(
+					a.replace("page-", "").replace(".png", ""),
+				);
+				const numB = Number.parseInt(
+					b.replace("page-", "").replace(".png", ""),
+				);
 				return numA - numB;
 			})
 			.map((file) => path.join(tempDir, file));
@@ -107,7 +111,9 @@ async function convertPdfToPng(
 		console.log(`Combined image saved to ${outputPath}`);
 
 		// Clean up temporary files
-		pageFiles.forEach((file) => fs.unlinkSync(file));
+		for (const file of pageFiles) {
+			fs.unlinkSync(file);
+		}
 		fs.rmdirSync(tempDir);
 
 		console.log("Temporary files cleaned up");
@@ -121,7 +127,7 @@ async function convertPdfToPng(
 async function processPdfDirectory(
 	inputDir: string,
 	outputDir: string,
-	dpi: number = 300,
+	dpi = 300,
 ): Promise<void> {
 	// Check if input directory exists
 	if (!fs.existsSync(inputDir)) {
@@ -190,7 +196,7 @@ async function main() {
 
 	const inputDir = path.resolve(options.input);
 	const outputDir = path.resolve(options.output);
-	const dpi = parseInt(options.dpi);
+	const dpi = Number.parseInt(options.dpi);
 
 	await processPdfDirectory(inputDir, outputDir, dpi).catch((err) => {
 		console.error("Error processing PDFs:", err);
