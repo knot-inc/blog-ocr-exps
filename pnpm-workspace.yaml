@@ -1,3 +1,6 @@
 ignoredBuiltDependencies:
+  - '@biomejs/biome'
   - '@swc/core'
+  - canvas
+  - sharp
   - tesseract.js
