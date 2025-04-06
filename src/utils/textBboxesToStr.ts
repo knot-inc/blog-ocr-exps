@@ -40,6 +40,13 @@ export const textBboxesToStr = (
 			return ltwhLines.join("\n");
 		}
 
+		case "lt": {
+			const ltwhLines = textBboxes.map((textBbox) => {
+				return `${textBbox.text.replace("\n", " ")}, left${textBbox.bbox.x0}top${textBbox.bbox.y0}`;
+			});
+			return ltwhLines.join("\n");
+		}
+
 		default:
 			return JSON.stringify(textBboxes);
 	}
