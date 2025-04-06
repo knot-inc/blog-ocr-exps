@@ -2,10 +2,171 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import * as util from "node:util";
 import { exec } from "node:child_process";
-import sharp from "sharp"; // Changed from "import * as sharp"
+import sharp from "sharp";
 import { Command } from "commander";
 
 const execPromise = util.promisify(exec);
+
+// Detect margins from an image
+async function detectImageMargins(
+	imagePath: string,
+	threshold = 250, // Threshold for determining what is "white" (0-255)
+): Promise<{ top: number; bottom: number; left: number; right: number }> {
+	try {
+		// Read the image
+		const image = sharp(imagePath);
+		const metadata = await image.metadata();
+		const { width, height } = metadata;
+
+		if (!width || !height) {
+			throw new Error(`Invalid image dimensions: ${width}x${height}`);
+		}
+
+		// Extract raw pixel data
+		const { data } = await image.raw().toBuffer({ resolveWithObject: true });
+		const channels = metadata.channels || 3;
+
+		// Find top margin
+		let topMargin = 0;
+		topScan: for (let y = 0; y < height; y++) {
+			for (let x = 0; x < width; x++) {
+				const idx = (y * width + x) * channels;
+				for (let c = 0; c < Math.min(channels, 3); c++) {
+					if (data[idx + c] < threshold) {
+						topMargin = y;
+						break topScan;
+					}
+				}
+			}
+		}
+
+		// Find bottom margin
+		let bottomMargin = 0;
+		bottomScan: for (let y = height - 1; y >= 0; y--) {
+			for (let x = 0; x < width; x++) {
+				const idx = (y * width + x) * channels;
+				for (let c = 0; c < Math.min(channels, 3); c++) {
+					if (data[idx + c] < threshold) {
+						bottomMargin = height - 1 - y;
+						break bottomScan;
+					}
+				}
+			}
+		}
+
+		// Find left margin
+		let leftMargin = 0;
+		leftScan: for (let x = 0; x < width; x++) {
+			for (let y = 0; y < height; y++) {
+				const idx = (y * width + x) * channels;
+				for (let c = 0; c < Math.min(channels, 3); c++) {
+					if (data[idx + c] < threshold) {
+						leftMargin = x;
+						break leftScan;
+					}
+				}
+			}
+		}
+
+		// Find right margin
+		let rightMargin = 0;
+		rightScan: for (let x = width - 1; x >= 0; x--) {
+			for (let y = 0; y < height; y++) {
+				const idx = (y * width + x) * channels;
+				for (let c = 0; c < Math.min(channels, 3); c++) {
+					if (data[idx + c] < threshold) {
+						rightMargin = width - 1 - x;
+						break rightScan;
+					}
+				}
+			}
+		}
+
+		return {
+			top: topMargin,
+			bottom: bottomMargin,
+			left: leftMargin,
+			right: rightMargin,
+		};
+	} catch (error) {
+		console.error(`Error detecting margins from ${imagePath}:`, error);
+		return { top: 0, bottom: 0, left: 0, right: 0 };
+	}
+}
+
+// Trim the image using the provided margins
+async function trimImage(
+	imagePath: string,
+	outputPath: string,
+	margins: { top: number; bottom: number; left: number; right: number },
+	padding = 5, // Safety padding
+): Promise<{ width: number; height: number }> {
+	try {
+		// Read the image
+		const image = sharp(imagePath);
+		const metadata = await image.metadata();
+		const { width, height } = metadata;
+
+		if (!width || !height) {
+			throw new Error(`Invalid image dimensions: ${width}x${height}`);
+		}
+
+		// Apply safety padding
+		const safeTopMargin = Math.max(0, margins.top - padding);
+		const safeBottomMargin = Math.max(0, margins.bottom - padding);
+		const safeLeftMargin = Math.max(0, margins.left - padding);
+		const safeRightMargin = Math.max(0, margins.right - padding);
+
+		// Calculate new dimensions and coordinates
+		const newWidth = width - safeLeftMargin - safeRightMargin;
+		const newHeight = height - safeTopMargin - safeBottomMargin;
+		const cropTop = safeTopMargin;
+		const cropLeft = safeLeftMargin;
+
+		// Check if we're actually cropping anything
+		if (
+			newWidth >= width &&
+			newHeight >= height &&
+			cropTop === 0 &&
+			cropLeft === 0
+		) {
+			console.log(`No meaningful cropping for ${imagePath}, using full image`);
+			await sharp(imagePath).toFile(outputPath);
+			return { width, height };
+		}
+
+		// Check if we have valid dimensions
+		if (newWidth <= 0 || newHeight <= 0) {
+			console.warn(
+				`Invalid crop dimensions for ${imagePath}, using full image`,
+			);
+			await sharp(imagePath).toFile(outputPath);
+			return { width, height };
+		}
+
+		console.log(
+			`Trimming image from ${width}x${height} to ${newWidth}x${newHeight}`,
+		);
+
+		// Extract and save the content area
+		await sharp(imagePath)
+			.extract({
+				left: cropLeft,
+				top: cropTop,
+				width: newWidth,
+				height: newHeight,
+			})
+			.toFile(outputPath);
+
+		return { width: newWidth, height: newHeight };
+	} catch (error) {
+		console.error(`Error trimming margins from ${imagePath}:`, error);
+		// If trimming fails, copy the original image
+		await sharp(imagePath).toFile(outputPath);
+		const metadata = await sharp(imagePath).metadata();
+		return { width: metadata.width || 0, height: metadata.height || 0 };
+	}
+}
 
 // Convert a single PDF file to a vertically combined PNG
 async function convertPdfToPng(
@@ -16,8 +177,13 @@ async function convertPdfToPng(
 	try {
 		// Create a temporary directory for individual page images
 		const tempDir = path.join(path.dirname(outputPath), "temp_pdf_pages");
-		if (!fs.existsSync(tempDir)) {
-			fs.mkdirSync(tempDir, { recursive: true });
+		const trimmedDir = path.join(path.dirname(outputPath), "trimmed_pdf_pages");
+
+		// Create temp directories
+		for (const dir of [tempDir, trimmedDir]) {
+			if (!fs.existsSync(dir)) {
+				fs.mkdirSync(dir, { recursive: true });
+			}
 		}
 
 		// Use pdftoppm to convert PDF pages to individual PNG files
@@ -49,34 +215,67 @@ async function convertPdfToPng(
 
 		console.log(`Found ${pageFiles.length} page images`);
 
-		// Get dimensions of each page
-		const pageDimensions = await Promise.all(
+		// Common padding for all directions
+		const padding = 5;
+
+		// First, detect margins for all pages
+		const allMargins = await Promise.all(
 			pageFiles.map(async (file) => {
-				// Fixed: Use sharp directly as a function instead of calling it as a method
-				const metadata = await sharp(file).metadata();
+				return await detectImageMargins(file);
+			}),
+		);
+
+		// Find common left and right margins (minimum of all pages to ensure no content is cut off)
+		const commonLeftMargin = Math.min(
+			...allMargins.map((margin) => margin.left),
+		);
+		const commonRightMargin = Math.min(
+			...allMargins.map((margin) => margin.right),
+		);
+
+		console.log(
+			`Common margins: left=${commonLeftMargin}, right=${commonRightMargin}`,
+		);
+
+		// Trim each page with individual top/bottom margins but common left/right margins
+		const trimmedPages = await Promise.all(
+			pageFiles.map(async (file, index) => {
+				const trimmedPath = path.join(
+					trimmedDir,
+					`trimmed-${path.basename(file)}`,
+				);
+
+				// Use page-specific top/bottom margins but common left/right margins
+				const margins = {
+					top: allMargins[index].top,
+					bottom: allMargins[index].bottom,
+					left: commonLeftMargin,
+					right: commonRightMargin,
+				};
+
+				console.log(
+					`Page ${index + 1} margins: top=${margins.top}, bottom=${margins.bottom}, left=${margins.left}, right=${margins.right}`,
+				);
+
+				const dimensions = await trimImage(file, trimmedPath, margins, padding);
 				return {
-					width: metadata.width as number,
-					height: metadata.height as number,
-					path: file,
+					...dimensions,
+					path: trimmedPath,
 				};
 			}),
 		);
 
-		// Find the maximum width
-		const maxWidth = Math.max(...pageDimensions.map((dim) => dim.width));
+		// Find the maximum width among trimmed pages
+		const maxWidth = Math.max(...trimmedPages.map((dim) => dim.width));
 
 		// Calculate total height
-		const totalHeight = pageDimensions.reduce(
-			(sum, dim) => sum + dim.height,
-			0,
-		);
+		const totalHeight = trimmedPages.reduce((sum, dim) => sum + dim.height, 0);
 
 		console.log(
 			`Creating combined image with dimensions ${maxWidth}x${totalHeight}`,
 		);
 
 		// Create a new image with the combined dimensions
-		// Fixed: Use sharp directly as a function
 		const composite = sharp({
 			create: {
 				width: maxWidth,
@@ -90,7 +289,7 @@ async function convertPdfToPng(
 		const compositeOperations = [];
 		let currentY = 0;
 
-		for (const dim of pageDimensions) {
+		for (const dim of trimmedPages) {
 			compositeOperations.push({
 				input: dim.path,
 				top: currentY,
@@ -111,10 +310,18 @@ async function convertPdfToPng(
 		console.log(`Combined image saved to ${outputPath}`);
 
 		// Clean up temporary files
-		for (const file of pageFiles) {
-			fs.unlinkSync(file);
+		for (const dir of [tempDir, trimmedDir]) {
+			if (fs.existsSync(dir)) {
+				const pngFiles = fs
+					.readdirSync(dir)
+					.filter((file) => file.endsWith(".png"));
+
+				for (const file of pngFiles) {
+					fs.unlinkSync(path.join(dir, file));
+				}
+				fs.rmdirSync(dir);
+			}
 		}
-		fs.rmdirSync(tempDir);
 
 		console.log("Temporary files cleaned up");
 	} catch (error) {
@@ -175,7 +382,9 @@ async function main() {
 
 	program
 		.name("pdf-to-png")
-		.description("Convert PDF files to PNG images")
+		.description(
+			"Convert PDF files to PNG images with consistent horizontal margin trimming",
+		)
 		.version("1.0.0")
 		.requiredOption(
 			"-i, --input <directory>",
@@ -213,4 +422,4 @@ if (require.main === module) {
 }
 
 // Export functions for use in other modules
-export { convertPdfToPng, processPdfDirectory };
+export { convertPdfToPng, processPdfDirectory, detectImageMargins, trimImage };
