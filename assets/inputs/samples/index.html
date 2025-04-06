@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image and JSON Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">
+        Sample Images and JSON Viewer
+      </h1>
+
+      <!-- Navigation Buttons -->
+      <div class="mb-6 bg-white rounded-lg shadow-md p-4 sticky top-0 z-10">
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          <button
+            id="btn-standard"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Standard
+          </button>
+          <button
+            id="btn-sidebyside"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Side-by-Side
+          </button>
+          <button
+            id="btn-split"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Split
+          </button>
+          <button
+            id="btn-decorated"
+            class="btn-nav px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Decorated
+          </button>
+        </div>
+      </div>
+
+      <!-- Image and JSON Sections -->
+      <div id="container" class="space-y-8">
+        <!-- Image sections will be generated here -->
+      </div>
+    </div>
+
+    <script>
+      // Sample JSON data for demonstration
+      const sampleData = {
+        standard: {
+          workExperiences: [
+            {
+              title: "Senior Web Designer",
+              company: "Creative Agency",
+              description:
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+              startDate: "2020-01-01",
+              endDate: "Present",
+            },
+            {
+              title: "Graphic Designer",
+              company: "Creative Market",
+              description:
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+              startDate: "2015-01-01",
+              endDate: "2020-12-31",
+            },
+          ],
+        },
+        sidebyside: {
+          personalInfo: {
+            name: "John Smith",
+            title: "UX Designer",
+            email: "john@example.com",
+            phone: "+1 234 567 890",
+            location: "New York, USA",
+          },
+        },
+        split: {
+          skills: [
+            { name: "HTML/CSS", level: 95 },
+            { name: "JavaScript", level: 85 },
+            { name: "UI Design", level: 90 },
+            { name: "React", level: 75 },
+            { name: "Node.js", level: 65 },
+          ],
+        },
+        decorated: {
+          education: [
+            {
+              degree: "Master of Design",
+              institution: "Design University",
+              location: "San Francisco",
+              graduationYear: 2018,
+            },
+            {
+              degree: "Bachelor of Arts",
+              institution: "Creative College",
+              location: "Boston",
+              graduationYear: 2015,
+            },
+          ],
+        },
+      };
+
+      // List of image types
+      const imageTypes = ["standard", "side-by-side", "split", "decorated"];
+
+      // Function to generate all image sections
+      async function generateImageSections() {
+        const container = document.getElementById("container");
+
+        // Clear container
+        container.innerHTML = "";
+
+        // Generate sections for each image type
+        for (const imageType of imageTypes) {
+          // fetch ./${imageType}.json
+          const jsonData = await fetch(`./${imageType}.json`)
+            .then((response) => response.json())
+            .catch((error) => {
+              console.error(
+                `Error fetching JSON for image ${imageType}:`,
+                error
+              );
+              return sampleData[imageType] || {};
+            });
+
+          // Create section
+          const section = document.createElement("section");
+          section.id = `section-${imageType}`;
+          section.className = "bg-white rounded-lg shadow-lg overflow-hidden";
+
+          // Create content
+          section.innerHTML = `
+          <div class="md:flex">
+            <div class="md:w-1/2 p-6 flex items-center justify-center bg-gray-50">
+              <div class="image-container w-full flex justify-center">
+                <img src="./${imageType}.png" alt="${imageType} Image" class="max-w-full h-auto rounded shadow">
+              </div>
+            </div>
+            <div class="md:w-1/2 p-6 bg-gray-800">
+              <h2 class="text-white text-xl font-semibold mb-4">JSON Data for ${imageType}</h2>
+              <pre class="language-json h-full overflow-auto rounded"><code>${JSON.stringify(
+                jsonData,
+                null,
+                2
+              )}</code></pre>
+            </div>
+          </div>
+        `;
+
+          // Add to container
+          container.appendChild(section);
+        }
+
+        // Initialize syntax highlighting
+        document.querySelectorAll("pre code").forEach((block) => {
+          hljs.highlightElement(block);
+        });
+      }
+
+      // Function to scroll to specific section
+      function scrollToSection(imageType) {
+        const section = document.getElementById(`section-${imageType}`);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      // Initialize page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Generate all image sections
+        generateImageSections();
+
+        // Add event listeners for navigation buttons
+        document.querySelectorAll(".btn-nav").forEach((button) => {
+          button.addEventListener("click", function () {
+            const imageType = this.id.split("-")[1];
+            scrollToSection(imageType);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
