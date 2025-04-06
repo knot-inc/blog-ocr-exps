@@ -19,17 +19,25 @@ const mistralOcr = async (
 	const mistralClient = new Mistral({
 		apiKey: process.env.MISTRAL_API_KEY,
 	});
-	const ocrResponse = await mistralClient.ocr.process({
-		model: "mistral-ocr-latest",
-		document: {
-			type: "image_url",
-			imageUrl: imageUrl,
-		},
-	});
-	const text = ocrResponse.pages.map((page) => page.markdown).join("\n\n");
 
-	console.log(`\n========== ${imagePath} ==========`);
-	console.log("\n", text, "\n");
+	let text: string;
+	try {
+		const ocrResponse = await mistralClient.ocr.process({
+			model: "mistral-ocr-latest",
+			document: {
+				type: "image_url",
+				imageUrl: imageUrl,
+			},
+		});
+		text = ocrResponse.pages.map((page) => page.markdown).join("\n\n");
+
+		console.log(`\n========== ${imagePath} ==========`);
+		console.log("\n", text, "\n");
+	} catch (error) {
+		console.log(`\n========== ${imagePath} ==========`);
+		console.error("Mistral OCR failed");
+		text = ""; // Set empty text if OCR fails
+	}
 
 	const openAI = new OpenAIWrapper();
 	return await openAI.completion({
