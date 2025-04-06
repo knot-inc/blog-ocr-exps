@@ -180,11 +180,11 @@ async function convertPdfToPng(
 		const trimmedDir = path.join(path.dirname(outputPath), "trimmed_pdf_pages");
 
 		// Create temp directories
-		[tempDir, trimmedDir].forEach((dir) => {
+		for (const dir of [tempDir, trimmedDir]) {
 			if (!fs.existsSync(dir)) {
 				fs.mkdirSync(dir, { recursive: true });
 			}
-		});
+		}
 
 		// Use pdftoppm to convert PDF pages to individual PNG files
 		const tempFilePrefix = path.join(tempDir, "page");
@@ -310,16 +310,18 @@ async function convertPdfToPng(
 		console.log(`Combined image saved to ${outputPath}`);
 
 		// Clean up temporary files
-		[tempDir, trimmedDir].forEach((dir) => {
+		for (const dir of [tempDir, trimmedDir]) {
 			if (fs.existsSync(dir)) {
-				fs.readdirSync(dir)
-					.filter((file) => file.endsWith(".png"))
-					.forEach((file) => {
-						fs.unlinkSync(path.join(dir, file));
-					});
+				const pngFiles = fs
+					.readdirSync(dir)
+					.filter((file) => file.endsWith(".png"));
+
+				for (const file of pngFiles) {
+					fs.unlinkSync(path.join(dir, file));
+				}
 				fs.rmdirSync(dir);
 			}
-		});
+		}
 
 		console.log("Temporary files cleaned up");
 	} catch (error) {
