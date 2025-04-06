@@ -108,7 +108,7 @@ const parseCliArgs = (): {
 } => {
 	const args = process.argv.slice(2);
 	let extract: "words" | "lines" = "lines";
-	let mode: TextBboxesToStrMode = "ltwh";
+	let mode: TextBboxesToStrMode = "lt";
 
 	for (let i = 0; i < args.length; i++) {
 		if (args[i] === "--extract" || args[i] === "-e") {

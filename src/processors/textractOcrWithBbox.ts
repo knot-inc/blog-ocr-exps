@@ -88,7 +88,7 @@ const parseCliArgs = (): {
 	mode: TextBboxesToStrMode;
 } => {
 	const args = process.argv.slice(2);
-	let mode: TextBboxesToStrMode = "ltwh";
+	let mode: TextBboxesToStrMode = "lt";
 
 	for (let i = 0; i < args.length; i++) {
 		if (args[i] === "--mode" || args[i] === "-m") {

@@ -10,4 +10,4 @@ export interface TextBbox {
 	text: string;
 }
 
-export type TextBboxesToStrMode = "json" | "csv" | "xml" | "ltwh";
+export type TextBboxesToStrMode = "json" | "csv" | "xml" | "ltwh" | "lt";
