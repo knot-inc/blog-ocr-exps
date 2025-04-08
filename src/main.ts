@@ -103,6 +103,11 @@ async function main() {
 						console.warn(`Processor "${processorName}" not found, skipping`);
 						continue;
 					}
+					console.log(
+						"==================== Processing with:",
+						processorName,
+						"====================",
+					);
 
 					const processor = processors[processorName];
 					const results = await compareToGroundTruth(processor, dataFolder);
