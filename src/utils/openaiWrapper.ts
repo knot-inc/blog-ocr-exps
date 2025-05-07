@@ -74,6 +74,8 @@ export class OpenAIWrapper {
 				response_format: zodResponseFormat(prompt.schema, "response"),
 			});
 
+			console.log("usage:", JSON.stringify(response.usage, null, 2));
+
 			// Handle refusals
 			if (response.choices[0].message.refusal) {
 				throw new Error(
