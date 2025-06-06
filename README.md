@@ -46,25 +46,25 @@ pnpm run build
 ### Process images and save ground truth data
 
 ```bash
-pnpm start -- save-gt -d ./path/to/data/folder
+pnpm start save-gt -d ./path/to/data/folder
 ```
 
 ### Process data with multiple OCR processors
 
 ```bash
-pnpm start -- save-reports -d ./path/to/data/folder -o ./output/folder
+pnpm start save-reports -d ./path/to/data/folder -o ./output/folder
 ```
 
 You can specify which processors to use:
 
 ```bash
-pnpm start -- save-reports -d ./path/to/data/folder -o ./output/folder -p processImage,tesseractOcr
+pnpm start save-reports -d ./path/to/data/folder -o ./output/folder -p processImage,tesseractOcr
 ```
 
 ### Generate visualization config
 
 ```bash
-pnpm start -- save-config
+pnpm start save-config
 ```
 
 ## Visualization
