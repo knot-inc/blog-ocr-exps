@@ -24,7 +24,6 @@ const tesseractOcr = async (
 		const openAI = new OpenAIWrapper();
 		return await openAI.completion({
 			prompt: parseWorkExperiencePrompt,
-			modelName: "gpt-4o",
 			variables: {
 				resume: text,
 			},
