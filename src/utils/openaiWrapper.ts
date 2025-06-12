@@ -20,7 +20,7 @@ export class OpenAIWrapper {
 		TSchema extends z.ZodType,
 	>({
 		prompt,
-		modelName = "gpt-4o",
+		modelName = "gpt-4.1",
 		temperature = 0.0,
 		variables,
 		imageUrls = [],
