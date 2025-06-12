@@ -6,3 +6,4 @@ export { default as tesseractOcrWithImage } from "./tesseractOcrWithImage";
 export { default as textractOcr } from "./textractOcr";
 export { default as textractOcrWithBbox } from "./textractOcrWithBbox";
 export { default as textractOcrWithImage } from "./textractOcrWithImage";
+export { default as processedTextractOcrWithBbox } from "./processedTextractOcrWithBbox";

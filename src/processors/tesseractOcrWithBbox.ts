@@ -65,7 +65,7 @@ const tesseractOcrWithCoords = async (
 	imagePath: string,
 	options: { extract?: "words" | "lines"; mode: TextBboxesToStrMode } = {
 		extract: "lines",
-		mode: "json",
+		mode: "ltwh",
 	},
 ): Promise<z.infer<typeof parseWorkExperienceSchema>> => {
 	const worker = await createWorker("eng");

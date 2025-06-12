@@ -31,7 +31,7 @@ const normPoly = (item: number): number => {
 const textractOcrWithBbox = async (
 	imagePath: string,
 	options: { mode: TextBboxesToStrMode } = {
-		mode: "json",
+		mode: "ltwh",
 	},
 ): Promise<z.infer<typeof parseWorkExperienceSchema>> => {
 	try {
