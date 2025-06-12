@@ -16,7 +16,7 @@ importers:
         version: 3.775.0
       '@mistralai/mistralai':
         specifier: ^1.5.2
-        version: 1.5.2(zod@3.24.2)
+        version: 1.5.2(zod@3.25.62)
       canvas:
         specifier: ^3.1.0
         version: 3.1.0
@@ -28,7 +28,7 @@ importers:
         version: 16.4.7
       openai:
         specifier: ^4.91.0
-        version: 4.91.0(zod@3.24.2)
+        version: 4.91.0(zod@3.25.62)
       pdf-lib:
         specifier: ^1.17.1
         version: 1.17.1
@@ -42,8 +42,8 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0
       zod:
-        specifier: ^3.24.2
-        version: 3.24.2
+        specifier: ^3.25.62
+        version: 3.25.62
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.4
@@ -2219,8 +2219,8 @@ packages:
     peerDependencies:
       zod: ^3.24.1
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@3.25.62:
+    resolution: {integrity: sha512-YCxsr4DmhPcrKPC9R1oBHQNlQzlJEyPAId//qTau/vBee9uO8K6prmRq4eMkOyxvBfH4wDPIPdLx9HVMWIY3xA==}
 
 snapshots:
 
@@ -3074,10 +3074,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@mistralai/mistralai@1.5.2(zod@3.24.2)':
+  '@mistralai/mistralai@1.5.2(zod@3.25.62)':
     dependencies:
-      zod: 3.24.2
-      zod-to-json-schema: 3.24.5(zod@3.24.2)
+      zod: 3.25.62
+      zod-to-json-schema: 3.24.5(zod@3.25.62)
 
   '@napi-rs/canvas-android-arm64@0.1.69':
     optional: true
@@ -4480,7 +4480,7 @@ snapshots:
     dependencies:
       mimic-fn: 2.1.0
 
-  openai@4.91.0(zod@3.24.2):
+  openai@4.91.0(zod@3.25.62):
     dependencies:
       '@types/node': 18.19.85
       '@types/node-fetch': 2.6.12
@@ -4490,7 +4490,7 @@ snapshots:
       formdata-node: 4.4.1
       node-fetch: 2.7.0
     optionalDependencies:
-      zod: 3.24.2
+      zod: 3.25.62
     transitivePeerDependencies:
       - encoding
 
@@ -4900,8 +4900,8 @@ snapshots:
 
   zlibjs@0.3.1: {}
 
-  zod-to-json-schema@3.24.5(zod@3.24.2):
+  zod-to-json-schema@3.24.5(zod@3.25.62):
     dependencies:
-      zod: 3.24.2
+      zod: 3.25.62
 
-  zod@3.24.2: {}
+  zod@3.25.62: {}
