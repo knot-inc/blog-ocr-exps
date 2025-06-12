@@ -1,4 +1,4 @@
-import type { z } from "zod";
+import type { z } from "zod/v4";
 import dotenv from "dotenv";
 import {
 	TextractClient,

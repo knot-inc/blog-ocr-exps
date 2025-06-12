@@ -1,4 +1,4 @@
-import type { z } from "zod";
+import type { z } from "zod/v4";
 import type { parseWorkExperienceSchema } from "../prompts/parse-work-experience";
 import { getTextMatchPercentage, cleanText } from "./textSimilarity";
 

@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { z } from "zod";
+import type { z } from "zod/v4";
 import type { parseWorkExperienceSchema } from "../prompts/parse-work-experience";
 
 /**

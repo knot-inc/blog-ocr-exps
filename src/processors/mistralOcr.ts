@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import type { z } from "zod";
+import type { z } from "zod/v4";
 import { Mistral } from "@mistralai/mistralai";
 
 import {
