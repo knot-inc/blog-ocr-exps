@@ -20,7 +20,7 @@ const processImage = async (
 
 	return await openAI.completion({
 		prompt: parseWorkExperiencePrompt,
-		modelName: options?.modelName || "gpt-4o",
+		model: options?.modelName || "gpt-4o",
 		variables: {
 			resume: "Please analyze the resume in the image and return as JSON",
 		},

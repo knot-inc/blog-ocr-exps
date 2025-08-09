@@ -3,6 +3,7 @@ import type { z } from "zod";
 import type { Prompt } from "../types/prompt";
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
+import type { ChatCompletionCreateParamsNonStreaming } from "openai/resources/chat/completions/completions";
 
 dotenv.config();
 
@@ -20,19 +21,21 @@ export class OpenAIWrapper {
 		TSchema extends z.ZodType,
 	>({
 		prompt,
-		modelName = "gpt-4.1",
-		temperature = 0.0,
 		variables,
 		imageUrls = [],
 		detail = "high",
+		...openaiArgs
 	}: {
 		prompt: Prompt<TParams, TSchema>;
-		modelName?: string;
-		temperature?: number;
 		variables: TParams;
 		imageUrls?: string[];
 		detail?: "low" | "high" | "auto";
-	}): Promise<z.infer<TSchema>> {
+	} & Partial<
+		Omit<
+			ChatCompletionCreateParamsNonStreaming,
+			"messages" | "response_format" | "stream"
+		>
+	>): Promise<z.infer<TSchema>> {
 		try {
 			if (!this.client.apiKey) throw new Error("OpenAI API key not found");
 
@@ -66,12 +69,30 @@ export class OpenAIWrapper {
 				return message;
 			});
 
-			// Use the OpenAI SDK to make the request with structured outputs
-			const response = await this.client.beta.chat.completions.parse({
-				model: modelName,
-				messages,
-				temperature,
+			// Set default OpenAI arguments
+			const defaultOpenAIArgs: Partial<ChatCompletionCreateParamsNonStreaming> =
+				{
+					model: "gpt-4.1-nano",
+					temperature: 0.02,
+					seed: 42,
+				};
+
+			const options = {
+				...defaultOpenAIArgs,
+				...openaiArgs,
+				model: openaiArgs.model ?? defaultOpenAIArgs.model ?? "gpt-4.1-nano",
 				response_format: zodResponseFormat(prompt.schema, "response"),
+				messages,
+			};
+			console.log("openaiArgs:", JSON.stringify(options, null, 2));
+
+			// Use the OpenAI SDK to make the request with structured outputs
+			const response = await this.client.chat.completions.parse({
+				...defaultOpenAIArgs,
+				...openaiArgs,
+				model: openaiArgs.model ?? defaultOpenAIArgs.model ?? "gpt-4.1-nano",
+				response_format: zodResponseFormat(prompt.schema, "response"),
+				messages,
 			});
 
 			console.log("usage:", JSON.stringify(response.usage, null, 2));
