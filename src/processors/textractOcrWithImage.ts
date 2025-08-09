@@ -1,18 +1,18 @@
-import type { z } from "zod";
-import dotenv from "dotenv";
-import {
-	TextractClient,
-	DetectDocumentTextCommand,
-} from "@aws-sdk/client-textract";
 import fs from "node:fs";
+import {
+	DetectDocumentTextCommand,
+	TextractClient,
+} from "@aws-sdk/client-textract";
+import dotenv from "dotenv";
+import type { z } from "zod";
 
 import {
 	parseWorkExperiencePrompt,
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
-import { OpenAIWrapper } from "../utils/openaiWrapper";
 import { compareToGroundTruth } from "../utils/comparisonTools";
 import imageToBase64 from "../utils/imageToBase64";
+import { OpenAIWrapper } from "../utils/openaiWrapper";
 
 dotenv.config();
 const textractClient = new TextractClient({

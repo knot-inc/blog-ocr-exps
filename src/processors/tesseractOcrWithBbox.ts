@@ -1,14 +1,14 @@
-import type { z } from "zod";
 import { createWorker, type RecognizeResult } from "tesseract.js";
+import type { z } from "zod";
 
 import {
 	parseWorkExperiencePrompt,
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
-import { OpenAIWrapper } from "../utils/openaiWrapper";
-import { compareToGroundTruth } from "../utils/comparisonTools";
-import { textBboxesToStr } from "../utils/textBboxesToStr";
 import type { TextBbox, TextBboxesToStrMode } from "../types/bbox";
+import { compareToGroundTruth } from "../utils/comparisonTools";
+import { OpenAIWrapper } from "../utils/openaiWrapper";
+import { textBboxesToStr } from "../utils/textBboxesToStr";
 
 const extractLinesWithCoords = (data: RecognizeResult["data"]): TextBbox[] => {
 	if (!data.blocks) return [];

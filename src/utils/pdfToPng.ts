@@ -1,9 +1,9 @@
+import { exec } from "node:child_process";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as util from "node:util";
-import { exec } from "node:child_process";
-import sharp from "sharp";
 import { Command } from "commander";
+import sharp from "sharp";
 
 const execPromise = util.promisify(exec);
 

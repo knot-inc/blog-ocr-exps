@@ -10,7 +10,7 @@
     "dev": "ts-node src/main.ts",
     "lint": "biome lint ./src",
     "format": "biome format --write ./src",
-    "check": "biome check --apply ./src",
+    "check": "biome check --write ./src",
     "test": "jest",
     "process-image": "ts-node src/processors/processImage.ts",
     "tesseract-ocr": "ts-node src/processors/tesseractOcr.ts",

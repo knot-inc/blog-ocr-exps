@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
-import type { z } from "zod";
-import type { Prompt } from "../types/prompt";
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
 import type { ChatCompletionCreateParamsNonStreaming } from "openai/resources/chat/completions/completions";
+import type { z } from "zod";
+import type { Prompt } from "../types/prompt";
 
 dotenv.config();
 

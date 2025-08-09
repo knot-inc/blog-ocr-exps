@@ -1,5 +1,5 @@
-import type { Prompt } from "../types/prompt";
 import { z } from "zod";
+import type { Prompt } from "../types/prompt";
 
 export const parseWorkExperienceSchema = z.object({
 	workExperiences: z.array(

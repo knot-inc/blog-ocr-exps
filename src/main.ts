@@ -1,19 +1,19 @@
 import fs from "node:fs";
 import path from "node:path";
 import { Command } from "commander";
-import { processDataFolder } from "./utils/dataProcessor";
-import { compareToGroundTruth } from "./utils/comparisonTools";
 import {
-	processImage,
 	mistralOcr,
+	processedTextractOcrWithBbox,
+	processImage,
 	tesseractOcr,
 	tesseractOcrWithBbox,
 	tesseractOcrWithImage,
 	textractOcr,
 	textractOcrWithBbox,
 	textractOcrWithImage,
-	processedTextractOcrWithBbox,
 } from "./processors";
+import { compareToGroundTruth } from "./utils/comparisonTools";
+import { processDataFolder } from "./utils/dataProcessor";
 
 // Create processor map
 const processorMap = {
