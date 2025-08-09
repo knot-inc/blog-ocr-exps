@@ -1,6 +1,3 @@
 {
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "organizeImports": {
-    "enabled": false
-  }
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json"
 }

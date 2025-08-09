@@ -4,11 +4,11 @@ import { z } from "zod";
 export const parseWorkExperienceSchema = z.object({
 	workExperiences: z.array(
 		z.object({
-			title: z.string().optional(),
-			company: z.string().optional().describe("Company name only"),
-			description: z.string().optional(),
-			startDate: z.string().optional(),
-			endDate: z.string().optional(),
+			title: z.string().nullable(),
+			company: z.string().nullable().describe("Company name only"),
+			description: z.string().nullable(),
+			startDate: z.string().nullable(),
+			endDate: z.string().nullable(),
 		}),
 	),
 });

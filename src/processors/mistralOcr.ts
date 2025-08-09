@@ -33,7 +33,7 @@ const mistralOcr = async (
 
 		console.log(`\n========== ${imagePath} ==========`);
 		console.log("\n", text, "\n");
-	} catch (error) {
+	} catch (_error) {
 		console.log(`\n========== ${imagePath} ==========`);
 		console.error("Mistral OCR failed");
 		text = ""; // Set empty text if OCR fails

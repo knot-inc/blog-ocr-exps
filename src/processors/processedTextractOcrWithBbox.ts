@@ -128,7 +128,7 @@ const parseCliArgs = (): {
 } => {
 	const args = process.argv.slice(2);
 	let mode: TextBboxesToStrMode = "lt";
-	let dataFolder: string | undefined = undefined;
+	let dataFolder: string | undefined;
 	let saveText = true;
 
 	for (let i = 0; i < args.length; i++) {

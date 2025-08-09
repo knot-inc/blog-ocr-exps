@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "start": "node dist/main.js",
     "dev": "ts-node src/main.ts",
     "lint": "biome lint ./src",
@@ -46,7 +47,7 @@
     "pdfjs-dist": "^5.4.54",
     "sharp": "^0.34.3",
     "tesseract.js": "^6.0.1",
-    "zod": "^4.0.16"
+    "zod": "^3.23.8"
   },
   "jest": {
     "preset": "ts-jest",
