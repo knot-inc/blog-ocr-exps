@@ -1,9 +1,34 @@
 import fs from "node:fs";
 import path from "node:path";
 import { Command } from "commander";
-import { processDataFolder } from "./utils/dataProcessor";
+import {
+	mistralOcr,
+	processedTextractOcrWithBbox,
+	processImage,
+	tesseractOcr,
+	tesseractOcrWithBbox,
+	tesseractOcrWithImage,
+	textractOcr,
+	textractOcrWithBbox,
+	textractOcrWithImage,
+} from "./processors";
 import { compareToGroundTruth } from "./utils/comparisonTools";
-import * as processors from "./processors";
+import { processDataFolder } from "./utils/dataProcessor";
+
+// Create processor map
+const processorMap = {
+	processImage,
+	mistralOcr,
+	tesseractOcr,
+	tesseractOcrWithBbox,
+	tesseractOcrWithImage,
+	textractOcr,
+	textractOcrWithBbox,
+	textractOcrWithImage,
+	processedTextractOcrWithBbox,
+} as const;
+
+type ProcessorName = keyof typeof processorMap;
 
 /**
  * Main function to handle command line interface
@@ -39,9 +64,9 @@ async function main() {
 				);
 
 				// Use the specified processor or default to processImage
+				const processorKey = processor as ProcessorName;
 				const selectedProcessor =
-					processors[processor as keyof typeof processors] ||
-					processors.processImage;
+					processorMap[processorKey] || processorMap.processImage;
 				console.log(
 					`Using processor: ${selectedProcessor.name || "processImage"}`,
 				);
@@ -86,20 +111,16 @@ async function main() {
 				}
 
 				// Determine which processors to use
-				let selectedProcessors: Array<keyof typeof processors> = [];
+				let selectedProcessors: ProcessorName[] = [];
 				if (processorsList === "all") {
-					selectedProcessors = Object.keys(processors) as Array<
-						keyof typeof processors
-					>;
+					selectedProcessors = Object.keys(processorMap) as ProcessorName[];
 				} else {
-					selectedProcessors = processorsList.split(",") as Array<
-						keyof typeof processors
-					>;
+					selectedProcessors = processorsList.split(",") as ProcessorName[];
 				}
 
 				// Process data with each selected processor
 				for (const processorName of selectedProcessors) {
-					if (!(processorName in processors)) {
+					if (!(processorName in processorMap)) {
 						console.warn(`Processor "${processorName}" not found, skipping`);
 						continue;
 					}
@@ -109,7 +130,7 @@ async function main() {
 						"====================",
 					);
 
-					const processor = processors[processorName];
+					const processor = processorMap[processorName];
 					const results = await compareToGroundTruth(processor, dataFolder);
 
 					// Save JSON results

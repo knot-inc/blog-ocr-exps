@@ -188,7 +188,8 @@ describe("Comparison Utilities", () => {
 			const job = {
 				title: "Software Engineer",
 				company: "Tech Co",
-				// Missing startDate and endDate
+				startDate: null,
+				endDate: null,
 				description: "Developed web applications",
 			};
 

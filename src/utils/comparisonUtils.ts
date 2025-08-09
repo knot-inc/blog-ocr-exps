@@ -1,6 +1,6 @@
 import type { z } from "zod";
 import type { parseWorkExperienceSchema } from "../prompts/parse-work-experience";
-import { getTextMatchPercentage, cleanText } from "./textSimilarity";
+import { cleanText, getTextMatchPercentage } from "./textSimilarity";
 
 /**
  * Utilities for text matching and comparison

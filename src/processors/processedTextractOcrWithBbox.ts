@@ -1,19 +1,19 @@
-import type { z } from "zod";
-import dotenv from "dotenv";
-import {
-	TextractClient,
-	DetectDocumentTextCommand,
-} from "@aws-sdk/client-textract";
 import fs from "node:fs";
 import path from "node:path";
+import {
+	DetectDocumentTextCommand,
+	TextractClient,
+} from "@aws-sdk/client-textract";
+import dotenv from "dotenv";
+import type { z } from "zod";
 import {
 	parseWorkExperiencePrompt,
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
-import { OpenAIWrapper } from "../utils/openaiWrapper";
-import { compareToGroundTruth } from "../utils/comparisonTools";
-import { textBboxesToStr } from "../utils/textBboxesToStr";
 import type { TextBbox, TextBboxesToStrMode } from "../types/bbox";
+import { compareToGroundTruth } from "../utils/comparisonTools";
+import { OpenAIWrapper } from "../utils/openaiWrapper";
+import { textBboxesToStr } from "../utils/textBboxesToStr";
 
 dotenv.config();
 
@@ -128,7 +128,7 @@ const parseCliArgs = (): {
 } => {
 	const args = process.argv.slice(2);
 	let mode: TextBboxesToStrMode = "lt";
-	let dataFolder: string | undefined = undefined;
+	let dataFolder: string | undefined;
 	let saveText = true;
 
 	for (let i = 0; i < args.length; i++) {

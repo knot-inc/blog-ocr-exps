@@ -4,9 +4,9 @@ import {
 	parseWorkExperiencePrompt,
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
-import { OpenAIWrapper } from "../utils/openaiWrapper";
-import imageToBase64 from "../utils/imageToBase64";
 import { compareToGroundTruth } from "../utils/comparisonTools";
+import imageToBase64 from "../utils/imageToBase64";
+import { OpenAIWrapper } from "../utils/openaiWrapper";
 
 const processImage = async (
 	imagePath: string,
@@ -20,7 +20,7 @@ const processImage = async (
 
 	return await openAI.completion({
 		prompt: parseWorkExperiencePrompt,
-		modelName: options?.modelName || "gpt-4o",
+		model: options?.modelName || "gpt-4o",
 		variables: {
 			resume: "Please analyze the resume in the image and return as JSON",
 		},

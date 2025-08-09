@@ -1,12 +1,12 @@
-import type { z } from "zod";
 import { createWorker } from "tesseract.js";
+import type { z } from "zod";
 
 import {
 	parseWorkExperiencePrompt,
 	type parseWorkExperienceSchema,
 } from "../prompts/parse-work-experience";
-import { OpenAIWrapper } from "../utils/openaiWrapper";
 import { compareToGroundTruth } from "../utils/comparisonTools";
+import { OpenAIWrapper } from "../utils/openaiWrapper";
 
 const tesseractOcr = async (
 	imagePath: string,
